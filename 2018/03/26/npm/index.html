@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>npm笔记 | Dante.Fung个人主页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="dantefung,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
+  
+
+  <meta name="description" content="1. npm1.1. 什么是npm1.1.1. npm简介npm官网 npm是node package manager的简称，即node应用程序专属的包管理工具也就是说npm最初只负责维护node服务端开发所需的js包不过随着node的普及，npm也越来越流行，npm也可以用来管理前端所需的包了，如jquery、bootstrap、vue等 1.1.1.1. npm与包管理工具在进行项目开发中，我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm笔记">
+<meta property="og:url" content="http://dantefung.com/2018/03/26/npm/index.html">
+<meta property="og:site_name" content="Dante.Fung个人主页">
+<meta property="og:description" content="1. npm1.1. 什么是npm1.1.1. npm简介npm官网 npm是node package manager的简称，即node应用程序专属的包管理工具也就是说npm最初只负责维护node服务端开发所需的js包不过随着node的普及，npm也越来越流行，npm也可以用来管理前端所需的包了，如jquery、bootstrap、vue等 1.1.1.1. npm与包管理工具在进行项目开发中，我">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-04T06:41:27.053Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="npm笔记">
+<meta name="twitter:description" content="1. npm1.1. 什么是npm1.1.1. npm简介npm官网 npm是node package manager的简称，即node应用程序专属的包管理工具也就是说npm最初只负责维护node服务端开发所需的js包不过随着node的普及，npm也越来越流行，npm也可以用来管理前端所需的包了，如jquery、bootstrap、vue等 1.1.1.1. npm与包管理工具在进行项目开发中，我">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-npm"><span class="toc-text">1. npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-什么是npm"><span class="toc-text">1.1. 什么是npm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-npm简介"><span class="toc-text">1.1.1. npm简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-1-npm与包管理工具"><span class="toc-text">1.1.1.1. npm与包管理工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-2-安装与更新"><span class="toc-text">1.1.1.2. 安装与更新</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-使用"><span class="toc-text">1.2. 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-基本使用"><span class="toc-text">1.2.1. 基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-1-项目共享"><span class="toc-text">1.2.1.1. 项目共享</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-1-其他命令"><span class="toc-text">1.3.1.1. 其他命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-cnpm"><span class="toc-text">1.4. cnpm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-简介"><span class="toc-text">1.4.1. 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-1-安装"><span class="toc-text">1.4.1.1. 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-2-使用"><span class="toc-text">1.4.1.2. 使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-3-其他相关工具"><span class="toc-text">1.4.1.3. 其他相关工具</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-npm" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">npm笔记</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.03.26</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>dantefung</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.dantefung.com/2018/03/26/npm/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="1-npm"><a href="#1-npm" class="headerlink" title="1. npm"></a>1. npm</h1><h2 id="1-1-什么是npm"><a href="#1-1-什么是npm" class="headerlink" title="1.1. 什么是npm"></a>1.1. 什么是npm</h2><h3 id="1-1-1-npm简介"><a href="#1-1-1-npm简介" class="headerlink" title="1.1.1. npm简介"></a>1.1.1. npm简介</h3><p><strong>npm官网</strong></p>
+<p>npm是node package manager的简称，即node应用程序专属的包管理工具<br>也就是说npm最初只负责维护node服务端开发所需的js包<br>不过随着node的普及，npm也越来越流行，npm也可以用来管理前端所需的包了，如jquery、bootstrap、vue等</p>
+<h4 id="1-1-1-1-npm与包管理工具"><a href="#1-1-1-1-npm与包管理工具" class="headerlink" title="1.1.1.1. npm与包管理工具"></a>1.1.1.1. npm与包管理工具</h4><p>在进行项目开发中，我们经常需要”引入”、”更新”、”删除”一些由我们自己开发或第三方开发的独立文件模块或包<br>比较传统的做法是开发人员随着自己的经验，逐渐维护起一个专属与自己的目录，用来管理将来开发可能用到的包<br>这个目录久而久之会越来越大，我们需要更新新版本以淘汰旧版本的包的频率也越来月频繁，浪费了我们的部分精力<br>包管理工具就是专门解决这类问题的软件，而npm就是包管理工具的一种，专门用来管理node.js与前端开发所需的包</p>
+<h4 id="1-1-1-2-安装与更新"><a href="#1-1-1-2-安装与更新" class="headerlink" title="1.1.1.2. 安装与更新"></a>1.1.1.2. 安装与更新</h4><p>只要安装了node，那么npm就跟着安装了<br>可以运行命令npm install -g npm来升级npm到最新版本<br>不过需要注意，如果你没有采用默认的安装路径或者没有管理员权限最好不要升级<br>因为升级后可能丢失npm的使用权限，到时候就得重装node来解决了</p>
+<h2 id="1-2-使用"><a href="#1-2-使用" class="headerlink" title="1.2. 使用"></a>1.2. 使用</h2><h3 id="1-2-1-基本使用"><a href="#1-2-1-基本使用" class="headerlink" title="1.2.1. 基本使用"></a>1.2.1. 基本使用</h3><p>以命令行方式进入一个项目目录<br>创建项目描述文件（已经有了就不用了）<br>运行npm init，运行后项目中会创建一个package.json的项目描述文件<br>也可以纯手动的方式创建package.json文件<br>使用npm安装项目依赖包 +npm install jquery bootstrap –save<br>运行后项目中会创建一个node_modules文件夹<br>打开该文件夹会发现jquery与bootstrap的最新版已经被下载<br>接下来就可以在项目引用第三方包进行开发了</p>
+<h4 id="1-2-1-1-项目共享"><a href="#1-2-1-1-项目共享" class="headerlink" title="1.2.1.1. 项目共享"></a>1.2.1.1. 项目共享</h4><p>通常一个项目是由多个人一起维护的，如果是一个比较大的项目，还会有很多依赖的包<br>像这样的项目如果在多个人之间传播共享很不便利，主要是因为依赖包占用的空间太大<br>如果使用了npm，我们就不需要把那些依赖包传来传去了，因为package.json文件中记录了这些依赖<br>应用演示<br>创建一个使用npm进行包管理的项目<br>然后把这个目录中除node_modules外的内容传给另一个人，这样项目就会比较轻巧<br>另一个人拿到项目后，只需运行<figure class="highlight plain"><figcaption><span>install````命令安装依赖后，项目即可恢复原样</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 1.2.1.2. 配合git</span><br><span class="line"></span><br><span class="line">现代项目除了会使用一款包管理工具管理依赖包之外，还会使用一款版本管理工具进行代码版本的管理</span><br><span class="line">所以这里也补充说明一下npm与git的结合使用</span><br><span class="line">使用了npm后项目的依赖包就被安装到了node_modules目录</span><br><span class="line">这个目录的代码因为比较庞大，所以通常不会添加到版本仓库中</span><br><span class="line">所以通常会在.gitignore配置文件中，配置忽略node_modules</span><br><span class="line">配置后项目代码就可以提交到git仓库进行管理了</span><br><span class="line">将来其他账户要clone项目并运行，clone后依然运行npm install即可安装依赖恢复项目原样</span><br><span class="line"></span><br><span class="line">## 1.3. 命令汇总</span><br><span class="line"></span><br><span class="line">### 1.3.1. 必用命令</span><br><span class="line"></span><br><span class="line">&gt; npm init</span><br><span class="line"></span><br><span class="line">可以添加-y参数跳过配置信息的填写，直接生成默认的package.json文件</span><br><span class="line">npm install 包名@版本号</span><br><span class="line">````--save || -S参数可以把安装信息记录在package.json文件中的dependencies属性中</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>|| -D参数可以把安装信息记录在package.json文件中的devDependencies属性中````</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">````--production参数让npm根据配置文件中的dependencies属性进行依赖包的安装</span><br></pre></td></tr></table></figure>
+<p><code>-g参数可以在全局进行安装，一般全局安装的都是一些可单独执行的node工具</code><br>–registry参数可以指定下载包的地址，可以使用淘宝提供的地址<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>npm uninstall 包名<br>–save || -S参数会删除package.json文件中dependencies的依赖信息<br>–save-dev || -D参数会删除package.json文件中devDependencies的依赖信息<br>-g参数指明删除全局的包</p>
+<h4 id="1-3-1-1-其他命令"><a href="#1-3-1-1-其他命令" class="headerlink" title="1.3.1.1. 其他命令"></a>1.3.1.1. 其他命令</h4><p>npm update 更新模块<br>npm outdated 检查模块是否已经过时<br>npm ls 查看安装的模块<br>npm init 在项目中引导创建一个package.json文件<br>npm help 查看某条命令的详细帮助<br>npm root 查看包的安装路径<br>npm config 管理npm的配置路径<br>npm cache 管理模块的缓存<br>npm start 启动模块<br>npm stop 停止模块<br>npm restart 重新启动模块<br>npm test 测试模块<br>npm version 查看模块版本<br>npm view 查看模块的注册信息<br>npm adduser<br>npm publish 发布模块<br>npm access 在发布的包上设置访问级别<br>npm package.json的语法</p>
+<h2 id="1-4-cnpm"><a href="#1-4-cnpm" class="headerlink" title="1.4. cnpm"></a>1.4. cnpm</h2><h3 id="1-4-1-简介"><a href="#1-4-1-简介" class="headerlink" title="1.4.1. 简介"></a>1.4.1. 简介</h3><p>淘宝NPM镜像官网</p>
+<h4 id="1-4-1-1-安装"><a href="#1-4-1-1-安装" class="headerlink" title="1.4.1.1. 安装"></a>1.4.1.1. 安装</h4><p>npm install -g cnpm –registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
+<h4 id="1-4-1-2-使用"><a href="#1-4-1-2-使用" class="headerlink" title="1.4.1.2. 使用"></a>1.4.1.2. 使用</h4><p>与npm的使用方式一样，本就是对npm的一层封装<br>使用范例：cnpm install jquery art-template -S</p>
+<h4 id="1-4-1-3-其他相关工具"><a href="#1-4-1-3-其他相关工具" class="headerlink" title="1.4.1.3. 其他相关工具"></a>1.4.1.3. 其他相关工具</h4><p>bower<br>twitter推出的一款包管理工具。<br>参考文档[<a href="http://www.zuojj.com/archives/533.html]" target="_blank" rel="noopener">http://www.zuojj.com/archives/533.html]</a><br>yarn<br>facebook推出的包管理工具。<br>参考文档[<a href="http://imweb.io/topic/581f6c0bf2e7e042172d618a]" target="_blank" rel="noopener">http://imweb.io/topic/581f6c0bf2e7e042172d618a]</a></p>
+
+    
+  </div>
+
+  
+      <div class="git"></div>
+  
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持dantefung</div>
+        <ul>
+        
+          <li class="item">
+            <span>微信扫一扫</span>
+            <img src="" alt="">
+          </li>
+        
+          <li class="item">
+            <span>支付宝扫一扫</span>
+            <img src="/images/" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/03/26/mogodb/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/03/26/vue/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'dantefung';
+    
+    var disqus_url = 'http://dantefung.com/2018/03/26/npm/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//dantefung.disqus.com/count.js" async></script>
+
+
+
+    
+    
+
+    
+    
+
+    
+
+    
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
