@@ -1,10 +1,5 @@
 title: Travis CI 持续集成
 author: dantefung
-tags: []
-categories:
-
-- CI
-  date: 2020-02-11 15:49:01
 
 ---
 
