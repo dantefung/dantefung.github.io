@@ -1,7 +1,3 @@
----
-typora-root-url: ../
-typora-copy-images-to: ../images
----
 
 title:  Mac终端利器iTerm2实现ssh连接
 author: dantefung
@@ -15,10 +11,8 @@ categories:
   - 利器
 
 date: 2020年02月29日 00:44:34
-----
 
 ----
-
 
 
 ## Mac终端利器iTerm2实现ssh连接
@@ -67,7 +61,7 @@ date: 2020年02月29日 00:44:34
 
 `iTerm2`  `Shell` `Edit` `View` `Session` `Profiles` `Toolbelt` `Windows` `Help`
 
-![image-20200229013028044](../images/image-20200229013028044.png)
+![image-20200229013028044](/images/image-20200229013028044.png)
 
 [x] 选择`iTem2`-->`Preferences...`,进入偏好设置页面，不出意外的话，你将见到菜单栏:
 
@@ -76,10 +70,10 @@ date: 2020年02月29日 00:44:34
 
 [x] 选择`Profiles`，新增一个profile，命名为server，Command选择`Custom Shell`，配置路径为`/Users/admin/Documents/ssh/server.sh`，然后关闭窗口即可。
 
-![image-20200229011920187](../images/image-20200229011920187.png)
+![image-20200229011920187](/images/image-20200229011920187.png)
 
 #### 第四步：在终端主页面选择profiles菜单下的server
 
 > Note: 一般来说，你需要先手动通过`ssh -p$port $user@$host  `命令先手动连接一次。然后在通过选择iTerm2终端菜单栏Profiles里边配置的`服务器连接`
 
-![image-20200229013441719](../images/image-20200229013441719.png)
+![image-20200229013441719](/images/image-20200229013441719.png)

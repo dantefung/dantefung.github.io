@@ -1,14 +1,10 @@
----
-typora-root-url: ../images
----
-
 title: Karabiner-Elements
 author: dantefung
 tags:
+ - 利器
 
-  - 利器
-    categories: []
-    date: 2020年02月29日 00:34:52
+categories: []
+date: 2020年02月29日 00:34:52
 
 ----
 
