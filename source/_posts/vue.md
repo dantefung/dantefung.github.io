@@ -1,7 +1,13 @@
----
-title: VUE笔记
-typora-copy-images-to: ../img
----
+author: dantefung
+tags:
+
+  - 
+
+categories:
+
+  - 前端
+
+date: 2018年02月29日 16:02:53
 
 ```
 /*
@@ -37,13 +43,13 @@ typora-copy-images-to: ../img
 
 该命令可以初始化一个项目**描述文件**package.json文件
 
-![mage-20180324222030](../img/image-201803242220306.png)
+
 
 > cnpm install vue  --save
 
 默认就会安装最新版本
 
-![mage-20180324222051](../img/image-201803242220510.png)
+
 
 
 
@@ -55,7 +61,7 @@ typora-copy-images-to: ../img
 
 > npm install cnpm -g --registry=https://registry.npm.taobao.org
 
-![mage-20180324222112](../img/image-201803242221120.png)
+
 
 
 

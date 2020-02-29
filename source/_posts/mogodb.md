@@ -1,7 +1,15 @@
 title: mongoDB
----
-typora-copy-images-to: ../img
----
+author: dantefung
+tags:
+
+  - 
+
+categories:
+
+  - 前端
+
+date: 2018年02月29日 16:02:53
+
 
 # 1. mongoDB
 
