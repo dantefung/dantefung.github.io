@@ -4,10 +4,9 @@ on:
     branches:
       - blog-src
 # 如果需要PR触发把push前的#去掉
-#on:
-  #schedule:
+  schedule:
     # 每天北京时间9点跑
-    #- cron:  '0 1 * * *'
+    - cron:  '2 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
