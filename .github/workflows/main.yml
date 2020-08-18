@@ -1,10 +1,13 @@
 name: Gitee repos mirror periodic job
 on:
+  push:
+    branches:
+      - blog-src
 # 如果需要PR触发把push前的#去掉
-# push:
-  schedule:
+#on:
+  #schedule:
     # 每天北京时间9点跑
-    - cron:  '0 1 * * *'
+    #- cron:  '0 1 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,4 +19,4 @@ jobs:
         dst: gitee/dantefung.github.io
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token: ${{ secrets.GITEE_TOKEN }}
-        clone_style: "ssh"
+        account_type: user
