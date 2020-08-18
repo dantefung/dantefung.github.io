@@ -5,6 +5,7 @@ node_js: stable
 install:
   - npm install
   #- npm install hexo-renderer-jade hexo-renderer-stylus
+  - npm install hexo-renderer-sass --save
 
 
 #before_script:
