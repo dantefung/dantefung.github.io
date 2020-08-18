@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: DANTE FUNGのBlog
+title: DANTE FUNGの像初雪一样洒落
 subtitle: ''
 description: ''
 keywords:
@@ -95,7 +95,8 @@ ignore:
 ## Themes: https://hexo.io/themes/
 #theme: melody
 #theme: fexo
-theme: diaspora
+theme: hiker
+#theme: diaspora
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
