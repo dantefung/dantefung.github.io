@@ -103,3 +103,24 @@ theme: fluid
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
+
+# 支持dplayer,在markdown文章中插入视频
+# 参见: https://easyhexo.com/3-Plugins-use-and-config/3-2-hexo-tag-dplayer/#%E4%BB%8B%E7%BB%8D
+hexo-tag-dplayer:
+  cdn:
+    - https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js
+    - https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css
+  default: 
+    api: https://api.prprpr.me/dplayer/
+    loop: yes
+    screenshot: yes
+
+# Aplayer 插件使用 
+# 参见: https://easyhexo.com/3-Plugins-use-and-config/3-1-hexo-tag-aplayer/#%E4%BB%8B%E7%BB%8D
+aplayer:
+  #cdn: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js  # 引用 APlayer.js 外部 CDN 地址 (默认不开启)
+  #style_cdn: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css
+  meting: true       # MetingJS 支持
+  #meting_cdn: https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js # 引用 Meting.js 外部 CDN 地址 (默认不开启)
+
+

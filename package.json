@@ -12,6 +12,8 @@
     "version": "5.0.2"
   },
   "dependencies": {
+    "aplayer": "^1.10.1",
+    "dplayer": "^1.26.0",
     "hexo": "^5.0.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
@@ -24,6 +26,7 @@
     "hexo-renderer-sass": "^0.4.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
-    "hexo-theme-melody": "^1.8.2"
+    "hexo-tag-aplayer": "^3.0.4",
+    "hexo-tag-dplayer": "^0.3.3"
   }
 }
