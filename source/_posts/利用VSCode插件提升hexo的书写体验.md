@@ -25,10 +25,29 @@ post_asset_folder: true
 
 就可以插入这个文件夹中的图片。为了方便进行这个步骤，使用vscode中的插件Paste Image，安装之后，在user-settings里新增两条配置：
 
+
+~~"pasteImage.path": "${currentFileNameWithoutExt}/",~~ 
+
+~~"pasteImage.insertPattern": "{% asset_img ${imageFilePath} %}"~~
+
+更正为:
 ```
-"pasteImage.path": "${currentFileNameWithoutExt}/",
-"pasteImage.insertPattern": "{% asset_img ${imageFilePath} %}"
+"pasteImage.path": "${currentFileNameWithoutExt}",
+"pasteImage.insertPattern": "{% asset_img ${imageFileName} %}"
 ```
+操作步骤图示:
+
+<center>{% asset_img 2020-08-28-01-51-34.png %}</center><br/>
+
+
+<center>{% asset_img 2020-08-28-01-55-04.png %}</center><br/>
+
+
+<center>{% asset_img 2020-08-28-01-55-52.png %}</center><br/>
+
+
+<center>{% asset_img 2020-08-28-01-56-21.png %}</center><br/>
+
 
 这样粘贴图片的时候会自动保存到文件夹中，并自动引用。注意这个插件只适合与剪切板使用，直接拖拽文件是不管用的。
 
@@ -51,7 +70,7 @@ post_asset_folder: true
 onWillParseMarkdown: function(markdown) {
   return new Promise((resolve, reject)=> {
     markdown = markdown.replace(
-      /{%s*asset_imgs*(.*)s*%}/g,
+      /\{%\s*asset_img\s*(.*)\s*%\}/g,
       (whole, content) => (`![](${content})`)
     )
     return resolve(markdown)
