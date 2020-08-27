@@ -11,7 +11,7 @@
 # 全局
 # Site
 #---------------------------
-favicon: /img/favicon.png # 网站标签页的 icon
+favicon: /img/icon.jpeg # 网站标签页的 icon
 
 apple_touch_icon: /img/favicon.png # 用于苹果设备的 icon
 
@@ -131,6 +131,7 @@ navbar:
     - { key: 'category', link: '/categories/', icon: 'iconfont icon-category-fill' }
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
     - { key: 'music', link: '/musics/', icon: 'iconfont icon-category-fill' }
+    - { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill' }
     - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill' }
     #- { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill' }  # 友链页，把前面#去掉即可展示
 
@@ -378,9 +379,9 @@ about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.co
   name: DANTE FUNG 
   introduce: 'dele.life' # 支持 HTML
   icons: # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，class 代表图标的 css class
-    - { class: 'iconfont icon-github-fill', link: 'https://github.com', tip: 'GitHub' }
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com/dantefung', tip: 'GitHub' }
     - { class: 'iconfont icon-douban-fill', link: 'https://douban.com', tip: '豆瓣' }
-    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/favicon.png' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/icon.jpeg' }  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，需要指定 image
 
 
 #---------------------------
@@ -408,17 +409,17 @@ links:
       title: 'Fluid Docs',
       intro: '主题使用指南',
       link: 'https://hexo.fluid-dev.com/docs/',
-      image: '/img/favicon.png'
+      image: '../img/favicon.png'
     }
     - {
       title: 'Fluid Repo',
       intro: '主题 GitHub 仓库',
       link: 'https://github.com/fluid-dev/hexo-theme-fluid',
-      image: '/img/favicon.png'
+      image: '../img/favicon.png'
     }
     - {
       title: 'Fluid Example',
       intro: '主题操作示例',
       link: 'https://hexo.fluid-dev.com/docs/example/',
-      image: '/img/favicon.png'
+      image: '../img/favicon.png'
     }
