@@ -1,18 +1,14 @@
-
+---
 title:  Mac终端利器iTerm2实现ssh连接
 author: dantefung
 tags:
-
   - 利器
   - Item2
   - ssh
-
 categories:
   - 利器
-
-date: 2020年02月29日 00:44:34
-
-----
+date: 2020-02-29 00:44:34
+---
 
 
 ## Mac终端利器iTerm2实现ssh连接

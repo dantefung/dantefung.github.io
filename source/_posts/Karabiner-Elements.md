@@ -1,12 +1,13 @@
+---
 title: Karabiner-Elements
 author: dantefung
 tags:
  - 利器
 
 categories: []
-date: 2020年02月29日 00:34:52
+date: 2020-02-29 00:34:52
 
-----
+---
 
 由于 Mac 的键盘和主流布局不一致，许多人都会遇到外接键盘布局不适应的情况；即便是 Mac 的内置键盘，也有人觉得其设计不够合理，不符合自己的工作习惯。好在键盘和使用者之间是可以磨合的，[Karabiner-Elements](https://pqrs.org/osx/karabiner/) 就是 Mac 上一款非常好用的开源改键利器，能让键盘顺着你的意愿来工作。
 

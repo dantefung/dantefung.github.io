@@ -2,14 +2,10 @@
 title: Travis CI 持续集成
 author: dantefung
 tags:
-
-  - 
-
+  - 持续集成
 categories:
-
   - devops
-
-date: 2020年02月25日 16:04:09
+date: 2020-02-25 16:04:09
 ---
 
 # Travis CI 持续集成

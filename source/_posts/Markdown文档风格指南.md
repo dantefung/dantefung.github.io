@@ -1,10 +1,13 @@
+---
 title: Markdown文档风格指南
 tags:
    - markdown
-top_img: https://i.loli.net/2020/02/26/mRSVTMtjgHL6DXW.jpg
 date: 2020-2-26
 
-----
+---
+
+[](https://i.loli.net/2020/02/26/mRSVTMtjgHL6DXW.jpg)
+
 
 1.标题
 
