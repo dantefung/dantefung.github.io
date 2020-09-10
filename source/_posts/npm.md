@@ -2,14 +2,10 @@
 title: npm笔记
 author: dantefung
 tags:
-
   - 
-
 categories:
-
   - 前端
-
-date: 2018年02月29日 16:02:53
+date: 2018-02-29 16:02:53
 ---
 
 # 1. npm

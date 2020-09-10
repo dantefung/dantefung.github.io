@@ -1,4 +1,3 @@
-
 ---
 title: A Tour of Computer System
 author: dantefung
