@@ -1,12 +1,9 @@
 ---
 title: A Tour of Computer System
 author: dantefung
+date: 2020-03-3 10:34:01
 tags:
-
 - CS
-
-categories: []
-date: 2020年3月3日 10:34:01
 ---
 
 
