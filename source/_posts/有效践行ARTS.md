@@ -38,10 +38,15 @@ ARTS 是由左耳朵耗子陈皓在极客时间专栏《左耳听风》中发起
 > `Tip：`学习至少一个技术技巧。主要是为了总结和归纳你日常工作中所遇到的知识点。
 > `Share：`分享一篇有观点和思考的技术文章。主要为了输出你的影响力，能够输出你的价值观。
 
-## 1\. Algorithm(算法)
+### 1\. Algorithm(算法)
 
-## 2\. Review(点评)
+### 2\. Review(点评)
 
-## 3\. Tip(技巧)
+### 3\. Tip(技巧)
 
-## 4\. Share(分享)
+### 4\. Share(分享)
+
+## 参考
+
+[LEETCODE 编程训练](https://coolshell.cn/articles/12052.html)
+[leetcode github](https://github.com/haoel/leetcode)
