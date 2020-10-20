@@ -21,7 +21,7 @@ force_https: false # 强制所有链接升级为 HTTPS（适用于图片等资�
 
 highlight: # 代码高亮
   enable: true
-  style: "Github Gist" # 高亮样式见：https://highlightjs.org/static/demo/  在页面挑选 style 填入
+  style: "Monokai Sublime" # 高亮样式见：https://highlightjs.org/static/demo/  在页面挑选 style 填入
   bg_color: true # 是否根据 style 改变代码背景色，**如果 style 是深色背景别忘了开启此项**
   copy_btn: true # 是否开启复制代码的按钮
 
@@ -248,7 +248,7 @@ post: # 部分配置同时控制自定义页面，注意备注
     enable: true
     header: "" # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单页的节标题
   math: # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
-    enable: false # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
+    enable: true # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
     specific: true # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
     engine: mathjax # 公式引擎  available: mathjax | katex
   mermaid: # 流程图，基于 mermaid-js，文档：http://mermaid-js.github.io/mermaid/
