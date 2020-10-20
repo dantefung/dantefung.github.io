@@ -25,3 +25,14 @@ docker run --name mongo -p 27017:27017 -v ~/Documents/software/docker_volume_map
 ```
 docker run mongo
 ```
+
+
+### 登录到MongoDB容器中
+```
+docker exec -it mongo bash
+```
+
+### 通过shell连接MongoDB
+```
+mongo -u admin -p admin
+```
