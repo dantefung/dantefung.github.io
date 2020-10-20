@@ -19,7 +19,7 @@ categories:
 
 ### 运行MongoDB镜像
 ```
-docker run --name mongo -p 27017:27017 -v ~/Documents/software/docker_volume_mapping/mongo:/data/db -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo
+docker run --name mongo -p 27017:27017 -v ~/Documents/software/docker_volume_mapping/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo
 ```
 
 ```
