@@ -10,6 +10,8 @@ categories:
 
 # mac下配置vim
 
+{% asset_img 2020-10-29-04-23-07.png %}
+
 ## 安装mac vim
 mac预装了vim，但官方的 vim 在 Mac 上只有一个很不完善的，长期没人维护的 Carbon 图形用户界面。macvim 主要是在此基础上添加了一个完整的 Cocoa 用户界面，其核心部分和 vim 同步。MacVim 采用了分离进程的方式，一个 MacVim 程序可以启动多个 vim 进程，每个显示在一个 MacVim 窗口中，这是官方的 vim 和其他平台下的 gvim 所不支持的。MacVim 还支持很多 Mac OS X 原生的界面特性，比如工具栏、滚动条、全屏显示、Mac 菜单快捷键的绑定等。
 
