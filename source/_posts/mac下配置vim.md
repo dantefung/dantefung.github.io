@@ -5,7 +5,7 @@ tags:
  - vim
  - 利器
 categories:
- - 
+ - mac 
 ---
 
 # mac下配置vim

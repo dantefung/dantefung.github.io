@@ -5,7 +5,7 @@ tags:
  - ctags
  - vim
 categories:
- - 
+ - mac 
 ---
 # Mac如何安装和使用ctags
 

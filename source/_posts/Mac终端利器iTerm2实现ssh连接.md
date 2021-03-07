@@ -7,6 +7,7 @@ tags:
   - ssh
 categories:
   - 利器
+  - mac
 date: 2020-02-29 00:44:34
 ---
 

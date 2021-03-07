@@ -6,7 +6,7 @@ tags:
  - homebrew
  - mac
 categories:
- - 
+ - mac 
 ---
 
 # Homebrew 更换国内镜像源
