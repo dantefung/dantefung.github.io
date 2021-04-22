@@ -1,5 +1,15 @@
 language: node_js
-node_js: stable
+#node_js: stable
+node_js:
+  - 12.16.2 #版本
+
+cache:
+    apt: true
+    directories:
+        - node_modules # 缓存不经常更改的内容
+
+before_install:
+    - npm install hexo-cli -g
 
 # S: Build Lifecycle
 install:
@@ -18,7 +28,7 @@ after_script:
   - git config user.name "dantefung"
   - git config user.email "476400902@qq.com"
   - git add .
-  - git commit -m "Update docs"
+  - git commit -m "Travis CI Auto Builder"
   - git push --force --quiet "https://${hexoBlog}@${GH_REF}" master:master
 # E: Build LifeCycle
 
