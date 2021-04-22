@@ -1,7 +1,7 @@
 language: node_js
 #node_js: stable
 node_js:
-  - 12.16.2 #版本
+  - 15.11.0 #版本
 
 cache:
     apt: true
