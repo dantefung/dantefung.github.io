@@ -94,9 +94,9 @@ todo ...
 **方式一:**
 ```
 ssh-keygen
-ssh-copy-id -p 22612 root@zk.had01
-ssh-copy-id -p 22612 root@zk.had02
-ssh-copy-id -p 22612 root@zk.had03
+ssh-copy-id -p 22612 hadoop@zk.had01
+ssh-copy-id -p 22612 hadoop@zk.had02
+ssh-copy-id -p 22612 hadoop@zk.had03
 ```
 
 **方式二:**
@@ -326,9 +326,19 @@ export JAVA_HOME
 export HADOOP_HOME
 export PATH
 ```
+> Note:
+> zk.had01, zk.had02, zk.had03 也要配置.
+
+### 分发
+
+将zk.had01的/opt/hadoop-2.10.1分发到zk.had02, zk.had03.
+```
+todo..
+```
 
 ### 启动hadoop集群
 
+在zk.had01上启动:
 ```
 cd /opt/hadoop-2.10.1/sbin
 ./start-all.sh

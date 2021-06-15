@@ -87,9 +87,9 @@ todo ...
 **方式一:**
 ```
 ssh-keygen
-ssh-copy-id -p 22612 root@zk.had01
-ssh-copy-id -p 22612 root@zk.had02
-ssh-copy-id -p 22612 root@zk.had03
+ssh-copy-id -p 22612 hadoop@zk.had01
+ssh-copy-id -p 22612 hadoop@zk.had02
+ssh-copy-id -p 22612 hadoop@zk.had03
 ```
 
 **方式二:**
@@ -222,11 +222,10 @@ rm -rf docs
 ```
 分发
 ```
-scp -r hbase-2.3.4/ riskctrl@zk.had02:/tmp
-scp -r hbase-2.3.4/ yourusername@yourdomain:/tmp
-scp -r hbase-2.3.4/ yourusername@yourdomain:/tmp
+scp -r hbase-2.3.4/ hadoop@zk.had02:/tmp
+scp -r hbase-2.3.4/ hadoop@zk.had03:/tmp
 ```
-分别登陆zk.had01, zk.had02, zk.had03，移动hbase-2.3.4至/opt下
+分别登陆zk.had02, zk.had03，移动hbase-2.3.4至/opt下
 ```
 mv /tmp/hbase-2.3.4 /opt
 ```
