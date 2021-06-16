@@ -374,7 +374,7 @@ scp -r /opt/hadoop-2.10.1 hadoop@zk.had03:/tmp
 分别登陆zk.had02, zk.had03，移动hadoop-2.10.1至/opt下
 
 ```
-mv /tmp/hbase-2.3.4 /opt
+mv /tmp/hadoop-2.10.1 /opt
 ```
 
 
