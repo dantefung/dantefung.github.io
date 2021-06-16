@@ -15,7 +15,8 @@ categories:
 |---|---|---|
 |10.10.x.70|zk.had01|Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu SMP Fri Mar 19 13:29:52 UTC 2021|
 |10.10.x.8|zk.had02|Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu SMP Fri Mar 19 13:29:52 UTC 2021|
-|10.187.x.120|zk.had03|Linux version 3.10.0-957.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Thu Nov 8 23:39:32 UTC 2018
+|10.187.x.120|zk.had03|Linux version 3.10.0-957.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Thu Nov 8 23:39:32 UTC 2018|
+
 
 ### 环境要求
 
@@ -85,7 +86,36 @@ ff02::2 ip6-allrouters
 
 **用户组、用户、权限规划**
 
-todo ...
+| 用户组 | 用户   | 权限                                  |
+| ------ | ------ | ------------------------------------- |
+| hadoop | hadoop | /opt/hadoop-2.10-1<br />/opt/hbase234 |
+
+
+新建用户组hadoop
+```
+groupadd hadoop
+```
+新建hadoop用户
+```
+useradd hadoop -g hadoop -m -s /bin/bash 
+```
+ 给已创建的用户hadoop设置密码为hadoop
+```
+passwd hadoop
+```
+修改目录所属用户
+```
+chown -R hadoop.hadoop /opt/hadoop-2.10.1
+chown -R hadoop.hadoop /opt/hbase234
+```
+切换用户hadoop
+```
+su - hadoop
+```
+
+> Note:
+> zk.had01, zk.had02, zk.had03 三台机上面都要创建.并切换成hadoop用户.
+
 
 ### 免密登录
 
@@ -151,9 +181,10 @@ host hadoop3
 - slaves
 
 **修改hadoop-env.sh**
-改其中的JAVA_HOME为我们安装jdk的路径JAVA_HOME=
+改其中的JAVA_HOME为我们安装jdk的路径
+
 ```
-/usr/local/jdk
+JAVA_HOME=/usr/local/jdk
 ```
 **修改core-site.xml文件**
 /opt/hadoop-2.10.1/etc/hadoop/core-site.xml
@@ -329,14 +360,37 @@ export PATH
 > Note:
 > zk.had01, zk.had02, zk.had03 也要配置.
 
+
+
 ### 分发
 
 将zk.had01的/opt/hadoop-2.10.1分发到zk.had02, zk.had03.
 ```
-todo..
+
+scp -r /opt/hadoop-2.10.1 hadoop@zk.had02:/tmp
+scp -r /opt/hadoop-2.10.1 hadoop@zk.had03:/tmp
 ```
 
+分别登陆zk.had02, zk.had03，移动hadoop-2.10.1至/opt下
+
+```
+mv /tmp/hbase-2.3.4 /opt
+```
+
+
+
 ### 启动hadoop集群
+
+**格式化一个新的分布式文件系统：**
+
+```
+cd /opt/hadoop-2.10.1/bin
+hadoop namenode -format
+```
+
+
+
+**启动：**
 
 在zk.had01上启动:
 ```
@@ -348,7 +402,7 @@ cd /opt/hadoop-2.10.1/sbin
 
 - [Hadoop中ssh+IP、ssh+别名免秘钥登录配置](https://www.cnblogs.com/ysocean/p/6959776.html)
 
-
+- [Hadoop集群搭建](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html)
 
 
 

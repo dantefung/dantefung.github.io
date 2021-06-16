@@ -78,7 +78,35 @@ ff02::2 ip6-allrouters
 
 **用户组、用户、权限规划**
 
-todo ...
+| 用户组 | 用户   | 权限                                  |
+| ------ | ------ | ------------------------------------- |
+| hadoop | hadoop | /opt/hadoop-2.10-1<br />/opt/hbase234 |
+
+
+新建用户组hadoop
+```
+groupadd hadoop
+```
+新建hadoop用户
+```
+useradd hadoop -g hadoop -m -s /bin/bash 
+```
+ 给已创建的用户hadoop设置密码为hadoop
+```
+passwd hadoop
+```
+修改目录所属用户
+```
+chown -R hadoop.hadoop /opt/hadoop-2.10.1
+chown -R hadoop.hadoop /opt/hbase234
+```
+切换用户hadoop
+```
+su - hadoop
+```
+
+> Note:
+> zk.had01, zk.had02, zk.had03 三台机上面都要创建.并切换成hadoop用户.
 
 ### 免密登录
 
@@ -249,8 +277,6 @@ source ~/.bashrc
 ```
 ## 启动Hbase集群
 
-
-
 ### 启动zookeeper集群
 
 每个zookeeper节点都要执行以下命令
@@ -259,14 +285,10 @@ zkServer.sh start
 ```
 
 ### 启动HDFS集群及YARN集群
-如果需要运行MapReduce程序则启动yarn集群，否则不需要启动
+
 ```
-start-dfs.sh
-```
-启动完成之后检查以下namenode的状态
-```
-hdfs haadmin -getServiceState nn1
-hdfs haadmin -getServiceState nn2
+cd /opt/hadoop-2.10.1/sbin
+./start-all.sh
 ```
 
 ### 启动HBase
