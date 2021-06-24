@@ -41,6 +41,25 @@ chown -R hue.hue /opt/hue-release-4.10.0
 su - hue
 ```
 
+## hosts文件配置
+
+```
+hue@utopa:/opt/hue-release-4.10.0$ cat /etc/hosts
+127.0.0.1       localhost
+127.0.1.1       utopa
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+10.10.27.70 zk.had01 GT70
+10.10.27.8 zk.had02 root-RiskCtrl
+10.187.100.120 zk.had03 selenium-test
+```
+
+
 ## 环境要求
 
 ### 前置条件
@@ -226,7 +245,9 @@ vi hdfs-site.xml
       # Domain should be the NameNode or HttpFs host.
       # Default port is 14000 for HttpFs.
       ## webhdfs_url=http://localhost:50070/webhdfs/v1
-      webhdfs_url=http://10.10.27.70:50070/webhdfs/1  
+      webhdfs_url=http://10.10.27.70:50070/webhdfs/v1  
+      # Whether Hue should list this HDFS cluster. For historical reason there is no way to disable HDFS.
+      is_enabled=true
 ```
 
 
@@ -322,6 +343,103 @@ hbase-daemon.sh stop thrift
 hbase-daemon.sh start thrift
 ```
 
+## HUE集成hive
+
+**1.  配置Hive**
+
+Hive数据存储在HDFS上，默认路径是【/user/hive/warehouse】（或者是在hive-site.xml中配置的hive.metastore.warehouse.dir），要确保这个路径存在，并且你创建数据表的用户对这个路径具有写权限。
+
+``` 
+<property>
+     <name>hive.server2.thrift.port</name>
+     <value>10000</value>
+</property>
+<property>
+     <name>hive.server2.thrift.bind.host</name>
+     <value>yjt</value>
+</property>
+
+<property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://yjt:9083</value>
+</property>
+
+<property>
+    <name>hive.server2.long.polling.timeout</name>
+    <value>5000</value>
+</property>
+```
+
+
+**2.  配置Hue**
+
+修改【HUE_HOME/desktop/conf】目录下的 `pseudo-distributed.ini` 关于beeswax的配置来集成Hive，这些配置位于[beeswax]
+
+``` 
+# Host where HiveServer2 is running.
+# If Kerberos security is enabled, use fully-qualified domain name (FQDN).
+hive_server_host=zk.had01
+
+# Port where HiveServer2 Thrift server runs on.
+hive_server_port=10000
+
+# Hive configuration directory, where hive-site.xml is located
+hive_conf_dir=/opt/hive/conf
+```
+
+**3. 验证**
+
+**3.1 准备测试数据**
+
+
+**3.2 启动hive**
+
+需要同时启动hive的metastore和hiveserve2。
+
+在zk.had01(10.10.27.70)的节点上 
+```
+/opt/apache-hive-2.3.9/bin
+./hive --service metastore &
+./hive --service hiveserver2 &
+```
+
+<font color='red'>matestore服务是Hive连接Mysql的metastore数据库用的。</font>
+<font color='red'>hiveserver2服务是通过JDBC访问Hive用的，默认端口是：10000。</font>
+
+**3.3 导入数据**
+
+```
+/opt/apache-hive-2.3.9/bin
+hive
+```
+
+创建数据库
+
+```
+> create database my_test;
+> use my_test;
+```
+
+创建数据表
+
+```
+> create table department(name string, count int)  row format delimited fields terminated by '\t';
+```
+
+<font color='red'>这里的 terminated by ‘\t’ 是与创建表时所声明的字段分隔符一致的。</font>
+
+导入数据
+
+```
+> load data local inpath '/usr/local/cdh-5.2.0/hive-0.13.1/department.txt' into table department;
+```
+
+查询
+
+```
+> select * from department;
+```
+
 
 ## issues
 `Hue _mysql.c:44:10: fatal error: my_config.h: No such file or directory`
@@ -352,3 +470,10 @@ hadoop 的 core-site.xml
 User: root is not allowed to impersonate admin
 
 User:后面是什么xxx就是什么
+
+```
+ sudo thrift --gen py /opt/hbase-1.7.0/src/main/resources/org/apache/hadoop/hbase/thrift2/hbase.thrift
+```
+
+## Reference 
+- [How to build Hue on Ubuntu](https://gethue.com/how-to-build-hue-on-ubuntu-14-04-trusty/)
