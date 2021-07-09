@@ -399,12 +399,17 @@ hive_conf_dir=/opt/hive/conf
 在zk.had01(10.10.27.70)的节点上 
 ```
 /opt/apache-hive-2.3.9/bin
-./hive --service metastore &
+./hive --service hiveserver2 --hiveconf hive.server2.thrift.port 10000 &
 ./hive --service hiveserver2 &
 ```
 
 <font color='red'>matestore服务是Hive连接Mysql的metastore数据库用的。</font>
 <font color='red'>hiveserver2服务是通过JDBC访问Hive用的，默认端口是：10000。</font>
+
+启动hiveWebInterface，通过网页访问hive
+```
+./hive --service hwi &
+```
 
 **3.3 导入数据**
 
