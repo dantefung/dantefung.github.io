@@ -11,8 +11,8 @@ categories:
 # 我的vscode快捷键速查表
 
 ## 实用
-1. Ctrl+Shift+P: 打开命令面板
-2. Ctrl+P 模式:
+1. command+Shift+P: 打开命令面板
+2. command+P 模式:
 - 直接输入文件名，跳转到文件
 - ? 列出当前可执行的动作
 - ! 显示 Errors或 Warnings，也可以 Ctrl+Shift+M
@@ -23,9 +23,10 @@ categories:
 3. ctrl + 1：由终端切换到编辑器
 4. ctrl + shift + `: 新建一个命令行窗口
 5. ctrl + `: 快速切换到命令行窗口
-6. ctrl + w: 这个是装了eclipse keymap插件
+6. command + w: 这个是装了eclipse keymap插件
 7. command + h: 往前移动一个tab(这个是本人自定义的)
 8. command + l: 往后移动一个tab(这个是本人自定义的)
+9. command + `: 切换vscode窗口
 
 ## 编辑相关
 
