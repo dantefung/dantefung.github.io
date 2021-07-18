@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dantefung.github.io/img/favicon.png">
-  <link rel="icon" type="image/png" href="/dantefung.github.io/img/icon.jpeg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -23,7 +23,7 @@
 
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/dantefung.github.io/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
@@ -44,13 +44,13 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
 
-<link  rel="stylesheet" href="/dantefung.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script  src="/dantefung.github.io/js/utils.js" ></script>
-  <script  src="/dantefung.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.1.1"></head>
 
 
@@ -59,7 +59,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/dantefung.github.io/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -76,7 +76,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/dantefung.github.io/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 Home
               </a>
@@ -88,7 +88,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/dantefung.github.io/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 Archives
               </a>
@@ -100,7 +100,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/dantefung.github.io/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 Categories
               </a>
@@ -112,7 +112,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/dantefung.github.io/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 Tags
               </a>
@@ -124,7 +124,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/dantefung.github.io/musics/">
+              <a class="nav-link" href="/musics/">
                 <i class="iconfont icon-category-fill"></i>
                 music
               </a>
@@ -136,7 +136,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/dantefung.github.io/links/">
+              <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
                 Links
               </a>
@@ -148,7 +148,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/dantefung.github.io/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 About
               </a>
@@ -173,7 +173,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/dantefung.github.io/img/bg_night.jpg') no-repeat center center;
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -253,7 +253,7 @@
 <p>kernel 就开始了IO的第一阶段:<font color='blue'> <em>准备数据, 就是数据被拷贝到内核缓冲区中的一个过程.</em></font></p>
 <p>等数据到操作系统的内核缓冲区了, 就到了第二阶段: <font color='blue'><em>将数据从内核缓冲区拷贝到用户内存，然后kernel返回结果，用户进程才会接触block状态，重新运行起来.</em></font></p>
 <p><font color="red">blocking IO的特点就是在IO执行的两个阶段用户进程都会block住。</font></p>
-<img src="/dantefung.github.io/2021/04/23/Java%E4%B9%8BNIO/2021-04-23-16-37-21.png" srcset="/dantefung.github.io/img/loading.gif" class="">
+<img src="/2021/04/23/Java%E4%B9%8BNIO/2021-04-23-16-37-21.png" srcset="/img/loading.gif" class="">
 
 <p><strong>小结:</strong></p>
 <p>   阻塞的两个部分:<br>   1、CPU把数据从磁盘读到内核缓冲区。<br>   2、CPU把数据从内核缓冲区拷贝到用户缓冲区。</p>
@@ -263,12 +263,12 @@
 <p>这样， 我们的IO操作函数将不断的测试数据是否已经准备好，如果没有准备好，继续测试，直到数据准备好为止。在这个不断测试的过程中， <font color='red'>会大量的占用CPU时间。</font></p>
 <p>当用户进程发出read操作时， 如果kernel钟数据还没准备好，那么并不会block用户进程，而是立即返回error，用户进程判断结果是error，就知道数据还没有准备好， 用户可以再次发read,知道kernel中数据准备好，并且用户再一次发read操作，产生system call, 那么kernel马上将数据拷贝到用户内存， 然后返回。</p>
 <p>所以，<font color='red'>nonblocking IO的特点是用户进程需要不断主动询问kernel数据准备好了没有。</font></p>
-<img src="/dantefung.github.io/2021/04/23/Java%E4%B9%8BNIO/2021-04-25-10-16-55.png" srcset="/dantefung.github.io/img/loading.gif" class="">
+<img src="/2021/04/23/Java%E4%B9%8BNIO/2021-04-25-10-16-55.png" srcset="/img/loading.gif" class="">
 
 <p><strong>3、IO多路复用模型(IO multiplexing)</strong></p>
 <p><strong>关键字：</strong> 事件驱动机制、event notification mechansim</p>
 <p>非阻塞情况下无可用数据时，应用程序每次轮询内核看数据是否准备好了也耗费CPU，能否不让它轮询，当内核缓冲区数据准备好了，以<code>事件通知的机制</code>告知应用进程数据准备好了呢？应用进程在没有收到数据准备好的事件通知信号时可以忙写其他的工作。此时<code>IO多路复用</code>就派上用场了。</p>
-<img src="/dantefung.github.io/2021/04/23/Java%E4%B9%8BNIO/2021-04-25-10-08-56.png" srcset="/dantefung.github.io/img/loading.gif" class="">
+<img src="/2021/04/23/Java%E4%B9%8BNIO/2021-04-25-10-08-56.png" srcset="/img/loading.gif" class="">
 
 <p>这里最后一次 read 调用获取数据的过程，是一个同步的过程，是需要等待的过程。这里的同步指的是<font color='green'>内核态的数据拷贝到用户程序的缓存区这个过程。</font></p>
 <p><strong>补充知识:</strong></p>
@@ -332,7 +332,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/dantefung.github.io/tags/NIO/">NIO</a>
+                      <a class="hover-with-bg" href="/tags/NIO/">NIO</a>
                     
                   </div>
                 
@@ -345,7 +345,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/dantefung.github.io/2021/05/06/MySQL45%E8%AE%B2%E7%AC%94%E8%AE%B0/">
+                      <a href="/2021/05/06/MySQL45%E8%AE%B2%E7%AC%94%E8%AE%B0/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">MySQL45讲笔记</span>
                         <span class="visible-mobile">Previous</span>
@@ -355,7 +355,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/dantefung.github.io/2021/04/22/MySQL%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/">
+                      <a href="/2021/04/22/MySQL%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/">
                         <span class="hidden-mobile">MySQL基准测试</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -498,20 +498,20 @@
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/dantefung.github.io/js/debouncer.js" ></script>
-<script  src="/dantefung.github.io/js/main.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/dantefung.github.io/js/lazyload.js" ></script>
+    <script  src="/js/lazyload.js" ></script>
   
 
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/dantefung.github.io/js/clipboard-use.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
 
 
 
@@ -585,9 +585,9 @@
 
 
 
-  <script  src="/dantefung.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/dantefung.github.io/local-search.xml";
+    var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
       searchFunc(path, 'local-search-input', 'local-search-result');
