@@ -23,9 +23,9 @@ tags:
 本文锚点快捷导航:
 
 - [16. 实用技巧](#16-实用技巧)
-- [16.2 在 vi 或 vim 上查找字符串](#162-在vi或vim上查找字符串)
-- [16.3 快速复制多行](#163-快速复制多行)
-- [16.4 全选并复制](#164-全选并复制)
+- [16.2 在 vi 或 vim 上查找字符串](#16.2-在vi或vim上查找字符串)
+- [16.3 快速复制多行](#16.3-快速复制多行)
+- [16.4 全选并复制](#16.4-全选并复制)
 - [16.9 自动输入指定个数的重复字符](#16.9-自动输入指定个数的重复字符)
 
 我阅读过一些好看的文章: 
@@ -33,6 +33,9 @@ tags:
 - [Vim 终极指南：所思即所得_西代零零发 - CSDN 博客](https://blog.csdn.net/dc_726/article/details/78981756?spm=1001.2014.3001.5501)
 - [Vim 从入门到精通](https://github.com/wsdjeg/vim-galore-zh_cn`)
 
+
+插件的快捷键:
+- [NERDTree快捷键](#NERDTree快捷键)
 
 ## 1. 关于 Vim
 
@@ -733,6 +736,7 @@ Ctrl+] 跳转到 tag 主题，Ctrl+t 跳回。
 <center>{% asset_img 2020-09-24-15-23-56.png %}</center>
 
 ### 16.2 在 vi 或 vim 上查找字符串
+<span id="16.2-在vi或vim上查找字符串"></span>
 
 **1. 重头开始搜索:**
 
@@ -755,7 +759,7 @@ Ctrl+] 跳转到 tag 主题，Ctrl+t 跳回。
 可以简写成 noh 喝 set-noh
 
 ### 16.3 快速复制多行
-
+<span id="16.3-快速复制多行"></span>
 任务: 将第 9 行至第 15 行的数据，复制到第 16 行.
 
 **方法 1：（强烈推荐）**
@@ -769,6 +773,7 @@ Ctrl+] 跳转到 tag 主题，Ctrl+t 跳回。
 再把光标移动到第 16 行 p
 
 ### 16.4 全选并复制
+<span id="16.4-全选并复制"></span>
 
 全部删除：按 esc 后，然后 dG
 全部复制：按 esc 后，然后 ggyG
@@ -787,10 +792,12 @@ vim中10ik就是输入10个k
 输入10x，删除10个连续字符
 
 ### 16.8 vim的恢复和撤销
+<span id="16.8-vim的恢复和撤销"></span>
 撤销：u
 恢复撤销：Ctrl + r
 
 ### 16.9 自动输入指定个数的重复字符
+<span id="16.9-自动输入指定个数的重复字符"></span>
 
 需求: 在编辑的时候，有时候需要输入一长串的重复字符。例如“########”、“========”、“//”、“*********”、“-------” 等。
 
@@ -804,6 +811,76 @@ vim中10ik就是输入10个k
 用 :help count 命令可以看到在命令前面输入数字重复执行命令的帮助说明。
 
 ### 16.10 指定光标跳n行
+<span id="16.10指定光标跳n行"></span>
 
 10 + j: 光标向下移动10行
 10 + l: 光标向上移动10行
+
+### 16.11 vim返回上次编辑的位置
+<span id="16.11-vim返回上次编辑的位置"></span>
+
+ctrl +O
+ctrl + I(i)
+
+When you move your cursor to a particular position in a file, Vim remembers this and lets you move around between where you are where you were. CTRL-O goes to the older position, and CTRL-I or tab goes to the newer one. 仅限于normal mode
+
+from http://dailyvim.tumblr.com/post/6826612086/ctrl-o-and-ctrl-i-or-the-jumplist-or-friggin-vim-time
+
+### 16.12 不同tab之间切换
+不同tab页面切换
+文件间切换
+ctrl+6: 两个文件间来回切换
+:bn 下一个文件
+:bp 上一个文件
+:ls 列出当前目录下的文件，带有编号，可通过编号切换
+:b1~n切换至第n个文件
+在窗口间切换
+ctrl+w+方向键
+ctrl+w+h/j/k/l
+ctrl+ww依次切换至下一个窗口
+
+### 16.13 vim中打开中断标签页
+
+:term
+
+## NERDTree快捷键
+<span id="NERDTree快捷键"></span>
+
+:NERDTreeFind NERDTree打开当前文件所在目录
+o 在已有窗口中打开文件、目录或书签，并跳到该窗口
+go 在已有窗口 中打开文件、目录或书签，但不跳到该窗口
+t 在新 Tab 中打开选中文件/书签，并跳到新 Tab
+T 在新 Tab 中打开选中文件/书签，但不跳到新 Tab
+i split 一个新窗口打开选中文件，并跳到该窗口
+gi split 一个新窗口打开选中文件，但不跳到该窗口
+s vsplit 一个新窗口打开选中文件，并跳到该窗口
+gs vsplit 一个新 窗口打开选中文件，但不跳到该窗口
+! 执行当前文件
+O 递归打开选中 结点下的所有目录
+x 合拢选中结点的父目录
+X 递归 合拢选中结点下的所有目录
+e Edit the current dif
+双击 相当于 NERDTree-o
+中键 对文件相当于 NERDTree-i，对目录相当于 NERDTree-e
+D 删除当前书签
+P 跳到根结点
+p 跳到父结点
+K 跳到当前目录下同级的第一个结点
+J 跳到当前目录下同级的最后一个结点
+k 跳到当前目录下同级的前一个结点
+j 跳到当前目录下同级的后一个结点
+C 将选中目录或选中文件的父目录设为根结点
+u 将当前根结点的父目录设为根目录，并变成合拢原根结点
+U 将当前根结点的父目录设为根目录，但保持展开原根结点
+r 递归刷新选中目录
+R 递归刷新根结点
+m 显示文件系统菜单
+cd 将 CWD 设为选中目录
+I 切换是否显示隐藏文件
+f 切换是否使用文件过滤器
+F 切换是否显示文件
+B 切换是否显示书签
+q 关闭 NerdTree 窗口
+? 切换是否显示 Quick Help
+
+
