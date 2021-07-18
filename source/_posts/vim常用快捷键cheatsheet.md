@@ -32,6 +32,7 @@ tags:
 - [用聪明的方式学 Vim](https://github.com/wsdjeg/Learn-Vim_zh_cn)
 - [Vim 终极指南：所思即所得_西代零零发 - CSDN 博客](https://blog.csdn.net/dc_726/article/details/78981756?spm=1001.2014.3001.5501)
 - [Vim 从入门到精通](https://github.com/wsdjeg/vim-galore-zh_cn`)
+- [Vim练级手册](https://vim.wxnacy.com/)
 
 
 插件的快捷键:
