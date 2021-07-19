@@ -14,7 +14,8 @@ timezone: ''
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://dantefung.github.io
-root: /dantefung.github.io
+#root: /dantefung.github.io
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -102,7 +103,9 @@ theme: fluid
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: 'git'
+  repository: git@github.com:dantefung/dantefung.github.io.git
+  branch: master
 
 # 支持dplayer,在markdown文章中插入视频
 # 参见: https://easyhexo.com/3-Plugins-use-and-config/3-2-hexo-tag-dplayer/#%E4%BB%8B%E7%BB%8D
