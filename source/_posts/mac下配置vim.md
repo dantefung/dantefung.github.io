@@ -2,23 +2,24 @@
 title: mac下配置vim
 date: 2020-10-28 22:46:40
 tags:
- - vim
- - 利器
+    - vim
+    - 利器
 categories:
- - mac 
+    - mac
 ---
 
-# mac下配置vim
+# mac 下配置 vim
 
 {% asset_img 2020-10-29-04-23-07.png %}
 
-## 安装mac vim
-mac预装了vim，但官方的 vim 在 Mac 上只有一个很不完善的，长期没人维护的 Carbon 图形用户界面。macvim 主要是在此基础上添加了一个完整的 Cocoa 用户界面，其核心部分和 vim 同步。MacVim 采用了分离进程的方式，一个 MacVim 程序可以启动多个 vim 进程，每个显示在一个 MacVim 窗口中，这是官方的 vim 和其他平台下的 gvim 所不支持的。MacVim 还支持很多 Mac OS X 原生的界面特性，比如工具栏、滚动条、全屏显示、Mac 菜单快捷键的绑定等。
+## 安装 mac vim
 
+mac 预装了 vim，但官方的 vim 在 Mac 上只有一个很不完善的，长期没人维护的 Carbon 图形用户界面。macvim 主要是在此基础上添加了一个完整的 Cocoa 用户界面，其核心部分和 vim 同步。MacVim 采用了分离进程的方式，一个 MacVim 程序可以启动多个 vim 进程，每个显示在一个 MacVim 窗口中，这是官方的 vim 和其他平台下的 gvim 所不支持的。MacVim 还支持很多 Mac OS X 原生的界面特性，比如工具栏、滚动条、全屏显示、Mac 菜单快捷键的绑定等。
 
-## 安装vim-plug
+## 安装 vim-plug
 
 ### 下载
+
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -32,11 +33,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 mkdir ~/.vim/plugged
 ```
 
-## vim-plug的基本使用
+## vim-plug 的基本使用
 
-vim-plug安装后，下面介绍下如何使用：
+vim-plug 安装后，下面介绍下如何使用：
 
-1、先编辑~/.vimrc文件，键入如下内容:
+1、先编辑~/.vimrc 文件，键入如下内容:
 
 ```
 call plug#begin('~/.vim/plugged')
@@ -44,7 +45,7 @@ Plug 'scrooloose/nerdtree'
 call plug#end()
 ```
 
-2、终端键入vim,然后回车，进入vim编辑器，键入如下内容进入命令模式，然后回车:
+2、终端键入 vim,然后回车，进入 vim 编辑器，键入如下内容进入命令模式，然后回车:
 
 ```
 :PlugInstall
@@ -58,53 +59,75 @@ call plug#end()
 :PlugStatus
 ```
 
-
 删除插件的方法:
-1) 先注释~/.vimrc文件中插件
+
+1. 先注释~/.vimrc 文件中插件
 
 ```
 " Plug 'scrooloose/nerdtreee'
 ```
 
-2)重启vim编辑器或者
+2)重启 vim 编辑器或者
 
 执行:
+
 ```
 source ~/.vimrc
 ```
+
 最后执行:
 
 ```
 :PlugClean
 ```
 
+## 安装 molokai 主题
 
-## 配置Java环境
+```
+cd ~/.vim/
+```
+
+```
+git clone https://github.com/tomasr/molokai.git
+```
+
+```
+cd molokai
+cp -r colors ../
+```
+
+## 配置 Java 环境
+
 ### 代码自动补全
-
 
 **issue:**
 `怎么让Mac里的vim支持python3?`
-2019年后brewhome安装的和升级vim都支持python3，你可以先升级brewhome
+2019 年后 brewhome 安装的和升级 vim 都支持 python3，你可以先升级 brewhome
+
 ```
 brew update
 ```
+
 在重新安装或者直接升级
+
 ```
 brew install vim
 ```
+
 或者
+
 ```
 brew upgrade
 ```
-重新启动终端后就可以查看支持python3
+
+重新启动终端后就可以查看支持 python3
+
 ```
 vim --version ｜grep python
 ```
 
-
-温馨提示：将鼠标放在语句上可以显示对应的英文。   或者   切换至中英文显示
-在具有+python3支持的Mac OS上安装Vim时，出现以下错误：
+温馨提示：将鼠标放在语句上可以显示对应的英文。 或者 切换至中英文显示
+在具有+python3 支持的 Mac OS 上安装 Vim 时，出现以下错误：
 
 % brew install vim --with-python3
 Usage: brew install [options] formula
@@ -116,29 +139,30 @@ macos vim homebrew
 1 个回复
 按投票数排序按时间排序
 ===============>>#1 票数：0
-自2019年起，默认情况下已通过Homebrew在Vim上启用 +python3 。互联网上较旧的说明不准确（为了避免提高搜索排名，我不会链接到它们）。
+自 2019 年起，默认情况下已通过 Homebrew 在 Vim 上启用 +python3 。互联网上较旧的说明不准确（为了避免提高搜索排名，我不会链接到它们）。
 
-只需通过Homebrew安装/升级：
+只需通过 Homebrew 安装/升级：
 
-% brew uninstall vim # optional, only if you previously installed it 
+% brew uninstall vim # optional, only if you previously installed it
 % brew install vim
 验证+python3 ：
 
 % /usr/local/bin/vim --version
 ...
-+cmdline_compl     +lambda            +profile           +virtualedit
-+cmdline_hist      +langmap           -python            +visual
-+cmdline_info      +libcall           +python3           +visualextra
-+comments          +linebreak         +quickfix          +viminfo
-+conceal           +lispindent        +reltime           +vreplace
++cmdline_compl +lambda +profile +virtualedit
++cmdline_hist +langmap -python +visual
++cmdline_info +libcall +python3 +visualextra
++comments +linebreak +quickfix +viminfo
++conceal +lispindent +reltime +vreplace
 ...
-注意，您仍然会安装系统默认的Vim，并且可能在安装Homebrew版本之前的PATH中，因此，如果执行vim --version ，它不会显示+python3 ：
+注意，您仍然会安装系统默认的 Vim，并且可能在安装 Homebrew 版本之前的 PATH 中，因此，如果执行 vim --version ，它不会显示+python3 ：
 
 尝试重新启动终端
-尝试alias vim=/usr/local/bin/vim
-尝试调整PATH变量，将Homebrew的Vim放在首位。 “ 在Mac上编辑PATH变量 ”具有其他信息。
+尝试 alias vim=/usr/local/bin/vim
+尝试调整 PATH 变量，将 Homebrew 的 Vim 放在首位。 “ 在 Mac 上编辑 PATH 变量 ”具有其他信息。
 
-## vim配置文件
+## vim 配置文件
+
 ```
 
 "==========================================
@@ -154,7 +178,7 @@ cd  /Users/admin/Documents/prj/develop
 
 
 " 编码
-set enc=utf-8
+set encoding=utf-8
 
 
 " 不和 vi 兼容
@@ -176,7 +200,8 @@ endif
 
 
 " 中文
-set fileencodings=ucs-bom,utf-8,gb18030,latin1
+set fileencodings=ucs-bom,utf-8,gb18030,latin1,gbk,gb2312,cp936
+set termencoding=utf-8
 
 
 " 鼠标支持
@@ -292,7 +317,7 @@ call     plug#begin('~/.vim/plugged')
 
 
 " -----------------------------------------------
-" 代码自动补全 
+" 代码自动补全
 " -----------------------------------------------
 "  java https://github.com/artur-shaik/vim-javacomplete2
 Plug 'artur-shaik/vim-javacomplete2'
@@ -727,7 +752,3 @@ call plug#end()
 
 
 ```
-
-
-
-
