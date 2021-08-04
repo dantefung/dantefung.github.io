@@ -25,10 +25,59 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ```
 
 ### 配置
+
 新建一个目录用于存放下载的插件
+
 ```
 mkdir ~/.vim/plugged
 ```
+
+## vim-plug的基本使用
+
+vim-plug安装后，下面介绍下如何使用：
+
+1、先编辑~/.vimrc文件，键入如下内容:
+
+```
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+call plug#end()
+```
+
+2、终端键入vim,然后回车，进入vim编辑器，键入如下内容进入命令模式，然后回车:
+
+```
+:PlugInstall
+```
+
+**常用的命令:**
+
+查看插件安装状态:
+
+```
+:PlugStatus
+```
+
+
+删除插件的方法:
+1) 先注释~/.vimrc文件中插件
+
+```
+" Plug 'scrooloose/nerdtreee'
+```
+
+2)重启vim编辑器或者
+
+执行:
+```
+source ~/.vimrc
+```
+最后执行:
+
+```
+:PlugClean
+```
+
 
 ## 配置Java环境
 ### 代码自动补全
