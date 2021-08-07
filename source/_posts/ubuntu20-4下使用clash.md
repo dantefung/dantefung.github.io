@@ -60,9 +60,24 @@ clash 使用 yaml 作为配置文件，配置文件示例可以参考：https://
 ./clash
 ```
 
-
-
 > 笔者就是通过windows平台的clash配置文件导出，然后覆盖linux平台下~/.config/clash/config.yml文件.
+
+## 配置clash终端别名
+
+笔者.bashrc文件下加入了clash别名，方便每次开启clash代理:
+
+```
+alias clash="~/Documents/software/clash";
+```
+最后让~/.bashrc文件生效:
+
+```
+source ~/.bashrc
+```
+
+## 配置ubuntu的网络代理
+
+{% asset_img 2021-08-07-11-29-10.png %}
 
 # Reference
 - [ubuntu 20.04 配置使用 clash for linux](http://www.ptbird.cn/ubuntu-2004-clash-for-linux.html)
