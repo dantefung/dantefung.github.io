@@ -1082,3 +1082,20 @@ F 切换是否显示文件
 B 切换是否显示书签
 q 关闭 NerdTree 窗口
 ? 切换是否显示 Quick Help
+
+## vim 插件之 surround.vim
+
+surround.vim－这个插件主要是用来插入一些特殊符号的(成对出现)
+
+下载地址
+
+http://www.vim.org/scripts/script.php?script_id=1697
+
+http://github.com/tpope/vim-surround
+
+常用命令:
+
+ 1．ds-删除字串的包裹符号"aaa"---ds"---aaa
+ 2．cs-替换字串的包裹符号"aaa"---cs"]---[aaa]  
+ 3．ys-添加字串的包裹符号aaa---ysw]---[aaa]
+ 4.我们可以选中一个字串，然后使用S＋符号的方法来添加包裹符号
