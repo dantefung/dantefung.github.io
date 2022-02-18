@@ -51,6 +51,48 @@ call plug#end()
 :PlugInstall
 ```
 
+**Issue:**
+
+由于中文网络环境的某种原因，您可能会遇到vim-plug插件无法下载的问题: vim-plug它依赖github上的开源软件，而github常常无法被正常访问。
+
+解决之法有二:
+
+其一，给命令行挂代理。此法相对复杂，并非简单执行一行命令就完事。提供下思路: 先开启某科学上网的socks5代理或自己ssh -D上自己的机场，使用privoxy转为http代理，然后执行`export http_proxy=http://127.0.0.1:8118`。
+其二，通过修改Plug.vim文件中的下载地址为国内的镜像站。
+
+```
+vi  ~/.vim/autoload/plug.vim 
+```
+
+在 plug.vim 中搜索 github, 修改两条语句，即可成功下载GitHub资源。 
+
+第一部分:
+
+  将
+  ```
+let fmt = get(g:, 'plug_url_format', 'https://git::@github.com/%s.git')
+  ```
+  改为
+ ``` 
+ let fmt = get(g:, 'plug_url_format', 'https://git::@hub.fastgit.org/%s.git')
+ ``` 
+
+ 第二部分:
+
+  将
+ ``` 
+\ '^https://git::@github\.com', 'https://github.com', '')
+ ``` 
+ 改为
+```
+\ '^https://git::@hub.fastgit\.org', 'https://hub.fastgit.org', '')
+```
+
+> 参考: https://blog.csdn.net/htx1020/article/details/114364510
+
+
+
+
 **常用的命令:**
 
 查看插件安装状态:
@@ -67,13 +109,26 @@ call plug#end()
 " Plug 'scrooloose/nerdtreee'
 ```
 
-2)重启 vim 编辑器或者
+2)重启 vim 编辑器
 
-执行:
+~或者~
+
+~执行:~
 
 ```
 source ~/.vimrc
 ```
+> 更新:
+> 编辑完vimrc之后用
+>
+>source /etc/vimrc报错
+>
+>-bash: /etc/vimrc: line 15: syntax error near unexpected token `"autocmd"'
+>-bash: /etc/vimrc: line 15: `if has("autocmd")'
+>
+>以为是语法问题
+>
+>实际原因：vimrc是vim起动时解释的，而不是由shell来解释。用shell来source它肯定不行。
 
 最后执行:
 
@@ -159,7 +214,10 @@ macos vim homebrew
 
 尝试重新启动终端
 尝试 alias vim=/usr/local/bin/vim
-尝试调整 PATH 变量，将 Homebrew 的 Vim 放在首位。 “ 在 Mac 上编辑 PATH 变量 ”具有其他信息。
+试调整 PATH 变量，将 Homebrew 的 Vim 放在首位。 “ 在 Mac 上编辑 PATH 变量 ”具有其他信息。
+
+> 如果系统是ubuntu,安装openjdk8命令如下:
+> sudo apt-get install openjdk-8-jdk
 
 ## vim 配置文件
 
