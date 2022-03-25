@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>面向对象编程概念(一) - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-08-27 23:53" pubdate>
+      August 27, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">面向对象编程概念(一)</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="面向对象编程概念-一"><a href="#面向对象编程概念-一" class="headerlink" title="面向对象编程概念(一)"></a>面向对象编程概念(一)</h1><blockquote>
+<p>生活的质感依赖于张力，你总需要某些够不着的东西，来构成这种张力。</p>
+</blockquote>
+<center><font color="gray" style="font-size: 1rem">点 上 方 蓝 字 可 关 注 我 们</font></center>
+
+<p><img src="https://wx3.sinaimg.cn/large/70c0040cly4gam5yg84u5j20dw05kq36.jpg" srcset="/img/loading.gif"></p>
+<center>▼</center>
+
+<center> <font color="red">Leaders</font> ｜<strong>Dante Fung</strong> </center>
+
+<p><img src="https://wx1.sinaimg.cn/large/70c0040cly4gbh0gvjveuj20rs0iodjv.jpg" srcset="/img/loading.gif">​</p>
+<center>欢 迎 阅 读 本 文</center>
+
+<center>我 是 老 朋 友， Fung 主编</center>
+
+
+<p>本期编辑：fung</p>
+<p>生活的质感依赖于张力，你总需要某些够不着的东西，来构成这种张力。</p>
+<p>如果你以前从来没有使用面向对象语言，你需要在开始编写 JAVA 代码之前先理解这个概念。你需要理解什么是对象、什么是类、对象和类的关系怎样以及使用消息怎样在对象之间进行通讯。本教程的前面部分将描述面向对象编程的概念，而后面的教程将教你怎样将这个概念编成代码。</p>
+<h2 id="一、什么是对象"><a href="#一、什么是对象" class="headerlink" title="一、什么是对象"></a>一、什么是对象</h2><hr>
+<p>对象是一些相关的变量和方法的软件集。软件对象经常用于模仿现实世界中我们身边的一些对象。对象是理解面向对象技术的关键。你在学习之前可以看看现实生活中的对象，比如狗、桌子、电视、自行车等等。你可以发现现实世界中的对象有两个共同特征：它们都有状态和行为。比如狗有自己的状态（比如名字、颜色、生育以及饥饿等等）和行为（比如摇尾巴等等）。同样自行车也有自己的状态（比如当前档位、两个轮子等等）和行为（比如刹车、加速、减速以及改变档位等等）。</p>
+<p>而软件对象实际上是现实世界对象的造型，因为它同样有状态和行为。一个软件对象利用一个或者多个变量来维持它的状态。变量是由用户标识符来命名的数据项。软件对象用它的方法来执行它的行为。方法是跟对象有关联的函数（子程序）。</p>
+<p>你可以利用软件对象来代表现实世界中的对象。你可能想用一个动画程序来代表现实世界中的狗，或者用可以控制电子自行车的程序来代表现实世界的自行车。同样你可以使用软件对象来造型抽象的概念，比如，事件是一个用在 GUI 窗口系统的公共对象，它可以代表用户按下鼠标按钮或者键盘上的按键的反应。</p>
+<p><img src="https://wx1.sinaimg.cn/large/70c0040cly4gbh0gvlnzfj212k0k0di3.jpg" srcset="/img/loading.gif"></p>
+<center>图1- 软件对象公共可视代表图</center>
+
+<p>　软件对象的状态和行为都可以用在对象中的变量和方法来表达。构造现实世界的自行车的软件对象要有指示自行车的当前状态的变量：速度为 20mph，它的当前档位为第三档。这些变量就是我们熟知的实例变量，因为它们包含了用于特殊自行车对象的状态，并且在面向对象技术中，特殊的对象称为实例。</p>
+<p><img src="https://wx1.sinaimg.cn/large/70c0040cly4gbh0gvhj8yj20vk0jo0uc.jpg" srcset="/img/loading.gif"></p>
+<center>图2-软件对象之自行车造型</center>
+
+<p>除了变量，软件自行车同样有用于刹车、改变踏板步调以及改变档位的方法。这些方法就是熟知的实例方法因为它们检查或者改变特殊自行车实例的状态。</p>
+<p>以上的对象图显示了对象的变量组成了圆心部分。方法处在变量的四周并且在程序中从其它对象隐藏了对象的核心。用保护方法的方法来包装对象的变量称为封装。这个对象图就是对象理想的表示法，也是面向对象系统设计者努力的最后目标。然而这并不是全部的内容。通常，出于某种现实的理由，对象可能暴露它的一些变量或者隐藏一些方法。在 JAVA 编程语言中，一个对象可以为变量和方法指定四种访问等级中的一种。这个访问等级决定哪个对象和类可以访问变量或者方法。在 JAVA 中访问变量和方法可以转换为控制访问类的成员函数。封装相关的变量和方法到一个简洁的软件集是一个简单而且强有力的方法，它为软件开发者提供了两个主要好处：</p>
+<p><strong>模块性：</strong> 对象的源代码可以独立于其它的对象源代码来进行编写和维护。同样，对象可以很容易地在系统中传递。你可以将你的自行车对象给其它的对象，它仍然可以正常工作。</p>
+<p><strong>信息隐藏：</strong> 一个对象如果有一个公共的界面，那么其它的对象就可以与之进行通讯。这个对象可以维护私人的信息和方法，它可以在任何时候被改变而不影响依耐于它的其它对象。所以你不必理解自行车中齿轮的机理就可以使用它。</p>
+<h2 id="二、什么是消息"><a href="#二、什么是消息" class="headerlink" title="二、什么是消息"></a>二、什么是消息</h2><hr>
+<p>软件对象之间进行交互作用和通讯是利用消息的。</p>
+<p>单一的一个对象通常不是很有用的。相反，一个对象通常是一个包含了许多其它对象的更大的程序或者应用程序。通过这些对象的交互作用，程序员可以获得高阶的功能以及更为复杂的行为。你的自行车如果不使用它的时候，它就是一堆铝合金和橡胶，它没有任何的活动。而只有当有其它的对象来和它交互的时候才是有用的。</p>
+<p>软件对象与其它对象进行交互与通讯是利用发送给其它对象来实现的。当对象 A 想对象 B 来执行一个 B 中的方法，对象 A 就会消息给对象 B。如图 3 所示。</p>
+<p><img src="https://wx4.sinaimg.cn/large/70c0040cly4gbh0gvmomfj217q0sqtci.jpg" srcset="/img/loading.gif"></p>
+<center>图3-对象之间的消息传递</center>
+
+<p>  有时候，接收的对象需要更多的信息就至于它可以正确知道该如何做。比如，当你想改变自行车的齿轮，你就必须指出哪个齿轮。这个信息是将信息作为参数来传递的。如图 4 所示的现实了一个信息由三个组件组成：</p>
+<ol>
+<li><p>被寻址消息的对象（YourBicycle）</p>
+</li>
+<li><p>要执行方法的名字(changeGears)</p>
+</li>
+<li><p>这个方法需要的所有参数（lowerGear）</p>
+</li>
+</ol>
+<p><img src="https://wx3.sinaimg.cn/large/70c0040cly4gbh0gvhsjtj20zk0lntb9.jpg" srcset="/img/loading.gif"></p>
+<center>图4-对象之间消息传递(对象之间通过方法调用实现消息通讯)</center>
+
+<p>上面的三个组件对于接收方的对象执行相应的方法是给出了充分的信息。再也不需要其它的信息或者上下文了。</p>
+<p>消息提供了两个重要的好处：</p>
+<ol>
+<li><p>对象的行为是通过它的方法来表达的，因此消息传递支持所有在对象之间的可能的交互。</p>
+</li>
+<li><p>对象不需要在相同的进程或者相同的机器上来发送和接收消息给其它的对象</p>
+</li>
+</ol>
+<h2 id="三、什么是类"><a href="#三、什么是类" class="headerlink" title="三、什么是类"></a>三、什么是类</h2><hr>
+<p>类实际上是对某种类型的对象定义变量和方法的原型。</p>
+<p>在现实世界中，你经常看到相同类型的许多对象。比如 ，你的自行车只是现实世界中许多自行车的其中一辆。使用面向对象技术，我们可以说你的自行车是自行车对象类的一个实例。通常，自行车有一些状态（当前档位、两个轮子等等）以及行为（改变档位、刹车等等）。但是，每辆自行车的状态都是独立的并且跟其它自行车不同。</p>
+<p>当厂家制造自行车的时候，厂商利用了自行车共有的特性来根据相同的蓝图制造许多自行车。如果制造一辆自行车就要产生一个新蓝图，那效率就太低了。</p>
+<p>在面向对象软件中，同样地，可以让相同种类地许多对象来共有一些特性，比如矩形、雇员记录、视频夹等等。就象自行车制造商人，你可以利用相同种类的对象是相似的事实并且你可以为这些对象创建一个蓝图。对对象的软件蓝图叫做类。</p>
+<p>自行车的类需要定义一些实例变量来包括当前档位、当前速度等等。这个类将为实例方法定义和提供实施方法，它允许骑车者改变档位、刹车以及改变脚踏板的节奏，如图 5 所示：</p>
+<p><img src="https://wx3.sinaimg.cn/large/70c0040cly4gbh0gvlra4j20rs0k30un.jpg" srcset="/img/loading.gif"></p>
+<center>图5-对象实例变量与实例方法</center>
+
+<p>当你创建了自行车类以后，你可以从这个类创建任意个自行车对象。当你创建了一个类的实例后，系统将为这个对象和的实例变量分配内存。每个实例将给所有实例变量的副本定义在类中。如图 6 所示：</p>
+<p><img src="https://wx3.sinaimg.cn/large/70c0040cly4gbh0gvi1j3j20zk0fe0v1.jpg" srcset="/img/loading.gif"></p>
+<center>图6-多个实例对象</center>
+
+<p>除了实例变量，类还要定义类的变量。类变量包含了被类所有实例共享的信息。比如，假设所有的自行车有相同的档位数。在本例子中，要定义一个实例变量来容纳档位数。每一个实例都会有变量的副本，但是在每一个实例中数值都是相同的。在这样的情况下，你可以定义一个类变量来包含档位数，这样所有的类的实例都共享这个变量。如果一个对象改变了变量，它就为改变那个类的所有对象。类同样可以定义类方法。你可以直接从类中调用类方法，然而你必须在特定的实例中调用实例方法。如图 7 所示。</p>
+<p><img src="https://wx4.sinaimg.cn/large/70c0040cly4gbh0gvnz7tj20zk0ipwhe.jpg" srcset="/img/loading.gif"></p>
+<center>图7</center>
+
+<center>-  未  -  完  -  待  -  续  -</center>
+<center>
+<p>
+所有的成功都不是空穴来风
+
+<p>你要相信你的努力</p>
+<p>终将有迹可循</p>
+</p>
+</center>
+<center><strong>- END -</strong></center>
+
+<p><img src="https://wx3.sinaimg.cn/large/70c0040cly4gam5yg5rj2j20p00p0dhc.jpg" srcset="/img/loading.gif"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/27/%E5%88%A9%E7%94%A8VSCode%E6%8F%92%E4%BB%B6%E6%8F%90%E5%8D%87hexo%E7%9A%84%E4%B9%A6%E5%86%99%E4%BD%93%E9%AA%8C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">利用VSCode插件提升hexo的书写体验</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/19/%E6%B5%8B%E8%AF%95%E6%8F%92%E5%85%A5%E9%9F%B3%E9%A2%91/">
+                        <span class="hidden-mobile">测试插入音频</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "面向对象编程概念(一)&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

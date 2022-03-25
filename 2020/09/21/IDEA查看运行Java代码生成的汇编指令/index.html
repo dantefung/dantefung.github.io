@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>IDEA查看运行Java代码生成的汇编指令 - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-21 13:31" pubdate>
+      September 21, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      600 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">IDEA查看运行Java代码生成的汇编指令</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="IDEA-查看运行-Java-代码生成的汇编指令"><a href="#IDEA-查看运行-Java-代码生成的汇编指令" class="headerlink" title="IDEA 查看运行 Java 代码生成的汇编指令"></a>IDEA 查看运行 Java 代码生成的汇编指令</h1><h2 id="方式一-HSDIS"><a href="#方式一-HSDIS" class="headerlink" title="方式一: HSDIS"></a>方式一: HSDIS</h2><h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><ol>
+<li>下载地址: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1c1GM9Wm4abDTAMA2tv7WeQ">hsdis-amd64.dll</a>,提取码：ssmy</li>
+<li>把 hsdis-amd64.dll 放在 $JAVA_HOME/jre/bin/server 目录下</li>
+<li>运行时添加参数:<code>-XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly</code><img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-14-08-20.png" srcset="/img/loading.gif" class="">
+
+</li>
+</ol>
+<h3 id="二、IDEA-运行添加-VM-options"><a href="#二、IDEA-运行添加-VM-options" class="headerlink" title="二、IDEA 运行添加 VM options"></a>二、IDEA 运行添加 VM options</h3><img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-15-44-40.png" srcset="/img/loading.gif" class="">
+
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-15-48-43.png" srcset="/img/loading.gif" class="">
+
+<h2 id="方式二-jitwatch"><a href="#方式二-jitwatch" class="headerlink" title="方式二: jitwatch"></a>方式二: jitwatch</h2><p><a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/jitwatch">AdoptOpenJDK/jitwatch</a> 一个用于分析汇编日志的图形界面工具.</p>
+<h3 id="一、安装-1"><a href="#一、安装-1" class="headerlink" title="一、安装"></a>一、安装</h3><p><strong>操作步骤:</strong></p>
+<ol>
+<li>拉取源码</li>
+<li>编译源码</li>
+<li>启动</li>
+</ol>
+<p><strong>1.拉取源码</strong></p>
+<div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/AdoptOpenJDK/</span>jitwatch.git</code></pre></div>
+
+<p><strong>2.编译源码</strong></p>
+<div class="hljs"><pre><code class="hljs bash">mvn clean compile <span class="hljs-built_in">test</span> <span class="hljs-built_in">exec</span>:java</code></pre></div>
+
+<blockquote>
+<p>NOTE:<br><code>ant clean compile test run</code> &gt; <code>gradlew clean build run</code><br>以上两种工具也可! 选择自己顺手的</p>
+</blockquote>
+<p>不出意外的话，你将会看到一个自动弹出的工具界面：</p>
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-16-00-19.png" srcset="/img/loading.gif" class="">
+
+<p><strong>3.启动</strong><br>编译成功后，jitwatch 目录下会生成一些脚本文件，其中<code>launchUI.bat</code>就是 windows 平台下的启动脚本.因此，下次启动该工具直接双击该批处理文件即可.</p>
+<blockquote>
+<p>NOTE:<br><code>launchUI.sh</code> 为 linux 平台下的启动脚本.</p>
+</blockquote>
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-16-05-01.png" srcset="/img/loading.gif" class="">
+
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><p><strong>1. 配置源码目录和编译字节码目录</strong></p>
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-16-41-29.png" srcset="/img/loading.gif" class="">
+
+<p><strong>2.打开生成的 hotspot.log 文件</strong></p>
+<p>具体 jvm 参数参见附录 1.</p>
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-16-44-02.png" srcset="/img/loading.gif" class="">
+
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-16-44-23.png" srcset="/img/loading.gif" class="">
+
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-16-45-50.png" srcset="/img/loading.gif" class="">
+
+<img src="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/2020-09-21-16-59-40.png" srcset="/img/loading.gif" class="">
+
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ol>
+<li>Jvm 参数:<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html">Java Platform, Standard Edition Tools Reference</a><br>本文涉及到的常用参数:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-XX:+UnlockDiagnosticVMOptions</td>
+<td>解锁用于 JVM 诊断的选项</td>
+</tr>
+<tr>
+<td>-XX:+PrintAssembly</td>
+<td>配合反汇编插件（例如 hsdis-amd64.dylib）可以打印出字节码和本地方法的汇编码；必须和 -XX:+UnlockDiagnosticVMOptions 一起使用。</td>
+</tr>
+<tr>
+<td>-Xcomp</td>
+<td>在第一次调用时强制编译方法。默认情况下，无论是 -client 模式还是 -server 模式，都需要执行一定次数解释方法的调用才会触发方法的编译。（如果需要 JIT 日志，则不指定该参数）</td>
+</tr>
+<tr>
+<td>-XX:CompileCommand=compileonly,*ClassName.methodName：</td>
+<td>只编译类名为 ClassName 中的 methodName 方法，支持使用 * 作为通配符。可以多次指定 -XX:CompileCommand 添加多条命令。（建议只指定需要的方法，否则将会产生大量的无关日志）</td>
+</tr>
+<tr>
+<td>-XX:+LogCompilation：</td>
+<td>允许将编译活动记录到当前工作目录中名为 hotspot.log 的文件中。可以通过 -XX:LogFile 指定文件的路径和名字。</td>
+</tr>
+<tr>
+<td>-XX:LogFile=path：</td>
+<td>指定日志的路径和文件名。例如：-XX:LogFile=/var/log/hotspot.log</td>
+</tr>
+</tbody></table>
+<p><strong>例子:</strong></p>
+<div class="hljs"><pre><code class="hljs ruby">-<span class="hljs-variable constant_">XX</span><span class="hljs-symbol">:+UnlockDiagnosticVMOptions</span> -<span class="hljs-variable constant_">XX</span><span class="hljs-symbol">:+PrintAssembly</span> -Xcomp -<span class="hljs-variable constant_">XX</span><span class="hljs-symbol">:CompileCommand=compileonly</span>,*VolatileTest.increase -<span class="hljs-variable constant_">XX</span><span class="hljs-symbol">:CompileCommand=compileonly</span>,*VolatileTest.decrease -<span class="hljs-variable constant_">XX</span><span class="hljs-symbol">:+LogCompilation</span> -<span class="hljs-variable constant_">XX</span><span class="hljs-symbol">:LogFile=F</span><span class="hljs-symbol">:/opt/log/hotspot</span>.log
+</code></pre></div>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/haihui_yang/article/details/103789384?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~first_rank_v2~rank_v25-3-103789384.nonecase&utm_term=ideaui%E6%89%93%E5%8D%B0%E6%B1%87%E7%BC%96">如何优雅的查看 Java 代码的汇编码</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+                    
+                      <a class="hover-with-bg" href="/tags/IDEA/">IDEA</a>
+                    
+                      <a class="hover-with-bg" href="/tags/JVM/">JVM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/09/23/%E9%87%91%E8%9E%8D%E4%B8%96%E7%95%8C%E8%A7%82/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">金融世界观</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/20/%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8workingcopy/">
+                        <span class="hidden-mobile">Test Working copy</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "IDEA查看运行Java代码生成的汇编指令&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

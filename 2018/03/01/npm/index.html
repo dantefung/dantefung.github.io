@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>npm笔记 - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2018-03-01 16:02" pubdate>
+      March 1, 2018 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">npm笔记</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="1-npm"><a href="#1-npm" class="headerlink" title="1. npm"></a>1. npm</h1><h2 id="1-1-什么是npm"><a href="#1-1-什么是npm" class="headerlink" title="1.1. 什么是npm"></a>1.1. 什么是npm</h2><h3 id="1-1-1-npm简介"><a href="#1-1-1-npm简介" class="headerlink" title="1.1.1. npm简介"></a>1.1.1. npm简介</h3><p><strong>npm官网</strong></p>
+<p>npm是node package manager的简称，即node应用程序专属的包管理工具<br>也就是说npm最初只负责维护node服务端开发所需的js包<br>不过随着node的普及，npm也越来越流行，npm也可以用来管理前端所需的包了，如jquery、bootstrap、vue等</p>
+<h4 id="1-1-1-1-npm与包管理工具"><a href="#1-1-1-1-npm与包管理工具" class="headerlink" title="1.1.1.1. npm与包管理工具"></a>1.1.1.1. npm与包管理工具</h4><p>在进行项目开发中，我们经常需要”引入”、”更新”、”删除”一些由我们自己开发或第三方开发的独立文件模块或包<br>比较传统的做法是开发人员随着自己的经验，逐渐维护起一个专属与自己的目录，用来管理将来开发可能用到的包<br>这个目录久而久之会越来越大，我们需要更新新版本以淘汰旧版本的包的频率也越来月频繁，浪费了我们的部分精力<br>包管理工具就是专门解决这类问题的软件，而npm就是包管理工具的一种，专门用来管理node.js与前端开发所需的包</p>
+<h4 id="1-1-1-2-安装与更新"><a href="#1-1-1-2-安装与更新" class="headerlink" title="1.1.1.2. 安装与更新"></a>1.1.1.2. 安装与更新</h4><p>只要安装了node，那么npm就跟着安装了<br>可以运行命令npm install -g npm来升级npm到最新版本<br>不过需要注意，如果你没有采用默认的安装路径或者没有管理员权限最好不要升级<br>因为升级后可能丢失npm的使用权限，到时候就得重装node来解决了</p>
+<h2 id="1-2-使用"><a href="#1-2-使用" class="headerlink" title="1.2. 使用"></a>1.2. 使用</h2><h3 id="1-2-1-基本使用"><a href="#1-2-1-基本使用" class="headerlink" title="1.2.1. 基本使用"></a>1.2.1. 基本使用</h3><p>以命令行方式进入一个项目目录<br>创建项目描述文件（已经有了就不用了）<br>运行npm init，运行后项目中会创建一个package.json的项目描述文件<br>也可以纯手动的方式创建package.json文件<br>使用npm安装项目依赖包 +npm install jquery bootstrap –save<br>运行后项目中会创建一个node_modules文件夹<br>打开该文件夹会发现jquery与bootstrap的最新版已经被下载<br>接下来就可以在项目引用第三方包进行开发了</p>
+<h4 id="1-2-1-1-项目共享"><a href="#1-2-1-1-项目共享" class="headerlink" title="1.2.1.1. 项目共享"></a>1.2.1.1. 项目共享</h4><p>通常一个项目是由多个人一起维护的，如果是一个比较大的项目，还会有很多依赖的包<br>像这样的项目如果在多个人之间传播共享很不便利，主要是因为依赖包占用的空间太大<br>如果使用了npm，我们就不需要把那些依赖包传来传去了，因为package.json文件中记录了这些依赖<br>应用演示<br>创建一个使用npm进行包管理的项目<br>然后把这个目录中除node_modules外的内容传给另一个人，这样项目就会比较轻巧<br>另一个人拿到项目后，只需运行<code>npm install</code>命令安装依赖后，项目即可恢复原样</p>
+<h4 id="1-2-1-2-配合git"><a href="#1-2-1-2-配合git" class="headerlink" title="1.2.1.2. 配合git"></a>1.2.1.2. 配合git</h4><p>现代项目除了会使用一款包管理工具管理依赖包之外，还会使用一款版本管理工具进行代码版本的管理<br>所以这里也补充说明一下npm与git的结合使用<br>使用了npm后项目的依赖包就被安装到了node_modules目录<br>这个目录的代码因为比较庞大，所以通常不会添加到版本仓库中<br>所以通常会在.gitignore配置文件中，配置忽略node_modules<br>配置后项目代码就可以提交到git仓库进行管理了<br>将来其他账户要clone项目并运行，clone后依然运行npm install即可安装依赖恢复项目原样</p>
+<h2 id="1-3-命令汇总"><a href="#1-3-命令汇总" class="headerlink" title="1.3. 命令汇总"></a>1.3. 命令汇总</h2><h3 id="1-3-1-必用命令"><a href="#1-3-1-必用命令" class="headerlink" title="1.3.1. 必用命令"></a>1.3.1. 必用命令</h3><blockquote>
+<p>npm init</p>
+</blockquote>
+<p>可以添加-y参数跳过配置信息的填写，直接生成默认的package.json文件<br>npm install 包名@版本号<br><code>--save || -S参数可以把安装信息记录在package.json文件中的dependencies属性中</code><br><code>--save-dev || -D参数可以把安装信息记录在package.json文件中的devDependencies属性中</code><br><code>--production参数让npm根据配置文件中的dependencies属性进行依赖包的安装</code><br><code>-g参数可以在全局进行安装，一般全局安装的都是一些可单独执行的node工具</code><br>–registry参数可以指定下载包的地址，可以使用淘宝提供的地址<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a><br>npm uninstall 包名<br>–save || -S参数会删除package.json文件中dependencies的依赖信息<br>–save-dev || -D参数会删除package.json文件中devDependencies的依赖信息<br>-g参数指明删除全局的包</p>
+<h4 id="1-3-1-1-其他命令"><a href="#1-3-1-1-其他命令" class="headerlink" title="1.3.1.1. 其他命令"></a>1.3.1.1. 其他命令</h4><p>npm update 更新模块<br>npm outdated 检查模块是否已经过时<br>npm ls 查看安装的模块<br>npm init 在项目中引导创建一个package.json文件<br>npm help 查看某条命令的详细帮助<br>npm root 查看包的安装路径<br>npm config 管理npm的配置路径<br>npm cache 管理模块的缓存<br>npm start 启动模块<br>npm stop 停止模块<br>npm restart 重新启动模块<br>npm test 测试模块<br>npm version 查看模块版本<br>npm view 查看模块的注册信息<br>npm adduser<br>npm publish 发布模块<br>npm access 在发布的包上设置访问级别<br>npm package.json的语法</p>
+<h2 id="1-4-cnpm"><a href="#1-4-cnpm" class="headerlink" title="1.4. cnpm"></a>1.4. cnpm</h2><h3 id="1-4-1-简介"><a href="#1-4-1-简介" class="headerlink" title="1.4.1. 简介"></a>1.4.1. 简介</h3><p>淘宝NPM镜像官网</p>
+<h4 id="1-4-1-1-安装"><a href="#1-4-1-1-安装" class="headerlink" title="1.4.1.1. 安装"></a>1.4.1.1. 安装</h4><p>npm install -g cnpm –registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<h4 id="1-4-1-2-使用"><a href="#1-4-1-2-使用" class="headerlink" title="1.4.1.2. 使用"></a>1.4.1.2. 使用</h4><p>与npm的使用方式一样，本就是对npm的一层封装<br>使用范例：cnpm install jquery art-template -S</p>
+<h4 id="1-4-1-3-其他相关工具"><a href="#1-4-1-3-其他相关工具" class="headerlink" title="1.4.1.3. 其他相关工具"></a>1.4.1.3. 其他相关工具</h4><p>bower<br>twitter推出的一款包管理工具。<br>参考文档[<a target="_blank" rel="noopener" href="http://www.zuojj.com/archives/533.html]">http://www.zuojj.com/archives/533.html]</a><br>yarn<br>facebook推出的包管理工具。<br>参考文档[<a target="_blank" rel="noopener" href="http://imweb.io/topic/581f6c0bf2e7e042172d618a]">http://imweb.io/topic/581f6c0bf2e7e042172d618a]</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/03/01/mogodb/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">mongoDB</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/1970/01/01/vue/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "npm笔记&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

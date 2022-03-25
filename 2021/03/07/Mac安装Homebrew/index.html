@@ -1,0 +1,1345 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>Mac安装Homebrew - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-03-07 22:47" pubdate>
+      March 7, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      83
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Mac安装Homebrew</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <blockquote>
+<p>本文由 <a target="_blank" rel="noopener" href="http://ksria.com/simpread/">简悦 SimpRead</a> 转码， 原文地址 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/haojile/p/13193805.html">www.cnblogs.com</a></p>
+</blockquote>
+<h1 id="Mac-安装-Homebrew"><a href="#Mac-安装-Homebrew" class="headerlink" title="Mac 安装 Homebrew"></a>Mac 安装 Homebrew</h1><h2 id="国内安装-可用-："><a href="#国内安装-可用-：" class="headerlink" title="国内安装 (可用)："></a>国内安装 (可用)：</h2><div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/bin/</span>zsh -c <span class="hljs-string">&quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</span></code></pre></div>
+
+<p>以上方法来自：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111014448">https://zhuanlan.zhihu.com/p/111014448</a></p>
+<p>如果采用了上面改的方法，就不用看下面的官方方法了。官方的方法可能需要翻墙或者安装完成之后的权限问题。</p>
+<h2 id="官方安装方法-1："><a href="#官方安装方法-1：" class="headerlink" title="官方安装方法 1："></a>官方安装方法 1：</h2><div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/bin/</span>bash -c <span class="hljs-string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span></code></pre></div>
+
+<p>运行之后：</p>
+<div class="hljs"><pre><code class="hljs routeros">/bin/bash -c <span class="hljs-string">&quot;<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)</span>&quot;</span>
+curl: (7) Failed <span class="hljs-keyword">to</span> connect <span class="hljs-keyword">to</span> raw.githubusercontent.com<span class="hljs-built_in"> port </span>443:<span class="hljs-built_in"> Connection </span>refused</code></pre></div>
+
+<p>浏览器访问 <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Homebrew/install/master/install.sh">https://raw.githubusercontent.com/Homebrew/install/master/install.sh</a> 也访问不了，需要翻墙，暂时不具备翻墙条件，只能换个方式。</p>
+<h2 id="官方安装方法-2（未测试）"><a href="#官方安装方法-2（未测试）" class="headerlink" title="官方安装方法 2（未测试）"></a>官方安装方法 2（未测试）</h2><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://docs.brew.sh/Installation">https://docs.brew.sh/Installation</a></p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs awk"><span class="hljs-comment"># 安装在/usr/local/目录</span>
+cd <span class="hljs-regexp">/usr/</span>local/
+<span class="hljs-comment"># 官方命令行，安装在 homebrew 目录</span>
+sudo mkdir homebrew &amp;&amp; curl -L https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Homebrew/</span>brew<span class="hljs-regexp">/tarball/m</span>aster | tar xz --strip <span class="hljs-number">1</span> -C homebrew</code></pre></div>
+
+
+<p><a target="_blank" rel="noopener" href="https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh">HomeBrew自动安装脚本源码</a></p>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment">#HomeBrew自动安装脚本</span>
+<span class="hljs-comment">#cunkai.wang@foxmail.com</span>
+
+<span class="hljs-comment">#获取硬件信息</span>
+UNAME_MACHINE=<span class="hljs-string">&quot;<span class="hljs-subst">$(uname -m)</span>&quot;</span>
+<span class="hljs-comment">#在X86电脑上测试arm电脑</span>
+<span class="hljs-comment"># UNAME_MACHINE=&quot;arm64&quot;</span>
+
+<span class="hljs-comment"># 判断是Linux还是Mac os</span>
+OS=<span class="hljs-string">&quot;<span class="hljs-subst">$(uname)</span>&quot;</span>
+<span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$OS</span>&quot;</span> == <span class="hljs-string">&quot;Linux&quot;</span> ]]; <span class="hljs-keyword">then</span>
+  HOMEBREW_ON_LINUX=1
+<span class="hljs-keyword">elif</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$OS</span>&quot;</span> != <span class="hljs-string">&quot;Darwin&quot;</span> ]]; <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Homebrew 只运行在 Mac OS 或 Linux.&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment"># 字符串染色程序</span>
+<span class="hljs-keyword">if</span> [[ -t 1 ]]; <span class="hljs-keyword">then</span>
+  <span class="hljs-function"><span class="hljs-title">tty_escape</span></span>() &#123; <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;\033[%sm&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>; &#125;
+<span class="hljs-keyword">else</span>
+  <span class="hljs-function"><span class="hljs-title">tty_escape</span></span>() &#123; :; &#125;
+<span class="hljs-keyword">fi</span>
+<span class="hljs-function"><span class="hljs-title">tty_universal</span></span>() &#123; tty_escape <span class="hljs-string">&quot;0;<span class="hljs-variable">$1</span>&quot;</span>; &#125; <span class="hljs-comment">#正常显示</span>
+<span class="hljs-function"><span class="hljs-title">tty_mkbold</span></span>() &#123; tty_escape <span class="hljs-string">&quot;1;<span class="hljs-variable">$1</span>&quot;</span>; &#125; <span class="hljs-comment">#设置高亮</span>
+tty_underline=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_escape <span class="hljs-string">&quot;4;39&quot;</span>)</span>&quot;</span> <span class="hljs-comment">#下划线</span>
+tty_blue=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_universal 34)</span>&quot;</span> <span class="hljs-comment">#蓝色</span>
+tty_red=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_universal 31)</span>&quot;</span> <span class="hljs-comment">#红色</span>
+tty_green=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_universal 32)</span>&quot;</span> <span class="hljs-comment">#绿色</span>
+tty_yellow=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_universal 33)</span>&quot;</span> <span class="hljs-comment">#黄色</span>
+tty_bold=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_universal 39)</span>&quot;</span> <span class="hljs-comment">#加黑</span>
+tty_cyan=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_universal 36)</span>&quot;</span> <span class="hljs-comment">#青色</span>
+tty_reset=<span class="hljs-string">&quot;<span class="hljs-subst">$(tty_escape 0)</span>&quot;</span> <span class="hljs-comment">#去除颜色</span>
+
+<span class="hljs-comment">#用户输入极速安装speed，git克隆只取最近新版本</span>
+<span class="hljs-comment">#但是update会出错，提示需要下载全部数据</span>
+GIT_SPEED=<span class="hljs-string">&quot;&quot;</span>
+
+<span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$0</span> == <span class="hljs-string">&quot;speed&quot;</span> ]]; <span class="hljs-keyword">then</span>
+  GIT_SPEED=<span class="hljs-string">&quot;--depth=1&quot;</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$@</span>; <span class="hljs-keyword">do</span>
+      <span class="hljs-built_in">echo</span> <span class="hljs-variable">$dir</span>
+      <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$dir</span> == <span class="hljs-string">&quot;speed&quot;</span> ]]; <span class="hljs-keyword">then</span>
+          GIT_SPEED=<span class="hljs-string">&quot;--depth=1&quot;</span>
+      <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">done</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$GIT_SPEED</span> != <span class="hljs-string">&quot;&quot;</span> ]]; <span class="hljs-keyword">then</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span></span>
+<span class="hljs-string">              检测到参数speed，只拉取最新数据，可以正常install使用！</span>
+<span class="hljs-string">          但是以后brew update的时候会报错，运行报错提示的两句命令即可修复</span>
+<span class="hljs-string">          <span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment">#获取前面两个.的数据</span>
+<span class="hljs-function"><span class="hljs-title">major_minor</span></span>() &#123;
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1%%.*&#125;</span>.<span class="hljs-subst">$(x=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1#*.&#125;</span>&quot;</span>; echo <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;x%%.*&#125;</span>&quot;</span>)</span>&quot;</span>
+&#125;
+
+<span class="hljs-comment">#设置一些平台地址</span>
+<span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-comment">#Mac</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$UNAME_MACHINE</span>&quot;</span> == <span class="hljs-string">&quot;arm64&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-comment">#M1</span>
+    HOMEBREW_PREFIX=<span class="hljs-string">&quot;/opt/homebrew&quot;</span>
+    HOMEBREW_REPOSITORY=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>&quot;</span>
+    <span class="hljs-keyword">else</span>
+    <span class="hljs-comment">#Inter</span>
+    HOMEBREW_PREFIX=<span class="hljs-string">&quot;/usr/local&quot;</span>
+    HOMEBREW_REPOSITORY=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/Homebrew&quot;</span>
+    <span class="hljs-keyword">fi</span>
+
+    HOMEBREW_CACHE=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/Library/Caches/Homebrew&quot;</span>
+    HOMEBREW_LOGS=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/Library/Logs/Homebrew&quot;</span>
+
+    STAT=<span class="hljs-string">&quot;stat -f&quot;</span>
+    CHOWN=<span class="hljs-string">&quot;/usr/sbin/chown&quot;</span>
+    CHGRP=<span class="hljs-string">&quot;/usr/bin/chgrp&quot;</span>
+    GROUP=<span class="hljs-string">&quot;admin&quot;</span>
+    TOUCH=<span class="hljs-string">&quot;/usr/bin/touch&quot;</span>
+
+    <span class="hljs-comment">#获取Mac系统版本</span>
+    macos_version=<span class="hljs-string">&quot;<span class="hljs-subst">$(major_minor <span class="hljs-string">&quot;<span class="hljs-subst">$(/usr/bin/sw_vers -productVersion)</span>&quot;</span>)</span>&quot;</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-comment">#Linux</span>
+  UNAME_MACHINE=<span class="hljs-string">&quot;<span class="hljs-subst">$(uname -m)</span>&quot;</span>
+
+  HOMEBREW_PREFIX=<span class="hljs-string">&quot;/home/linuxbrew/.linuxbrew&quot;</span>
+  HOMEBREW_REPOSITORY=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/Homebrew&quot;</span>
+
+  HOMEBREW_CACHE=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/.cache/Homebrew&quot;</span>
+  HOMEBREW_LOGS=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/.logs/Homebrew&quot;</span>
+
+  STAT=<span class="hljs-string">&quot;stat --printf&quot;</span>
+  CHOWN=<span class="hljs-string">&quot;/bin/chown&quot;</span>
+  CHGRP=<span class="hljs-string">&quot;/bin/chgrp&quot;</span>
+  GROUP=<span class="hljs-string">&quot;<span class="hljs-subst">$(id -gn)</span>&quot;</span>
+  TOUCH=<span class="hljs-string">&quot;/bin/touch&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+
+
+<span class="hljs-comment">#获取系统时间</span>
+TIME=$(<span class="hljs-built_in">date</span> <span class="hljs-string">&quot;+%Y-%m-%d %H:%M:%S&quot;</span>)
+
+<span class="hljs-function"><span class="hljs-title">JudgeSuccess</span></span>()
+&#123;
+    <span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span>m此步骤失败 &#x27;<span class="hljs-variable">$1</span>&#x27;<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+        <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$2</span>&quot;</span> == <span class="hljs-string">&#x27;out&#x27;</span> ]]; <span class="hljs-keyword">then</span>
+          <span class="hljs-built_in">exit</span> 0
+        <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span>此步骤成功<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+
+    <span class="hljs-keyword">fi</span>
+&#125;
+<span class="hljs-comment"># 判断是否有系统权限</span>
+<span class="hljs-function"><span class="hljs-title">have_sudo_access</span></span>() &#123;
+  <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HAVE_SUDO_ACCESS-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    /usr/bin/sudo -l <span class="hljs-built_in">mkdir</span> &amp;&gt;/dev/null
+    HAVE_SUDO_ACCESS=<span class="hljs-string">&quot;$?&quot;</span>
+  <span class="hljs-keyword">fi</span>
+
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$HAVE_SUDO_ACCESS</span>&quot;</span> -ne 0 ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span>开机密码输入错误，获取权限失败!<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+
+  <span class="hljs-built_in">return</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HAVE_SUDO_ACCESS</span>&quot;</span>
+&#125;
+
+
+<span class="hljs-function"><span class="hljs-title">abort</span></span>() &#123;
+  <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%s\n&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+  <span class="hljs-comment"># exit 1</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-title">shell_join</span></span>() &#123;
+  <span class="hljs-built_in">local</span> arg
+  <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%s&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+  <span class="hljs-built_in">shift</span>
+  <span class="hljs-keyword">for</span> arg <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot; &quot;</span>
+    <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%s&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;arg// /\ &#125;</span>&quot;</span>
+  <span class="hljs-keyword">done</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-title">execute</span></span>() &#123;
+  <span class="hljs-keyword">if</span> ! <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; <span class="hljs-keyword">then</span>
+    abort <span class="hljs-string">&quot;<span class="hljs-subst">$(printf <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span>此命令运行失败:sudo %s<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(shell_join <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>)</span>&quot;</span>)</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+&#125;
+
+
+
+<span class="hljs-function"><span class="hljs-title">ohai</span></span>() &#123;
+  <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_blue&#125;</span>运行代码 ==&gt;<span class="hljs-variable">$&#123;tty_bold&#125;</span> %s<span class="hljs-variable">$&#123;tty_reset&#125;</span>\n&quot;</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(shell_join <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>)</span>&quot;</span>
+&#125;
+
+<span class="hljs-comment"># 管理员运行</span>
+<span class="hljs-function"><span class="hljs-title">execute_sudo</span></span>() 
+&#123;
+
+  <span class="hljs-built_in">local</span> -a args=(<span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>)
+  <span class="hljs-keyword">if</span> have_sudo_access; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">if</span> [[ -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;SUDO_ASKPASS-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+      args=(<span class="hljs-string">&quot;-A&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;args[@]&#125;</span>&quot;</span>)
+    <span class="hljs-keyword">fi</span>
+    ohai <span class="hljs-string">&quot;/usr/bin/sudo&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;args[@]&#125;</span>&quot;</span>
+    execute <span class="hljs-string">&quot;/usr/bin/sudo&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;args[@]&#125;</span>&quot;</span>
+  <span class="hljs-keyword">else</span>
+    ohai <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;args[@]&#125;</span>&quot;</span>
+    execute <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;args[@]&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+&#125;
+<span class="hljs-comment">#添加文件夹权限</span>
+<span class="hljs-function"><span class="hljs-title">AddPermission</span></span>()
+&#123;
+  execute_sudo <span class="hljs-string">&quot;/bin/chmod&quot;</span> <span class="hljs-string">&quot;-R&quot;</span> <span class="hljs-string">&quot;a+rwx&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+  execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHOWN</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+  execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHGRP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$GROUP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+&#125;
+<span class="hljs-comment">#创建文件夹</span>
+<span class="hljs-function"><span class="hljs-title">CreateFolder</span></span>()
+&#123;
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;-&gt; 创建文件夹&#x27;</span> <span class="hljs-variable">$1</span>
+    execute_sudo <span class="hljs-string">&quot;/bin/mkdir&quot;</span> <span class="hljs-string">&quot;-p&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+    JudgeSuccess
+    AddPermission <span class="hljs-variable">$1</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-title">RmAndCopy</span></span>()
+&#123;
+  <span class="hljs-keyword">if</span> [[ -d <span class="hljs-variable">$1</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;  ---备份要删除的<span class="hljs-variable">$1</span>到系统桌面....&quot;</span>
+    <span class="hljs-keyword">if</span> ! [[ -d <span class="hljs-variable">$HOME</span>/Desktop/Old_Homebrew/<span class="hljs-variable">$TIME</span>/<span class="hljs-variable">$1</span> ]]; <span class="hljs-keyword">then</span>
+      sudo <span class="hljs-built_in">mkdir</span> -p <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/Desktop/Old_Homebrew/<span class="hljs-variable">$TIME</span>/<span class="hljs-variable">$1</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+    sudo <span class="hljs-built_in">cp</span> -rf <span class="hljs-variable">$1</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/Desktop/Old_Homebrew/<span class="hljs-variable">$TIME</span>/<span class="hljs-variable">$1</span>&quot;</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;   ---<span class="hljs-variable">$1</span> 备份完成&quot;</span>
+  <span class="hljs-keyword">fi</span>
+  sudo <span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$1</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-title">RmCreate</span></span>()
+&#123;
+    RmAndCopy <span class="hljs-variable">$1</span>
+    CreateFolder <span class="hljs-variable">$1</span>
+&#125;
+
+<span class="hljs-comment">#判断文件夹存在但不可写</span>
+<span class="hljs-function"><span class="hljs-title">exists_but_not_writable</span></span>() &#123;
+  [[ -e <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ]] &amp;&amp; ! [[ -r <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> &amp;&amp; -w <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> &amp;&amp; -x <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ]]
+&#125;
+<span class="hljs-comment">#文件所有者</span>
+<span class="hljs-function"><span class="hljs-title">get_owner</span></span>() &#123;
+  $(shell_join <span class="hljs-string">&quot;<span class="hljs-variable">$STAT</span> %u <span class="hljs-variable">$1</span>&quot;</span> )
+&#125;
+<span class="hljs-comment">#文件本人无权限</span>
+<span class="hljs-function"><span class="hljs-title">file_not_owned</span></span>() &#123;
+  [[ <span class="hljs-string">&quot;<span class="hljs-subst">$(get_owner <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>)</span>&quot;</span> != <span class="hljs-string">&quot;<span class="hljs-subst">$(id -u)</span>&quot;</span> ]]
+&#125;
+<span class="hljs-comment">#获取所属的组</span>
+<span class="hljs-function"><span class="hljs-title">get_group</span></span>() &#123;
+  $(shell_join <span class="hljs-string">&quot;<span class="hljs-variable">$STAT</span> %g <span class="hljs-variable">$1</span>&quot;</span> )
+&#125;
+<span class="hljs-comment">#不在所属组</span>
+<span class="hljs-function"><span class="hljs-title">file_not_grpowned</span></span>() &#123;
+  [[ <span class="hljs-string">&quot; <span class="hljs-subst">$(id -G <span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>&quot;</span>)</span> &quot;</span> != *<span class="hljs-string">&quot; <span class="hljs-subst">$(get_group <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>)</span> &quot;</span>*  ]]
+&#125;
+<span class="hljs-comment">#获得当前文件夹权限 例如777</span>
+<span class="hljs-function"><span class="hljs-title">get_permission</span></span>() &#123;
+  $(shell_join <span class="hljs-string">&quot;<span class="hljs-variable">$STAT</span> %A <span class="hljs-variable">$1</span>&quot;</span> )
+&#125;
+<span class="hljs-comment">#授权当前用户权限</span>
+<span class="hljs-function"><span class="hljs-title">user_only_chmod</span></span>() &#123;
+  [[ -d <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ]] &amp;&amp; [[ <span class="hljs-string">&quot;<span class="hljs-subst">$(get_permission <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>)</span>&quot;</span> != <span class="hljs-string">&quot;755&quot;</span> ]]
+&#125;
+
+
+<span class="hljs-comment">#创建brew需要的目录 直接复制于国外版本，同步</span>
+<span class="hljs-function"><span class="hljs-title">CreateBrewLinkFolder</span></span>()
+&#123;
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;--创建Brew所需要的目录&quot;</span>
+  directories=(bin etc include lib sbin share opt var
+             Frameworks
+             etc/bash_completion.d lib/pkgconfig
+             share/aclocal share/doc share/info share/locale share/man
+             share/man/man1 share/man/man2 share/man/man3 share/man/man4
+             share/man/man5 share/man/man6 share/man/man7 share/man/man8
+             var/log var/homebrew var/homebrew/linked
+             bin/brew)
+  group_chmods=()
+  <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;directories[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> exists_but_not_writable <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>; <span class="hljs-keyword">then</span>
+      group_chmods+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>)
+    <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">done</span>
+
+  directories=(share/zsh share/zsh/site-functions)
+  zsh_dirs=()
+  <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;directories[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    zsh_dirs+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>)
+  <span class="hljs-keyword">done</span>
+
+  directories=(bin etc include lib sbin share var opt
+              share/zsh share/zsh/site-functions
+              var/homebrew var/homebrew/linked
+              Cellar Caskroom Frameworks)
+  mkdirs=()
+  <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;directories[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> ! [[ -d <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+      mkdirs+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>)
+    <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">done</span>
+
+  user_chmods=()
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#zsh_dirs[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;zsh_dirs[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+      <span class="hljs-keyword">if</span> user_only_chmod <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>; <span class="hljs-keyword">then</span>
+        user_chmods+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>)
+      <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">done</span>
+  <span class="hljs-keyword">fi</span>
+
+  chmods=()
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#group_chmods[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+    chmods+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;group_chmods[@]&#125;</span>&quot;</span>)
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#user_chmods[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+    chmods+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;user_chmods[@]&#125;</span>&quot;</span>)
+  <span class="hljs-keyword">fi</span>
+
+  chowns=()
+  chgrps=()
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#chmods[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;chmods[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+      <span class="hljs-keyword">if</span> file_not_owned <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>; <span class="hljs-keyword">then</span>
+        chowns+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>)
+      <span class="hljs-keyword">fi</span>
+      <span class="hljs-keyword">if</span> file_not_grpowned <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>; <span class="hljs-keyword">then</span>
+        chgrps+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;dir&#125;</span>&quot;</span>)
+      <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">done</span>
+  <span class="hljs-keyword">fi</span>
+
+  <span class="hljs-keyword">if</span> [[ -d <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#chmods[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+      execute_sudo <span class="hljs-string">&quot;/bin/chmod&quot;</span> <span class="hljs-string">&quot;u+rwx&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;chmods[@]&#125;</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#group_chmods[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+      execute_sudo <span class="hljs-string">&quot;/bin/chmod&quot;</span> <span class="hljs-string">&quot;g+rwx&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;group_chmods[@]&#125;</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#user_chmods[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+      execute_sudo <span class="hljs-string">&quot;/bin/chmod&quot;</span> <span class="hljs-string">&quot;755&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;user_chmods[@]&#125;</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#chowns[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+      execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHOWN</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;chowns[@]&#125;</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#chgrps[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+      execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHGRP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$GROUP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;chgrps[@]&#125;</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">else</span>
+    execute_sudo <span class="hljs-string">&quot;/bin/mkdir&quot;</span> <span class="hljs-string">&quot;-p&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>&quot;</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+      execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHOWN</span>&quot;</span> <span class="hljs-string">&quot;root:wheel&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>&quot;</span>
+    <span class="hljs-keyword">else</span>
+      execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHOWN</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>:<span class="hljs-variable">$GROUP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">fi</span>
+
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;#mkdirs[@]&#125;</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+    execute_sudo <span class="hljs-string">&quot;/bin/mkdir&quot;</span> <span class="hljs-string">&quot;-p&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;mkdirs[@]&#125;</span>&quot;</span>
+    execute_sudo <span class="hljs-string">&quot;/bin/chmod&quot;</span> <span class="hljs-string">&quot;g+rwx&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;mkdirs[@]&#125;</span>&quot;</span>
+    execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHOWN</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;mkdirs[@]&#125;</span>&quot;</span>
+    execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHGRP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$GROUP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;mkdirs[@]&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+
+  <span class="hljs-keyword">if</span> ! [[ -d <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    execute_sudo <span class="hljs-string">&quot;/bin/mkdir&quot;</span> <span class="hljs-string">&quot;-p&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+  execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHOWN</span>&quot;</span> <span class="hljs-string">&quot;-R&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>:<span class="hljs-variable">$GROUP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>&quot;</span>
+
+  <span class="hljs-keyword">if</span> ! [[ -d <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+      execute_sudo <span class="hljs-string">&quot;/bin/mkdir&quot;</span> <span class="hljs-string">&quot;-p&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>
+    <span class="hljs-keyword">else</span>
+      execute <span class="hljs-string">&quot;/bin/mkdir&quot;</span> <span class="hljs-string">&quot;-p&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>
+    <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">if</span> exists_but_not_writable <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>; <span class="hljs-keyword">then</span>
+    execute_sudo <span class="hljs-string">&quot;/bin/chmod&quot;</span> <span class="hljs-string">&quot;g+rwx&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">if</span> file_not_owned <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>; <span class="hljs-keyword">then</span>
+    execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHOWN</span>&quot;</span> <span class="hljs-string">&quot;-R&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">if</span> file_not_grpowned <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>; <span class="hljs-keyword">then</span>
+    execute_sudo <span class="hljs-string">&quot;<span class="hljs-variable">$CHGRP</span>&quot;</span> <span class="hljs-string">&quot;-R&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$GROUP</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">if</span> [[ -d <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    execute <span class="hljs-string">&quot;<span class="hljs-variable">$TOUCH</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_CACHE&#125;</span>/.cleaned&quot;</span>
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;--依赖目录脚本运行完成&quot;</span>
+&#125;
+
+<span class="hljs-comment">#git提交</span>
+<span class="hljs-function"><span class="hljs-title">git_commit</span></span>()&#123;
+    git add .
+    git commit -m <span class="hljs-string">&quot;your del&quot;</span>
+&#125;
+
+<span class="hljs-comment">#version_gt 判断$1是否大于$2</span>
+<span class="hljs-function"><span class="hljs-title">version_gt</span></span>() &#123;
+  [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1%.*&#125;</span>&quot;</span> -gt <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2%.*&#125;</span>&quot;</span> ]] || [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1%.*&#125;</span>&quot;</span> -eq <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2%.*&#125;</span>&quot;</span> &amp;&amp; <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1#*.&#125;</span>&quot;</span> -gt <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2#*.&#125;</span>&quot;</span> ]]
+&#125;
+<span class="hljs-comment">#version_ge 判断$1是否大于等于$2</span>
+<span class="hljs-function"><span class="hljs-title">version_ge</span></span>() &#123;
+  [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1%.*&#125;</span>&quot;</span> -gt <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2%.*&#125;</span>&quot;</span> ]] || [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1%.*&#125;</span>&quot;</span> -eq <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2%.*&#125;</span>&quot;</span> &amp;&amp; <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1#*.&#125;</span>&quot;</span> -ge <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2#*.&#125;</span>&quot;</span> ]]
+&#125;
+<span class="hljs-comment">#version_lt 判断$1是否小于$2</span>
+<span class="hljs-function"><span class="hljs-title">version_lt</span></span>() &#123;
+  [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1%.*&#125;</span>&quot;</span> -lt <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2%.*&#125;</span>&quot;</span> ]] || [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1%.*&#125;</span>&quot;</span> -eq <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2%.*&#125;</span>&quot;</span> &amp;&amp; <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1#*.&#125;</span>&quot;</span> -lt <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;2#*.&#125;</span>&quot;</span> ]]
+&#125;
+
+<span class="hljs-comment">#发现错误 关闭脚本 提示如何解决</span>
+<span class="hljs-function"><span class="hljs-title">error_game_over</span></span>()&#123;
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">    <span class="hljs-variable">$&#123;tty_red&#125;</span>失败 去下面文章看一下第二部分的常见错误解决办法</span>
+<span class="hljs-string">    https://zhuanlan.zhihu.com/p/111014448</span>
+<span class="hljs-string">    如果没有解决，把运行脚本过程截图发到 cunkai.wang@foxmail.com <span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">    &quot;</span>
+    <span class="hljs-built_in">exit</span> 0
+&#125;
+
+<span class="hljs-comment">#一些警告判断</span>
+<span class="hljs-function"><span class="hljs-title">warning_if</span></span>()&#123;
+  git_https_proxy=$(git config --global https.proxy)
+  git_http_proxy=$(git config --global http.proxy)
+  <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$git_https_proxy</span>&quot;</span>  &amp;&amp;  -z <span class="hljs-string">&quot;<span class="hljs-variable">$git_http_proxy</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;未发现Git代理（属于正常状态）&quot;</span>
+  <span class="hljs-keyword">else</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_yellow&#125;</span></span>
+<span class="hljs-string">      提示：发现你电脑设置了Git代理，如果Git报错，请运行下面两句话：</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">              git config --global --unset https.proxy</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">              git config --global --unset http.proxy<span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">  &quot;</span>
+  <span class="hljs-keyword">fi</span>
+&#125;
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">              <span class="hljs-variable">$&#123;tty_green&#125;</span> 开始执行Brew自动安装程序 <span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">             <span class="hljs-variable">$&#123;tty_cyan&#125;</span> [cunkai.wang@foxmail.com] <span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">           [&#x27;<span class="hljs-variable">$TIME</span>&#x27;][&#x27;<span class="hljs-variable">$macos_version</span>&#x27;]</span>
+<span class="hljs-string">       <span class="hljs-variable">$&#123;tty_cyan&#125;</span> https://zhuanlan.zhihu.com/p/111014448 <span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">&quot;</span>
+<span class="hljs-comment">#选择一个下载源</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span></span>
+<span class="hljs-string">请选择一个下载镜像，例如中科大，输入1回车。</span>
+<span class="hljs-string">源有时候不稳定，如果git克隆报错重新运行脚本选择源。cask非必须，有部分人需要。</span>
+<span class="hljs-string">1、中科大下载源 2、清华大学下载源 3、北京外国语大学下载源 <span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+<span class="hljs-comment">#mac才显示腾讯 阿里，他们对linux目前支持很差</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span> 4、腾讯下载源（不显示下载进度） 5、阿里巴巴下载源(缺少cask源) <span class="hljs-variable">$&#123;tty_reset&#125;</span> &quot;</span>
+<span class="hljs-keyword">fi</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;</span>
+<span class="hljs-string"><span class="hljs-variable">$&#123;tty_blue&#125;</span>请输入序号: &quot;</span>
+<span class="hljs-built_in">read</span> MY_DOWN_NUM
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">case</span> <span class="hljs-variable">$MY_DOWN_NUM</span> <span class="hljs-keyword">in</span>
+<span class="hljs-string">&quot;2&quot;</span>)
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">    你选择了清华大学下载源</span>
+<span class="hljs-string">    &quot;</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+        USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+    <span class="hljs-keyword">else</span>
+        USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles/
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-comment">#HomeBrew基础框架</span>
+    USER_BREW_GIT=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+    <span class="hljs-comment">#HomeBrew Core</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+        USER_CORE_GIT=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+    <span class="hljs-keyword">else</span>
+        USER_CORE_GIT=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/linuxbrew-core.git
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-comment">#HomeBrew Cask</span>
+    USER_CASK_GIT=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+    USER_CASK_FONTS_GIT=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git
+    USER_CASK_DRIVERS_GIT=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-drivers.git
+;;
+<span class="hljs-string">&quot;3&quot;</span>)
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">    北京外国语大学下载源</span>
+<span class="hljs-string">    &quot;</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+        USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+    <span class="hljs-keyword">else</span>
+        USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles/
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-comment">#HomeBrew基础框架</span>
+    USER_BREW_GIT=https://mirrors.bfsu.edu.cn/git/homebrew/brew.git
+    <span class="hljs-comment">#HomeBrew Core</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+        USER_CORE_GIT=https://mirrors.bfsu.edu.cn/git/homebrew/homebrew-core.git
+    <span class="hljs-keyword">else</span>
+        USER_CORE_GIT=https://mirrors.bfsu.edu.cn/git/homebrew/linuxbrew-core.git
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-comment">#HomeBrew Cask</span>
+    USER_CASK_GIT=https://mirrors.bfsu.edu.cn/git/homebrew/homebrew-cask.git
+    USER_CASK_FONTS_GIT=https://mirrors.bfsu.edu.cn/git/homebrew/homebrew-cask-fonts.git
+    USER_CASK_DRIVERS_GIT=https://mirrors.bfsu.edu.cn/git/homebrew/homebrew-cask-drivers.git
+;;
+<span class="hljs-string">&quot;4&quot;</span>)
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">    你选择了腾讯下载源</span>
+<span class="hljs-string">    &quot;</span>
+    USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.cloud.tencent.com/homebrew-bottles
+    <span class="hljs-comment">#HomeBrew基础框架</span>
+    USER_BREW_GIT=https://mirrors.cloud.tencent.com/homebrew/brew.git 
+    <span class="hljs-comment">#HomeBrew Core</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+        USER_CORE_GIT=https://mirrors.cloud.tencent.com/homebrew/homebrew-core.git
+    <span class="hljs-keyword">else</span>
+        USER_CORE_GIT=https://mirrors.cloud.tencent.com/homebrew/linuxbrew-core.git
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-comment">#HomeBrew Cask</span>
+    USER_CASK_GIT=https://mirrors.cloud.tencent.com/homebrew/homebrew-cask.git
+;;
+<span class="hljs-string">&quot;5&quot;</span>)
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">    你选择了阿里巴巴下载源(无mac的cask源,无Linux版本)</span>
+<span class="hljs-string">    &quot;</span>
+    USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+    <span class="hljs-comment">#HomeBrew基础框架</span>
+    USER_BREW_GIT=https://mirrors.aliyun.com/homebrew/brew.git 
+    <span class="hljs-comment">#HomeBrew Core</span>
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+        USER_CORE_GIT=https://mirrors.aliyun.com/homebrew/homebrew-core.git
+    <span class="hljs-keyword">else</span>
+        USER_CORE_GIT=https://mirrors.ustc.edu.cn/linuxbrew-core.git
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;阿里巴巴无core，这里替换为了中国科学技术大学的linuxbrew-core&quot;</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-comment">#HomeBrew Cask</span>
+    USER_CASK_GIT=https://mirrors.aliyun.com/homebrew/homebrew-cask.git
+;;
+*)
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">  你选择了中国科学技术大学下载源</span>
+<span class="hljs-string">  &quot;</span>
+  <span class="hljs-comment">#HomeBrew 下载源 install</span>
+  <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+  <span class="hljs-keyword">else</span>
+    USER_HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/linuxbrew-bottles/
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-comment">#HomeBrew基础框架</span>
+  USER_BREW_GIT=https://mirrors.ustc.edu.cn/brew.git
+  <span class="hljs-comment">#HomeBrew Core</span>
+  <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    USER_CORE_GIT=https://mirrors.ustc.edu.cn/homebrew-core.git
+  <span class="hljs-keyword">else</span>
+    USER_CORE_GIT=https://mirrors.ustc.edu.cn/linuxbrew-core.git
+  <span class="hljs-keyword">fi</span>
+  <span class="hljs-comment">#HomeBrew Cask</span>
+  USER_CASK_GIT=https://mirrors.ustc.edu.cn/homebrew-cask.git
+;;
+<span class="hljs-keyword">esac</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span>！！！此脚本将要删除之前的brew(包括它下载的软件)，请自行备份。</span>
+<span class="hljs-string">-&gt;是否现在开始执行脚本（N/Y） &quot;</span>
+<span class="hljs-built_in">read</span> MY_Del_Old
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">case</span> <span class="hljs-variable">$MY_Del_Old</span> <span class="hljs-keyword">in</span>
+<span class="hljs-string">&quot;y&quot;</span>)
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;--&gt; 脚本开始执行&quot;</span>
+;;
+<span class="hljs-string">&quot;Y&quot;</span>)
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;--&gt; 脚本开始执行&quot;</span>
+;;
+*)
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;你输入了 <span class="hljs-variable">$MY_Del_Old</span> ，自行备份老版brew和它下载的软件, 如果继续运行脚本应该输入Y或者y</span>
+<span class="hljs-string">&quot;</span>
+<span class="hljs-built_in">exit</span> 0
+;;
+<span class="hljs-keyword">esac</span>
+
+
+<span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+<span class="hljs-comment">#MAC</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_yellow&#125;</span> Mac os设置开机密码方法：</span>
+<span class="hljs-string">  (设置开机密码：在左上角苹果图标-&gt;系统偏好设置-&gt;&quot;</span>用户与群组<span class="hljs-string">&quot;-&gt;更改密码)</span>
+<span class="hljs-string">  (如果提示This incident will be reported. 在&quot;</span>用户与群组<span class="hljs-string">&quot;中查看是否管理员) <span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;==&gt; 通过命令删除之前的brew、创建一个新的Homebrew文件夹</span>
+<span class="hljs-string"><span class="hljs-variable">$&#123;tty_cyan&#125;</span>请输入开机密码，输入过程不显示，输入完后回车<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+
+sudo <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;开始执行&#x27;</span>
+<span class="hljs-comment">#删除以前的Homebrew</span>
+RmCreate <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>
+RmAndCopy <span class="hljs-variable">$HOMEBREW_CACHE</span>
+RmAndCopy <span class="hljs-variable">$HOMEBREW_LOGS</span>
+
+<span class="hljs-comment"># 让环境暂时纯粹，脚本运行结束后恢复</span>
+<span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">export</span> PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/bin
+<span class="hljs-keyword">fi</span>
+git --version
+<span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+
+    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+        sudo <span class="hljs-built_in">rm</span> -rf <span class="hljs-string">&quot;/Library/Developer/CommandLineTools/&quot;</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_cyan&#125;</span>安装Git<span class="hljs-variable">$&#123;tty_reset&#125;</span>后再运行此脚本，<span class="hljs-variable">$&#123;tty_red&#125;</span>在系统弹窗中点击“安装”按钮</span>
+<span class="hljs-string">        如果没有弹窗的老系统，需要自己下载安装：https://sourceforge.net/projects/git-osx-installer/ <span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+        xcode-select --install
+        <span class="hljs-built_in">exit</span> 0
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span> 发现缺少git，开始安装，请输入Y <span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+        sudo apt install git
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string"><span class="hljs-variable">$&#123;tty_cyan&#125;</span>下载速度觉得慢可以ctrl+c或control+c重新运行脚本选择下载源<span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">==&gt; 克隆Homebrew基本文件</span>
+<span class="hljs-string">&quot;</span>
+warning_if
+sudo git <span class="hljs-built_in">clone</span> <span class="hljs-variable">$&#123;GIT_SPEED&#125;</span> <span class="hljs-variable">$USER_BREW_GIT</span> <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>
+JudgeSuccess 尝试再次运行自动脚本选择其他下载源或者切换网络 out
+
+<span class="hljs-comment">#依赖目录创建 授权等等</span>
+CreateBrewLinkFolder
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;==&gt; 创建brew的替身&#x27;</span>
+<span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>&quot;</span> != <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+  find <span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/bin -name brew -<span class="hljs-built_in">exec</span> sudo <span class="hljs-built_in">rm</span> -f &#123;&#125; \;
+  execute <span class="hljs-string">&quot;ln&quot;</span> <span class="hljs-string">&quot;-sf&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/bin/brew&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_PREFIX&#125;</span>/bin/brew&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;==&gt; 克隆Homebrew Core</span>
+<span class="hljs-string"><span class="hljs-variable">$&#123;tty_cyan&#125;</span>此处如果显示Password表示需要再次输入开机密码，输入完后回车<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+sudo <span class="hljs-built_in">mkdir</span> -p <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/Library/Taps/homebrew/homebrew-core
+sudo git <span class="hljs-built_in">clone</span> <span class="hljs-variable">$&#123;GIT_SPEED&#125;</span> <span class="hljs-variable">$USER_CORE_GIT</span> <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/Library/Taps/homebrew/homebrew-core/
+JudgeSuccess 尝试再次运行自动脚本选择其他下载源或者切换网络 out
+
+<span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+<span class="hljs-comment">#MAC</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;==&gt; 克隆Homebrew Cask 图形化软件</span>
+<span class="hljs-string">  <span class="hljs-variable">$&#123;tty_cyan&#125;</span>此处如果显示Password表示需要再次输入开机密码，输入完后回车<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$MY_DOWN_NUM</span>&quot;</span> -eq <span class="hljs-string">&quot;5&quot;</span> ]];<span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_yellow&#125;</span> 阿里源没有Cask 跳过<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+  <span class="hljs-keyword">else</span>
+    sudo <span class="hljs-built_in">mkdir</span> -p <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/Library/Taps/homebrew/homebrew-cask
+    sudo git <span class="hljs-built_in">clone</span> <span class="hljs-variable">$&#123;GIT_SPEED&#125;</span> <span class="hljs-variable">$USER_CASK_GIT</span> <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/Library/Taps/homebrew/homebrew-cask/
+    <span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+        sudo <span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/Library/Taps/homebrew/homebrew-cask
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span>尝试切换下载源或者切换网络,不过Cask组件非必须模块。可以忽略<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span>此步骤成功<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+
+    <span class="hljs-keyword">fi</span>
+  <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">else</span>
+<span class="hljs-comment">#Linux</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_yellow&#125;</span> Linux 不支持Cask图形化软件下载 此步骤跳过<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">fi</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;==&gt; 配置国内镜像源HOMEBREW BOTTLE&#x27;</span>
+
+<span class="hljs-comment">#判断下终端是Bash还是zsh</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SHELL</span>&quot;</span> <span class="hljs-keyword">in</span>
+  */bash*)
+    <span class="hljs-keyword">if</span> [[ -r <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.bash_profile&quot;</span> ]]; <span class="hljs-keyword">then</span>
+      shell_profile=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/.bash_profile&quot;</span>
+    <span class="hljs-keyword">else</span>
+      shell_profile=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/.profile&quot;</span>
+    <span class="hljs-keyword">fi</span>
+    ;;
+  */zsh*)
+    shell_profile=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/.zprofile&quot;</span>
+    ;;
+  *)
+    shell_profile=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/.profile&quot;</span>
+    ;;
+<span class="hljs-keyword">esac</span>
+
+<span class="hljs-keyword">if</span> [[ -f <span class="hljs-variable">$&#123;shell_profile&#125;</span> ]]; <span class="hljs-keyword">then</span>
+  AddPermission <span class="hljs-variable">$&#123;shell_profile&#125;</span>
+<span class="hljs-keyword">fi</span>
+<span class="hljs-comment">#删除之前的环境变量</span>
+<span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+  <span class="hljs-comment">#Mac</span>
+  sed -i <span class="hljs-string">&quot;&quot;</span> <span class="hljs-string">&quot;/ckbrew/d&quot;</span> <span class="hljs-variable">$&#123;shell_profile&#125;</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-comment">#Linux</span>
+  sed -i <span class="hljs-string">&quot;/ckbrew/d&quot;</span> <span class="hljs-variable">$&#123;shell_profile&#125;</span>
+<span class="hljs-keyword">fi</span>
+<span class="hljs-comment">#写入环境变量到文件</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;环境变量写入-&gt;<span class="hljs-variable">$&#123;shell_profile&#125;</span>&quot;</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">  export HOMEBREW_BOTTLE_DOMAIN=<span class="hljs-variable">$&#123;USER_HOMEBREW_BOTTLE_DOMAIN&#125;</span> #ckbrew</span>
+<span class="hljs-string">  eval \$(<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/bin/brew shellenv) #ckbrew</span>
+<span class="hljs-string">&quot;</span> &gt;&gt; <span class="hljs-variable">$&#123;shell_profile&#125;</span> 
+JudgeSuccess
+<span class="hljs-built_in">source</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;shell_profile&#125;</span>&quot;</span>
+<span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span>发现错误，<span class="hljs-variable">$&#123;shell_profile&#125;</span> 文件中有错误，建议根据上一句提示修改；</span>
+<span class="hljs-string">                否则会导致提示 permission denied: brew<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment">#判断系统版本</span>
+<span class="hljs-keyword">if</span> version_gt <span class="hljs-string">&quot;<span class="hljs-variable">$macos_version</span>&quot;</span> <span class="hljs-string">&quot;10.14&quot;</span>; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;电脑系统版本：<span class="hljs-variable">$macos_version</span>&quot;</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_red&#125;</span>检测到你不是最新系统，会有一些报错，请稍等Ruby下载安装;<span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">    &quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;</span>
+<span class="hljs-string">==&gt; 安装完成，brew版本</span>
+<span class="hljs-string">&#x27;</span>
+AddPermission <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>
+<span class="hljs-comment">#先暂时设置到清华大学源，中科大没有Ruby下载镜像</span>
+HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
+<span class="hljs-keyword">if</span> [[ -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-comment">#检测linux curl是否有安装</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-检测curl是否安装&quot;</span>
+    curl -V
+    <span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+        sudo apt-get install curl
+        <span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+            sudo yum install curl
+            <span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+                <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;失败 请自行安装curl 可以参考https://www.howtoing.com/install-curl-in-linux&#x27;</span>
+                error_game_over
+            <span class="hljs-keyword">fi</span>
+        <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">fi</span>
+
+
+brew -v
+<span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;发现错误，自动修复一次！&#x27;</span>
+    <span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$HOMEBREW_CACHE</span>
+    <span class="hljs-built_in">export</span> PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:<span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/bin
+    brew update-reset
+    brew -v
+    <span class="hljs-keyword">if</span> [ $? -ne 0 ];<span class="hljs-keyword">then</span>
+      error_game_over
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span>Brew前期配置成功<span class="hljs-variable">$&#123;tty_reset&#125;</span>&quot;</span>
+<span class="hljs-keyword">fi</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;</span>
+<span class="hljs-string">==&gt; brew update</span>
+<span class="hljs-string">&#x27;</span>
+HOMEBREW_BOTTLE_DOMAIN=<span class="hljs-variable">$&#123;USER_HOMEBREW_BOTTLE_DOMAIN&#125;</span>
+<span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$GIT_SPEED</span> == <span class="hljs-string">&quot;&quot;</span> ]];<span class="hljs-keyword">then</span>
+  brew update
+  <span class="hljs-keyword">if</span> [[ $? -ne 0 ]];<span class="hljs-keyword">then</span>
+      error_game_over
+      <span class="hljs-built_in">exit</span> 0
+  <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">else</span>
+   <span class="hljs-comment">#极速模式提示Update修复方法</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span>  极速版本安装完成，<span class="hljs-variable">$&#123;tty_reset&#125;</span> install功能正常，如果需要update功能请自行运行下面两句命令</span>
+<span class="hljs-string">git -C <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/Library/Taps/homebrew/homebrew-core fetch --unshallow</span>
+<span class="hljs-string">git -C <span class="hljs-variable">$&#123;HOMEBREW_REPOSITORY&#125;</span>/Library/Taps/homebrew/homebrew-cask fetch --unshallow</span>
+<span class="hljs-string">  &quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span>
+<span class="hljs-string">        <span class="hljs-variable">$&#123;tty_green&#125;</span>Brew自动安装程序运行完成<span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">          <span class="hljs-variable">$&#123;tty_green&#125;</span>国内地址已经配置完成<span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string"></span>
+<span class="hljs-string">  桌面的Old_Homebrew文件夹，大致看看没有你需要的可以删除。</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">              初步介绍几个brew命令</span>
+<span class="hljs-string">本地软件库列表：brew ls</span>
+<span class="hljs-string">查找软件：brew search google（其中google替换为要查找的关键字）</span>
+<span class="hljs-string">查看brew版本：brew -v  更新brew版本：brew update</span>
+<span class="hljs-string">安装cask软件：brew install --cask firefox 把firefox换成你要安装的</span>
+<span class="hljs-string">        <span class="hljs-variable">$&#123;tty_green&#125;</span></span>
+<span class="hljs-string">        欢迎右键点击下方地址-打开URL 来给点个赞<span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">        <span class="hljs-variable">$&#123;tty_underline&#125;</span> https://zhuanlan.zhihu.com/p/111014448 <span class="hljs-variable">$&#123;tty_reset&#125;</span></span>
+<span class="hljs-string">&quot;</span>
+
+<span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOMEBREW_ON_LINUX-&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+  <span class="hljs-comment">#Mac</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span> 重启终端 或者 运行<span class="hljs-variable">$&#123;tty_bold&#125;</span> source <span class="hljs-variable">$&#123;shell_profile&#125;</span>  <span class="hljs-variable">$&#123;tty_reset&#125;</span>，否则可能无法使用</span>
+<span class="hljs-string">  &quot;</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-comment">#Linux</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;tty_green&#125;</span> Linux需要重启电脑 或者暂时运行<span class="hljs-variable">$&#123;tty_bold&#125;</span> source <span class="hljs-variable">$&#123;shell_profile&#125;</span> <span class="hljs-variable">$&#123;tty_reset&#125;</span>，否则可能无法使用</span>
+<span class="hljs-string">  &quot;</span>
+<span class="hljs-keyword">fi</span>
+
+</code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/mac/">mac</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Homebrew/">Homebrew</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/07/python%E5%B0%86html%E8%BD%AC%E6%88%90pdf/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python将html转成pdf</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/">
+                        <span class="hidden-mobile">文件存储、数据存储、混合存储</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Mac安装Homebrew&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

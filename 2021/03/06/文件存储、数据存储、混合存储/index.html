@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>文件存储、数据存储、混合存储 - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-03-06 22:33" pubdate>
+      March 6, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">文件存储、数据存储、混合存储</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="文件存储、数据存储、混合存储"><a href="#文件存储、数据存储、混合存储" class="headerlink" title="文件存储、数据存储、混合存储"></a>文件存储、数据存储、混合存储</h1><p><strong>源头:</strong> 数据管理的方案设计</p>
+<h2 id="什么是数据存储？"><a href="#什么是数据存储？" class="headerlink" title="什么是数据存储？"></a>什么是数据存储？</h2><p>数据存储是信息技术对您每天所需的数据内容（从应用到网络协议，从文档到媒体，从地址簿到用户首选项）进行归档、整理和共享的过程。数据存储是大数据的核心环节。</p>
+<p>试想一下，计算机就像大脑一样。两者都有短期记忆和长期记忆。大脑通过前额叶皮层来处理短期记忆，而计算机则利用随机存取存储器（RAM）来处理短期记忆。</p>
+<p>大脑和 RAM 都要在清醒的状态下处理并记住事务，并且在工作一会儿后会感到疲倦。大脑在睡眠时会将工作记忆转换为长期记忆，而计算机则在睡眠时将活动记忆转换为存储卷。计算机还会按类型来分配数据，就像大脑按语义、空间、情感或规程来分配记忆一样。</p>
+<p>自磁盘系统问世以来，数据存储已经走过了一段漫长的历程。诚然，磁盘系统仍然在广泛应用。但如今它们已接入网络并由软件来定义，因此您可以完全控制其格式。</p>
+<img src="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/2021-03-06-23-20-18.png" srcset="/img/loading.gif" class="">
+
+<h2 id="什么是文件存储？"><a href="#什么是文件存储？" class="headerlink" title="什么是文件存储？"></a>什么是文件存储？</h2><img src="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/2021-03-06-22-37-09.png" srcset="/img/loading.gif" class="">
+
+<p><strong>文件存储</strong>也称为文件级存储或基于文件的存储，且正如您所想：数据会以单条信息的形式存储在文件夹中，正如您将几张纸放入一个文件夹中一样。当您需要访问该数据时，您的计算机需要知道相应的查找路径。</p>
+<p>存储在文件中的数据会根据数量有限的元数据来进行整理和检索，这些元数据会告诉计算机文件所在的确切位置。它就像是数据文件的库卡目录。</p>
+<p>请试想一下塞满文件柜的储藏室。每个文档都会按照某种类型的逻辑层次结构来排放 ——按文件柜、抽屉、文件夹，然后再是纸张。</p>
+<img src="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/2021-03-06-23-30-35.png" srcset="/img/loading.gif" class="">
+
+<p>“分层存储”这个术语就是这么来的，而这就是文件存储。它是适用于直接和网络附加存储系统的最古老且运用最为广泛的一种数据存储系统；而且，这种系统您可能已经用了数十年。</p>
+<p>只要您访问保存在个人计算机上的文件中的文档，您就是在使用文件存储。文件存储具有丰富多样的功能，几乎可以存储任何内容。它非常适合用来存储一系列复杂文件，并且有助于用户快速导航。</p>
+<img src="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/2021-03-06-23-13-56.png" srcset="/img/loading.gif" class="">
+
+<p><code>缺点:</code> 问题是，就像文件柜一样，虚拟抽屉只能打开到一定的程度。基于文件的存储系统必须通过添置<strong>更多系统</strong>来进行横向扩展，而不是通过增添更多容量来进行纵向扩展。</p>
+<h2 id="什么是混合存储"><a href="#什么是混合存储" class="headerlink" title="什么是混合存储?"></a>什么是混合存储?</h2><p><code>混合存储系统</code>就是将<code>基于闪存的固态磁盘</code>与<code>常规磁盘驱动器</code>(机械硬盘(HDD))结合使用。混合存储将闪存作为缓存区，用于自动将最活跃的数据移入基于内存的存储。</p>
+<p><code>优点</code>: 混合存储充分利用不同类型的存储器件的特性组成高效的存储系统，既能支持存储系统容量的大幅扩展，又能保证系统低成本的前提下，显著提高存储系统的能力。它们是管理大中型数据中心的 IT 专业人员经济实惠的高性能存储选择。</p>
+<p>目前市场上几乎所有的SSD硬盘都基于闪存技术。闪存设备性能表现的关键在于固态技术，因为其没有可移动组件。不依赖于读/写次磁头来访问数据，固态硬盘（SSD）使用更加类似于内存的方式从闪存存储中读取数据。闪存设备并不存在由旋转的磁道和移动的读/取磁头所导致的延迟时间。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><img src="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/2021-03-07-00-35-28.png" srcset="/img/loading.gif" class="">
+
+<p><code>数据存储</code>：是指对数据内容进行归档、整理和共享的过程。是<code>目的。</code><br><code>文件存储</code>：文件级存储或基于文件的存储。是<code>手段。</code>它还可以是<code>块存储</code>、<code>对象存储</code>等。是<code>软件层面</code>的。<br><code>混合存储</code>: 指将<code>基于闪存的固态磁盘</code>与<code>常规磁盘驱动器</code>(机械硬盘(HDD))结合使用。是<code>存储介质</code>。是<code>硬件层面</code>的。</p>
+<h2 id="扩展阅读-选读"><a href="#扩展阅读-选读" class="headerlink" title="扩展阅读(选读)"></a>扩展阅读(选读)</h2><h3 id="什么是闪存"><a href="#什么是闪存" class="headerlink" title="什么是闪存?"></a>什么是闪存?</h3><p><strong>闪存是一种基于硅芯片的存储介质，可以用电写入或擦除。</strong>存储介质的其他示例包括机械硬盘、磁带、CD光盘、DVD光盘、蓝光光盘，甚至是软盘和穿孔卡。</p>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>速度</td>
+<td>闪存具有一些独特的特性，使其特别适用于存储企业数据。首先，顾名思义，它比机械硬盘(HDD)的存取速度快得多。</td>
+</tr>
+<tr>
+<td>没有活动部件</td>
+<td>与机械硬盘或磁带不同，闪存可用于制造没有移动部件的硬盘驱动器。一般来说，这使得它不太可能中断或失败，特别是在存储设施被移动的情况下(尽管有些专家并不认同闪存这种特性的真实可靠性)。</td>
+</tr>
+<tr>
+<td>非易失性</td>
+<td>闪存是非易失性的，这意味着即使电源关闭，它也会保留存储的信息。这使它与内存(RAM)区别开来，后者的存取也非常快，但每次系统断电时都会被擦除。</td>
+</tr>
+<tr>
+<td>易于重写</td>
+<td>闪存很容易重写，因此它对于存储频繁更改的数据非常有用(例如，不像CD或DVD光盘)。</td>
+</tr>
+</tbody></table>
+<p><code>缺点</code>: 目前的价格还相当昂贵。但是，随着技术的进步，成本会逐渐降低，使闪存在企业环境中更具成本效益。有些组织的数据中心甚至选择完全舍弃机械硬盘而所有都采用SSD硬盘。</p>
+<h3 id="什么是SSD存储"><a href="#什么是SSD存储" class="headerlink" title="什么是SSD存储?"></a>什么是SSD存储?</h3><p>SSD硬盘是存储设备。目前市场上的大多数SSD硬盘都使用闪存作为其存储介质。闪存和SSD硬盘之间的关系类似于CD光盘和CD光盘驱动器之间的关系。CD光盘是介质，CD光盘驱动器是存储设备，因此，可以认为闪存是介质，而SSD硬盘是存储设备。</p>
+<p>然而，SSD硬盘不一定必须使用闪存作为其存储介质。其名称为“固态驱动器”，因此任何不运动的存储类型都可以算作SSD硬盘。事实上，从历史上看，最早的SSD硬盘并没有使用闪存介质。未来的SSD硬盘也可能使用闪存以外的介质。</p>
+<p>大多数SSD硬盘使用与HDD硬盘相同的外形。这使用户可以更轻松地从基于磁盘的存储迁移到固态存储。企业可以购买已安装HDD硬盘的单个驱动器或SSD硬盘阵列。混合阵列使用HDD硬盘和SSD硬盘的组合是另一种流行的选择。</p>
+<h3 id="构建混合存储系统的三种方式"><a href="#构建混合存储系统的三种方式" class="headerlink" title="构建混合存储系统的三种方式"></a>构建混合存储系统的三种方式</h3><p><strong>第一种:</strong> 创建混合存储系统最为简单的方式就是在<em>存储系统中同时使用固态硬盘和普通磁盘</em>。</p>
+<p>将闪存被封装在一个类似于磁盘的盒子当中，使用和磁盘同样的方式连接到存储系统上。</p>
+<p>SSD使用和硬盘同样的协议，所以基本上它们是可以进行互换的。</p>
+<p>使用SSD的优势在于和现有存储基础设施的兼容性以及易于安装的特点。</p>
+<p>SSD可以提供比硬盘更快的读写性能表现，但是你可能会觉得这并不能发挥闪存设备的全部性能表现；</p>
+<p>磁盘驱动协议并不是针对闪存存储技术而设计的，所以必须将它们映射为闪存设备操作。</p>
+<p><strong>第二种:</strong> 是将其作为<em>服务器</em>和<em>基于磁盘存储系统</em>之间的<code>共享闪存设备</code>。</p>
+<p>闪存设备作为一个持续性缓存来提升读写操作速度。</p>
+<p>比如，像文字处理或者电子表格这样的VDI应用程序可以将数据块写入到闪存设备当中，相比于在磁盘上完成同样的操作，这样可以更快地收到确认信息。</p>
+<p>当闪存设备将新收到的数据写入到磁盘存储系统的同时，应用程序可以继续完成其他操作。</p>
+<p>这种方式可以提供多种优势。首先，因为闪存设备位于服务器和存储系统之间，多种服务器都可以利用闪存设备提供的优势。</p>
+<p>同样，这样的闪存系统可以安装在<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26172972">PCI</a>总线上（PCIe），而不是磁盘驱动的盒子当中。PCIe可以提供更快的速度，避免产生和模拟磁盘驱动协议相关的系统开销。</p>
+<p><strong>第三种:</strong> 需要直接在服务器上安装PCIe闪存设备。这种方式可以极大地提高存储性能，因为其减少了CPU和持续性存储间的网络延迟，同时避免了和磁盘驱动协议相关的系统开销，还有由盘片旋转和读/写磁头移动所产生的延迟。</p>
+<blockquote>
+<p>NOTE: 笔者这块不是特别熟悉。</p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/data-storage">了解数据存储</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/data-storage/file-block-object-storage">文件存储、块存储还是对象存储？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.sohu.com/a/242321733_281945">闪存vs.SSD硬盘：有什么区别? </a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?src=3&timestamp=1615044504&ver=1&signature=Wjidb64P1hfhTVjpGJ*ElfbP*olIDZF9kCYzvQWKYpzC-MXhVvlR9tEEM5JWBAbcLHMpJ1-xLVUl1fih6GEMCF9NPqJBq4QeeQw43qmxF0hWUFz1KC2dhSc2zdRln5VPcABHrdQRfDhZ3taueF4YxA==">构建混合存储系统的三种方式</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CS/">CS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CS/">CS</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/07/Mac%E5%AE%89%E8%A3%85Homebrew/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Mac安装Homebrew</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/24/csapp-chapter3-3-7-Procedures/">
+                        <span class="hidden-mobile">csapp-chapter3-3.7-Procedures</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "文件存储、数据存储、混合存储&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

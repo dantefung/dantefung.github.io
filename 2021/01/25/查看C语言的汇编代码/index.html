@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>查看C语言的汇编代码 - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-25 21:01" pubdate>
+      January 25, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      764 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">查看C语言的汇编代码</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="查看C语言的汇编代码"><a href="#查看C语言的汇编代码" class="headerlink" title="查看C语言的汇编代码"></a>查看C语言的汇编代码</h1><h2 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h2><p><strong>GCC, the GNU Compiler Collection</strong><br>The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,…). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user’s freedom.</p>
+<h2 id="选择GCC"><a href="#选择GCC" class="headerlink" title="选择GCC"></a>选择GCC</h2><blockquote>
+<p>MinGW: 编译目标仅兼容 32 位应用程序，最新的官方二进制版本为 GCC 9.2.0。<br>MinGW-w64: 衍生自 MinGW 的项目，编译目标兼容 32 位应用程序与64 位应用程序，最新的官方二进制版本为 GCC 8.1.0。(MingW-W64-builds)<br>TDM-GCC: 衍生自 MinGW 和 MinGW-w64 的项目，分为 32 位与 64 位两个版本，32 位版本的编译目标仅兼容 32 位应用程序，64位版本的编译目标兼容 32 位应用程序和 64 位应用程序，最新的官方二进制版本为 GCC 9.2.0。以上三个 GCC 编译器的 Windows 发行版均兼容 POSIX 线程标准 。(“pthread.h”)个人推荐优先选择 TDM-GCC 作为首选 C / C++ 编译器。</p>
+</blockquote>
+<blockquote>
+<p>作者：砂漠的毒虫<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/39952667/answer/1133837727">https://www.zhihu.com/question/39952667/answer/1133837727</a><br>来源：知乎</p>
+</blockquote>
+<h2 id="安装TDM-GCC"><a href="#安装TDM-GCC" class="headerlink" title="安装TDM-GCC"></a>安装TDM-GCC</h2><img src="/2021/01/25/%E6%9F%A5%E7%9C%8BC%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B1%87%E7%BC%96%E4%BB%A3%E7%A0%81/2021-01-25-21-15-16.png" srcset="/img/loading.gif" class="">
+
+<img src="/2021/01/25/%E6%9F%A5%E7%9C%8BC%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B1%87%E7%BC%96%E4%BB%A3%E7%A0%81/2021-01-25-21-18-11.png" srcset="/img/loading.gif" class="">
+
+<img src="/2021/01/25/%E6%9F%A5%E7%9C%8BC%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B1%87%E7%BC%96%E4%BB%A3%E7%A0%81/2021-01-25-21-14-36.png" srcset="/img/loading.gif" class="">
+
+
+<h2 id="生成汇编"><a href="#生成汇编" class="headerlink" title="生成汇编"></a>生成汇编</h2><img src="/2021/01/25/%E6%9F%A5%E7%9C%8BC%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B1%87%E7%BC%96%E4%BB%A3%E7%A0%81/2021-01-26-11-02-40.png" srcset="/img/loading.gif" class="">
+
+<img src="/2021/01/25/%E6%9F%A5%E7%9C%8BC%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B1%87%E7%BC%96%E4%BB%A3%E7%A0%81/2021-01-26-11-03-11.png" srcset="/img/loading.gif" class="">
+
+<img src="/2021/01/25/%E6%9F%A5%E7%9C%8BC%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B1%87%E7%BC%96%E4%BB%A3%E7%A0%81/2021-01-26-11-03-28.png" srcset="/img/loading.gif" class="">
+
+<div class="hljs"><pre><code class="hljs css">gcc -og -S <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.c</span></code></pre></div>
+<p>这会使GCC运行编译器，产生一个汇编文件main.s,但是不做进一步的工作(通常情况下，它还会继续调用汇编器产生目标代码文件)。</p>
+<h2 id="展示程序的字节表示"><a href="#展示程序的字节表示" class="headerlink" title="展示程序的字节表示"></a>展示程序的字节表示</h2><div class="hljs"><pre><code class="hljs llvm">gcc -og -<span class="hljs-keyword">c</span> main.<span class="hljs-keyword">c</span></code></pre></div>
+<p>如果我们使用”-c”命令行选项，GCC会编译并汇编该代码,这样就会产生目标代码文件main.o，它是二进制格式的，所以无法直接查看。</p>
+<p>要展示程序(main.c)的二进制目标代码，我们用<code>反汇编器</code>确定该过程的代码是14字节。然后，在文件main.o上运行GNU调试工具GDB。</p>
+<p>要查看机器代码文件的内容，有一类称为<code>反汇编器(disassembler)</code>的程序非常有用。</p>
+<div class="hljs"><pre><code class="hljs css">objdump -d <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.o</span></code></pre></div>
+
+<img src="/2021/01/25/%E6%9F%A5%E7%9C%8BC%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B1%87%E7%BC%96%E4%BB%A3%E7%A0%81/2021-01-26-14-08-13.png" srcset="/img/loading.gif" class="">
+
+<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">F</span>:\demoCode\syspace\<span class="hljs-number">2</span>-ccpp\<span class="hljs-number">21</span>-basic\csapp-lab&gt;objdump -d main.o
+
+<span class="hljs-attribute">main</span>.o:     file format pe-i386
+
+
+<span class="hljs-attribute">Disassembly</span> of section .text:
+
+<span class="hljs-attribute">00000000</span> &lt;_main&gt;:
+   <span class="hljs-attribute">0</span>:   <span class="hljs-number">55</span>                      push   %ebp
+   <span class="hljs-attribute">1</span>:   <span class="hljs-number">89</span> e5                   mov    %esp,%ebp
+   <span class="hljs-attribute">3</span>:   <span class="hljs-number">83</span> ec <span class="hljs-number">08</span>                sub    $<span class="hljs-number">0</span>x8,%esp
+   <span class="hljs-attribute">6</span>:   <span class="hljs-number">83</span> e4 f0                and    $<span class="hljs-number">0</span>xfffffff0,%esp
+   <span class="hljs-attribute">9</span>:   b8 <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>          mov    $<span class="hljs-number">0</span>x0,%eax
+   <span class="hljs-attribute">e</span>:   <span class="hljs-number">83</span> c0 <span class="hljs-number">0</span>f                add    $<span class="hljs-number">0</span>xf,%eax
+  <span class="hljs-attribute">11</span>:   <span class="hljs-number">83</span> c0 <span class="hljs-number">0</span>f                add    $<span class="hljs-number">0</span>xf,%eax
+  <span class="hljs-attribute">14</span>:   c1 e8 <span class="hljs-number">04</span>                shr    $<span class="hljs-number">0</span>x4,%eax
+  <span class="hljs-attribute">17</span>:   c1 e0 <span class="hljs-number">04</span>                shl    $<span class="hljs-number">0</span>x4,%eax
+  <span class="hljs-attribute">1a</span>:   <span class="hljs-number">89</span> <span class="hljs-number">45</span> fc                mov    %eax,-<span class="hljs-number">0</span>x4(%ebp)
+  <span class="hljs-attribute">1d</span>:   <span class="hljs-number">8</span>b <span class="hljs-number">45</span> fc                mov    -<span class="hljs-number">0</span>x4(%ebp),%eax
+  <span class="hljs-attribute">20</span>:   e8 <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>          call   <span class="hljs-number">25</span> &lt;_main+<span class="hljs-number">0</span>x25&gt;
+  <span class="hljs-attribute">25</span>:   e8 <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>          call   <span class="hljs-number">2</span>a &lt;_main+<span class="hljs-number">0</span>x2a&gt;
+  <span class="hljs-attribute">2a</span>:   c7 <span class="hljs-number">04</span> <span class="hljs-number">24</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>    movl   $<span class="hljs-number">0</span>x0,(%esp)
+  <span class="hljs-attribute">31</span>:   e8 <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>          call   <span class="hljs-number">36</span> &lt;_main+<span class="hljs-number">0</span>x36&gt;
+  <span class="hljs-attribute">36</span>:   b8 <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>          mov    $<span class="hljs-number">0</span>x0,%eax
+  <span class="hljs-attribute">3b</span>:   c9                      leave
+  <span class="hljs-attribute">3c</span>:   c3                      ret
+
+<span class="hljs-attribute">0000003d</span> &lt;_exchange&gt;:
+  <span class="hljs-attribute">3d</span>:   <span class="hljs-number">55</span>                      push   %ebp
+  <span class="hljs-attribute">3e</span>:   <span class="hljs-number">89</span> e5                   mov    %esp,%ebp
+  <span class="hljs-attribute">40</span>:   <span class="hljs-number">83</span> ec <span class="hljs-number">04</span>                sub    $<span class="hljs-number">0</span>x4,%esp
+  <span class="hljs-attribute">43</span>:   <span class="hljs-number">8</span>b <span class="hljs-number">45</span> <span class="hljs-number">08</span>                mov    <span class="hljs-number">0</span>x8(%ebp),%eax
+  <span class="hljs-attribute">46</span>:   <span class="hljs-number">8</span>b <span class="hljs-number">00</span>                   mov    (%eax),%eax
+  <span class="hljs-attribute">48</span>:   <span class="hljs-number">89</span> <span class="hljs-number">45</span> fc                mov    %eax,-<span class="hljs-number">0</span>x4(%ebp)
+  <span class="hljs-attribute">4b</span>:   <span class="hljs-number">8</span>b <span class="hljs-number">55</span> <span class="hljs-number">08</span>                mov    <span class="hljs-number">0</span>x8(%ebp),%edx
+  <span class="hljs-attribute">4e</span>:   <span class="hljs-number">8</span>b <span class="hljs-number">45</span> <span class="hljs-number">0</span>c                mov    <span class="hljs-number">0</span>xc(%ebp),%eax
+  <span class="hljs-attribute">51</span>:   <span class="hljs-number">89</span> <span class="hljs-number">02</span>                   mov    %eax,(%edx)
+  <span class="hljs-attribute">53</span>:   <span class="hljs-number">8</span>b <span class="hljs-number">45</span> fc                mov    -<span class="hljs-number">0</span>x4(%ebp),%eax
+  <span class="hljs-attribute">56</span>:   c9                      leave
+  <span class="hljs-attribute">57</span>:   c3                      ret
+</code></pre></div>
+
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://gcc.gnu.org/">GCC, the GNU Compiler Collection</a></li>
+<li><a target="_blank" rel="noopener" href="https://jmeubank.github.io/tdm-gcc/">TDM-GCC 9.2.0 release</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.mingw-w64.org/doku.php">mingw-w64</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B1%87%E7%BC%96/">汇编</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/24/csapp-chapter3-3-7-Procedures/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">csapp-chapter3-3.7-Procedures</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/24/csapp-chapter3-Machine-level-Representation-of-Programs/">
+                        <span class="hidden-mobile">csapp-chapter3-Machine_level_Representation_of_Programs</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "查看C语言的汇编代码&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

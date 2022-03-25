@@ -1,0 +1,839 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>flutter通过外链唤起app注入代理设置 - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-11 17:16" pubdate>
+      September 11, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">flutter通过外链唤起app注入代理设置</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-42-44.png" srcset="/img/loading.gif" class="">
+
+<h1 id="flutter-通过外链唤起-app-注入代理设置"><a href="#flutter-通过外链唤起-app-注入代理设置" class="headerlink" title="flutter 通过外链唤起 app 注入代理设置"></a>flutter 通过外链唤起 app 注入代理设置</h1><h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><blockquote>
+<p>在 Flutter 中进行网络请求时，我们可以使用的库有 3 个，即 Http 请求库、HttpClient 请求库和 Dio 请求库<br>），使用得最多的就是 Dio 请求库。因为相比 Http 请求库和 HttpClient 请求库，Dio 库不仅支持常见的网络请求，还支持 Restful API、FormData、拦截器、请求取消、Cookie 管理、文件上传/下载、超时等操作。不过，默认情况下，Dio 进行网络请求时是不支持抓包的，所以如果要进行抓包，就需要对 Dio 进行请求封装，并编写代理代码。<br>转自: <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023654714?utm_source=tag-newest">https://segmentfault.com/a/1190000023654714?utm_source=tag-newest</a></p>
+</blockquote>
+<p>经查阅 dio 的文档，发现可以设置 http 代理：</p>
+<div class="hljs"><pre><code class="hljs abnf">Dio dio <span class="hljs-operator">=</span> new Dio()<span class="hljs-comment">;</span>
+    (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate <span class="hljs-operator">=</span>
+        (HttpClient client) &#123;
+      client.findProxy <span class="hljs-operator">=</span> (uri) &#123;
+        return <span class="hljs-string">&quot;PROXY 10.10.25.80:8888&quot;</span><span class="hljs-comment">;</span>
+      &#125;<span class="hljs-comment">;</span>
+    &#125;<span class="hljs-comment">;</span>
+</code></pre></div>
+
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><strong>参见:</strong><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/09aa6876acea">flutter 完美抓包解决方案</a><br>阅读一番后，其实不外乎是基于官网给的方式去演绎，使我们能够更加便捷地去设置代理 IP 和端口。<br>当然，你可以通过 <code>wireshark</code> 去抓包，这里都是针对 <code>fiddler</code> 这样的工具提供抓包支持。<br>以下笔者将基于参考链接的原文内容进行详细的演绎说明。</p>
+<h2 id="方式一-硬编码"><a href="#方式一-硬编码" class="headerlink" title="方式一: 硬编码"></a>方式一: 硬编码</h2><div class="hljs"><pre><code class="hljs wren">(<span class="hljs-variable">_dio</span>.<span class="hljs-property">httpClientAdapter</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">DefaultHttpClientAdapter</span>).<span class="hljs-property">onHttpClientCreate</span> <span class="hljs-title function_">=</span>
+          (<span class="hljs-variable">client</span>) &#123;
+        <span class="hljs-comment">//这一段是解决安卓https抓包的问题</span>
+        <span class="hljs-variable">client</span>.<span class="hljs-property">badCertificateCallback</span> <span class="hljs-title function_">=</span>
+            (<span class="hljs-variable">X509Certificate</span> <span class="hljs-variable">cert</span>, <span class="hljs-title class_">String</span> <span class="hljs-variable">host</span>, int <span class="hljs-variable">port</span>) &#123;
+          <span class="hljs-keyword">return</span> <span class="hljs-title class_">Platform</span>.<span class="hljs-property">isAndroid</span>;
+        &#125;;
+        <span class="hljs-variable">client</span>.<span class="hljs-property">findProxy</span> <span class="hljs-title function_">=</span> (<span class="hljs-variable">uri</span>) &#123;
+          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;PROXY 代理ip:代理port&quot;</span>;
+        &#125;;
+      &#125;;</code></pre></div>
+
+<h2 id="方式二-编写原生插件"><a href="#方式二-编写原生插件" class="headerlink" title="方式二: 编写原生插件"></a>方式二: 编写原生插件</h2><p><code>缺点: </code></p>
+<ol>
+<li>安卓无法获取</li>
+<li>编写成本高, 对不是原生开发者不够友好</li>
+</ol>
+<p><code>优点:</code> IOS 可行</p>
+<div class="hljs"><pre><code class="hljs objectivec"><span class="hljs-comment">//自动获取手机代理</span>
+  <span class="hljs-built_in">NSDictionary</span> *proxySettings = (__bridge <span class="hljs-built_in">NSDictionary</span> *)(<span class="hljs-built_in">CFNetworkCopySystemProxySettings</span>());
+           <span class="hljs-built_in">NSArray</span> *proxies = (__bridge <span class="hljs-built_in">NSArray</span> *)(<span class="hljs-built_in">CFNetworkCopyProxiesForURL</span>((__bridge <span class="hljs-built_in">CFURLRef</span> _Nonnull)([<span class="hljs-built_in">NSURL</span> URLWithString:call.arguments]), (__bridge <span class="hljs-built_in">CFDictionaryRef</span> _Nonnull)(proxySettings)));
+           <span class="hljs-built_in">NSString</span> *hostName = proxySettings[<span class="hljs-string">@&quot;HTTPSProxy&quot;</span>];
+           <span class="hljs-built_in">NSString</span> *portName = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@&quot;%@&quot;</span>,proxySettings[<span class="hljs-string">@&quot;HTTPPort&quot;</span>]];
+           <span class="hljs-type">long</span> HTTPEnable = [proxySettings[<span class="hljs-string">@&quot;HTTPEnable&quot;</span>] longValue];
+           <span class="hljs-keyword">if</span> (HTTPEnable==<span class="hljs-number">0</span>) &#123;
+               hostName = <span class="hljs-string">@&quot;&quot;</span>;
+           &#125;
+</code></pre></div>
+
+<h2 id="方式三-采用-scheme-协议"><a href="#方式三-采用-scheme-协议" class="headerlink" title="方式三: 采用 scheme 协议"></a>方式三: 采用 scheme 协议</h2><p>整体思路如下:</p>
+<div class="hljs"><pre><code class="hljs awk"><span class="hljs-number">1</span>，注册自己的URL Scheme，例如：scheme:<span class="hljs-regexp">//</span>
+<span class="hljs-number">2</span>，定义参数规则，例如：scheme:<span class="hljs-regexp">//</span>tiaoshi?host=<span class="hljs-number">10.0</span>.<span class="hljs-number">206.163</span>
+<span class="hljs-number">3</span>，引入flutter插件：uni_links: ^<span class="hljs-number">0.2</span>.<span class="hljs-number">0</span>
+<span class="hljs-number">4</span>，flutter监听解析参数，并在dio里面设置代理
+<span class="hljs-number">5</span>，使用[草料]https:<span class="hljs-regexp">//</span>cli.im生成一个二维码：内容：scheme:<span class="hljs-regexp">//</span>tiaoshi?host=<span class="hljs-number">10.0</span>.<span class="hljs-number">206.163</span>
+<span class="hljs-number">6</span>，使用二维码扫描工具扫描生成的二维码唤起APP</code></pre></div>
+
+<h3 id="URL-Scheme"><a href="#URL-Scheme" class="headerlink" title="URL Scheme"></a>URL Scheme</h3><p>Scheme 用于从浏览器或其他应用中启动本应用。也就是说要从其他应用中跳转本应用的界面或者网页跳转本应用打开特定的界面。</p>
+<h3 id="Scheme-协议格式"><a href="#Scheme-协议格式" class="headerlink" title="Scheme 协议格式"></a>Scheme 协议格式</h3><div class="hljs"><pre><code class="hljs awk">protocol :<span class="hljs-regexp">//</span> hostname[:port] <span class="hljs-regexp">/ path /</span> [;parameters][?query]<span class="hljs-comment">#fragment</span></code></pre></div>
+
+<p><strong>protocol：</strong> 协议也就是你定义的 scheme<br><strong>hostname：</strong> 地址域<br><strong>port：</strong> 端口<br><strong>path：</strong> 路径<br><strong>params：</strong> 参数</p>
+<h3 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h3><p><strong>第一步:</strong> 修改 AndroidManifest.xml</p>
+<blockquote>
+<p><code>NOTE:</code><br>flutter 工程目录/android/app/src/main/AdroidManifest.xml</p>
+</blockquote>
+<p>在&lt;activity&gt;&lt;/activity&gt;之间的最后面加入如下代码:</p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.intent.action.VIEW&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.intent.category.DEFAULT&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.intent.category.BROWSABLE&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">data</span> <span class="hljs-attr">android:host</span>=<span class="hljs-string">&quot;debug&quot;</span> <span class="hljs-attr">android:scheme</span>=<span class="hljs-string">&quot;taoqi&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span></code></pre></div>
+
+<p><img src="2020-09-11-19-14-26.png" srcset="/img/loading.gif"></p>
+<p><strong>第二步：</strong> pubspec.yaml 文件中引入 uni_links</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">dependencies:</span>
+  <span class="hljs-attr">flutter:</span>
+    <span class="hljs-attr">sdk:</span> <span class="hljs-string">flutter</span>
+  <span class="hljs-attr">flutter_localizations:</span>
+    <span class="hljs-attr">sdk:</span> <span class="hljs-string">flutter</span>
+
+  <span class="hljs-comment"># The following adds the Cupertino Icons font to your application.</span>
+  <span class="hljs-comment"># Use with the CupertinoIcons class for iOS style icons.</span>
+  <span class="hljs-attr">uni_links:</span> <span class="hljs-string">^0.2.0</span></code></pre></div>
+
+<p><strong>第三步:</strong> 封装一个 pocket_capture.dart</p>
+<div class="hljs"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;dart:async&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;package:uni_links/uni_links.dart&#x27;</span>;
+
+<span class="hljs-comment">//设置抓包</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Packetcapture</span> &#123;
+  <span class="hljs-keyword">static</span> <span class="hljs-title class_">StreamController</span> _packetcaptureListener =
+      <span class="hljs-keyword">new</span> <span class="hljs-title class_">StreamController</span>.<span class="hljs-title function_">broadcast</span>(); <span class="hljs-comment">//抓包监听</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-title class_">Map</span>&lt;<span class="hljs-title class_">Function</span>, <span class="hljs-title class_">StreamSubscription</span>&gt; _listeners = &#123;&#125;;
+
+  <span class="hljs-comment">//这两个数据根据你自己的项目修改</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-title class_">String</span> scheme = <span class="hljs-string">&quot;taoqi://&quot;</span>;
+  <span class="hljs-keyword">static</span> <span class="hljs-title class_">String</span> mode = <span class="hljs-string">&quot;debug&quot;</span>;
+
+  <span class="hljs-comment">//设置自己的scheme</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">setConfig</span>(<span class="hljs-params">&#123;<span class="hljs-built_in">String</span> schemeConfig, <span class="hljs-built_in">String</span> modeConfig&#125;</span>) &#123;
+    scheme = schemeConfig;
+    mode = modeConfig;
+  &#125;
+
+  <span class="hljs-comment">//通过topsports://设置抓包代理</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-title class_">Future</span>&lt;<span class="hljs-title class_">Null</span>&gt; <span class="hljs-title function_">initUniLinks</span>(&#123;<span class="hljs-title class_">Function</span> callBack&#125;) <span class="hljs-keyword">async</span> &#123;
+    <span class="hljs-title function_">print</span>(<span class="hljs-string">&#x27;------获取参数--------&#x27;</span>);
+    <span class="hljs-keyword">try</span> &#123;
+      <span class="hljs-comment">//app没有打开时获取link</span>
+      <span class="hljs-title class_">String</span> link = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getInitialLink</span>();
+      <span class="hljs-keyword">if</span> (link != <span class="hljs-literal">null</span> &amp;&amp; link.<span class="hljs-title function_">contains</span>(scheme)) &#123;
+        <span class="hljs-title function_">setNetworkAgent</span>(link, <span class="hljs-attr">callBack</span>: callBack);
+      &#125;
+    &#125; <span class="hljs-keyword">catch</span> (e) &#123;&#125;
+
+    <span class="hljs-comment">//app打开时获取link</span>
+    <span class="hljs-title function_">getLinksStream</span>().<span class="hljs-title function_">listen</span>((<span class="hljs-title class_">String</span> link) &#123;
+      link = <span class="hljs-title class_">Uri</span>.<span class="hljs-title function_">decodeComponent</span>(link);
+      <span class="hljs-keyword">if</span> (link.<span class="hljs-title function_">contains</span>(scheme)) &#123;
+        <span class="hljs-title function_">setNetworkAgent</span>(link, <span class="hljs-attr">callBack</span>: callBack);
+      &#125;
+      <span class="hljs-comment">// Parse the link and warn the user, if it is not correct</span>
+    &#125;, <span class="hljs-attr">onError</span>: (err) &#123;
+      <span class="hljs-comment">// Handle exception by warning the user their action did not succeed</span>
+    &#125;);
+  &#125;
+
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">setNetworkAgent</span>(<span class="hljs-params"><span class="hljs-built_in">String</span> link, &#123;<span class="hljs-built_in">Function</span> callBack&#125;</span>) &#123;
+    <span class="hljs-title function_">print</span>(<span class="hljs-string">&#x27;=======link:$link============&#x27;</span>);
+    <span class="hljs-title class_">String</span> <span class="hljs-keyword">type</span> = <span class="hljs-title function_">getTypeStr</span>(link);
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">type</span> == mode) &#123;
+      <span class="hljs-title class_">String</span> param = link.<span class="hljs-title function_">replaceAll</span>(<span class="hljs-string">&quot;$scheme$type?&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+      <span class="hljs-title class_">Map</span> dict = <span class="hljs-title function_">getUrlParams</span>(param);
+      <span class="hljs-comment">//设置抓包代理</span>
+      <span class="hljs-title class_">String</span> host = dict[<span class="hljs-string">&quot;host&quot;</span>];
+      <span class="hljs-title class_">String</span> port = dict[<span class="hljs-string">&quot;port&quot;</span>] ?? <span class="hljs-string">&quot;8888&quot;</span>;
+
+      <span class="hljs-keyword">if</span> (callBack != <span class="hljs-literal">null</span>) &#123;
+        <span class="hljs-title function_">callBack</span>(host, port);
+      &#125;
+      <span class="hljs-title function_">packetcapture</span>(<span class="hljs-string">&quot;&quot;</span>);
+    &#125;
+  &#125;
+
+  <span class="hljs-keyword">static</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">getTypeStr</span>(<span class="hljs-params"><span class="hljs-built_in">String</span> link</span>) &#123;
+    <span class="hljs-title class_">List</span> params = link.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;?&quot;</span>);
+    <span class="hljs-title class_">String</span> typeStr = params[<span class="hljs-number">0</span>];
+    typeStr = typeStr.<span class="hljs-title function_">replaceAll</span>(scheme, <span class="hljs-string">&quot;&quot;</span>);
+    <span class="hljs-keyword">return</span> typeStr;
+  &#125;
+
+<span class="hljs-comment">//url参数转map</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-title class_">Map</span> <span class="hljs-title function_">getUrlParams</span>(<span class="hljs-params"><span class="hljs-built_in">String</span> paramStr</span>) &#123;
+    <span class="hljs-title class_">Map</span> map = <span class="hljs-title class_">Map</span>();
+    <span class="hljs-title class_">List</span> params = paramStr.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;&amp;&quot;</span>);
+    <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; params.<span class="hljs-property">length</span>; i++) &#123;
+      <span class="hljs-title class_">String</span> str = params[i];
+      <span class="hljs-title class_">List</span> arr = str.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;=&quot;</span>);
+      map[arr[<span class="hljs-number">0</span>]] = arr[<span class="hljs-number">1</span>];
+    &#125;
+    <span class="hljs-keyword">return</span> map;
+  &#125;
+
+  <span class="hljs-comment">//抓包广播</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">packetcapture</span>(<span class="hljs-params"><span class="hljs-built_in">String</span> code</span>) &#123;
+    _packetcaptureListener.<span class="hljs-title function_">add</span>(code);
+  &#125;
+
+  <span class="hljs-comment">//添加抓包监听</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">addPacketcaptureListener</span>(<span class="hljs-params"><span class="hljs-built_in">void</span> onData(<span class="hljs-built_in">String</span> code)</span>) &#123;
+    _listeners[onData] = _packetcaptureListener.<span class="hljs-property">stream</span>.<span class="hljs-title function_">listen</span>(onData);
+  &#125;
+
+  <span class="hljs-comment">//取消监听</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">removeListener</span>(<span class="hljs-params"><span class="hljs-built_in">void</span> onData(dynamic data)</span>) &#123;
+    <span class="hljs-title class_">StreamSubscription</span> listener = _listeners[onData];
+    <span class="hljs-keyword">if</span> (listener == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
+    listener.<span class="hljs-title function_">cancel</span>();
+    _listeners.<span class="hljs-title function_">remove</span>(onData);
+  &#125;
+&#125;
+</code></pre></div>
+
+<p><strong>第四步:</strong> 在 main 入口里边添加监听</p>
+<blockquote>
+<p><code>NOTE:</code><br>这里我是封装了一个公用的 main 入口函数<br>真正的 main.dart 会这样调用</p>
+<p>import ‘package:bid/config/environment.dart’;<br>import ‘package:bid/config/main_common.dart’;</p>
+<p>Future<void> main() async {<br>await mainCommon(Environment.DEV);<br>}</p>
+</blockquote>
+<p>秉承只提供思路的原则，不贴可运行完整代码.</p>
+<div class="hljs"><pre><code class="hljs reasonml"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * 公共的启动Main方法.</span>
+<span class="hljs-comment"> * @author: DANTE FUNG</span>
+<span class="hljs-comment"> * @date: 2020-9-9 15:53:14</span>
+<span class="hljs-comment"> */</span>
+Future&lt;void&gt; main<span class="hljs-constructor">Common(String <span class="hljs-params">env</span>)</span> async &#123;
+  <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">WidgetsFlutterBinding</span>.</span></span>ensure<span class="hljs-constructor">Initialized()</span>;
+  <span class="hljs-comment">// 初始化代理配置监听</span>
+  <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Packetcapture</span>.</span></span>init<span class="hljs-constructor">UniLinks(<span class="hljs-params">callBack</span>: (<span class="hljs-params">host</span>, <span class="hljs-params">port</span>)</span> &#123;
+    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Network</span>.</span></span>set<span class="hljs-constructor">HttpProxy(<span class="hljs-params">host</span>, <span class="hljs-params">port</span>)</span>;
+  &#125;);
+    <span class="hljs-comment">// 省略其他代码</span>
+&#125;</code></pre></div>
+
+<p>Network 工具类(工具类大家应该都会封装)里边的关键代码:</p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setHttpProxy</span>(<span class="hljs-params"><span class="hljs-built_in">String</span> host, <span class="hljs-built_in">String</span> port</span>) &#123;
+  <span class="hljs-keyword">if</span> (host.<span class="hljs-property">length</span> != <span class="hljs-number">0</span>) &#123;
+    <span class="hljs-title class_">AppManager</span>.<span class="hljs-property">httpProxy</span> = host + <span class="hljs-string">&#x27;:&#x27;</span> + port;
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-title class_">AppManager</span>.<span class="hljs-property">httpProxy</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+  &#125;
+  <span class="hljs-title function_">_initDio</span>();
+&#125;</code></pre></div>
+
+<blockquote>
+<p><code>NOTE:</code><br>这里简单说明下 AppManager 工具类（不一定要像我一样用一个类封装起来，你可以用全局变量或者局部变量传参都行），代码定义如下:<br>class AppManager {<br>static String httpProxy = ‘’;</p>
+<p>}</p>
+</blockquote>
+<p>_initDio()方法的关键代码:</p>
+<div class="hljs"><pre><code class="hljs wren"><span class="hljs-variable">_dio</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Dio</span>(<span class="hljs-title class_">BaseOptions</span>(
+      <span class="hljs-variable">contentType</span>: &#x27;<span class="hljs-variable">application</span>/<span class="hljs-variable">json</span>&#x27;,
+<span class="hljs-comment">//      baseUrl: Config.BASE_URL,</span>
+    ));
+    <span class="hljs-variable">_dio</span>.<span class="hljs-property">options</span>.<span class="hljs-property">receiveTimeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">5000</span>;
+    <span class="hljs-variable">_dio</span>.<span class="hljs-property">options</span>.<span class="hljs-property">connectTimeout</span> <span class="hljs-operator">=</span> <span class="hljs-number">30000</span>;
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-title class_">AppManager</span>.<span class="hljs-property">httpProxy</span>.<span class="hljs-property">length</span> <span class="hljs-operator">&gt;</span> <span class="hljs-number">5</span>) &#123;
+      (<span class="hljs-variable">_dio</span>.<span class="hljs-property">httpClientAdapter</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">DefaultHttpClientAdapter</span>).<span class="hljs-property">onHttpClientCreate</span> <span class="hljs-title function_">=</span>
+          (<span class="hljs-variable">client</span>) &#123;
+        <span class="hljs-comment">//这一段是解决安卓https抓包的问题</span>
+        <span class="hljs-variable">client</span>.<span class="hljs-property">badCertificateCallback</span> <span class="hljs-title function_">=</span>
+            (<span class="hljs-variable">X509Certificate</span> <span class="hljs-variable">cert</span>, <span class="hljs-title class_">String</span> <span class="hljs-variable">host</span>, int <span class="hljs-variable">port</span>) &#123;
+          <span class="hljs-keyword">return</span> <span class="hljs-title class_">Platform</span>.<span class="hljs-property">isAndroid</span>;
+        &#125;;
+
+        <span class="hljs-variable">client</span>.<span class="hljs-property">findProxy</span> <span class="hljs-title function_">=</span> (<span class="hljs-variable">uri</span>) &#123;
+          <span class="hljs-comment">//注入代理</span>
+          <span class="hljs-title class_">LogUtils</span>.<span class="hljs-property">debug</span>(
+              <span class="hljs-variable">TAG</span>,
+              <span class="hljs-title function_">sprintf</span>(&#x27;<span class="hljs-operator">==</span><span class="hljs-operator">==</span><span class="hljs-operator">==</span><span class="hljs-operator">=</span><span class="hljs-operator">&gt;</span>注入的代理地址为:<span class="hljs-operator">%</span><span class="hljs-variable">s</span>&#x27;, [<span class="hljs-title class_">AppManager</span>.<span class="hljs-property">httpProxy</span>]),
+              <span class="hljs-title class_">StackTrace</span>.<span class="hljs-property">current</span>);
+          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;PROXY $&#123;AppManager.httpProxy&#125;&quot;</span>;
+        &#125;;
+      &#125;;
+    &#125;</code></pre></div>
+
+<p><strong>第五步:</strong> 用任意一家二维码生成工具去生成这段地址<code>taoqi://debug?host=你的主机地址&amp;?port=你的代理端口</code>的二维码</p>
+<img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-10-09.png" srcset="/img/loading.gif" class="">
+
+<p><strong>第六步:</strong> 前提条件是你要安装好你要调试的 APP 在模拟器里。打开 MUMU 模拟器, 然后打开共享文件夹，将生成的二维码放入该文件夹中:</p>
+<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-16-51.png" srcset="/img/loading.gif" class=""></center><br>
+
+<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-17-54.png" srcset="/img/loading.gif" class=""></center><br>
+
+<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-19-46.png" srcset="/img/loading.gif" class=""></center><br>
+
+<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-20-06.png" srcset="/img/loading.gif" class=""></center><br>
+
+<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-20-27.png" srcset="/img/loading.gif" class=""></center><br>
+
+<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-22-22.png" srcset="/img/loading.gif" class=""></center><br>
+
+<center>
+</center><br>
+
+<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-40-11.png" srcset="/img/loading.gif" class=""></center><br>
+
+<p><strong>第七步:</strong> 使用 fiddler 抓包。相关的配置说明请百度即可。<code>特别说明:</code>雷电模拟器似乎无法进行抓包，问题不得知。<br>建议使用 MUMU 模拟器。</p>
+<p><strong>关于如何让 VS code 连接 MUMU 模拟器</strong>，这里简单说明下:</p>
+<ol>
+<li>打开 MUMU 模拟器以下目录 如:</li>
+</ol>
+<div class="hljs"><pre><code class="hljs livescript">D:<span class="hljs-string">\Program</span> Files (x86)<span class="hljs-string">\MuMu\emulator\nemu\vmonitor\bin</span></code></pre></div>
+
+<ol start="2">
+<li>打开命令行终端进入该目录，然后执行如下命令:</li>
+</ol>
+<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">adb_server</span>.exe connect <span class="hljs-number">127.0.0.1:7555</span></code></pre></div>
+
+<ol start="3">
+<li>在 flutter 工程目录下，执行终端命令<code>flutter devices</code>就能识别到 MUMU 模拟器了.<center><img src="/2020/09/11/flutter%E9%80%9A%E8%BF%87%E5%A4%96%E9%93%BE%E5%94%A4%E8%B5%B7app%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/2020-09-11-19-50-45.png" srcset="/img/loading.gif" class=""></center>
+
+</li>
+</ol>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>感谢该作者提供的代码参考: <a target="_blank" rel="noopener" href="https://github.com/18138870200/flutter_sg_mvvm">https://github.com/18138870200/flutter_sg_mvvm</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/flutter/">flutter</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8A%93%E5%8C%85/">抓包</a>
+                    
+                      <a class="hover-with-bg" href="/tags/fiddler/">fiddler</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/09/20/%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8workingcopy/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Test Working copy</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/10/%E6%89%B9%E5%A4%84%E7%90%86bat%20echo%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                        <span class="hidden-mobile">批处理bat echo中文乱码完美解决方法</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "flutter通过外链唤起app注入代理设置&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

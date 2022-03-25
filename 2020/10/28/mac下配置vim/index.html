@@ -1,0 +1,2049 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>mac下配置vim - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                ホーム
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                アーカイブ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                カテゴリー
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                タグ
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                リンク
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                本ブログ情報　
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-10-28 22:46" pubdate>
+      October 28, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      114
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">mac下配置vim</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="mac-下配置-vim"><a href="#mac-下配置-vim" class="headerlink" title="mac 下配置 vim"></a>mac 下配置 vim</h1><img src="/2020/10/28/mac%E4%B8%8B%E9%85%8D%E7%BD%AEvim/2020-10-29-04-23-07.png" srcset="/img/loading.gif" class="">
+
+<h2 id="安装-mac-vim"><a href="#安装-mac-vim" class="headerlink" title="安装 mac vim"></a>安装 mac vim</h2><p>mac 预装了 vim，但官方的 vim 在 Mac 上只有一个很不完善的，长期没人维护的 Carbon 图形用户界面。macvim 主要是在此基础上添加了一个完整的 Cocoa 用户界面，其核心部分和 vim 同步。MacVim 采用了分离进程的方式，一个 MacVim 程序可以启动多个 vim 进程，每个显示在一个 MacVim 窗口中，这是官方的 vim 和其他平台下的 gvim 所不支持的。MacVim 还支持很多 Mac OS X 原生的界面特性，比如工具栏、滚动条、全屏显示、Mac 菜单快捷键的绑定等。</p>
+<h2 id="安装-vim-plug"><a href="#安装-vim-plug" class="headerlink" title="安装 vim-plug"></a>安装 vim-plug</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><div class="hljs"><pre><code class="hljs awk">curl -fLo ~<span class="hljs-regexp">/.vim/</span>autoload/plug.vim --create-dirs \
+    https:<span class="hljs-regexp">//</span>raw.githubusercontent.com<span class="hljs-regexp">/junegunn/</span>vim-plug<span class="hljs-regexp">/master/</span>plug.vim</code></pre></div>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>新建一个目录用于存放下载的插件</p>
+<div class="hljs"><pre><code class="hljs arcade">mkdir ~<span class="hljs-regexp">/.vim/</span>plugged</code></pre></div>
+
+<h2 id="vim-plug-的基本使用"><a href="#vim-plug-的基本使用" class="headerlink" title="vim-plug 的基本使用"></a>vim-plug 的基本使用</h2><p>vim-plug 安装后，下面介绍下如何使用：</p>
+<p>1、先编辑~/.vimrc 文件，键入如下内容:</p>
+<div class="hljs"><pre><code class="hljs leaf">call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">begin</span><span class="hljs-params">(&#x27;~/.<span class="hljs-variable">vim</span>/<span class="hljs-variable">plugged</span>&#x27;)</span></span>
+Plug &#x27;scrooloose/nerdtree&#x27;
+call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">end</span><span class="hljs-params">()</span></span></code></pre></div>
+
+<p>2、终端键入 vim,然后回车，进入 vim 编辑器，键入如下内容进入命令模式，然后回车:</p>
+<div class="hljs"><pre><code class="hljs clojure"><span class="hljs-symbol">:PlugInstall</span></code></pre></div>
+
+<p><strong>Issue:</strong></p>
+<p>由于中文网络环境的某种原因，您可能会遇到vim-plug插件无法下载的问题: vim-plug它依赖github上的开源软件，而github常常无法被正常访问。</p>
+<p>解决之法有二:</p>
+<p>其一，给命令行挂代理。此法相对复杂，并非简单执行一行命令就完事。提供下思路: 先开启某科学上网的socks5代理或自己ssh -D上自己的机场，使用privoxy转为http代理，然后执行<code>export http_proxy=http://127.0.0.1:8118</code>。<br>其二，通过修改Plug.vim文件中的下载地址为国内的镜像站。</p>
+<div class="hljs"><pre><code class="hljs vim"><span class="hljs-keyword">vi</span>  ~/.<span class="hljs-keyword">vim</span>/autoload/plug.<span class="hljs-keyword">vim</span></code></pre></div>
+
+<p>在 plug.vim 中搜索 github, 修改两条语句，即可成功下载GitHub资源。 </p>
+<p>第一部分:</p>
+<p>  将<br>  <div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">let</span> <span class="hljs-built_in">fmt</span> = get(g:, <span class="hljs-string">&#x27;plug_url_format&#x27;</span>, <span class="hljs-string">&#x27;https://git::@github.com/%s.git&#x27;</span>)</code></pre></div><br>  改为<br> <div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">let</span> <span class="hljs-built_in">fmt</span> = get(g:, <span class="hljs-string">&#x27;plug_url_format&#x27;</span>, <span class="hljs-string">&#x27;https://git::@hub.fastgit.org/%s.git&#x27;</span>)</code></pre></div></p>
+<p> 第二部分:</p>
+<p>  将<br> <div class="hljs"><pre><code class="hljs livescript"><span class="hljs-string">\</span> <span class="hljs-string">&#x27;^https://git::@github\.com&#x27;</span>, <span class="hljs-string">&#x27;https://github.com&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>)</code></pre></div><br> 改为</p>
+<div class="hljs"><pre><code class="hljs livescript"><span class="hljs-string">\</span> <span class="hljs-string">&#x27;^https://git::@hub.fastgit\.org&#x27;</span>, <span class="hljs-string">&#x27;https://hub.fastgit.org&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>)</code></pre></div>
+
+<blockquote>
+<p>参考: <a target="_blank" rel="noopener" href="https://blog.csdn.net/htx1020/article/details/114364510">https://blog.csdn.net/htx1020/article/details/114364510</a></p>
+</blockquote>
+<p><strong>常用的命令:</strong></p>
+<p>查看插件安装状态:</p>
+<div class="hljs"><pre><code class="hljs clojure"><span class="hljs-symbol">:PlugStatus</span></code></pre></div>
+
+<p>删除插件的方法:</p>
+<ol>
+<li>先注释~/.vimrc 文件中插件</li>
+</ol>
+<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">&quot; Plug &#x27;scrooloose/nerdtreee&#x27;</span></code></pre></div>
+
+<p>2)重启 vim 编辑器</p>
+<p><del>或者</del></p>
+<p><del>执行:</del></p>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.vimrc</code></pre></div>
+<blockquote>
+<p>更新:<br>编辑完vimrc之后用</p>
+<p>source /etc/vimrc报错</p>
+<p>-bash: /etc/vimrc: line 15: syntax error near unexpected token <code>&quot;autocmd&quot;&#39; -bash: /etc/vimrc: line 15: </code>if has(“autocmd”)’</p>
+<p>以为是语法问题</p>
+<p>实际原因：vimrc是vim起动时解释的，而不是由shell来解释。用shell来source它肯定不行。</p>
+</blockquote>
+<p>最后执行:</p>
+<div class="hljs"><pre><code class="hljs clojure"><span class="hljs-symbol">:PlugClean</span></code></pre></div>
+
+<h2 id="安装-molokai-主题"><a href="#安装-molokai-主题" class="headerlink" title="安装 molokai 主题"></a>安装 molokai 主题</h2><div class="hljs"><pre><code class="hljs arcade">cd ~<span class="hljs-regexp">/.vim/</span></code></pre></div>
+
+<div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/tomasr/m</span>olokai.git</code></pre></div>
+
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> molokai
+<span class="hljs-built_in">cp</span> -r colors ../</code></pre></div>
+
+<h2 id="配置-Java-环境"><a href="#配置-Java-环境" class="headerlink" title="配置 Java 环境"></a>配置 Java 环境</h2><h3 id="代码自动补全"><a href="#代码自动补全" class="headerlink" title="代码自动补全"></a>代码自动补全</h3><p><strong>issue:</strong><br><code>怎么让Mac里的vim支持python3?</code><br>2019 年后 brewhome 安装的和升级 vim 都支持 python3，你可以先升级 brewhome</p>
+<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">brew update</span></code></pre></div>
+
+<p>在重新安装或者直接升级</p>
+<div class="hljs"><pre><code class="hljs mipsasm"><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>vim</code></pre></div>
+
+<p>或者</p>
+<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">brew upgrade</span></code></pre></div>
+
+<p>重新启动终端后就可以查看支持 python3</p>
+<div class="hljs"><pre><code class="hljs vim"><span class="hljs-keyword">vim</span> --<span class="hljs-keyword">version</span> ｜<span class="hljs-keyword">grep</span> <span class="hljs-keyword">python</span></code></pre></div>
+
+<p>温馨提示：将鼠标放在语句上可以显示对应的英文。 或者 切换至中英文显示<br>在具有+python3 支持的 Mac OS 上安装 Vim 时，出现以下错误：</p>
+<p>% brew install vim –with-python3<br>Usage: brew install [options] formula</p>
+<p>…</p>
+<p>Error: invalid option: –with-python3<br>macos vim homebrew<br>1 个回复<br>按投票数排序按时间排序<br>===============&gt;&gt;#1 票数：0<br>自 2019 年起，默认情况下已通过 Homebrew 在 Vim 上启用 +python3 。互联网上较旧的说明不准确（为了避免提高搜索排名，我不会链接到它们）。</p>
+<p>只需通过 Homebrew 安装/升级：</p>
+<p>% brew uninstall vim # optional, only if you previously installed it<br>% brew install vim<br>验证+python3 ：</p>
+<p>% /usr/local/bin/vim –version<br>…<br>+cmdline_compl +lambda +profile +virtualedit<br>+cmdline_hist +langmap -python +visual<br>+cmdline_info +libcall +python3 +visualextra<br>+comments +linebreak +quickfix +viminfo<br>+conceal +lispindent +reltime +vreplace<br>…<br>注意，您仍然会安装系统默认的 Vim，并且可能在安装 Homebrew 版本之前的 PATH 中，因此，如果执行 vim –version ，它不会显示+python3 ：</p>
+<p>尝试重新启动终端<br>尝试 alias vim=/usr/local/bin/vim<br>试调整 PATH 变量，将 Homebrew 的 Vim 放在首位。 “ 在 Mac 上编辑 PATH 变量 ”具有其他信息。</p>
+<blockquote>
+<p>如果系统是ubuntu,安装openjdk8命令如下:<br>sudo apt-get install openjdk-8-jdk</p>
+</blockquote>
+<h2 id="vim-配置文件"><a href="#vim-配置文件" class="headerlink" title="vim 配置文件"></a>vim 配置文件</h2><div class="hljs"><pre><code class="hljs vim">
+<span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot; 基本设置</span>
+<span class="hljs-comment">&quot;==========================================</span>
+
+
+
+
+<span class="hljs-comment">&quot;默认文件夹</span>
+<span class="hljs-keyword">cd</span>  /Users/admin/Documents/prj/develop
+
+
+
+<span class="hljs-comment">&quot; 编码</span>
+<span class="hljs-keyword">set</span> encoding=utf-<span class="hljs-number">8</span>
+
+
+<span class="hljs-comment">&quot; 不和 vi 兼容</span>
+<span class="hljs-keyword">set</span> nocompatible
+
+
+<span class="hljs-comment">&quot; 备份和撤销文件</span>
+<span class="hljs-keyword">set</span> nobackup
+<span class="hljs-keyword">set</span> noswapfile
+
+
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;persistent_undo&#x27;</span>)
+  <span class="hljs-keyword">set</span> <span class="hljs-built_in">undofile</span>
+  <span class="hljs-keyword">set</span> undodir=~/.<span class="hljs-keyword">vim</span>/undodir
+  <span class="hljs-keyword">if</span> !isdirectory(&amp;undodir)
+    <span class="hljs-keyword">call</span> <span class="hljs-built_in">mkdir</span>(&amp;undodir, <span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-number">0700</span>)
+  <span class="hljs-keyword">endif</span>
+<span class="hljs-keyword">endif</span>
+
+
+<span class="hljs-comment">&quot; 中文</span>
+<span class="hljs-keyword">set</span> fileencodings=ucs-bom,utf-<span class="hljs-number">8</span>,gb18030,latin1,gbk,gb2312,cp936
+<span class="hljs-keyword">set</span> termencoding=utf-<span class="hljs-number">8</span>
+
+
+<span class="hljs-comment">&quot; 鼠标支持</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;mouse&#x27;</span>)
+  <span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;gui_running&#x27;</span>) || (&amp;term =~ <span class="hljs-string">&#x27;xterm&#x27;</span> &amp;&amp; !has(<span class="hljs-string">&#x27;mac&#x27;</span>))
+    <span class="hljs-keyword">set</span> mouse=<span class="hljs-keyword">a</span>
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">set</span> mouse=nvi
+  <span class="hljs-keyword">endif</span>
+<span class="hljs-keyword">endif</span>
+
+<span class="hljs-comment">&quot; 共享剪贴板</span>
+<span class="hljs-keyword">set</span> clipboard=unnamed
+
+
+<span class="hljs-comment">&quot; 设置文本菜单</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;gui_running&#x27;</span>)
+  <span class="hljs-keyword">let</span> do_syntax_sel_menu = <span class="hljs-number">1</span>
+  <span class="hljs-keyword">let</span> do_no_lazyload_menus = <span class="hljs-number">1</span>
+<span class="hljs-keyword">endif</span>
+
+
+<span class="hljs-keyword">if</span> !has(<span class="hljs-string">&#x27;gui_running&#x27;</span>)
+  <span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;wildmenu&#x27;</span>)
+    <span class="hljs-keyword">set</span> wildmenu
+    <span class="hljs-keyword">set</span> cpoptions-=&lt;
+    <span class="hljs-keyword">set</span> wildcharm=<span class="hljs-symbol">&lt;C-Z&gt;</span>
+    <span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;F10&gt;</span>      :<span class="hljs-keyword">emenu</span> <span class="hljs-symbol">&lt;C-Z&gt;</span>
+    <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;F10&gt;</span> <span class="hljs-symbol">&lt;C-O&gt;</span>:<span class="hljs-keyword">emenu</span> <span class="hljs-symbol">&lt;C-Z&gt;</span>
+  <span class="hljs-keyword">endif</span>
+<span class="hljs-keyword">endif</span>
+
+
+<span class="hljs-comment">&quot; 查找</span>
+<span class="hljs-keyword">set</span> ignorecase
+<span class="hljs-keyword">set</span> smartcase
+<span class="hljs-keyword">set</span> hlsearch
+<span class="hljs-keyword">set</span> incsearch
+
+
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;F2&gt;</span>      :<span class="hljs-keyword">nohlsearch</span><span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;F2&gt;</span> <span class="hljs-symbol">&lt;C-O&gt;</span>:<span class="hljs-keyword">nohlsearch</span><span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+<span class="hljs-keyword">set</span> scrolloff=<span class="hljs-number">1</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot;  显示设置</span>
+<span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot; 显示行号</span>
+<span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span>
+
+
+<span class="hljs-comment">&quot; 设置缩进</span>
+<span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">2</span>
+<span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">2</span>
+
+
+<span class="hljs-comment">&quot; 突出显示当前行</span>
+<span class="hljs-keyword">set</span> cursorline
+
+
+<span class="hljs-comment">&quot; 启动 vim 时关闭折叠代码</span>
+<span class="hljs-keyword">set</span> nofoldenable
+
+
+<span class="hljs-comment">&quot; 主题</span>
+<span class="hljs-keyword">syntax</span> enable
+<span class="hljs-keyword">colorscheme</span> molokai
+<span class="hljs-keyword">set</span> background=dark
+
+
+<span class="hljs-comment">&quot; 背景透明</span>
+<span class="hljs-keyword">hi</span> Normal ctermfg=<span class="hljs-number">252</span> ctermbg=none
+
+
+<span class="hljs-comment">&quot; 将字体设置为Meslo LG S DZ Regular for Powerline 13号大小</span>
+<span class="hljs-keyword">set</span> guifont=Meslo\ LG\ S\ DZ\ Regular\ <span class="hljs-keyword">for</span>\ Powerline:h13
+
+
+<span class="hljs-keyword">set</span> laststatus=<span class="hljs-number">2</span>                <span class="hljs-comment">&quot; 必须设置为2,否则状态栏不显示</span>
+<span class="hljs-keyword">set</span> t_Co=<span class="hljs-number">256</span>                    <span class="hljs-comment">&quot; 开启256颜色之后，colorschema在vim里好看了许多</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot; vim-plug</span>
+<span class="hljs-comment">&quot;==========================================</span>
+
+
+<span class="hljs-keyword">call</span>     plug#begin(<span class="hljs-string">&#x27;~/.vim/plugged&#x27;</span>)
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 代码自动补全</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot;  java https://github.com/artur-shaik/vim-javacomplete2</span>
+Plug <span class="hljs-string">&#x27;artur-shaik/vim-javacomplete2&#x27;</span>
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 美化</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 配色方案.</span>
+Plug <span class="hljs-string">&#x27;jakwings/vim-colors&#x27;</span>
+Plug <span class="hljs-string">&#x27;flazz/vim-colorschemes&#x27;</span>
+<span class="hljs-comment">&quot; theme color</span>
+Plug <span class="hljs-string">&#x27;tomasr/molokai&#x27;</span> | Plug <span class="hljs-string">&#x27;altercation/solarized&#x27;</span>
+
+
+<span class="hljs-comment">&quot; 彩虹括号</span>
+Plug <span class="hljs-string">&#x27;luochen1990/rainbow&#x27;</span>
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 树形目录</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;scrooloose/nerdtree&#x27;</span>                            <span class="hljs-comment">&quot; https://github.com/preservim/nerdtree</span>
+Plug <span class="hljs-string">&#x27;jistr/vim-nerdtree-tabs&#x27;</span>                        <span class="hljs-comment">&quot; https://github.com/jistr/vim-nerdtree-tabs</span>
+Plug <span class="hljs-string">&#x27;Xuyuanp/nerdtree-git-plugin&#x27;</span>                    <span class="hljs-comment">&quot; https://github.com/Xuyuanp/nerdtree-git-plugin</span>
+Plug <span class="hljs-string">&#x27;ryanoasis/vim-devicons&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/ryanoasis/vim-devicons</span>
+Plug <span class="hljs-string">&#x27;tiagofumo/vim-nerdtree-syntax-highlight&#x27;</span>        <span class="hljs-comment">&quot; https://github.com/tiagofumo/vim-nerdtree-syntax-highlight</span>
+Plug <span class="hljs-string">&#x27;tpope/vim-eunuch&#x27;</span>                               <span class="hljs-comment">&quot; https://github.com/tpope/vim-eunuch</span>
+
+
+<span class="hljs-keyword">map</span> <span class="hljs-symbol">&lt;C-n&gt;</span> :NERDTreeToggle<span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+<span class="hljs-keyword">let</span> NERDTreeMinimalUI = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> NERDTreeShowHidden = <span class="hljs-number">1</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:nerdtree_tabs_open_on_console_startup</span> = <span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; 开发的过程中，我们希望git信息直接在NERDTree中显示出来， 和Eclipse一样，修改的文件和增加的文件都给出相应的标注， 这时需要安装的插件就是 nerdtree-git-plugin,配置信息如下</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:NERDTreeGitStatusIndicatorMapCustom</span> = &#123;
+    \ <span class="hljs-string">&quot;Modified&quot;</span>  : <span class="hljs-string">&quot;✹&quot;</span>,
+    \ <span class="hljs-string">&quot;Staged&quot;</span>    : <span class="hljs-string">&quot;✚&quot;</span>,
+    \ <span class="hljs-string">&quot;Untracked&quot;</span> : <span class="hljs-string">&quot;✭&quot;</span>,
+    \ <span class="hljs-string">&quot;Renamed&quot;</span>   : <span class="hljs-string">&quot;➜&quot;</span>,
+    \ <span class="hljs-string">&quot;Unmerged&quot;</span>  : <span class="hljs-string">&quot;═&quot;</span>,
+    \ <span class="hljs-string">&quot;Deleted&quot;</span>   : <span class="hljs-string">&quot;✖&quot;</span>,
+    \ <span class="hljs-string">&quot;Dirty&quot;</span>     : <span class="hljs-string">&quot;✗&quot;</span>,
+    \ <span class="hljs-string">&quot;Clean&quot;</span>     : <span class="hljs-string">&quot;✔︎&quot;</span>,
+    \ <span class="hljs-string">&quot;Unknown&quot;</span>   : <span class="hljs-string">&quot;?&quot;</span>
+    \ &#125;
+
+
+<span class="hljs-comment">&quot; i 在新的水平分割的窗口中打开</span>
+<span class="hljs-comment">&quot; s 在新的竖直分割的窗口中打开</span>
+<span class="hljs-comment">&quot; t 在标签页中打开</span>
+<span class="hljs-comment">&quot; go 预览文件</span>
+<span class="hljs-comment">&quot; r 刷新光标所在的目录</span>
+<span class="hljs-comment">&quot; R 刷新当前根路径</span>
+<span class="hljs-comment">&quot; I 显示隐藏文件</span>
+<span class="hljs-comment">&quot; m 显示文件操作菜单</span>
+<span class="hljs-comment">&quot; C 将根路径设置为光标所在的目录</span>
+<span class="hljs-comment">&quot; u 设置上级目录为根路径</span>
+<span class="hljs-comment">&quot; gT 前一个 tab</span>
+<span class="hljs-comment">&quot; gt 后一个 tab</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; 加方向键（h、j、k、l、&lt;Left&gt; 等）可以在窗口之间跳转</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + w 跳转到下一个窗口</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + s 和 :split 作用相同，把当前窗口横向一分为二</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + v 和 :vsplit 作用相同，把当前窗口纵向一分为二</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + o 或 :only 只保留当前窗口，关闭其他所有窗口</span>
+
+
+
+
+<span class="hljs-comment">&quot; 组合快捷键：nnoremap是什么意思？——简单来说，nnoremap将一个组合快捷键映射为另一个快捷键。no部分，指的是在Vim的正常模式（Normal Mode）下，而不是可视模式下重新映射</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-J&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-J&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-j 切换到下方的分割窗口</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-K&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-K&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-k 切换到上方的分割窗口</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-L&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-L&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-l 切换到右侧的分割窗口</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-H&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-H&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-h 切换到左侧的分割窗口</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 标签</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;majutsushi/tagbar&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/majutsushi/tagbar</span>
+
+
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;F9&gt;</span>      :TagbarToggle<span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;F9&gt;</span> <span class="hljs-symbol">&lt;C-O&gt;</span>:TagbarToggle<span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:tagbar_type_typescript</span> = &#123;
+  \ <span class="hljs-string">&#x27;ctagsbin&#x27;</span> : <span class="hljs-string">&#x27;tstags&#x27;</span>,
+  \ <span class="hljs-string">&#x27;ctagsargs&#x27;</span> : <span class="hljs-string">&#x27;-f-&#x27;</span>,
+  \ <span class="hljs-string">&#x27;kinds&#x27;</span>: [
+    \ <span class="hljs-string">&#x27;e:enums:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;f:function:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;t:typealias:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;M:Module:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;I:import:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;i:interface:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;C:class:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;m:method:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;p:property:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;v:variable:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;c:const:0:1&#x27;</span>,
+  \ ],
+  \ <span class="hljs-string">&#x27;sort&#x27;</span> : <span class="hljs-number">0</span>
+\ &#125;
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 自动补全</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;Valloric/YouCompleteMe&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/ycm-core/YouCompleteMe</span>
+Plug <span class="hljs-string">&#x27;Raimondi/delimitMate&#x27;</span>                           <span class="hljs-comment">&quot; https://github.com/Raimondi/delimitMate</span>
+
+
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;Leader&gt;</span>fi :YcmCompleter FixIt<span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;Leader&gt;</span>gd :YcmCompleter GoToDefinition<span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 语法高亮，检查</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;sheerun/vim-polyglot&#x27;</span>                           <span class="hljs-comment">&quot; https://github.com/sheerun/vim-polyglot</span>
+Plug <span class="hljs-string">&#x27;w0rp/ale&#x27;</span>                                       <span class="hljs-comment">&quot; https://github.com/w0rp/ale</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_fix_on_save</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_sign_column_always</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_sign_error</span> = <span class="hljs-string">&#x27;●&#x27;</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_sign_warning</span> = <span class="hljs-string">&#x27;▶&#x27;</span>
+
+
+<span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-k&gt;</span> <span class="hljs-symbol">&lt;Plug&gt;</span>(ale_previous_wrap)
+<span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-j&gt;</span> <span class="hljs-symbol">&lt;Plug&gt;</span>(ale_next_wrap)
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 全局搜索，快速打开文件</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: &#123; -&gt; fzf#install() &#125; &#125;   <span class="hljs-comment">&quot; https://github.com/junegunn/fzf</span>
+Plug <span class="hljs-string">&#x27;junegunn/fzf.vim&#x27;</span>                               <span class="hljs-comment">&quot; https://github.com/junegunn/fzf.vim</span>
+Plug <span class="hljs-string">&#x27;ctrlpvim/ctrlp.vim&#x27;</span>                             <span class="hljs-comment">&quot; https://github.com/ctrlpvim/ctrlp.vim</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ctrlp_user_command</span> = [<span class="hljs-string">&#x27;.git&#x27;</span>, <span class="hljs-string">&#x27;cd %s &amp;&amp; git ls-files -co --exclude-standard&#x27;</span>]
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ctrlp_regexp</span> = <span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; &lt;c-r&gt;: 切换匹配模式</span>
+<span class="hljs-comment">&quot; &lt;c-t&gt;：在新的 tab 中打开</span>
+<span class="hljs-comment">&quot; :Rg</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 状态条</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;vim-airline/vim-airline&#x27;</span>                        <span class="hljs-comment">&quot; https://github.com/vim-airline/vim-airline</span>
+Plug <span class="hljs-string">&#x27;vim-airline/vim-airline-themes&#x27;</span>                 <span class="hljs-comment">&quot; https://github.com/vim-airline/vim-airline-themes</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline_theme</span>=<span class="hljs-string">&#x27;molokai&#x27;</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline_powerline_fonts</span> = <span class="hljs-number">1</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#tabline#enabled = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#tabline#formatter = <span class="hljs-string">&#x27;unique_tail&#x27;</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#ale#enabled = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#tabline#buffer_nr_show = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#nerdtree_statusline = <span class="hljs-number">0</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline_section_c</span> = <span class="hljs-string">&#x27;&#x27;</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 注释</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;scrooloose/nerdcommenter&#x27;</span>                       <span class="hljs-comment">&quot; https://github.com/preservim/nerdcommenter</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:NERDSpaceDelims</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:NERDDefaultAlign</span> = <span class="hljs-string">&#x27;left&#x27;</span>
+
+
+<span class="hljs-comment">&quot; &lt;leader&gt;c&lt;space&gt; 注释/取消注释</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;ca 切换　// 和 /* */</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;cs /* 块注释 */</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;cm 只用一组符号注释</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;cA 在行尾添加注释</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; git</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;airblade/vim-gitgutter&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/airblade/vim-gitgutter</span>
+Plug <span class="hljs-string">&#x27;tpope/vim-fugitive&#x27;</span>                             <span class="hljs-comment">&quot; https://github.com/tpope/vim-fugitive</span>
+Plug <span class="hljs-string">&#x27;tpope/vim-rhubarb&#x27;</span>                              <span class="hljs-comment">&quot; https://github.com/tpope/vim-rhubarb</span>
+
+
+<span class="hljs-keyword">set</span> updatetime=<span class="hljs-number">100</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:gitgutter_max_signs</span> = -<span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; jump to next hunk: ]c</span>
+<span class="hljs-comment">&quot; jump to previous hunk: [c</span>
+<span class="hljs-comment">&quot; stage the hunk: &lt;Leader&gt;hs</span>
+<span class="hljs-comment">&quot; undo the hunk: &lt;Leader&gt;hu</span>
+<span class="hljs-comment">&quot; preview the hunk: &lt;Leader&gt;hp</span>
+
+
+<span class="hljs-comment">&quot; :G</span>
+<span class="hljs-comment">&quot; :Gvdiffsplit</span>
+<span class="hljs-comment">&quot; :GBrowse</span>
+<span class="hljs-comment">&quot;</span>
+<span class="hljs-comment">&quot; s: 加到暂存区中</span>
+<span class="hljs-comment">&quot; u: 重置加入暂存区的修改</span>
+<span class="hljs-comment">&quot; X: 丢弃修改</span>
+<span class="hljs-comment">&quot; ca: 更改上一次提交</span>
+<span class="hljs-comment">&quot; ce: 使用上一次提交</span>
+<span class="hljs-comment">&quot; =: 切换 diff 显示</span>
+<span class="hljs-comment">&quot; cc: 提交当前暂存区中的文件</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Markdown</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: <span class="hljs-string">&#x27;cd app &amp;&amp; yarn install&#x27;</span>  &#125;      <span class="hljs-comment">&quot; https://github.com/iamcco/markdown-preview.nvim</span>
+
+
+<span class="hljs-comment">&quot; :MarkdownPreview</span>
+<span class="hljs-comment">&quot; :MarkdownPreviewStop</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Emmet</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;mattn/emmet-vim&#x27;</span>                                <span class="hljs-comment">&quot; https://github.com/mattn/emmet-vim</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:user_emmet_leader_key</span>=<span class="hljs-string">&#x27;&lt;C-Z&gt;&#x27;</span>
+
+
+<span class="hljs-comment">&quot; &lt;C-Z&gt;,</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Prettier</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;prettier/vim-prettier&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: <span class="hljs-string">&#x27;npm install&#x27;</span> &#125;     <span class="hljs-comment">&quot; https://github.com/prettier/vim-prettier</span>
+
+
+<span class="hljs-keyword">autocmd</span> BufWritePre *.js,*.jsx,*.mjs,*.<span class="hljs-keyword">ts</span>,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+
+<span class="hljs-comment">&quot; :PrettierAsync</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Wakatime</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;wakatime/vim-wakatime&#x27;</span>                              <span class="hljs-comment">&quot; https://github.com/wakatime/vim-wakatime</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Whitespace</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;ntpeters/vim-better-whitespace&#x27;</span>                     <span class="hljs-comment">&quot; https://github.com/ntpeters/vim-better-whitespace</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:better_whitespace_enabled</span>=<span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; :StripWhitespace</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-keyword">call</span> plug#end()
+
+
+<span class="hljs-comment">&quot; PlugInstall</span>
+<span class="hljs-comment">&quot; PlugUpdate</span>
+<span class="hljs-comment">&quot; PlugClean</span>
+<span class="hljs-comment">&quot; PlugUpgrade</span>
+<span class="hljs-comment">&quot; PlugStatus</span>
+<span class="hljs-comment">&quot; PlugDiff</span>
+<span class="hljs-comment">&quot; PlugSnapshot</span>
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre></div>
+
+<p><strong>更新: 2022-2-19 04:22:41 版</strong></p>
+<div class="hljs"><pre><code class="hljs vim"><span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot; 基本设置</span>
+<span class="hljs-comment">&quot;==========================================</span>
+
+
+
+<span class="hljs-comment">&quot;默认文件夹</span>
+<span class="hljs-comment">&quot;cd  /Users/admin/Documents/prj/develop</span>
+
+
+<span class="hljs-keyword">autocmd</span> FileType java <span class="hljs-keyword">setlocal</span> omnifunc=javacomplete#Complete
+
+<span class="hljs-comment">&quot; 编码</span>
+<span class="hljs-keyword">set</span> enc=utf-<span class="hljs-number">8</span>
+
+
+<span class="hljs-comment">&quot; 不和 vi 兼容</span>
+<span class="hljs-keyword">set</span> nocompatible
+
+<span class="hljs-comment">&quot; 不要用空格代替制表符</span>
+<span class="hljs-keyword">set</span> noexpandtab
+
+<span class="hljs-comment">&quot; 在行和段开始处使用制表符</span>
+<span class="hljs-keyword">set</span> smarttab
+
+<span class="hljs-comment">&quot; Tab键的宽度</span>
+<span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">4</span>
+
+<span class="hljs-comment">&quot; 统一缩进为4</span>
+<span class="hljs-keyword">set</span> softtabstop=<span class="hljs-number">4</span>
+<span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">4</span>
+
+<span class="hljs-comment">&quot; 自动缩进</span>
+<span class="hljs-keyword">set</span> autoindent
+<span class="hljs-keyword">set</span> <span class="hljs-built_in">cindent</span>
+
+<span class="hljs-comment">&quot; 字符间插入的像素行数目</span>
+<span class="hljs-keyword">set</span> linespace=<span class="hljs-number">0</span>
+
+<span class="hljs-comment">&quot; 使回格键（backspace）正常处理indent, eol, start等</span>
+<span class="hljs-keyword">set</span> backspace=<span class="hljs-number">2</span>
+
+<span class="hljs-comment">&quot; 在被分割的窗口间显示空白，便于阅读</span>
+<span class="hljs-keyword">set</span> fillchars=<span class="hljs-keyword">vert</span>:\ ,stl:\ ,stlnc:\
+
+<span class="hljs-comment">&quot; 备份和撤销文件</span>
+<span class="hljs-keyword">set</span> nobackup
+<span class="hljs-keyword">set</span> noswapfile
+
+<span class="hljs-comment">&quot; 输入的命令显示出来，看的清楚些  </span>
+<span class="hljs-comment">&quot;set showcmd </span>
+
+<span class="hljs-comment">&quot; 允许折叠</span>
+<span class="hljs-keyword">set</span> foldenable
+<span class="hljs-comment">&quot; 手动折叠</span>
+<span class="hljs-keyword">set</span> foldmethod=manual
+
+<span class="hljs-comment">&quot; 显示中文帮助</span>
+<span class="hljs-comment">&quot; wget https://sourceforge.net/projects/vimcdoc/files/vimcdoc/vimcdoc-2.1.0.tar.gz/download -O vimcdoc-2.1.0.tar.gz</span>
+<span class="hljs-comment">&quot; tar -xzvf vimcdoc-2.1.0.tar.gz</span>
+<span class="hljs-comment">&quot; mv vimcdoc-2.1.0/doc ~/.vim/</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">version</span> &gt;= <span class="hljs-number">603</span>
+
+    <span class="hljs-keyword">set</span> helplang=<span class="hljs-keyword">cn</span>
+
+    <span class="hljs-keyword">set</span> encoding=utf-<span class="hljs-number">8</span>
+
+<span class="hljs-keyword">endif</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;persistent_undo&#x27;</span>)
+  <span class="hljs-keyword">set</span> <span class="hljs-built_in">undofile</span>
+  <span class="hljs-keyword">set</span> undodir=~/.<span class="hljs-keyword">vim</span>/undodir
+  <span class="hljs-keyword">if</span> !isdirectory(&amp;undodir)
+    <span class="hljs-keyword">call</span> <span class="hljs-built_in">mkdir</span>(&amp;undodir, <span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-number">0700</span>)
+  <span class="hljs-keyword">endif</span>
+<span class="hljs-keyword">endif</span>
+
+
+<span class="hljs-comment">&quot; 中文</span>
+<span class="hljs-keyword">set</span> fileencodings=ucs-bom,utf-<span class="hljs-number">8</span>,gb18030,latin1
+<span class="hljs-keyword">set</span> encoding=utf-<span class="hljs-number">8</span>
+<span class="hljs-keyword">set</span> termencoding=utf-<span class="hljs-number">8</span>
+
+<span class="hljs-comment">&quot; 鼠标支持</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;mouse&#x27;</span>)
+  <span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;gui_running&#x27;</span>) || (&amp;term =~ <span class="hljs-string">&#x27;xterm&#x27;</span> &amp;&amp; !has(<span class="hljs-string">&#x27;mac&#x27;</span>))
+    <span class="hljs-keyword">set</span> mouse=<span class="hljs-keyword">a</span>
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">set</span> mouse=nvi
+  <span class="hljs-keyword">endif</span>
+<span class="hljs-keyword">endif</span>
+
+<span class="hljs-comment">&quot; 共享剪贴板</span>
+<span class="hljs-keyword">set</span> clipboard=unnamed
+
+
+<span class="hljs-comment">&quot; 设置文本菜单</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;gui_running&#x27;</span>)
+  <span class="hljs-keyword">let</span> do_syntax_sel_menu = <span class="hljs-number">1</span>
+  <span class="hljs-keyword">let</span> do_no_lazyload_menus = <span class="hljs-number">1</span>
+<span class="hljs-keyword">endif</span>
+
+
+<span class="hljs-keyword">if</span> !has(<span class="hljs-string">&#x27;gui_running&#x27;</span>)
+  <span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;wildmenu&#x27;</span>)
+    <span class="hljs-keyword">set</span> wildmenu
+    <span class="hljs-keyword">set</span> cpoptions-=&lt;
+    <span class="hljs-keyword">set</span> wildcharm=<span class="hljs-symbol">&lt;C-Z&gt;</span>
+    <span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;F10&gt;</span>      :<span class="hljs-keyword">emenu</span> <span class="hljs-symbol">&lt;C-Z&gt;</span>
+    <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;F10&gt;</span> <span class="hljs-symbol">&lt;C-O&gt;</span>:<span class="hljs-keyword">emenu</span> <span class="hljs-symbol">&lt;C-Z&gt;</span>
+  <span class="hljs-keyword">endif</span>
+<span class="hljs-keyword">endif</span>
+
+
+<span class="hljs-comment">&quot; 查找</span>
+<span class="hljs-comment">&quot; 搜索忽略大小写</span>
+<span class="hljs-keyword">set</span> ignorecase
+<span class="hljs-comment">&quot; </span>
+<span class="hljs-keyword">set</span> smartcase
+<span class="hljs-comment">&quot; 搜索逐字符高亮</span>
+<span class="hljs-keyword">set</span> hlsearch
+<span class="hljs-keyword">set</span> incsearch
+
+
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;F2&gt;</span>      :<span class="hljs-keyword">nohlsearch</span><span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;F2&gt;</span> <span class="hljs-symbol">&lt;C-O&gt;</span>:<span class="hljs-keyword">nohlsearch</span><span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+<span class="hljs-keyword">set</span> scrolloff=<span class="hljs-number">1</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot;  显示设置</span>
+<span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot; 显示行号</span>
+<span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span>
+
+<span class="hljs-comment">&quot; 设置相对行号</span>
+<span class="hljs-keyword">set</span> relativenumber
+
+<span class="hljs-comment">&quot; 设置缩进</span>
+<span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">2</span>
+<span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">2</span>
+
+
+<span class="hljs-comment">&quot; 突出显示当前行</span>
+<span class="hljs-keyword">set</span> cursorline
+
+
+<span class="hljs-comment">&quot; 启动 vim 时关闭折叠代码</span>
+<span class="hljs-keyword">set</span> nofoldenable
+
+
+<span class="hljs-comment">&quot; 主题</span>
+<span class="hljs-keyword">syntax</span> enable
+<span class="hljs-keyword">colorscheme</span> molokai
+<span class="hljs-keyword">set</span> background=dark
+
+
+<span class="hljs-comment">&quot; 背景透明</span>
+<span class="hljs-keyword">hi</span> Normal ctermfg=<span class="hljs-number">252</span> ctermbg=none
+
+
+<span class="hljs-comment">&quot; 将字体设置为Meslo LG S DZ Regular for Powerline 13号大小</span>
+<span class="hljs-keyword">set</span> guifont=Meslo\ LG\ S\ DZ\ Regular\ <span class="hljs-keyword">for</span>\ Powerline:h13
+
+
+<span class="hljs-keyword">set</span> laststatus=<span class="hljs-number">2</span>                <span class="hljs-comment">&quot; 必须设置为2,否则状态栏不显示</span>
+<span class="hljs-keyword">set</span> t_Co=<span class="hljs-number">256</span>                    <span class="hljs-comment">&quot; 开启256颜色之后，colorschema在vim里好看了许多</span>
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot;==========================================</span>
+<span class="hljs-comment">&quot; vim-plug</span>
+<span class="hljs-comment">&quot;==========================================</span>
+
+
+<span class="hljs-keyword">call</span>     plug#begin(<span class="hljs-string">&#x27;~/.vim/plugged&#x27;</span>)
+
+<span class="hljs-comment">&quot; Surround  </span>
+Plug <span class="hljs-string">&#x27;tpope/vim-surround&#x27;</span>  
+<span class="hljs-comment">&quot; python自动补全</span>
+<span class="hljs-comment">&quot; Python autocompletion, go to definition.  </span>
+Plug <span class="hljs-string">&#x27;davidhalter/jedi-vim&#x27;</span>  
+<span class="hljs-comment">&quot; Better autocompletion</span>
+Plug <span class="hljs-string">&#x27;Shougo/neocomplcache.vim&#x27;</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;python&#x27;</span>)
+<span class="hljs-comment">&quot; YAPF formatter for Python</span>
+Plug <span class="hljs-string">&#x27;pignacio/vim-yapf-format&#x27;</span>
+<span class="hljs-keyword">endif</span>
+
+<span class="hljs-comment">&quot;  python 自动补全</span>
+<span class="hljs-comment">&quot;  wget https://github.com/rkulla/pydiction/archive/master.zip</span>
+<span class="hljs-comment">&quot;  unzip -q master</span>
+<span class="hljs-comment">&quot;  mv pydiction-master pydiction</span>
+<span class="hljs-comment">&quot;  mkdir -p ~/.vim/tools/pydiction</span>
+<span class="hljs-comment">&quot;  cp -r pydiction/after ~/.vim</span>
+<span class="hljs-comment">&quot;  cp pydiction/complete-dict ~/.vim/tools/pydiction</span>
+<span class="hljs-comment">&quot;</span>
+<span class="hljs-keyword">filetype</span> plugin <span class="hljs-keyword">on</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:pydiction_location</span> = <span class="hljs-string">&#x27;~/.vim/tools/pydiction/complete-dict&#x27;</span>
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 代码自动补全 </span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;Valloric/YouCompleteMe&#x27;</span>
+<span class="hljs-comment">&quot; *********************************************</span>
+<span class="hljs-comment">&quot; YCM插件相关</span>
+<span class="hljs-comment">&quot; *********************************************</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ycm_autoclose_preview_window_after_completion</span>=<span class="hljs-number">1</span>
+<span class="hljs-comment">&quot; 跳转到定义处</span>
+<span class="hljs-keyword">map</span> <span class="hljs-symbol">&lt;leader&gt;</span>g :YcmCompleter GoToDefinitionElseDeclaration<span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-comment">&quot; 默认tab、s-tab和自动补全冲突</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ycm_key_list_select_completion</span> = [<span class="hljs-string">&#x27;&lt;TAB&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;c-n&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;Down&gt;&#x27;</span>]
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ycm_key_list_previous_completion</span> = [<span class="hljs-string">&#x27;&lt;S-TAB&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;c-p&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;Up&gt;&#x27;</span>]
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ycm_auto_trigger</span> = <span class="hljs-number">1</span>
+<span class="hljs-comment">&quot;  java https://github.com/artur-shaik/vim-javacomplete2</span>
+Plug <span class="hljs-string">&#x27;artur-shaik/vim-javacomplete2&#x27;</span>
+<span class="hljs-keyword">autocmd</span> FileType java <span class="hljs-keyword">setlocal</span> omnifunc=javacomplete#Complete
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:SuperTabDefaultCompletionType</span> = <span class="hljs-string">&#x27;&lt;C-x&gt;&lt;C-o&gt;&#x27;</span>
+<span class="hljs-comment">&quot;inoremap &lt;buffer&gt; &lt;C-X&gt;&lt;C-U&gt; &lt;C-X&gt;&lt;C-U&gt;&lt;C-P&gt;</span>
+<span class="hljs-comment">&quot;inoremap &lt;buffer&gt; &lt;C-S-Space&gt; &lt;C-X&gt;&lt;C-U&gt;&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> FileType java <span class="hljs-keyword">set</span> completefunc=javacomplete#CompleteParamsInfo
+<span class="hljs-keyword">autocmd</span> FileType java <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;expr&gt;</span><span class="hljs-symbol">&lt;CR&gt;</span> <span class="hljs-built_in">pumvisible</span>()?<span class="hljs-string">&quot;\&lt;C-Y&gt;&quot;</span>:<span class="hljs-string">&quot;&lt;CR&gt;&quot;</span>
+<span class="hljs-keyword">autocmd</span> FileType java <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span> . .<span class="hljs-symbol">&lt;C-X&gt;</span><span class="hljs-symbol">&lt;C-O&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  A  A<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  B  B<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  C  C<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  D  D<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  E  E<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  F  F<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  G  G<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  H  H<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  I  I<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  J  J<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  K  K<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  L  L<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  M  M<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  <span class="hljs-keyword">N</span>  <span class="hljs-keyword">N</span><span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  O  O<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  <span class="hljs-keyword">P</span>  <span class="hljs-keyword">P</span><span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  Q  Q<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  R  R<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  S  S<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  T  T<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  U  U<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  V  V<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  W  W<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  <span class="hljs-keyword">X</span>  <span class="hljs-keyword">X</span><span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  Y  Y<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+<span class="hljs-keyword">autocmd</span> Filetype java,javascript,css,html,xml <span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;buffer&gt;</span>  Z  Z<span class="hljs-symbol">&lt;C-N&gt;</span><span class="hljs-symbol">&lt;C-P&gt;</span>
+
+
+<span class="hljs-comment">&quot; ==========================================</span>
+<span class="hljs-comment">&quot; LSP 补全方式</span>
+<span class="hljs-comment">&quot;</span>
+<span class="hljs-comment">&quot; 需要额外安装language server, 如果不想要自己可以注释掉</span>
+<span class="hljs-comment">&quot;</span>
+<span class="hljs-comment">&quot;  参考: https://web.archive.org/web/20211021091123/https://www.kawabangga.com/posts/3745</span>
+<span class="hljs-comment">&quot;</span>
+<span class="hljs-comment">&quot;  memo: 没有生效，暂时弃坑!</span>
+<span class="hljs-comment">&quot; </span>
+<span class="hljs-comment">&quot; ===================================================== </span>
+<span class="hljs-comment">&quot;Plug &#x27;prabirshrestha/async.vim&#x27;</span>
+<span class="hljs-comment">&quot;Plug &#x27;prabirshrestha/asyncomplete.vim&#x27;</span>
+<span class="hljs-comment">&quot;Plug &#x27;prabirshrestha/vim-lsp&#x27;</span>
+<span class="hljs-comment">&quot;Plug &#x27;prabirshrestha/asyncomplete-lsp.vim&#x27;</span>
+
+<span class="hljs-string">&quot;inoremap &lt;expr&gt; &lt;Tab&gt; pumvisible() ? &quot;</span>\<span class="hljs-symbol">&lt;C-n&gt;</span><span class="hljs-string">&quot; : &quot;</span>\<span class="hljs-symbol">&lt;Tab&gt;</span><span class="hljs-comment">&quot;</span>
+<span class="hljs-string">&quot;inoremap &lt;expr&gt; &lt;S-Tab&gt; pumvisible() ? &quot;</span>\<span class="hljs-symbol">&lt;C-p&gt;</span><span class="hljs-string">&quot; : &quot;</span>\<span class="hljs-symbol">&lt;S-Tab&gt;</span><span class="hljs-comment">&quot;</span>
+<span class="hljs-string">&quot;inoremap &lt;expr&gt; &lt;cr&gt; pumvisible() ? &quot;</span>\<span class="hljs-symbol">&lt;C-y&gt;</span>\<span class="hljs-symbol">&lt;cr&gt;</span><span class="hljs-string">&quot; : &quot;</span>\<span class="hljs-symbol">&lt;cr&gt;</span><span class="hljs-comment">&quot;</span>
+<span class="hljs-comment">&quot; bash lsp(language server)</span>
+<span class="hljs-comment">&quot; https://github.com/bash-lsp/bash-language-server</span>
+<span class="hljs-comment">&quot; 先在终端执行: npm i -g bash-language-server</span>
+<span class="hljs-comment">&quot; For Vim 8 or later install the plugin prabirshrestha/vim-lsp and add the following configuration to .vimrc:</span>
+<span class="hljs-comment">&quot;if executable(&#x27;bash-language-server&#x27;)</span>
+<span class="hljs-comment">&quot;  au User lsp_setup call lsp#register_server(&#123;</span>
+<span class="hljs-comment">&quot;        \ &#x27;name&#x27;: &#x27;bash-language-server&#x27;,</span>
+<span class="hljs-comment">&quot;        \ &#x27;cmd&#x27;: &#123;server_info-&gt;[&amp;shell, &amp;shellcmdflag, &#x27;bash-language-server start&#x27;]&#125;,</span>
+<span class="hljs-comment">&quot;        \ &#x27;whitelist&#x27;: [&#x27;sh&#x27;],</span>
+<span class="hljs-comment">&quot;        \ &#125;)</span>
+<span class="hljs-comment">&quot;endif</span>
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 美化</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 配色方案.</span>
+Plug <span class="hljs-string">&#x27;jakwings/vim-colors&#x27;</span>
+Plug <span class="hljs-string">&#x27;flazz/vim-colorschemes&#x27;</span>
+<span class="hljs-comment">&quot; theme color</span>
+Plug <span class="hljs-string">&#x27;tomasr/molokai&#x27;</span> | Plug <span class="hljs-string">&#x27;altercation/solarized&#x27;</span>
+
+
+<span class="hljs-comment">&quot; 彩虹括号</span>
+Plug <span class="hljs-string">&#x27;luochen1990/rainbow&#x27;</span>
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 树形目录</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;scrooloose/nerdtree&#x27;</span>                            <span class="hljs-comment">&quot; https://github.com/preservim/nerdtree</span>
+Plug <span class="hljs-string">&#x27;jistr/vim-nerdtree-tabs&#x27;</span>                        <span class="hljs-comment">&quot; https://github.com/jistr/vim-nerdtree-tabs</span>
+Plug <span class="hljs-string">&#x27;Xuyuanp/nerdtree-git-plugin&#x27;</span>                    <span class="hljs-comment">&quot; https://github.com/Xuyuanp/nerdtree-git-plugin</span>
+Plug <span class="hljs-string">&#x27;ryanoasis/vim-devicons&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/ryanoasis/vim-devicons</span>
+Plug <span class="hljs-string">&#x27;tiagofumo/vim-nerdtree-syntax-highlight&#x27;</span>        <span class="hljs-comment">&quot; https://github.com/tiagofumo/vim-nerdtree-syntax-highlight</span>
+Plug <span class="hljs-string">&#x27;tpope/vim-eunuch&#x27;</span>                               <span class="hljs-comment">&quot; https://github.com/tpope/vim-eunuch</span>
+
+
+<span class="hljs-keyword">map</span> <span class="hljs-symbol">&lt;C-n&gt;</span> :NERDTreeToggle<span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+<span class="hljs-keyword">let</span> NERDTreeMinimalUI = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> NERDTreeShowHidden = <span class="hljs-number">1</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:nerdtree_tabs_open_on_console_startup</span> = <span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; 开发的过程中，我们希望git信息直接在NERDTree中显示出来， 和Eclipse一样，修改的文件和增加的文件都给出相应的标注， 这时需要安装的插件就是 nerdtree-git-plugin,配置信息如下</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:NERDTreeGitStatusIndicatorMapCustom</span> = &#123;
+    \ <span class="hljs-string">&quot;Modified&quot;</span>  : <span class="hljs-string">&quot;✹&quot;</span>,
+    \ <span class="hljs-string">&quot;Staged&quot;</span>    : <span class="hljs-string">&quot;✚&quot;</span>,
+    \ <span class="hljs-string">&quot;Untracked&quot;</span> : <span class="hljs-string">&quot;✭&quot;</span>,
+    \ <span class="hljs-string">&quot;Renamed&quot;</span>   : <span class="hljs-string">&quot;➜&quot;</span>,
+    \ <span class="hljs-string">&quot;Unmerged&quot;</span>  : <span class="hljs-string">&quot;═&quot;</span>,
+    \ <span class="hljs-string">&quot;Deleted&quot;</span>   : <span class="hljs-string">&quot;✖&quot;</span>,
+    \ <span class="hljs-string">&quot;Dirty&quot;</span>     : <span class="hljs-string">&quot;✗&quot;</span>,
+    \ <span class="hljs-string">&quot;Clean&quot;</span>     : <span class="hljs-string">&quot;✔︎&quot;</span>,
+    \ <span class="hljs-string">&quot;Unknown&quot;</span>   : <span class="hljs-string">&quot;?&quot;</span>
+    \ &#125;
+
+<span class="hljs-comment">&quot; open nerdtree with the current file selected</span>
+<span class="hljs-keyword">nmap</span> ,t :NERDTreeFind<span class="hljs-symbol">&lt;CR&gt;</span>
+
+<span class="hljs-comment">&quot; i 在新的水平分割的窗口中打开</span>
+<span class="hljs-comment">&quot; s 在新的竖直分割的窗口中打开</span>
+<span class="hljs-comment">&quot; t 在标签页中打开</span>
+<span class="hljs-comment">&quot; go 预览文件</span>
+<span class="hljs-comment">&quot; r 刷新光标所在的目录</span>
+<span class="hljs-comment">&quot; R 刷新当前根路径</span>
+<span class="hljs-comment">&quot; I 显示隐藏文件</span>
+<span class="hljs-comment">&quot; m 显示文件操作菜单</span>
+<span class="hljs-comment">&quot; C 将根路径设置为光标所在的目录</span>
+<span class="hljs-comment">&quot; u 设置上级目录为根路径</span>
+<span class="hljs-comment">&quot; gT 前一个 tab</span>
+<span class="hljs-comment">&quot; gt 后一个 tab</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; 加方向键（h、j、k、l、&lt;Left&gt; 等）可以在窗口之间跳转</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + w 跳转到下一个窗口</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + s 和 :split 作用相同，把当前窗口横向一分为二</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + v 和 :vsplit 作用相同，把当前窗口纵向一分为二</span>
+<span class="hljs-comment">&quot; &lt;C-W&gt; + o 或 :only 只保留当前窗口，关闭其他所有窗口</span>
+
+
+
+
+<span class="hljs-comment">&quot; 组合快捷键：nnoremap是什么意思？——简单来说，nnoremap将一个组合快捷键映射为另一个快捷键。no部分，指的是在Vim的正常模式（Normal Mode）下，而不是可视模式下重新映射</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-J&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-J&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-j 切换到下方的分割窗口</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-K&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-K&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-k 切换到上方的分割窗口</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-L&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-L&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-l 切换到右侧的分割窗口</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;C-H&gt;</span> <span class="hljs-symbol">&lt;C-W&gt;</span><span class="hljs-symbol">&lt;C-H&gt;</span>    <span class="hljs-comment">&quot; 组合快捷键：- Ctrl-h 切换到左侧的分割窗口</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 标签</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;majutsushi/tagbar&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/majutsushi/tagbar</span>
+
+
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;F9&gt;</span>      :TagbarToggle<span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">inoremap</span> <span class="hljs-symbol">&lt;F9&gt;</span> <span class="hljs-symbol">&lt;C-O&gt;</span>:TagbarToggle<span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:tagbar_type_typescript</span> = &#123;
+  \ <span class="hljs-string">&#x27;ctagsbin&#x27;</span> : <span class="hljs-string">&#x27;tstags&#x27;</span>,
+  \ <span class="hljs-string">&#x27;ctagsargs&#x27;</span> : <span class="hljs-string">&#x27;-f-&#x27;</span>,
+  \ <span class="hljs-string">&#x27;kinds&#x27;</span>: [
+    \ <span class="hljs-string">&#x27;e:enums:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;f:function:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;t:typealias:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;M:Module:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;I:import:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;i:interface:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;C:class:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;m:method:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;p:property:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;v:variable:0:1&#x27;</span>,
+    \ <span class="hljs-string">&#x27;c:const:0:1&#x27;</span>,
+  \ ],
+  \ <span class="hljs-string">&#x27;sort&#x27;</span> : <span class="hljs-number">0</span>
+\ &#125;
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 自动补全</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;Valloric/YouCompleteMe&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/ycm-core/YouCompleteMe</span>
+Plug <span class="hljs-string">&#x27;Raimondi/delimitMate&#x27;</span>                           <span class="hljs-comment">&quot; https://github.com/Raimondi/delimitMate</span>
+
+
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;Leader&gt;</span>fi :YcmCompleter FixIt<span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;Leader&gt;</span>gd :YcmCompleter GoToDefinition<span class="hljs-symbol">&lt;CR&gt;</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 语法高亮，检查</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;sheerun/vim-polyglot&#x27;</span>                           <span class="hljs-comment">&quot; https://github.com/sheerun/vim-polyglot</span>
+Plug <span class="hljs-string">&#x27;w0rp/ale&#x27;</span>                                       <span class="hljs-comment">&quot; https://github.com/w0rp/ale</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_fix_on_save</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_sign_column_always</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_sign_error</span> = <span class="hljs-string">&#x27;●&#x27;</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ale_sign_warning</span> = <span class="hljs-string">&#x27;▶&#x27;</span>
+
+
+<span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-k&gt;</span> <span class="hljs-symbol">&lt;Plug&gt;</span>(ale_previous_wrap)
+<span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-j&gt;</span> <span class="hljs-symbol">&lt;Plug&gt;</span>(ale_next_wrap)
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 全局搜索，快速打开文件</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: &#123; -&gt; fzf#install() &#125; &#125;   <span class="hljs-comment">&quot; https://github.com/junegunn/fzf</span>
+Plug <span class="hljs-string">&#x27;junegunn/fzf.vim&#x27;</span>                               <span class="hljs-comment">&quot; https://github.com/junegunn/fzf.vim</span>
+Plug <span class="hljs-string">&#x27;ctrlpvim/ctrlp.vim&#x27;</span>                             <span class="hljs-comment">&quot; https://github.com/ctrlpvim/ctrlp.vim</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ctrlp_user_command</span> = [<span class="hljs-string">&#x27;.git&#x27;</span>, <span class="hljs-string">&#x27;cd %s &amp;&amp; git ls-files -co --exclude-standard&#x27;</span>]
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:ctrlp_regexp</span> = <span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; &lt;c-r&gt;: 切换匹配模式</span>
+<span class="hljs-comment">&quot; &lt;c-t&gt;：在新的 tab 中打开</span>
+<span class="hljs-comment">&quot; :Rg</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 状态条</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;vim-airline/vim-airline&#x27;</span>                        <span class="hljs-comment">&quot; https://github.com/vim-airline/vim-airline</span>
+Plug <span class="hljs-string">&#x27;vim-airline/vim-airline-themes&#x27;</span>                 <span class="hljs-comment">&quot; https://github.com/vim-airline/vim-airline-themes</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline_theme</span>=<span class="hljs-string">&#x27;molokai&#x27;</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline_powerline_fonts</span> = <span class="hljs-number">1</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#tabline#enabled = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#tabline#formatter = <span class="hljs-string">&#x27;unique_tail&#x27;</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#ale#enabled = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#tabline#buffer_nr_show = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline</span>#extensions#nerdtree_statusline = <span class="hljs-number">0</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:airline_section_c</span> = <span class="hljs-string">&#x27;&#x27;</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 注释</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;scrooloose/nerdcommenter&#x27;</span>                       <span class="hljs-comment">&quot; https://github.com/preservim/nerdcommenter</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:NERDSpaceDelims</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:NERDDefaultAlign</span> = <span class="hljs-string">&#x27;left&#x27;</span>
+
+
+<span class="hljs-comment">&quot; &lt;leader&gt;c&lt;space&gt; 注释/取消注释</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;ca 切换　// 和 /* */</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;cs /* 块注释 */</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;cm 只用一组符号注释</span>
+<span class="hljs-comment">&quot; &lt;leader&gt;cA 在行尾添加注释</span>
+
+<span class="hljs-comment">&quot; &lt;leader&gt; 默认为 \</span>
+<span class="hljs-comment">&quot; 在vim的普通模式下使用“\cc”， 可以轻松注释掉光标所在的行；</span>
+<span class="hljs-comment">&quot; 在visual模式下，使用这个组合键“\cc”， 可以轻松注释掉选择的代码块。</span>
+
+<span class="hljs-comment">&quot;  &lt;Esc&gt; 是ESC的意思, 先到行首输入/*，然后ESC，到行尾输入*/, j向下移动一行</span>
+<span class="hljs-comment">&quot; /* 注释该行 */</span>
+<span class="hljs-keyword">map</span> =  I/*<span class="hljs-symbol">&lt;space&gt;</span><span class="hljs-symbol">&lt;Esc&gt;</span> A */<span class="hljs-symbol">&lt;Esc&gt;</span><span class="hljs-keyword">j</span>
+<span class="hljs-keyword">map</span> == I#<span class="hljs-symbol">&lt;space&gt;</span><span class="hljs-symbol">&lt;Esc&gt;</span>
+
+<span class="hljs-comment">&quot;数字 0 的意思是回到当前行的行首， 而 $ 是回到行尾 ， x 是删除一个字符， 所以 xxx 就是删除三个字符</span>
+<span class="hljs-comment">&quot; /* 消除该行注释 */</span>
+<span class="hljs-keyword">map</span> - <span class="hljs-number">0</span>xxx$xxxj
+<span class="hljs-keyword">map</span> -- I<span class="hljs-symbol">&lt;Esc&gt;</span>xx<span class="hljs-symbol">&lt;Esc&gt;</span> 
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; git</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;airblade/vim-gitgutter&#x27;</span>                         <span class="hljs-comment">&quot; https://github.com/airblade/vim-gitgutter</span>
+Plug <span class="hljs-string">&#x27;tpope/vim-fugitive&#x27;</span>                             <span class="hljs-comment">&quot; https://github.com/tpope/vim-fugitive</span>
+Plug <span class="hljs-string">&#x27;tpope/vim-rhubarb&#x27;</span>                              <span class="hljs-comment">&quot; https://github.com/tpope/vim-rhubarb</span>
+
+
+<span class="hljs-keyword">set</span> updatetime=<span class="hljs-number">100</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:gitgutter_max_signs</span> = -<span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; jump to next hunk: ]c</span>
+<span class="hljs-comment">&quot; jump to previous hunk: [c</span>
+<span class="hljs-comment">&quot; stage the hunk: &lt;Leader&gt;hs</span>
+<span class="hljs-comment">&quot; undo the hunk: &lt;Leader&gt;hu</span>
+<span class="hljs-comment">&quot; preview the hunk: &lt;Leader&gt;hp</span>
+
+
+<span class="hljs-comment">&quot; :G</span>
+<span class="hljs-comment">&quot; :Gvdiffsplit</span>
+<span class="hljs-comment">&quot; :GBrowse</span>
+<span class="hljs-comment">&quot;</span>
+<span class="hljs-comment">&quot; s: 加到暂存区中</span>
+<span class="hljs-comment">&quot; u: 重置加入暂存区的修改</span>
+<span class="hljs-comment">&quot; X: 丢弃修改</span>
+<span class="hljs-comment">&quot; ca: 更改上一次提交</span>
+<span class="hljs-comment">&quot; ce: 使用上一次提交</span>
+<span class="hljs-comment">&quot; =: 切换 diff 显示</span>
+<span class="hljs-comment">&quot; cc: 提交当前暂存区中的文件</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Markdown</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: <span class="hljs-string">&#x27;cd app &amp;&amp; yarn install&#x27;</span>  &#125;      <span class="hljs-comment">&quot; https://github.com/iamcco/markdown-preview.nvim</span>
+
+
+<span class="hljs-comment">&quot; :MarkdownPreview</span>
+<span class="hljs-comment">&quot; :MarkdownPreviewStop</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Emmet</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;mattn/emmet-vim&#x27;</span>                                <span class="hljs-comment">&quot; https://github.com/mattn/emmet-vim</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:user_emmet_leader_key</span>=<span class="hljs-string">&#x27;&lt;C-Z&gt;&#x27;</span>
+
+
+<span class="hljs-comment">&quot; &lt;C-Z&gt;,</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Prettier</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;prettier/vim-prettier&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: <span class="hljs-string">&#x27;npm install&#x27;</span> &#125;     <span class="hljs-comment">&quot; https://github.com/prettier/vim-prettier</span>
+
+
+<span class="hljs-keyword">autocmd</span> BufWritePre *.js,*.jsx,*.mjs,*.<span class="hljs-keyword">ts</span>,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+
+<span class="hljs-comment">&quot; :PrettierAsync</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Wakatime</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;wakatime/vim-wakatime&#x27;</span>                              <span class="hljs-comment">&quot; https://github.com/wakatime/vim-wakatime</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; Whitespace</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+Plug <span class="hljs-string">&#x27;ntpeters/vim-better-whitespace&#x27;</span>                     <span class="hljs-comment">&quot; https://github.com/ntpeters/vim-better-whitespace</span>
+
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:better_whitespace_enabled</span>=<span class="hljs-number">1</span>
+
+
+<span class="hljs-comment">&quot; :StripWhitespace</span>
+
+
+
+
+
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+<span class="hljs-comment">&quot; 新文件标题</span>
+<span class="hljs-comment">&quot; -----------------------------------------------</span>
+
+<span class="hljs-comment">&quot; 侦查文件类型</span>
+<span class="hljs-keyword">filetype</span> <span class="hljs-keyword">on</span>
+<span class="hljs-comment">&quot; 载入文件类型插件</span>
+<span class="hljs-keyword">filetype</span> plugin <span class="hljs-keyword">on</span>
+<span class="hljs-comment">&quot; 为特定文件类型载入相关缩进文件</span>
+<span class="hljs-keyword">filetype</span> <span class="hljs-built_in">indent</span> <span class="hljs-keyword">on</span>
+<span class="hljs-comment">&quot;新建.c,.h,.sh,.java文件，自动插入文件头 </span>
+
+<span class="hljs-keyword">autocmd</span> BufNewFile *.cpp,*.[ch],*.<span class="hljs-keyword">sh</span>,*.java exec <span class="hljs-string">&quot;:call SetTitle()&quot;</span> 
+
+<span class="hljs-string">&quot;&quot;</span>定义函数SetTitle，自动插入文件头 
+
+func SetTitle() 
+
+    <span class="hljs-comment">&quot;如果文件类型为.sh文件 </span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">expand</span>(<span class="hljs-string">&quot;%:e&quot;</span>)  == <span class="hljs-string">&#x27;sh&#x27;</span> 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-built_in">setline</span>(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;\#########################################################################&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>), <span class="hljs-string">&quot;\# File Name: &quot;</span>.<span class="hljs-built_in">expand</span>(<span class="hljs-string">&quot;%&quot;</span>)) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">1</span>, <span class="hljs-string">&quot;\# Author: DANTE FUNG&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">2</span>, <span class="hljs-string">&quot;\# mail: fhlin0611@foxmail.com&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">3</span>, <span class="hljs-string">&quot;\# Created Time: &quot;</span>.<span class="hljs-built_in">strftime</span>(<span class="hljs-string">&quot;%c&quot;</span>)) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">4</span>, <span class="hljs-string">&quot;\#########################################################################&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">5</span>, <span class="hljs-string">&quot;\#!/bin/bash&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">6</span>, <span class="hljs-string">&quot;&quot;</span>) 
+
+    <span class="hljs-keyword">else</span> 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-built_in">setline</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;/*************************************************************************&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>), <span class="hljs-string">&quot;    &gt; File Name: &quot;</span>.<span class="hljs-built_in">expand</span>(<span class="hljs-string">&quot;%&quot;</span>)) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">1</span>, <span class="hljs-string">&quot;    &gt; Author: DANTE FUNG&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">2</span>, <span class="hljs-string">&quot;    &gt; Mail:  fhlin0611@foxmail.com&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">3</span>, <span class="hljs-string">&quot;    &gt; Created Time: &quot;</span>.<span class="hljs-built_in">strftime</span>(<span class="hljs-string">&quot;%c&quot;</span>)) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">4</span>, <span class="hljs-string">&quot; ************************************************************************/&quot;</span>) 
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">5</span>, <span class="hljs-string">&quot;&quot;</span>)
+
+    <span class="hljs-keyword">endif</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">expand</span>(<span class="hljs-string">&quot;%:e&quot;</span>) == <span class="hljs-string">&#x27;cpp&#x27;</span>
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">6</span>, <span class="hljs-string">&quot;#include&lt;iostream&gt;&quot;</span>)
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">7</span>, <span class="hljs-string">&quot;using namespace std;&quot;</span>)
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">8</span>, <span class="hljs-string">&quot;&quot;</span>)
+
+    <span class="hljs-keyword">endif</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">expand</span>(<span class="hljs-string">&quot;%:e&quot;</span>) == <span class="hljs-string">&#x27;c&#x27;</span>
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">6</span>, <span class="hljs-string">&quot;#include&lt;stdio.h&gt;&quot;</span>)
+
+        <span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">7</span>, <span class="hljs-string">&quot;&quot;</span>)
+
+    <span class="hljs-keyword">endif</span>
+
+    <span class="hljs-comment">&quot;新建文件后，自动定位到文件末尾</span>
+
+    <span class="hljs-keyword">autocmd</span> BufNewFile * <span class="hljs-keyword">normal</span> G
+
+endfunc 
+
+
+
+
+
+
+<span class="hljs-keyword">call</span> plug#end()
+
+
+<span class="hljs-comment">&quot; PlugInstall</span>
+<span class="hljs-comment">&quot; PlugUpdate</span>
+<span class="hljs-comment">&quot; PlugClean</span>
+<span class="hljs-comment">&quot; PlugUpgrade</span>
+<span class="hljs-comment">&quot; PlugStatus</span>
+<span class="hljs-comment">&quot; PlugDiff</span>
+<span class="hljs-comment">&quot; PlugSnapshot</span>
+</code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/mac/">mac</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%A9%E5%99%A8/">利器</a>
+                    
+                      <a class="hover-with-bg" href="/tags/vim/">vim</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/29/Homebrew%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Homebrew更换国内镜像源</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/21/DBeaverEnterprise7.1%E4%BC%81%E4%B8%9A%E7%89%88%E6%BF%80%E6%B4%BB%E6%96%B9%E6%B3%95/">
+                        <span class="hidden-mobile">DBeaver Enterprise 7.1企业版激活方法</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">キーワード</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "mac下配置vim&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
