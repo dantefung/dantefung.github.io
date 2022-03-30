@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                首页
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                归档
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                分类
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                标签
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                Links
+                友链
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                关于
               </a>
             </li>
           
@@ -452,7 +452,8 @@ PID=$(ps aux|grep ssh|grep fgnTN|grep -v grep |awk <span class="hljs-string">&#x
 <div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo service privoxy restart</span></code></pre></div>
 
 <p><strong>测试</strong></p>
-<div class="hljs"><pre><code class="hljs ruby">dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable constant_">RL03VFUMQFV</span><span class="hljs-symbol">:/mnt/d/scripts</span><span class="hljs-variable">$ </span>export http_proxy=<span class="hljs-string">&#x27;http://127.0.0.1:8118&#x27;</span>
+<div class="hljs"><pre><code class="hljs ruby">dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable constant_">RL03VFUMQFV</span><span class="hljs-symbol">:/mnt/d/scripts</span><span class="hljs-variable">$ </span>./ssh_proxy.sh
+dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable constant_">RL03VFUMQFV</span><span class="hljs-symbol">:/mnt/d/scripts</span><span class="hljs-variable">$ </span>export http_proxy=<span class="hljs-string">&#x27;http://127.0.0.1:8118&#x27;</span>
 dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable constant_">RL03VFUMQFV</span><span class="hljs-symbol">:/mnt/d/scripts</span><span class="hljs-variable">$ </span>curl -I www.google.com</code></pre></div>
 
 <p>期望结果:</p>
@@ -516,7 +517,7 @@ dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable cons
                       <a href="/2021/06/30/MacOS%E4%B8%ADDBeaver%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">MacOS中DBeaver启动时报错</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
@@ -525,7 +526,7 @@ dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable cons
                     
                       <a href="/2021/06/25/hive%E4%B8%AD%E5%88%9B%E5%BB%BAdual%E8%99%9A%E8%A1%A8/">
                         <span class="hidden-mobile">hive中创建dual虚表</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -574,7 +575,7 @@ dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable cons
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -601,7 +602,7 @@ dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable cons
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -610,7 +611,7 @@ dantefung<span class="hljs-variable">@WIN</span>-<span class="hljs-variable cons
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

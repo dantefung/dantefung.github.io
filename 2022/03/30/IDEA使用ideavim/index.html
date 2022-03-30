@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/icon.jpeg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DANTE FUNG">
+  <meta name="keywords" content="">
+  <title>IDEA使用ideavim - DANTE FUNGの像初雪一样洒落</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/musics/">
+                <i class="iconfont icon-category-fill"></i>
+                music
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2022-03-30 11:11" pubdate>
+      March 30, 2022 am
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">IDEA使用ideavim</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="IDEA使用ideaVim"><a href="#IDEA使用ideaVim" class="headerlink" title="IDEA使用ideaVim"></a>IDEA使用ideaVim</h1><p>笔记地址: <a target="_blank" rel="noopener" href="https://note.youdao.com/web/#/file/recent/markdown/WEB2e6876d533bd4471866b3c31a87e46e7/?search=ideavim">https://note.youdao.com/web/#/file/recent/markdown/WEB2e6876d533bd4471866b3c31a87e46e7/?search=ideavim</a></p>
+<p>文档配图以及更细致的说明，以后有空再补上:) Have a good day!</p>
+<h2 id="Mac-OS-配置文件"><a href="#Mac-OS-配置文件" class="headerlink" title="Mac OS 配置文件"></a>Mac OS 配置文件</h2><p><strong>step 1:</strong> 进入用户目录, 例如: /Users/Admin/</p>
+<p><strong>step 2:</strong> 创建配置文件.ideavimrc, 写入内容参见<code>附录: 配置文件内容</code> </p>
+<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> ~
+vi <span class="hljs-string">.ideavimrc</span></code></pre></div>
+
+<h2 id="Windows-平台配置文件"><a href="#Windows-平台配置文件" class="headerlink" title="Windows 平台配置文件"></a>Windows 平台配置文件</h2><p><strong>step 1:</strong> 进入用户目录, 例如: C:\Users\Administrator</p>
+<p><strong>step 2:</strong> 创建配置文件_ideavimrc, 写入配置内容, 具体内容参见 <code>附录: 配置文件内容</code></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><strong>配置文件内容:</strong></p>
+<div class="hljs"><pre><code class="hljs xml">let mapleader=&#x27; &#x27;
+&quot; 启用vim surround功能
+set surround
+&quot; 显示行号
+set nu
+&quot; 显示相对行号
+set rnu
+&quot; 高亮搜索
+set hlsearch
+&quot; 自动定位到输入中的字符串，不需要回车搜索
+set incsearch
+set ignorecase
+set smartcase
+&quot; 显示当前的模式
+set showmode
+set number
+&quot; 相对当前行行数显示
+&quot; set relativenumber
+set scrolloff=3
+set history=100000
+&quot; 共享系统粘贴板
+set clipboard=unnamed
+
+&quot; clear the highlighted search result
+&quot; (清除高亮)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>sc :nohlsearch<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>fs :w<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+
+
+&quot; Quit normal mode
+&quot; (保存关闭)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>q  :q<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>Q  :qa!<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot; Move half page faster
+&quot; (上下翻页)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>d  <span class="hljs-tag">&lt;<span class="hljs-name">C-d</span>&gt;</span>
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>u  <span class="hljs-tag">&lt;<span class="hljs-name">C-u</span>&gt;</span>
+
+&quot; 快速进入vim模式
+inoremap jj <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
+inoremap jk <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
+inoremap kk <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
+
+&quot; Quit visual mode
+vnoremap v <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
+
+
+&quot; Redo
+nnoremap U <span class="hljs-tag">&lt;<span class="hljs-name">C-r</span>&gt;</span>
+
+&quot; 以下是一些vim使用方法 -----------------
+&quot; viw  vaw  ciw caw diw daw vi&#x27; va&#x27; ci&#x27; ca&#x27; di&#x27; da&#x27; vi( va( ci( ca( di( da( ...
+
+&quot; ###### vim宏：normal模式下 qr 带表给r标记宏 然后vim操作。  @r 重复一次宏 10@r重复10次宏 注意（idea的提示功能干扰，可以在字符串里面先写好然后在复制黏贴）
+
+&quot; ###### 7.2 替换
+&quot;           :s/old/new - 用new替换当前行第一个old。
+&quot;           :s/old/new/g - 用new替换当前行所有的old。
+&quot;           :n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。
+&quot;           :%s/old/new/g - 用new替换文件中所有的old。
+&quot;           :%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。
+&quot;           :%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。
+&quot;           有替换命令末尾加上c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上i则忽略大小写(ignore)。
+&quot;           有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，
+&quot;           法为 :[range]g/pattern/command
+&quot;           如 :%g/^ xyz/normal dd。
+&quot;           示对于以一个空格和xyz开头的行执行normal模式下的dd命令。
+&quot;           于range的规定为：
+&quot;           果不指定range，则表示当前行。
+&quot;           ,n: 从m行到n行。
+&quot;           : 最开始一行（可能是这样）。
+&quot;           $: 最后一行
+&quot;           .: 当前行
+&quot;           %: 所有行
+
+&quot; 以上是一些vim使用方法 -----------------
+
+&quot; 以下是自定义快捷键-----------------
+
+&quot; 复制单个单词到寄存器a并标记到o (使用快捷键 空格+y)
+&quot; 注释:（mo =&gt; 标记o）,(+yiw =&gt;复制当前单词到系统剪切板),(&quot;a =&gt; 寄存器a) ,(&quot;ayiw =&gt; 复制当前单词到寄存器a)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>y mo&quot;+yiw&quot;ayiw
+
+&quot; 剪切单个单词到寄存器a并标记到o (使用快捷键 空格+x)
+&quot; 注释:（mo =&gt; 标记o[标记为的是使用&#x27;&#x27;来回跳标记]）,(+yiw =&gt;复制当前单词到系统剪切板),(&quot;a =&gt; 寄存器a) ,(&quot;ayiw =&gt; 复制当前单词到寄存器a),(diw =&gt;删除当前单词)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>x mo&quot;+yiw&quot;ayiwdiw
+
+&quot; 删除单个字符串并黏贴寄存器a的内容并来回标记o和p  (使用快捷键 空格+v)
+&quot; 注释：（mp =&gt; 标记p）,(viw =&gt; 选中当前单词),（&quot;a =&gt; 寄存器a）,(p =&gt; 将寄存器a内容黏贴到选中的单词),（&#x27;o =&gt; 跳回标记o）,(&#x27;p =&gt;跳回标记p[标记为的是使用&#x27;&#x27;来回跳标记])
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>v mpviw&quot;ap&#x27;o&#x27;p
+
+&quot; idea内置快捷键alt+F1 (使用快捷键 空格+m)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>m :action SelectIn<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot; idea内置快捷键control+E (使用快捷键 空格+e)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>e :action RecentFiles<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;生成get set方法  (使用快捷键 空格+cc)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>cc :action Generate<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot; shift+h--zz(向上翻页)(使用快捷键 空格+h)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>h <span class="hljs-tag">&lt;<span class="hljs-name">S-h</span>&gt;</span>zz
+
+&quot; shift+l--zz(向下翻页)(使用快捷键 空格+l)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>l <span class="hljs-tag">&lt;<span class="hljs-name">S-l</span>&gt;</span>zz
+
+&quot; 以上是自定义快捷键-----------------
+
+&quot; quit ==&gt; close current window
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>q <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>w
+
+&quot; Window operation
+&quot; (关于窗口操作)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ww <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>w
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wd <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>c
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wj <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>j
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wk <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>k
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wh <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>h
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wl <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>l
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ws <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>s
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>w- <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>s
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wv <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>v
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>w\| <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>v
+
+&quot; Tab operation
+&quot; (切换标签)
+nnoremap tn gt
+nnoremap tp gT
+
+&quot; ==================================================
+&quot; Show all the provided actions via `:actionlist`
+&quot; ==================================================
+
+&quot; project search
+&quot;相当于IDEA的两次shift按钮
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>se :action SearchEverywhere<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;查找用法
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>fu :action FindUsages<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;打断点
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>bb :action ToggleLineBreakpoint<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;查看所有断点
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>br :action ViewBreakpoints<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;DUG启动
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>cd :action ChooseDebugConfiguration<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;跳转到Action
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ga :action GotoAction<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;跳转到实体类
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gc :action GotoClass<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;跳转到声明
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gd :action GotoDeclaration<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;跳转到文件
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gf :action GotoFile<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;跳转到实现类
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gi :action GotoImplementation<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;跳转到测试类(没有则自动建立)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gt :action GotoTest<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;显示当前文件路径
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>fp :action ShowFilePath<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;激活maven窗口
+&quot;nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>mv :action ActivateMavenProjectsToolWindow<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;修改所有的关联名字
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>re :action RenameElement<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;修改当前文件的文件名
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>rf :action RenameFile<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;显示用法
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>su :action ShowUsages<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;关闭活动显示板
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>tc :action CloseActiveTab<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;以下是不常用
+
+&quot;打开命令管理器
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>tl Vy<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>:action ActivateTerminalToolWindow<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+vnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>tl y<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>:action ActivateTerminalToolWindow<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot; built in search looks better
+&quot; (查找字符串)
+nnoremap / :action Find<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot; but preserve ideavim search
+&quot; (vim自带的搜索)
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>/ /
+
+&quot;添加注释
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>;; :action CommentByLineComment<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;改变视图
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>cv :action ChangeView<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;跳转到标致
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gs :action GotoSymbol<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ic :action InspectCode<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>oi :action OptimizeImports<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>pm :action ShowPopupMenu<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+
+&quot;正常启动工程
+nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>rc :action ChooseRunConfiguration<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span></code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8C%96%E5%9D%91%E5%BE%85%E5%A1%AB/">挖坑待填</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8C%96%E5%9D%91%E5%BE%85%E5%A1%AB/vim/">vim</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IDEA/">IDEA</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8C%96%E5%9D%91%E5%BE%85%E5%A1%AB/">挖坑待填</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/14/Spring5-x%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/">
+                        <span class="hidden-mobile">Spring5.x源码编译</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '4c62e572f688c01a7c7e',
+          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
+          repo: 'blog-comment',
+          owner: 'dantefung',
+          admin: ["dantefung"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "IDEA使用ideavim&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
