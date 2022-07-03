@@ -23,6 +23,22 @@ docker run -d -p 9876:9876 -v {RmHome}/data/namesrv/logs:/root/logs -v {RmHome}/
 **注意事项:**
  {RmHome} 要替换成你的宿主机想保存 MQ 的日志与数据的地方，通过 docker 的 -v 参数使用 volume 功能，把你本地的目录映射到容器内的目录上。否则所有数据都默认保存在容器运行时的内存中，重启之后就又回到最初的起点。
 
+{RmHome}的目录结构如下:
+
+```
+.
+├── conf
+│   └── broker.conf
+└── data
+    ├── broker
+    │   ├── logs
+    │   └── store
+    └── namesrv
+        ├── logs
+        └── store
+
+```
+
 ## 2. 安装 broker 服务器
 ### 拉取镜像
 与上步是同一个镜像，如果上步完成，此步无需拉取
@@ -190,7 +206,15 @@ cat /etc/hosts
 替换 namesrv.addr 后，启动控制台，访问 {你的IP}:8080
 ~~~
 
+**笔者自己的namesr启动命令备份**
+```
+docker run -u root -d -p 9876:9876 -v /mnt/d/software/docker_mapping/rocketmq_mapping/data/namesrv/logs:/root/logs -v /mnt/d/software/docker_mapping/rocketmq_mapping/data/namesrv/store:/root/store -v /mnt/d/software/docker_mapping/rocketmq_mapping/conf/broker.conf:/opt/rocketmq-4.4.0/conf/broker.conf --name rmqnamesrv -e "MAX_POSSIBLE_HEAP=100000000" --privileged=true rocketmqinc/rocketmq:4.4.0 sh mqnamesrv
+```
+
 **笔者自己的Docker启动Broker命令备份**:
+```
+docker run -u root -d -p 10911:10911 -p 10909:10909 -v /mnt/d/software/docker_mapping/rocketmq_mapping/data/broker/logs:/root/logs -v /mnt/d/software/docker_mapping/rocketmq_mapping/data/broker/store:/root/store -v /mnt/d/software/docker_mapping/rocketmq_mapping/conf/broker.conf:/opt/rocketmq-4.4.0/conf/broker.conf --name rmqbroker --privileged=true --link rmqnamesrv:namesrv -e "NAMESRV_ADDR=namesrv:9876" -e "MAX_POSSIBLE_HEAP=200000000" rocketmqinc/rocketmq:4.4.0 sh mqbroker -c /opt/rocketmq-4.4.0/conf/broker.conf
+```
 ``` 
 docker run -d -p 10911:10911 -p 10909:10909 -v /Users/admin/Documents/software/docker_volume_mapping/rocketmq/data/broker/logs:/root/logs -v /Users/admin/Documents/software/docker_volume_mapping/rocketmq/data/broker/store:/root/store -v /Users/admin/Documents/software/docker_volume_mapping/rocketmq/conf/broker.conf:/opt/rocketmq-4.4.0/conf/broker.conf --name rmqbroker --link rmqnamesrv:namesrv -e "NAMESRV_ADDR=namesrv:9876" -e "MAX_POSSIBLE_HEAP=200000000" rocketmqinc/rocketmq:4.4.0 sh mqbroker -c /opt/rocketmq-4.4.0/conf/broker.conf
 ```
