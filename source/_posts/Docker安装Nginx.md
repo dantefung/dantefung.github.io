@@ -44,7 +44,7 @@ http {
 
     server {
         listen       80;
-        server_name  shop.foch.tk;
+        server_name  xxxx.yyyy.zzzz;
         #root /usr/share/nginx/html;
 	#root /opt/www/redis_geektime/html;
         index index.php index.html index.htm;
