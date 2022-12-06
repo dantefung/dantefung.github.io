@@ -3,8 +3,10 @@ title: Docker中Redis挂载及密码设置
 date: 2021-01-20 17:47:50
 tags:
   - 互联网工程
+  - 运维
 categories:
   - 互联网工程
+  - 运维
 ---
 
 # Docker中Redis挂载及密码设置

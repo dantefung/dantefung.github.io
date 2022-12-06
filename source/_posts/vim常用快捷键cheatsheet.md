@@ -16,6 +16,10 @@ tags:
 
 听完这首歌，我觉得我的快乐又回来了!
 
+## 语义化Vim
+
+{% asset_img syntax_vim.png %}
+
 ## 背景
 
 闲来无事，希望能触及 vim 编辑器的精髓，特意从网上摘录这份备忘录。感受一下远古神器。
@@ -40,6 +44,11 @@ tags:
 - [Vim 终极指南：所思即所得\_西代零零发 - CSDN 博客](https://blog.csdn.net/dc_726/article/details/78981756?spm=1001.2014.3001.5501)
 - [Vim 从入门到精通](https://github.com/wsdjeg/vim-galore-zh_cn`)
 - [Vim 练级手册](https://vim.wxnacy.com/)
+- [Vim Everywhere](https://github.com/LintaoAmons/VimEverywhere)
+
+我看过的一些视频:
+
+- [林饕的blibli主页](https://space.bilibili.com/394425489)
 
 插件的快捷键:
 
@@ -99,6 +108,10 @@ ZZ -- 保存并退出。
 :Vex -- 垂直分割一个窗口，浏览文件系统；
 
 ## 4. 光标的移动
+
+{% asset_img 移动定位.png %}
+
+{% asset_img 移动定位助记.png %}
 
 ### 4.1 基本移动
 
@@ -1100,7 +1113,7 @@ R   " 连续替换多个字符，手动 <esc> 返回 normal 模式
 
 ### 16.16 vim 实现系统剪切板复制
 
-<span id="16.16 vim实现系统剪切板复制"></span>
+<span id="16.16-vim实现系统剪切板复制"></span>
 
 shift + insert 可以将系统剪切板的内容插入 vim 编辑器
 

@@ -36,6 +36,9 @@ vi .ideavimrc
 
 **配置文件内容:**
 ```
+set sneak
+set keep-english-in-normal[-and-restore-in-insert]
+
 let mapleader=' '
 " 启用vim surround功能
 set surround
@@ -58,6 +61,11 @@ set scrolloff=3
 set history=100000
 " 共享系统粘贴板
 set clipboard=unnamed
+
+" 开启输入法自动切换功能
+set keep-english-in-normal
+" 回到insert模式时恢复输入法
+set keep-english-in-normal-and-restore-in-insert
 
 " clear the highlighted search result
 " (清除高亮)
@@ -227,6 +235,19 @@ nnoremap <Leader>su :action ShowUsages<CR>
 "关闭活动显示板
 nnoremap <Leader>tc :action CloseActiveTab<CR>
 
+" ================================================================================================
+" 👻👻👻 Which-Key 👻👻👻
+" ================================================================================================
+ set which-key
+ set notimeout
+
+" i: Insert ⭐️
+"let g:WhichKeyDesc_InsertAfterBrackets = "<leader>i InsertAfterBrackets"
+"nnoremap <Leader>i f(a
+
+" 删除括号内的内容并进入编辑模式
+nnoremap <Leader>ci( f(lci(
+
 "以下是不常用
 
 "打开命令管理器
@@ -244,7 +265,7 @@ nnoremap <Leader>/ /
 "添加注释
 nnoremap <Leader>;; :action CommentByLineComment<CR>
 
-"改变视图
+"改变视图 zen模式等
 nnoremap <Leader>cv :action ChangeView<CR>
 
 "跳转到标致
@@ -252,11 +273,29 @@ nnoremap <Leader>gs :action GotoSymbol<CR>
 
 "
 nnoremap <Leader>ic :action InspectCode<CR>
-
+" 优化导入
 nnoremap <Leader>oi :action OptimizeImports<CR>
-
+" 显示悬浮菜单
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
+" 显示所有的书签.   idea原生命令: 添加书签 ctrl+shift+1,2,3,4....
+" 跳转到书签处 ctrl+1,2,3,4,5,6....
+nnoremap <Leader>sb :action ShowBookmarks
+" 显示类文件结构  eclipse 快捷键为: ctrl+O
+nnoremap <Leader>ss :action FileStructurePopup
+
+" 重构相关
+" i: Introduce
+" extract method/function
+vmap <leader>im <action>(ExtractMethod)
+" extract constant
+vmap <leader>ic <action>(IntroduceConstant)
+" extract field
+vmap <leader>if <action>(IntroduceField)
+" extract variable.   idea快捷键: shift+alt+l  idea补全:  .var
+vmap <leader>iv <action>(IntroduceVariable)
 
 "正常启动工程
 nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
+set clipboard+=ideaput
+
 ```
