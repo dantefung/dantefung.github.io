@@ -66,7 +66,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                ホーム
+                Home
               </a>
             </li>
           
@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                アーカイブ
+                Archives
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                カテゴリー
+                Categories
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                タグ
+                Tags
               </a>
             </li>
           
@@ -126,7 +126,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                リンク
+                Links
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                本ブログ情報　
+                About
               </a>
             </li>
           
@@ -200,22 +200,244 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/09/10/%E6%89%B9%E5%A4%84%E7%90%86bat%20echo%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">批处理bat echo中文乱码完美解决方法</a>
+        <a href="/2020/10/08/%E5%86%85%E5%AD%98%E7%9A%84%E5%88%86%E6%AE%B5%E8%A1%A8%E7%A4%BA%E6%B3%95/">内存的分段表示法</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/09/10/%E6%89%B9%E5%A4%84%E7%90%86bat%20echo%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+        <a href="/2020/10/08/%E5%86%85%E5%AD%98%E7%9A%84%E5%88%86%E6%AE%B5%E8%A1%A8%E7%A4%BA%E6%B3%95/">
           
           
             
           
-          转自:https://blog.csdn.net/tp7309/article/details/79283524
-@echo off
-REM 声明采用UTF-8编码
-chcp 65001
-echo test
-echo 中文测试
-pause
+          内存分段表示法1.什么是内存?内存(Memeory)是计算机中最重要的部件之一，它是程序与 CPU 进行沟通的桥梁。计算机中所有程序的运行都是在内存中进行的，因此内存对计算机的影响非常大，内存又被称为主存，其作用是存放 CPU 中的运算数据，以及与硬盘等外部存储设备交换的数据。只要计算机在运行中，CPU 就会把需要运算的数据调到主存中进行运算，当运算完成后 CPU 再将结果传送出来，主存的运行也决
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-08 14:39" pubdate>
+              2020-10-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B1%87%E7%BC%96/">汇编</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/10/08/%E6%B1%87%E7%BC%96%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">汇编环境安装</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/08/%E6%B1%87%E7%BC%96%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
+          
+          
+            
+          
+          汇编环境安装Required Environment
+DOSBOX 
+MASM
+
+Install
+笔者的环境为Mac OS环境，下载DOSBox-0.74-3-3.dmg后，双击打开后，直接将软件拖拽入应用程序的目录即可.
+在你打算存放masm的目录下，执行
+git clone https://github.com/dantefung/MASM.git
+
+
+
+Mount your c driver
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-08 13:11" pubdate>
+              2020-10-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B1%87%E7%BC%96/">汇编</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+            
+              <a href="/tags/MASM/">MASM</a>
+            
+              <a href="/tags/dosbox/">dosbox</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/09/30/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/">性能指标</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/09/30/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/">
+          
+          
+            
+          
+          性能调优专栏
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-30 14:01" pubdate>
+              2020-09-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E4%B8%93%E6%A0%8F/">性能调优专栏</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/09/30/%E5%A6%82%E6%9E%9C%E6%98%AFMySQL%E5%BC%95%E8%B5%B7%E7%9A%84CPU%E6%B6%88%E8%80%97%E8%BF%87%E5%A4%A7%EF%BC%8C%E4%BD%A0%E4%BC%9A%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96/">如果是MySQL引起的CPU消耗过大，你会如何优化?</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/09/30/%E5%A6%82%E6%9E%9C%E6%98%AFMySQL%E5%BC%95%E8%B5%B7%E7%9A%84CPU%E6%B6%88%E8%80%97%E8%BF%87%E5%A4%A7%EF%BC%8C%E4%BD%A0%E4%BC%9A%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96/">
+          
+          
+            
+          
+          作者：jiaxin_12
+来源：rrd.me/gtrAA
+–
+谁在消耗 cpu?用户+系统+IO 等待+软硬中断+空闲
+
+
+–
+祸首是谁？用户用户空间 CPU 消耗，各种逻辑运算
+
+正在进行大量 tps
+函数/排序/类型转化/逻辑 IO 访问…
+
+用户空间消耗大量 cpu，产生的系统调用是什么？那些函数使用了 cpu 周期？
+IO 等待等待 IO 请求的完成
+
+此时 CPU 实际上空闲
+
+如 vm
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-30 11:15" pubdate>
+              2020-09-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E4%B8%93%E6%A0%8F/">性能调优专栏</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/MySQL/">MySQL</a>
+            
+              <a href="/tags/%E8%BD%AC%E8%BD%BD/">转载</a>
+            
+              <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/09/28/%E7%BC%96%E7%A0%81-%E4%BA%BA%E7%B1%BB%E8%AE%A4%E7%9F%A5%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E5%BC%8F/">编码-人类认知世界的方式</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/09/28/%E7%BC%96%E7%A0%81-%E4%BA%BA%E7%B1%BB%E8%AE%A4%E7%9F%A5%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E5%BC%8F/">
+          
+          
+            
+          
+          人类认知世界的方式(一)人类认知世界的方式(二)人类对空间的认知人类对时间的认知为什么我们能够交流?因为我们使用了同一套编码系统。
+人类认知世界的方式(三)中国: 讲究哲学;欧美(西方): 科学研究;
+信源(信息的来源) –&gt; 编码(对世界的认知)
+中西结合: 数理化这些数学公式是对道的描述，也就是对客观世界的描述。
+道: 是客观的，是不会变的。理: 是人主观的，是会变化的。
 
         </a>
       </p>
@@ -224,8 +446,8 @@ pause
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-10 13:37" pubdate>
-              2020-09-10
+            <time datetime="2020-09-28 14:43" pubdate>
+              2020-09-28
             </time>
           </div>
         
@@ -234,7 +456,7 @@ pause
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%89%B9%E5%A4%84%E7%90%86/">批处理</a>
+              <a href="/tags/%E7%BC%96%E7%A0%81/">编码</a>
             
           </div>
         
@@ -247,16 +469,22 @@ pause
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/08/31/%E4%B8%BA%E8%B0%81%E5%B7%A5%E4%BD%9C/">为谁工作</a>
+        <a href="/2020/09/28/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80IDE/">汇编语言IDE</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/08/31/%E4%B8%BA%E8%B0%81%E5%B7%A5%E4%BD%9C/">
+        <a href="/2020/09/28/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80IDE/">
           
           
             
           
-          Here's something encrypted, password is required to continue reading.
+          汇编语言 IDE 介绍一、工具介绍RedASM软件下载地址: RadASM v2.2.2.3
+
+
+MASMPlus 1.2软件下载地址: MASMPlus 1.2 ZIP
+
+
+DOSBoxDOSBox,an x86 emulator with DOS.它采用的是 SDL 库，便于移植到其他的平台。目前，DOSBox 已经支持在 Windows、Linux、Mac OS X、BeOS、palmOS、
         </a>
       </p>
 
@@ -264,8 +492,75 @@ pause
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-31 10:53" pubdate>
-              2020-08-31
+            <time datetime="2020-09-28 10:52" pubdate>
+              2020-09-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B1%87%E7%BC%96/">汇编</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+            
+              <a href="/tags/CS%E5%9F%BA%E7%A1%80/">CS基础</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/09/24/vim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AEcheatsheet/">vim 常用快捷键 cheatsheet</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/09/24/vim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AEcheatsheet/">
+          
+          
+            
+          
+          
+
+vim 常用快捷键 cheetsheet
+
+
+
+听完这首歌，我觉得我的快乐又回来了!
+语义化Vim
+
+背景闲来无事，希望能触及 vim 编辑器的精髓，特意从网上摘录这份备忘录。感受一下远古神器。
+本文锚点快捷导航:
+
+9.2 多标签编辑
+10. 分屏
+16. 实用技巧
+16.2 在 vi 或 vim 上查找字符串
+16.3 快速复制多行
+16.4 全选并复制
+16.5-vim 如何移动当前行向
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-24 14:19" pubdate>
+              2020-09-24
             </time>
           </div>
         
@@ -274,7 +569,9 @@ pause
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a>
+              <a href="/tags/vim/">vim</a>
+            
+              <a href="/tags/cheatsheet/">cheatsheet</a>
             
           </div>
         
@@ -287,20 +584,27 @@ pause
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/08/31/BT%E8%BF%9E%E6%8E%A5Mac%E6%97%B6%E9%85%8D%E5%AF%B9%E7%AA%97%E5%8F%A3%E7%8B%82%E9%97%AA%E9%97%AE%E9%A2%98/">解决HHKB PRO BT连接Mac时配对窗口狂闪问题</a>
+        <a href="/2020/09/23/%E9%87%91%E8%9E%8D%E4%B8%96%E7%95%8C%E8%A7%82/">金融世界观</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/08/31/BT%E8%BF%9E%E6%8E%A5Mac%E6%97%B6%E9%85%8D%E5%AF%B9%E7%AA%97%E5%8F%A3%E7%8B%82%E9%97%AA%E9%97%AE%E9%A2%98/">
+        <a href="/2020/09/23/%E9%87%91%E8%9E%8D%E4%B8%96%E7%95%8C%E8%A7%82/">
           
           
             
           
-          解决HHKB PRO BT连接Mac时配对窗口狂闪问题
+          金融世界观
 
-问题背景hhkb今天配对Mac Book Pro的时候出现了要输入配对码的配对窗口疯狂闪的问题.
-解决方案在hhkb键盘上按Fn+q即可，它就会进入配对模式，此时输入配对码并按下Enter就行了.
 
+
+
+
+RoadMap
+
+合理的资产配置
+
+金融决策
+建立一个自己的知识框架和思维方式，掌握事情背后的一般性规律，然后因地制宜、因时制宜地来安排你的人生。社会环境在变化，但是人性其实没有变过。要在理解人性的基础上理解这些宏观环境的变化，才能够把握未来的趋势。金融是一个风险—收益决策衡量的框架性思维，一个人要具有这种思维能力，才能保证在大的人生决策上，作出对的选择。它是一门对未来做资产
         </a>
       </p>
 
@@ -308,8 +612,8 @@ pause
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-31 00:55" pubdate>
-              2020-08-31
+            <time datetime="2020-09-23 14:55" pubdate>
+              2020-09-23
             </time>
           </div>
         
@@ -318,7 +622,7 @@ pause
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/mac%E7%9B%B8%E5%85%B3/">mac相关</a>
+              <a href="/tags/%E9%87%91%E8%9E%8D/">金融</a>
             
           </div>
         
@@ -331,19 +635,23 @@ pause
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/08/28/%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8vscode%E6%8F%92%E4%BB%B6%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">测试使用vscode插件插入图片</a>
+        <a href="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/">IDEA查看运行Java代码生成的汇编指令</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/08/28/%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8vscode%E6%8F%92%E4%BB%B6%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+        <a href="/2020/09/21/IDEA%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8CJava%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/">
           
           
             
           
-           
-前提，安装vscode的插件Paste images先截图，然后通过command+alt+v(ctrl+alt+v)的方式粘贴markdown文件中自动插入如下内容:
-&#123;% asset_img 2020-08-28-01-25-27.png %&#125;
+          IDEA 查看运行 Java 代码生成的汇编指令方式一: HSDIS一、安装
+下载地址: hsdis-amd64.dll,提取码：ssmy
+把 hsdis-amd64.dll 放在 $JAVA_HOME/jre/bin/server 目录下
+运行时添加参数:-XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly
 
+
+
+二、IDEA 运行添加 VM opt
         </a>
       </p>
 
@@ -351,12 +659,23 @@ pause
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-28 00:50" pubdate>
-              2020-08-28
+            <time datetime="2020-09-21 13:31" pubdate>
+              2020-09-21
             </time>
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+            
+              <a href="/tags/IDEA/">IDEA</a>
+            
+              <a href="/tags/JVM/">JVM</a>
+            
+          </div>
         
       </div>
     </article>
@@ -367,21 +686,16 @@ pause
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/08/28/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%81%E7%AE%80%E6%95%99%E7%A8%8B/">正则表达式极简教程</a>
+        <a href="/2020/09/20/%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8workingcopy/">Test Working copy</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/08/28/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%81%E7%AE%80%E6%95%99%E7%A8%8B/">
+        <a href="/2020/09/20/%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8workingcopy/">
           
           
             
           
           
-什么是正则表达式 ？
-正则表达式是一种被用于从文本中检索符合某些特定模式的文本。
-
-正则表达式是从左到右来匹配一个字符串的。”Regular Expression” 这个词太长了，我们通常使用它的缩写 “regex” 或者 “regexp”。正则表达式可以被用来替换字符串中的文本、验证表单、基于模式匹配从一个字符串中提取字符串等等。
-想象一下，您正在编写应用程序，并且您希望在用户选择用户名时设置
         </a>
       </p>
 
@@ -389,225 +703,11 @@ pause
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-28 00:29" pubdate>
-              2020-08-28
+            <time datetime="2020-09-20 00:00" pubdate>
+              2020-09-20
             </time>
           </div>
         
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/08/27/%E5%88%A9%E7%94%A8VSCode%E6%8F%92%E4%BB%B6%E6%8F%90%E5%8D%87hexo%E7%9A%84%E4%B9%A6%E5%86%99%E4%BD%93%E9%AA%8C/">利用VSCode插件提升hexo的书写体验</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/08/27/%E5%88%A9%E7%94%A8VSCode%E6%8F%92%E4%BB%B6%E6%8F%90%E5%8D%87hexo%E7%9A%84%E4%B9%A6%E5%86%99%E4%BD%93%E9%AA%8C/">
-          
-          
-            
-          
-          利用VSCode插件提升hexo体验Hexo的编写与部署可以通过vscode进行，同时通过对插件的使用也可以增强体验，提升效率
-1. 图片剪切插件 Paste Image
-hexo3.0版本中可以在_config.yml中设置
-post_asset_folder: true
-
-这样在hexo new 的时候会生成同名的文件夹，同时在md文件中输入
-&#123;% asset_img xxx %&#
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-27 23:53" pubdate>
-              2020-08-27
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/08/27/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5(%E4%B8%80)/">面向对象编程概念(一)</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/08/27/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5(%E4%B8%80)/">
-          
-          
-            
-          
-          面向对象编程概念(一)
-生活的质感依赖于张力，你总需要某些够不着的东西，来构成这种张力。
-
-点 上 方 蓝 字 可 关 注 我 们
-
-
-▼
-
- Leaders ｜Dante Fung 
-
-​
-欢 迎 阅 读 本 文
-
-我 是 老 朋 友， Fung 主编
-
-
-本期编辑：fung
-生活的质感依赖于张力，你总需要某些够不着的东西，来构成这种张力。
-如果你以前从来没有使用面向对象语言，你需要在开始编写 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-27 23:53" pubdate>
-              2020-08-27
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/08/19/%E6%B5%8B%E8%AF%95%E6%8F%92%E5%85%A5%E9%9F%B3%E9%A2%91/">测试插入音频</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/08/19/%E6%B5%8B%E8%AF%95%E6%8F%92%E5%85%A5%E9%9F%B3%E9%A2%91/">
-          
-          
-            
-          
-          
-    
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-19 18:12" pubdate>
-              2020-08-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">测试文章</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/08/19/%E6%B5%8B%E8%AF%95%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/">测试插入视频</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/08/19/%E6%B5%8B%E8%AF%95%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/">
-          
-          
-            
-          
-          测试插入视频(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"screenshot":"yes","video":{"url":"https://api.dogecloud.com/player/get.mp4?vc
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-19 17:19" pubdate>
-              2020-08-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">测试文章</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/08/19/%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E8%9E%8D%E8%B5%84/">如何找到融资</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/08/19/%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E8%9E%8D%E8%B5%84/">
-          
-          
-            
-          
-          如何找到融资名词解释AI天使投资（Angel Investment）： 是指富有的个人出资协助具有专门技术或独特概念的原创项目或小型初创企业，进行一次性的前期投资，它是风险投资的一种形式。
-VC风险投资（Venture Capital）： 风险投资是把资本投向蕴藏着失败风险的高新技术及其产品的研究开发领域，旨在促使高新技术成果尽快商品化、产业化，以取得高资本收益的一种投资过程。
-PE私募股权投资（
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-19 17:16" pubdate>
-              2020-08-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%9B%E4%B8%9A/">创业</a>
-            
-          </div>
         
         
       </div>
@@ -618,7 +718,7 @@ PE私募股权投资（
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/8/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/8/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
@@ -650,7 +750,7 @@ PE私募股权投资（
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -659,7 +759,7 @@ PE私募股权投资（
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">キーワード</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                ホーム
+                Home
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                アーカイブ
+                Archives
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                カテゴリー
+                Categories
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                タグ
+                Tags
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                リンク
+                Links
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                本ブログ情報　
+                About
               </a>
             </li>
           
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      2.1k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      27
+      31
        分钟
     </span>
   
@@ -250,227 +250,268 @@ vi <span class="hljs-string">.ideavimrc</span></code></pre></div>
 <h2 id="Windows-平台配置文件"><a href="#Windows-平台配置文件" class="headerlink" title="Windows 平台配置文件"></a>Windows 平台配置文件</h2><p><strong>step 1:</strong> 进入用户目录, 例如: C:\Users\Administrator</p>
 <p><strong>step 2:</strong> 创建配置文件_ideavimrc, 写入配置内容, 具体内容参见 <code>附录: 配置文件内容</code></p>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><strong>配置文件内容:</strong></p>
-<div class="hljs"><pre><code class="hljs xml">let mapleader=&#x27; &#x27;
-&quot; 启用vim surround功能
+<div class="hljs"><pre><code class="hljs 1c">set sneak
+set keep-english-in-normal[-and-restore-in-insert]
+
+let mapleader=&#x27; &#x27;
+<span class="hljs-string">&quot; 启用vim surround功能</span>
 set surround
-&quot; 显示行号
+<span class="hljs-string">&quot; 显示行号</span>
 set nu
-&quot; 显示相对行号
+<span class="hljs-string">&quot; 显示相对行号</span>
 set rnu
-&quot; 高亮搜索
+<span class="hljs-string">&quot; 高亮搜索</span>
 set hlsearch
-&quot; 自动定位到输入中的字符串，不需要回车搜索
+<span class="hljs-string">&quot; 自动定位到输入中的字符串，不需要回车搜索</span>
 set incsearch
 set ignorecase
 set smartcase
-&quot; 显示当前的模式
+<span class="hljs-string">&quot; 显示当前的模式</span>
 set showmode
 set number
-&quot; 相对当前行行数显示
-&quot; set relativenumber
-set scrolloff=3
-set history=100000
-&quot; 共享系统粘贴板
+<span class="hljs-string">&quot; 相对当前行行数显示</span>
+<span class="hljs-string">&quot; set relativenumber</span>
+set scrolloff=<span class="hljs-number">3</span>
+set history=<span class="hljs-number">100000</span>
+<span class="hljs-string">&quot; 共享系统粘贴板</span>
 set clipboard=unnamed
 
-&quot; clear the highlighted search result
-&quot; (清除高亮)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>sc :nohlsearch<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; 开启输入法自动切换功能</span>
+set keep-english-in-normal
+<span class="hljs-string">&quot; 回到insert模式时恢复输入法</span>
+set keep-english-in-normal-and-restore-in-insert
 
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>fs :w<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; clear the highlighted search result</span>
+<span class="hljs-string">&quot; (清除高亮)</span>
+nnoremap &lt;Leader&gt;sc :nohlsearch&lt;CR&gt;
 
-
-
-&quot; Quit normal mode
-&quot; (保存关闭)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>q  :q<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>Q  :qa!<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
-
-&quot; Move half page faster
-&quot; (上下翻页)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>d  <span class="hljs-tag">&lt;<span class="hljs-name">C-d</span>&gt;</span>
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>u  <span class="hljs-tag">&lt;<span class="hljs-name">C-u</span>&gt;</span>
-
-&quot; 快速进入vim模式
-inoremap jj <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
-inoremap jk <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
-inoremap kk <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
-
-&quot; Quit visual mode
-vnoremap v <span class="hljs-tag">&lt;<span class="hljs-name">Esc</span>&gt;</span>
+nnoremap &lt;Leader&gt;fs :w&lt;CR&gt;
 
 
-&quot; Redo
-nnoremap U <span class="hljs-tag">&lt;<span class="hljs-name">C-r</span>&gt;</span>
 
-&quot; 以下是一些vim使用方法 -----------------
-&quot; viw  vaw  ciw caw diw daw vi&#x27; va&#x27; ci&#x27; ca&#x27; di&#x27; da&#x27; vi( va( ci( ca( di( da( ...
+<span class="hljs-string">&quot; Quit normal mode</span>
+<span class="hljs-string">&quot; (保存关闭)</span>
+nnoremap &lt;Leader&gt;q  :q&lt;CR&gt;
+nnoremap &lt;Leader&gt;Q  :qa!&lt;CR&gt;
 
-&quot; ###### vim宏：normal模式下 qr 带表给r标记宏 然后vim操作。  @r 重复一次宏 10@r重复10次宏 注意（idea的提示功能干扰，可以在字符串里面先写好然后在复制黏贴）
+<span class="hljs-string">&quot; Move half page faster</span>
+<span class="hljs-string">&quot; (上下翻页)</span>
+nnoremap &lt;Leader&gt;d  &lt;C-d&gt;
+nnoremap &lt;Leader&gt;u  &lt;C-u&gt;
+<span class="hljs-string">&quot; 左右翻页</span>
+nnoremap &lt;C-h&gt; zH
+nnoremap &lt;C-l&gt; zL
 
-&quot; ###### 7.2 替换
-&quot;           :s/old/new - 用new替换当前行第一个old。
-&quot;           :s/old/new/g - 用new替换当前行所有的old。
-&quot;           :n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。
-&quot;           :%s/old/new/g - 用new替换文件中所有的old。
-&quot;           :%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。
-&quot;           :%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。
-&quot;           有替换命令末尾加上c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上i则忽略大小写(ignore)。
-&quot;           有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，
-&quot;           法为 :[range]g/pattern/command
-&quot;           如 :%g/^ xyz/normal dd。
-&quot;           示对于以一个空格和xyz开头的行执行normal模式下的dd命令。
-&quot;           于range的规定为：
-&quot;           果不指定range，则表示当前行。
-&quot;           ,n: 从m行到n行。
-&quot;           : 最开始一行（可能是这样）。
-&quot;           $: 最后一行
-&quot;           .: 当前行
-&quot;           %: 所有行
+<span class="hljs-string">&quot; 快速进入vim模式</span>
+inoremap jj &lt;Esc&gt;
+inoremap jk &lt;Esc&gt;
+inoremap kk &lt;Esc&gt;
 
-&quot; 以上是一些vim使用方法 -----------------
+<span class="hljs-string">&quot; Quit visual mode</span>
+vnoremap v &lt;Esc&gt;
 
-&quot; 以下是自定义快捷键-----------------
 
-&quot; 复制单个单词到寄存器a并标记到o (使用快捷键 空格+y)
-&quot; 注释:（mo =&gt; 标记o）,(+yiw =&gt;复制当前单词到系统剪切板),(&quot;a =&gt; 寄存器a) ,(&quot;ayiw =&gt; 复制当前单词到寄存器a)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>y mo&quot;+yiw&quot;ayiw
+<span class="hljs-string">&quot; Redo</span>
+nnoremap U &lt;C-r&gt;
 
-&quot; 剪切单个单词到寄存器a并标记到o (使用快捷键 空格+x)
-&quot; 注释:（mo =&gt; 标记o[标记为的是使用&#x27;&#x27;来回跳标记]）,(+yiw =&gt;复制当前单词到系统剪切板),(&quot;a =&gt; 寄存器a) ,(&quot;ayiw =&gt; 复制当前单词到寄存器a),(diw =&gt;删除当前单词)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>x mo&quot;+yiw&quot;ayiwdiw
+<span class="hljs-string">&quot; 以下是一些vim使用方法 -----------------</span>
+<span class="hljs-string">&quot; viw  vaw  ciw caw diw daw vi&#x27; va&#x27; ci&#x27; ca&#x27; di&#x27; da&#x27; vi( va( ci( ca( di( da( ...</span>
 
-&quot; 删除单个字符串并黏贴寄存器a的内容并来回标记o和p  (使用快捷键 空格+v)
-&quot; 注释：（mp =&gt; 标记p）,(viw =&gt; 选中当前单词),（&quot;a =&gt; 寄存器a）,(p =&gt; 将寄存器a内容黏贴到选中的单词),（&#x27;o =&gt; 跳回标记o）,(&#x27;p =&gt;跳回标记p[标记为的是使用&#x27;&#x27;来回跳标记])
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>v mpviw&quot;ap&#x27;o&#x27;p
+<span class="hljs-string">&quot; ###### vim宏：normal模式下 qr 带表给r标记宏 然后vim操作。  @r 重复一次宏 10@r重复10次宏 注意（idea的提示功能干扰，可以在字符串里面先写好然后在复制黏贴）</span>
 
-&quot; idea内置快捷键alt+F1 (使用快捷键 空格+m)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>m :action SelectIn<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; ###### 7.2 替换</span>
+<span class="hljs-string">&quot;           :s/old/new - 用new替换当前行第一个old。</span>
+<span class="hljs-string">&quot;           :s/old/new/g - 用new替换当前行所有的old。</span>
+<span class="hljs-string">&quot;           :n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。</span>
+<span class="hljs-string">&quot;           :%s/old/new/g - 用new替换文件中所有的old。</span>
+<span class="hljs-string">&quot;           :%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。</span>
+<span class="hljs-string">&quot;           :%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。</span>
+<span class="hljs-string">&quot;           有替换命令末尾加上c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上i则忽略大小写(ignore)。</span>
+<span class="hljs-string">&quot;           有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，</span>
+<span class="hljs-string">&quot;           法为 :[range]g/pattern/command</span>
+<span class="hljs-string">&quot;           如 :%g/^ xyz/normal dd。</span>
+<span class="hljs-string">&quot;           示对于以一个空格和xyz开头的行执行normal模式下的dd命令。</span>
+<span class="hljs-string">&quot;           于range的规定为：</span>
+<span class="hljs-string">&quot;           果不指定range，则表示当前行。</span>
+<span class="hljs-string">&quot;           ,n: 从m行到n行。</span>
+<span class="hljs-string">&quot;           : 最开始一行（可能是这样）。</span>
+<span class="hljs-string">&quot;           $: 最后一行</span>
+<span class="hljs-string">&quot;           .: 当前行</span>
+<span class="hljs-string">&quot;           %: 所有行</span>
 
-&quot; idea内置快捷键control+E (使用快捷键 空格+e)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>e :action RecentFiles<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; 以上是一些vim使用方法 -----------------</span>
 
-&quot;生成get set方法  (使用快捷键 空格+cc)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>cc :action Generate<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; 以下是自定义快捷键-----------------</span>
 
-&quot; shift+h--zz(向上翻页)(使用快捷键 空格+h)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>h <span class="hljs-tag">&lt;<span class="hljs-name">S-h</span>&gt;</span>zz
+<span class="hljs-string">&quot; 复制单个单词到寄存器a并标记到o (使用快捷键 空格+y)</span>
+<span class="hljs-string">&quot; 注释:（mo =&gt; 标记o）,(+yiw =&gt;复制当前单词到系统剪切板),(&quot;</span>a =&gt; 寄存器a) ,(<span class="hljs-string">&quot;ayiw =&gt; 复制当前单词到寄存器a)</span>
+nnoremap &lt;Leader&gt;y mo<span class="hljs-string">&quot;+yiw&quot;</span>ayiw
 
-&quot; shift+l--zz(向下翻页)(使用快捷键 空格+l)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>l <span class="hljs-tag">&lt;<span class="hljs-name">S-l</span>&gt;</span>zz
+<span class="hljs-string">&quot; 剪切单个单词到寄存器a并标记到o (使用快捷键 空格+x)</span>
+<span class="hljs-string">&quot; 注释:（mo =&gt; 标记o[标记为的是使用&#x27;&#x27;来回跳标记]）,(+yiw =&gt;复制当前单词到系统剪切板),(&quot;</span>a =&gt; 寄存器a) ,(<span class="hljs-string">&quot;ayiw =&gt; 复制当前单词到寄存器a),(diw =&gt;删除当前单词)</span>
+nnoremap &lt;Leader&gt;x mo<span class="hljs-string">&quot;+yiw&quot;</span>ayiwdiw
 
-&quot; 以上是自定义快捷键-----------------
+<span class="hljs-string">&quot; 删除单个字符串并黏贴寄存器a的内容并来回标记o和p  (使用快捷键 空格+v)</span>
+<span class="hljs-string">&quot; 注释：（mp =&gt; 标记p）,(viw =&gt; 选中当前单词),（&quot;</span>a =&gt; 寄存器a）,(p =&gt; 将寄存器a内容黏贴到选中的单词),（&#x27;o =&gt; 跳回标记o）,(&#x27;p =&gt;跳回标记p[标记为的是使用&#x27;&#x27;来回跳标记])
+nnoremap &lt;Leader&gt;v mpviw<span class="hljs-string">&quot;ap&#x27;o&#x27;p</span>
 
-&quot; quit ==&gt; close current window
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>q <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>w
+<span class="hljs-string">&quot; idea内置快捷键alt+F1 (使用快捷键 空格+m)</span>
+nnoremap &lt;Leader&gt;m :action SelectIn&lt;CR&gt;
 
-&quot; Window operation
-&quot; (关于窗口操作)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ww <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>w
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wd <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>c
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wj <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>j
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wk <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>k
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wh <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>h
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wl <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>l
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ws <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>s
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>w- <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>s
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>wv <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>v
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>w\| <span class="hljs-tag">&lt;<span class="hljs-name">C-W</span>&gt;</span>v
+<span class="hljs-string">&quot; idea内置快捷键control+E (使用快捷键 空格+e)</span>
+nnoremap &lt;Leader&gt;e :action RecentFiles&lt;CR&gt;
 
-&quot; Tab operation
-&quot; (切换标签)
+<span class="hljs-string">&quot;生成get set方法  (使用快捷键 空格+cc)</span>
+nnoremap &lt;Leader&gt;cc :action Generate&lt;CR&gt;
+
+<span class="hljs-string">&quot; shift+h--zz(向上翻页)(使用快捷键 空格+h)</span>
+nnoremap &lt;Leader&gt;h &lt;S-h&gt;zz
+
+<span class="hljs-string">&quot; shift+l--zz(向下翻页)(使用快捷键 空格+l)</span>
+nnoremap &lt;Leader&gt;l &lt;S-l&gt;zz
+
+<span class="hljs-string">&quot; 以上是自定义快捷键-----------------</span>
+
+<span class="hljs-string">&quot; quit ==&gt; close current window</span>
+nnoremap &lt;Leader&gt;q &lt;C-W&gt;w
+
+<span class="hljs-string">&quot; Window operation</span>
+<span class="hljs-string">&quot; (关于窗口操作)</span>
+nnoremap &lt;Leader&gt;ww &lt;C-W&gt;w
+nnoremap &lt;Leader&gt;wd &lt;C-W&gt;c
+nnoremap &lt;Leader&gt;wj &lt;C-W&gt;j
+nnoremap &lt;Leader&gt;wk &lt;C-W&gt;k
+nnoremap &lt;Leader&gt;wh &lt;C-W&gt;h
+nnoremap &lt;Leader&gt;wl &lt;C-W&gt;l
+nnoremap &lt;Leader&gt;ws &lt;C-W&gt;s
+nnoremap &lt;Leader&gt;w- &lt;C-W&gt;s
+nnoremap &lt;Leader&gt;wv &lt;C-W&gt;v
+nnoremap &lt;Leader&gt;w\<span class="hljs-string">| &lt;C-W&gt;v</span>
+
+<span class="hljs-string">&quot; Tab operation</span>
+<span class="hljs-string">&quot; (切换标签)</span>
 nnoremap tn gt
 nnoremap tp gT
 
-&quot; ==================================================
-&quot; Show all the provided actions via `:actionlist`
-&quot; ==================================================
+<span class="hljs-string">&quot; ==================================================</span>
+<span class="hljs-string">&quot; Show all the provided actions via `:actionlist`</span>
+<span class="hljs-string">&quot; ==================================================</span>
 
-&quot; project search
-&quot;相当于IDEA的两次shift按钮
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>se :action SearchEverywhere<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; project search</span>
+<span class="hljs-string">&quot;相当于IDEA的两次shift按钮</span>
+nnoremap &lt;Leader&gt;se :action SearchEverywhere&lt;CR&gt;
 
-&quot;查找用法
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>fu :action FindUsages<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;查找用法</span>
+nnoremap &lt;Leader&gt;fu :action FindUsages&lt;CR&gt;
 
-&quot;打断点
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>bb :action ToggleLineBreakpoint<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;打断点</span>
+nnoremap &lt;Leader&gt;bb :action ToggleLineBreakpoint&lt;CR&gt;
 
-&quot;查看所有断点
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>br :action ViewBreakpoints<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;查看所有断点</span>
+nnoremap &lt;Leader&gt;br :action ViewBreakpoints&lt;CR&gt;
 
-&quot;DUG启动
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>cd :action ChooseDebugConfiguration<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;DUG启动</span>
+nnoremap &lt;Leader&gt;cd :action ChooseDebugConfiguration&lt;CR&gt;
 
-&quot;跳转到Action
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ga :action GotoAction<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;跳转到Action</span>
+nnoremap &lt;Leader&gt;ga :action GotoAction&lt;CR&gt;
 
-&quot;跳转到实体类
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gc :action GotoClass<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;跳转到实体类</span>
+nnoremap &lt;Leader&gt;gc :action GotoClass&lt;CR&gt;
 
-&quot;跳转到声明
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gd :action GotoDeclaration<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;跳转到声明</span>
+nnoremap &lt;Leader&gt;gd :action GotoDeclaration&lt;CR&gt;
 
-&quot;跳转到文件
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gf :action GotoFile<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;跳转到文件</span>
+nnoremap &lt;Leader&gt;gf :action GotoFile&lt;CR&gt;
 
-&quot;跳转到实现类
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gi :action GotoImplementation<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;跳转到实现类</span>
+nnoremap &lt;Leader&gt;gi :action GotoImplementation&lt;CR&gt;
 
-&quot;跳转到测试类(没有则自动建立)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gt :action GotoTest<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;跳转到测试类(没有则自动建立)</span>
+nnoremap &lt;Leader&gt;gt :action GotoTest&lt;CR&gt;
 
-&quot;显示当前文件路径
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>fp :action ShowFilePath<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;显示当前文件路径</span>
+nnoremap &lt;Leader&gt;fp :action ShowFilePath&lt;CR&gt;
 
-&quot;激活maven窗口
-&quot;nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>mv :action ActivateMavenProjectsToolWindow<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;激活maven窗口</span>
+<span class="hljs-string">&quot;nnoremap &lt;Leader&gt;mv :action ActivateMavenProjectsToolWindow&lt;CR&gt;</span>
 
-&quot;修改所有的关联名字
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>re :action RenameElement<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;修改所有的关联名字</span>
+nnoremap &lt;Leader&gt;re :action RenameElement&lt;CR&gt;
 
-&quot;修改当前文件的文件名
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>rf :action RenameFile<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;修改当前文件的文件名</span>
+nnoremap &lt;Leader&gt;rf :action RenameFile&lt;CR&gt;
 
-&quot;显示用法
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>su :action ShowUsages<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;显示用法</span>
+nnoremap &lt;Leader&gt;su :action ShowUsages&lt;CR&gt;
 
-&quot;关闭活动显示板
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>tc :action CloseActiveTab<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;关闭活动显示板</span>
+nnoremap &lt;Leader&gt;tc :action CloseActiveTab&lt;CR&gt;
 
-&quot;以下是不常用
+<span class="hljs-string">&quot; ================================================================================================</span>
+<span class="hljs-string">&quot; 👻👻👻 Which-Key 👻👻👻</span>
+<span class="hljs-string">&quot; ================================================================================================</span>
+ set which-key
+ set notimeout
 
-&quot;打开命令管理器
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>tl Vy<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>:action ActivateTerminalToolWindow<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
-vnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>tl y<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>:action ActivateTerminalToolWindow<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; i: Insert ⭐️</span>
+<span class="hljs-string">&quot;let g:WhichKeyDesc_InsertAfterBrackets = &quot;</span>&lt;leader&gt;i InsertAfterBrackets<span class="hljs-string">&quot;</span>
+<span class="hljs-string">&quot;nnoremap &lt;Leader&gt;i f(a</span>
 
-&quot; built in search looks better
-&quot; (查找字符串)
-nnoremap / :action Find<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; 删除括号内的内容并进入编辑模式</span>
+nnoremap &lt;Leader&gt;ci( f(lci(
 
-&quot; but preserve ideavim search
-&quot; (vim自带的搜索)
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>/ /
+<span class="hljs-string">&quot;以下是不常用</span>
 
-&quot;添加注释
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>;; :action CommentByLineComment<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;打开命令管理器</span>
+nnoremap &lt;Leader&gt;tl Vy&lt;CR&gt;:action ActivateTerminalToolWindow&lt;CR&gt;
+vnoremap &lt;Leader&gt;tl y&lt;CR&gt;:action ActivateTerminalToolWindow&lt;CR&gt;
 
-&quot;改变视图
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>cv :action ChangeView<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; built in search looks better</span>
+<span class="hljs-string">&quot; (查找字符串)</span>
+nnoremap / :action Find&lt;CR&gt;
 
-&quot;跳转到标致
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>gs :action GotoSymbol<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot; but preserve ideavim search</span>
+<span class="hljs-string">&quot; (vim自带的搜索)</span>
+nnoremap &lt;Leader&gt;/ /
 
-&quot;
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>ic :action InspectCode<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;添加注释</span>
+nnoremap &lt;Leader&gt;;; :action CommentByLineComment&lt;CR&gt;
 
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>oi :action OptimizeImports<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;改变视图 zen模式等</span>
+nnoremap &lt;Leader&gt;cv :action ChangeView&lt;CR&gt;
 
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>pm :action ShowPopupMenu<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span>
+<span class="hljs-string">&quot;跳转到标致</span>
+nnoremap &lt;Leader&gt;gs :action GotoSymbol&lt;CR&gt;
 
-&quot;正常启动工程
-nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</span>rc :action ChooseRunConfiguration<span class="hljs-tag">&lt;<span class="hljs-name">CR</span>&gt;</span></code></pre></div>
+<span class="hljs-string">&quot;</span>
+nnoremap &lt;Leader&gt;ic :action InspectCode&lt;CR&gt;
+<span class="hljs-string">&quot; 优化导入</span>
+nnoremap &lt;Leader&gt;oi :action OptimizeImports&lt;CR&gt;
+<span class="hljs-string">&quot; 显示悬浮菜单</span>
+nnoremap &lt;Leader&gt;pm :action ShowPopupMenu&lt;CR&gt;
+<span class="hljs-string">&quot; 显示所有的书签.   idea原生命令: 添加书签 ctrl+shift+1,2,3,4....</span>
+<span class="hljs-string">&quot; 跳转到书签处 ctrl+1,2,3,4,5,6....</span>
+nnoremap &lt;Leader&gt;sb :action ShowBookmarks
+<span class="hljs-string">&quot; 显示类文件结构  eclipse 快捷键为: ctrl+O</span>
+nnoremap &lt;Leader&gt;ss :action FileStructurePopup
 
+<span class="hljs-string">&quot; 重构相关</span>
+<span class="hljs-string">&quot; i: Introduce</span>
+<span class="hljs-string">&quot; extract method/function</span>
+vmap &lt;leader&gt;im &lt;action&gt;(ExtractMethod)
+<span class="hljs-string">&quot; extract constant</span>
+vmap &lt;leader&gt;ic &lt;action&gt;(IntroduceConstant)
+<span class="hljs-string">&quot; extract field</span>
+vmap &lt;leader&gt;if &lt;action&gt;(IntroduceField)
+<span class="hljs-string">&quot; extract variable.   idea快捷键: shift+alt+l  idea补全:  .var</span>
+vmap &lt;leader&gt;iv &lt;action&gt;(IntroduceVariable)
+
+<span class="hljs-string">&quot;正常启动工程</span>
+nnoremap &lt;Leader&gt;rc :action ChooseRunConfiguration&lt;CR&gt;
+set clipboard+=ideaput
+</code></pre></div>
             </div>
             <hr>
             <div>
@@ -507,7 +548,7 @@ nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</s
                       <a href="/2022/04/12/idea-live-templates/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">idea live templates</span>
-                        <span class="visible-mobile">前の記事</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -516,7 +557,7 @@ nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</s
                     
                       <a href="/2022/03/14/Spring5-x%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/">
                         <span class="hidden-mobile">Spring5.x源码编译</span>
-                        <span class="visible-mobile">次の記事</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -565,7 +606,7 @@ nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</s
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
 
@@ -592,7 +633,7 @@ nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</s
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -601,7 +642,7 @@ nnoremap <span class="hljs-tag">&lt;<span class="hljs-name">Leader</span>&gt;</s
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">キーワード</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                ホーム
+                Home
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                アーカイブ
+                Archives
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                カテゴリー
+                Categories
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                タグ
+                Tags
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                リンク
+                Links
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                本ブログ情報　
+                About
               </a>
             </li>
           
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12.4k 字
+      12.5k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      145
+      146
        分钟
     </span>
   
@@ -247,6 +247,8 @@
 </center>
 
 <p>听完这首歌，我觉得我的快乐又回来了!</p>
+<h2 id="语义化Vim"><a href="#语义化Vim" class="headerlink" title="语义化Vim"></a>语义化Vim</h2><img src="/2020/09/24/vim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AEcheatsheet/syntax_vim.png" srcset="/img/loading.gif" class="">
+
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>闲来无事，希望能触及 vim 编辑器的精髓，特意从网上摘录这份备忘录。感受一下远古神器。</p>
 <p>本文锚点快捷导航:</p>
 <ul>
@@ -268,6 +270,11 @@
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/dc_726/article/details/78981756?spm=1001.2014.3001.5501">Vim 终极指南：所思即所得_西代零零发 - CSDN 博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn%60">Vim 从入门到精通</a></li>
 <li><a target="_blank" rel="noopener" href="https://vim.wxnacy.com/">Vim 练级手册</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/LintaoAmons/VimEverywhere">Vim Everywhere</a></li>
+</ul>
+<p>我看过的一些视频:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://space.bilibili.com/394425489">林饕的blibli主页</a></li>
 </ul>
 <p>插件的快捷键:</p>
 <ul>
@@ -280,7 +287,11 @@
 <p><strong>替换模式：</strong> 正常模式下，按 R 进入。</p>
 <h2 id="2-启动-Vim"><a href="#2-启动-Vim" class="headerlink" title="2. 启动 Vim"></a>2. 启动 Vim</h2><p>vim -c cmd file: 在打开文件前，先执行指定的命令；<br>vim -r file: 恢复上次异常退出的文件；<br>vim -R file: 以只读的方式打开文件，但可以强制保存；<br>vim -M file: 以只读的方式打开文件，不可以强制保存；<br>vim -y num file: 将编辑窗口的大小设为 num 行；<br>vim + file: 从文件的末尾开始；<br>vim +num file: 从第 num 行开始；<br>vim +/string file: 打开 file，并将光标停留在第一个找到的 string 上。<br>vim –remote file: 用已有的 vim 进程打开指定的文件。 如果你不想启用多个 vim 会话，这个很有用。但要注意， 如果你用 vim，会寻找名叫 VIM 的服务器；如果你已经有一个 gvim 在运行了， 你可以用 gvim –remote file 在已有的 gvim 中打开文件。</p>
 <h2 id="3-文档操作"><a href="#3-文档操作" class="headerlink" title="3. 文档操作"></a>3. 文档操作</h2><p>:e file –关闭当前编辑的文件，并开启新的文件。 如果对当前文件的修改未保存，vi 会警告。<br>:e! file –放弃对当前文件的修改，编辑新的文件。<br>:e+file – 开始新的文件，并从文件尾开始编辑。<br>:e+n file – 开始新的文件，并从第 n 行开始编辑。<br>:enew –编译一个未命名的新文档。(CTRL-W n)<br>:e – 重新加载当前文档。<br>:e! – 重新加载当前文档，并丢弃已做的改动。<br>:e#或 ctrl+^ – 回到刚才编辑的文件，很实用。<br>:f 或 ctrl+g – 显示文档名，是否修改，和光标位置。<br>:f filename – 改变编辑的文件名，这时再保存相当于另存为。<br>gf – 打开以光标所在字符串为文件名的文件。<br>:w – 保存修改。<br>:n1,n2w filename – 选择性保存从某 n1 行到另 n2 行的内容。<br>:wq – 保存并退出。<br>ZZ – 保存并退出。<br>:x – 保存并退出。<br>:q[uit] ——退出当前窗口。(CTRL-W q 或 CTRL-W CTRL-Q)<br>:saveas newfilename – 另存为<br>:browse e – 会打开一个文件浏览器让你选择要编辑的文件。 如果是终端中，则会打开 netrw 的文件浏览窗口； 如果是 gvim，则会打开一个图形界面的浏览窗口。 实际上:browse 后可以跟任何编辑文档的命令，如 sp 等。 用 browse 打开的起始目录可以由 browsedir 来设置：<br>:set browsedir=last – 用上次访问过的目录（默认）；<br>:set browsedir=buffer – 用当前文件所在目录；<br>:set browsedir=current – 用当前工作目录；<br>:Sex – 水平分割一个窗口，浏览文件系统；<br>:Vex – 垂直分割一个窗口，浏览文件系统；</p>
-<h2 id="4-光标的移动"><a href="#4-光标的移动" class="headerlink" title="4. 光标的移动"></a>4. 光标的移动</h2><h3 id="4-1-基本移动"><a href="#4-1-基本移动" class="headerlink" title="4.1 基本移动"></a>4.1 基本移动</h3><p>以下移动都是在 normal 模式下。</p>
+<h2 id="4-光标的移动"><a href="#4-光标的移动" class="headerlink" title="4. 光标的移动"></a>4. 光标的移动</h2><img src="/2020/09/24/vim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AEcheatsheet/%E7%A7%BB%E5%8A%A8%E5%AE%9A%E4%BD%8D.png" srcset="/img/loading.gif" class="">
+
+<img src="/2020/09/24/vim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AEcheatsheet/%E7%A7%BB%E5%8A%A8%E5%AE%9A%E4%BD%8D%E5%8A%A9%E8%AE%B0.png" srcset="/img/loading.gif" class="">
+
+<h3 id="4-1-基本移动"><a href="#4-1-基本移动" class="headerlink" title="4.1 基本移动"></a>4.1 基本移动</h3><p>以下移动都是在 normal 模式下。</p>
 <p>h 或退格: 左移一个字符；<br>l 或空格: 右移一个字符；<br>j: 下移一行；<br>k: 上移一行；<br>gj: 移动到一段内的下一行；<br>gk: 移动到一段内的上一行； +或 Enter: 把光标移至下一行第一个非空白字符。<br>-: 把光标移至上一行第一个非空白字符。<br>w: 前移一个单词，光标停在下一个单词开头；<br>W: 移动下一个单词开头，但忽略一些标点；<br>e: 前移一个单词，光标停在下一个单词末尾；<br>E: 移动到下一个单词末尾，如果词尾有标点，则移动到标点；<br>b: 后移一个单词，光标停在上一个单词开头；<br>B: 移动到上一个单词开头，忽略一些标点；<br>ge: 后移一个单词，光标停在上一个单词末尾；<br>gE: 同 ge ，不过‘单词’包含单词相邻的标点。<br>(: 前移 1 句。<br>): 后移 1 句。<br>{: 前移 1 段。<br>}: 后移 1 段。<br>fc: 把光标移到同一行的下一个 c 字符处<br>Fc: 把光标移到同一行的上一个 c 字符处<br>tc: 把光标移到同一行的下一个 c 字符前<br>Tc: 把光标移到同一行的上一个 c 字符后<br>;: 配合 f &amp; t 使用，重复一次<br>,: 配合 f &amp; t 使用，反向重复一次<br>上面的操作都可以配合 n 使用，比如在正常模式(下面会讲到)下输入 3h， 则光标向左移动 3 个字符。</p>
 <p>0: 移动到行首。<br>g0: 移到光标所在屏幕行行首。<br>^: 移动到本行第一个非空白字符。<br>g^: 同 ^ ，但是移动到当前屏幕行第一个非空字符处。<br>$: 移动到行尾。<br>g$: 移动光标所在屏幕行行尾。<br>n|: 把光标移到递 n 列上。<br><code>nG</code>: 到文件第 n 行。<br>:n<cr> 移动到第 n 行。<br>:$<cr> 移动到最后一行。<br>H: 把光标移到屏幕最顶端一行。<br>M: 把光标移到屏幕中间一行。<br>L: 把光标移到屏幕最底端一行。<br>gg: 到文件头部。<br>G: 到文件尾部。</p>
 <h3 id="4-2-翻屏"><a href="#4-2-翻屏" class="headerlink" title="4.2 翻屏"></a>4.2 翻屏</h3><p>ctrl+f: 下翻一屏。<br>ctrl+b: 上翻一屏。<br>ctrl+d: 下翻半屏。<br>ctrl+u: 上翻半屏。<br>ctrl+e: 向下滚动一行。<br>ctrl+y: 向上滚动一行。<br>n%: 到文件 n%的位置。<br>zz: 将当前行移动到屏幕中央。<br>zt: 将当前行移动到屏幕顶端。<br>zb: 将当前行移动到屏幕底端。</p>
@@ -538,7 +549,7 @@ sudo apt install vim-gtk
 <span class="hljs-bullet">*</span>   【[<span class="hljs-string">Accessing the system clipboard</span>](<span class="hljs-link">https://link.zhihu.com/?target=http%3A//vim.wikia.com/wiki/Accessing_the_system_clipboard</span>)】
 <span class="hljs-bullet">*</span>   【[<span class="hljs-string">Macbook 终端 vim 使用系统剪切板</span>](<span class="hljs-link">https://link.zhihu.com/?target=https%3A//www.jianshu.com/p/270a5013808b</span>)】</code></pre></div>
 </blockquote>
-<h3 id="16-16-vim-实现系统剪切板复制"><a href="#16-16-vim-实现系统剪切板复制" class="headerlink" title="16.16 vim 实现系统剪切板复制"></a>16.16 vim 实现系统剪切板复制</h3><p><span id="16.16 vim实现系统剪切板复制"></span></p>
+<h3 id="16-16-vim-实现系统剪切板复制"><a href="#16-16-vim-实现系统剪切板复制" class="headerlink" title="16.16 vim 实现系统剪切板复制"></a>16.16 vim 实现系统剪切板复制</h3><p><span id="16.16-vim实现系统剪切板复制"></span></p>
 <p>shift + insert 可以将系统剪切板的内容插入 vim 编辑器</p>
 <p>ctrl + shift 然后移动鼠标选取, 之后普通的复制粘贴即可.</p>
 <p>大部分终端下的复制都是 ctrl + shift + C</p>
@@ -579,7 +590,7 @@ sudo apt install vim-gtk
                       <a href="/2020/09/28/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80IDE/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">汇编语言IDE</span>
-                        <span class="visible-mobile">前の記事</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -588,7 +599,7 @@ sudo apt install vim-gtk
                     
                       <a href="/2020/09/23/%E9%87%91%E8%9E%8D%E4%B8%96%E7%95%8C%E8%A7%82/">
                         <span class="hidden-mobile">金融世界观</span>
-                        <span class="visible-mobile">次の記事</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -637,7 +648,7 @@ sudo apt install vim-gtk
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
 
@@ -664,7 +675,7 @@ sudo apt install vim-gtk
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -673,7 +684,7 @@ sudo apt install vim-gtk
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">キーワード</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

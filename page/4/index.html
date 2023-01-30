@@ -66,7 +66,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                ホーム
+                Home
               </a>
             </li>
           
@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                アーカイブ
+                Archives
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                カテゴリー
+                Categories
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                タグ
+                Tags
               </a>
             </li>
           
@@ -126,7 +126,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                リンク
+                Links
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                本ブログ情報　
+                About
               </a>
             </li>
           
@@ -200,21 +200,24 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2021/05/06/MySQL45%E8%AE%B2%E7%AC%94%E8%AE%B0/">MySQL45讲笔记</a>
+        <a href="/2021/06/25/hive%E4%B8%AD%E5%88%9B%E5%BB%BAdual%E8%99%9A%E8%A1%A8/">hive中创建dual虚表</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/06/MySQL45%E8%AE%B2%E7%AC%94%E8%AE%B0/">
+        <a href="/2021/06/25/hive%E4%B8%AD%E5%88%9B%E5%BB%BAdual%E8%99%9A%E8%A1%A8/">
           
           
             
           
-          MySQL45讲笔记01、基础架构：一条SQL语句是如何执行的
+          hive中创建dual虚表1、通过如下方式创建dual.txt文件.
+cd /tmp
+echo &#x27;X&#x27; &gt; dual.txt
 
+2、在hive中创建虚表
+create table dual(dummy string);
 
-
-02、日志系统：一条SQL更新语句是如何执行的？03、事务隔离：为什么你改了我还看不见？事务的四个特性 ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性）
-为什么会有隔离级别的概念?当数据库上有多个事务同时执行的时候，就可能出现脏读（dirty re
+3、将dual.txt文件load到虚表中
+load data local inpath &#x27;/tmp/dual.txt&#x27; overw
         </a>
       </p>
 
@@ -222,8 +225,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-06 21:18" pubdate>
-              2021-05-06
+            <time datetime="2021-06-25 18:37" pubdate>
+              2021-06-25
             </time>
           </div>
         
@@ -231,7 +234,9 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/MySQL/">MySQL</a>
+              <a href="/categories/hive/">hive</a>
+            
+              <a href="/categories/hive/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
             
           </div>
         
@@ -239,7 +244,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/MySQL/">MySQL</a>
+              <a href="/tags/hive/">hive</a>
+            
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
             
           </div>
         
@@ -252,18 +259,31 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2021/04/23/Java%E4%B9%8BNIO/">Java之NIO</a>
+        <a href="/2021/06/24/sqoop%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">sqoop的安装与使用</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/04/23/Java%E4%B9%8BNIO/">
+        <a href="/2021/06/24/sqoop%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
           
           
             
           
-          Java之NIO基础概念生活例子:同步 ： 自己亲自出马持银行卡到银行取钱（使用同步IO时，Java自己处理IO读写）。
-异步 ： 委托一小弟拿银行卡到银行取钱，然后给你（使用异步IO时，Java将IO读写委托给OS处理，需要将数据缓冲区地址和大小传给OS(银行卡和密码)，OS需要支持异步IO操作API）。
-阻塞 ： ATM排队取款，你只能等待（使用阻塞IO时，Java调用会一直阻塞到读写完成才返
+          sqoop的安装与使用环境准备
+java环境
+hadoop环境
+hive环境
+zookeeper环境
+hbase环境
+
+下载安装sqoop官网
+
+
+
+下载sqoop-1.4.7.tar.gzcd /opt
+wget  https://mirrors.bfsu.edu.cn/apache/sqoop/1.4.7/sqoop-1.4.7.tar.gz
+解压
+
+tar zxvf sqoop-1.4.7.
         </a>
       </p>
 
@@ -271,127 +291,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-23 15:56" pubdate>
-              2021-04-23
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/NIO/">NIO</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/04/22/MySQL%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/">MySQL基准测试</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/22/MySQL%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/">
-          
-          
-            
-          
-          MySQL基准测试测量系统性能衡量调优方案是否有效。
-一、什么是基准测试?定义:    基准测试是一种测量和评估软件性能指标的活动，用于简历某个时刻的性能基准，以便当系统发生软硬件变化时重新进行基准测试以评估变化对性能的影响。
-
-
-
-
-
-
-二、如何进行基准测试?基准测试的目的:
-
-建立MySQL服务器的性能基准线确定当前MySQL服务器的运行情况
-模拟比当前系统更高的负载，以找出系统的扩展瓶颈增加
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-22 22:31" pubdate>
-              2021-04-22
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/MySQL/">MySQL</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/04/05/%E5%89%91%E6%8C%87Java%E9%9D%A2%E8%AF%95-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%A0%B8%E5%BF%83/">剑指Java面试,计算机网络面试核心</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/05/%E5%89%91%E6%8C%87Java%E9%9D%A2%E8%AF%95-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%A0%B8%E5%BF%83/">
-          
-          
-            
-          
-          剑指Java面试，计算机网络面试核心OSI开放式互联参考模型
-
-TCP/IPOSI的”实现”: TCP/IP
-
-
-
-
-说说TCP的三次握手
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-谈谈TCP的四次挥手
-
-参考: https://juejin.cn/post/6844903913611591688
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-05 12:37" pubdate>
-              2021-04-05
+            <time datetime="2021-06-24 13:52" pubdate>
+              2021-06-24
             </time>
           </div>
         
@@ -399,7 +300,7 @@ TCP/IPOSI的”实现”: TCP/IP
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%89%91%E6%8C%87Java%E9%9D%A2%E8%AF%95/">剑指Java面试</a>
+              <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -407,7 +308,7 @@ TCP/IPOSI的”实现”: TCP/IP
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%89%91%E6%8C%87Java%E9%9D%A2%E8%AF%95/">剑指Java面试</a>
+              <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -420,25 +321,17 @@ TCP/IPOSI的”实现”: TCP/IP
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2021/03/14/RocketMQ%E6%8E%A7%E5%88%B6%E5%8F%B0/">RocketMQ控制台</a>
+        <a href="/2021/06/23/ubuntu%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4jdk/">ubuntu修改默认jdk</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/14/RocketMQ%E6%8E%A7%E5%88%B6%E5%8F%B0/">
+        <a href="/2021/06/23/ubuntu%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4jdk/">
           
           
             
           
-          RocketMQ控制台文档地址: RocketMQ-Console-Ng
-拉取源码：
-cd /opt
-git clone https://github.com/apache/rocketmq-externals.git
+          ubuntu修改默认jdksudo update-alternatives --config java
 
-修改配置:
-cd rocketmq-console/src/main/resources
-vi application.properties
-
-配置文件内容:将项目使用的rock
         </a>
       </p>
 
@@ -446,8 +339,8 @@ vi application.properties
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-14 23:25" pubdate>
-              2021-03-14
+            <time datetime="2021-06-23 11:33" pubdate>
+              2021-06-23
             </time>
           </div>
         
@@ -455,7 +348,7 @@ vi application.properties
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BA%92%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B/">互联网工程</a>
+              <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -463,9 +356,7 @@ vi application.properties
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B/">互联网工程</a>
-            
-              <a href="/tags/RocketMQ/">RocketMQ</a>
+              <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -478,17 +369,17 @@ vi application.properties
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2021/03/14/%E9%80%9A%E8%BF%87docker%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BArocketmq%E7%8E%AF%E5%A2%83/">通过docker快速搭建rocketmq环境</a>
+        <a href="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/">ubuntu源码编译安装hue</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/14/%E9%80%9A%E8%BF%87docker%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BArocketmq%E7%8E%AF%E5%A2%83/">
+        <a href="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/">
           
           
             
           
-          通过 docker 快速搭建 rocketmq 环境1. 安装 Namesrv拉取镜像docker pull rocketmqinc/rocketmq:4.4.0`
-启动容器docker run -d -p 9876:9876 -v &#123;RmHome&#125;/data/namesrv/logs:/root/logs -v &#123;RmHome&#125;/data/namesrv/
+          ubuntu源码编译安装hue简介Hue是一个开源的Apache Hadoop UI系统，最早是由Cloudera Desktop演化而来，由Cloudera贡献给开源社区，它是基于Python Web框架Django实现的。通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据，例如操作HDFS上的数据，运行MapReduce Job,Hive等等。
+功能介绍数
         </a>
       </p>
 
@@ -496,8 +387,8 @@ vi application.properties
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-14 23:12" pubdate>
-              2021-03-14
+            <time datetime="2021-06-18 17:12" pubdate>
+              2021-06-18
             </time>
           </div>
         
@@ -505,7 +396,7 @@ vi application.properties
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BA%92%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B/">互联网工程</a>
+              <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -513,11 +404,7 @@ vi application.properties
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B/">互联网工程</a>
-            
-              <a href="/tags/RocketMQ/">RocketMQ</a>
-            
-              <a href="/tags/Docker/">Docker</a>
+              <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -530,19 +417,28 @@ vi application.properties
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2021/03/07/Mac%E5%AE%89%E8%A3%85homebrew-cask/">Mac安装homebrew-cask</a>
+        <a href="/2021/06/18/Docker%E5%AE%89%E8%A3%85HUE/">Docker安装HUE</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/07/Mac%E5%AE%89%E8%A3%85homebrew-cask/">
+        <a href="/2021/06/18/Docker%E5%AE%89%E8%A3%85HUE/">
           
           
             
           
-          Mac安装homebrew-cask安装方式方式一:手动clone1.进入homebrew目录：
-cd &quot;$(brew --repo)/Library/Taps/homebrew/&quot;
-2.开始clone
-git clone git://mirrors.ustc.edu.cn/homebrew-cask.git /usr/local/Homebrew/Library/Taps/h
+          Docker安装HUE简介https://github.com/cloudera/hue
+
+
+
+安装docker run -it -p 8888:8888 gethue/hue:latest
+
+
+
+
+
+
+
+
         </a>
       </p>
 
@@ -550,8 +446,243 @@ git clone git://mirrors.ustc.edu.cn/homebrew-cask.git /usr/local/Homebrew/Librar
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-07 23:27" pubdate>
-              2021-03-07
+            <time datetime="2021-06-18 15:06" pubdate>
+              2021-06-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/06/17/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6%E4%B9%8BMapReduce/">分布式计算框架之MapReduce</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/17/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6%E4%B9%8BMapReduce/">
+          
+          
+            
+          
+          分布式计算框架之MapReduce
+
+MapReduce概述
+MapReduce是一种分布式计算模型，由Google提出，主要用于搜索领域，解决海量数据的计算问题.
+
+MR由两个阶段组成：Map和Reduce，用户只需要实现map()和reduce()两个函数，即可实现分布式计算，非常简单。
+
+这两个函数的形参是key、value对，表示函数的输入信息。
+
+
+MR执行流程
+
+
+MapReduce原
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-17 21:12" pubdate>
+              2021-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/06/14/hbase%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/">hbase集群安装</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/14/hbase%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/">
+          
+          
+            
+          
+          Hbase集群安装服务器规划
+
+
+IP
+域名
+系统版本号
+
+
+
+10.10.x.70
+zk.had01
+Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu SMP Fri Mar 19 13:29:52 UTC 20
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-14 22:31" pubdate>
+              2021-06-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/06/12/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">hadoop集群搭建</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/12/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+          
+          
+            
+          
+          hadoop集群搭建服务器规划
+
+
+IP
+域名
+系统版本号
+
+
+
+10.10.x.70
+zk.had01
+Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu SMP Fri Mar 19 13:29:52 UTC 2
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-12 19:29" pubdate>
+              2021-06-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/06/12/Proxifier%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%BF%80%E6%B4%BB/">Proxifier的安装与激活</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/12/Proxifier%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%BF%80%E6%B4%BB/">
+          
+          
+            
+          
+          Proxifier的安装与激活下载地址https://www.proxifier.com/download/#mac-tab
+
+笔者安装的版本为3.5
+
+激活码3CWNN-WYTP4-SD83W-ASDFR-84KEA
+
+激活码生成工具:
+https://github.com/Danz17/Proxifier-Keygen
+
+巨人的肩膀
+proxifier注册码
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-12 17:48" pubdate>
+              2021-06-12
             </time>
           </div>
         
@@ -580,26 +711,31 @@ git clone git://mirrors.ustc.edu.cn/homebrew-cask.git /usr/local/Homebrew/Librar
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2021/03/07/python%E5%B0%86html%E8%BD%AC%E6%88%90pdf/">python将html转成pdf</a>
+        <a href="/2021/06/12/zookeeper%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">zookeeper集群搭建</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/07/python%E5%B0%86html%E8%BD%AC%E6%88%90pdf/">
+        <a href="/2021/06/12/zookeeper%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
           
           
             
           
-          python将html转成pdf
-本文由 简悦 SimpRead 转码， 原文地址 www.cnblogs.com
+          zookeeper集群搭建环境要求
+安装JDK8
+
+服务器规划在局域网内规划三台机器:
 
 
-@Modifer: DANTE FUNG@Date: 2021-03-08 00:00:58
 
-主要使用的是 wkhtmltopdf 的 Python 封装——pdfkit
-安装1. Install python-pdfkit:
-$ pip install pdfkit
+IP
+域名
+系统版本号
 
-2. 
+
+
+10.10.x.70
+zk.had01
+Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu 
         </a>
       </p>
 
@@ -607,8 +743,8 @@ $ pip install pdfkit
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-07 22:54" pubdate>
-              2021-03-07
+            <time datetime="2021-06-12 11:22" pubdate>
+              2021-06-12
             </time>
           </div>
         
@@ -616,7 +752,7 @@ $ pip install pdfkit
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/python/">python</a>
+              <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -624,109 +760,7 @@ $ pip install pdfkit
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/python/">python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/03/07/Mac%E5%AE%89%E8%A3%85Homebrew/">Mac安装Homebrew</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/07/Mac%E5%AE%89%E8%A3%85Homebrew/">
-          
-          
-            
-          
-          
-本文由 简悦 SimpRead 转码， 原文地址 www.cnblogs.com
-
-Mac 安装 Homebrew国内安装 (可用)：/bin/zsh -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;
-
-以上方法来自：https://zhuanlan.zhihu.com/
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-07 22:47" pubdate>
-              2021-03-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/mac/">mac</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Homebrew/">Homebrew</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/">文件存储、数据存储、混合存储</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/06/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%AD%98%E5%82%A8/">
-          
-          
-            
-          
-          文件存储、数据存储、混合存储源头: 数据管理的方案设计
-什么是数据存储？数据存储是信息技术对您每天所需的数据内容（从应用到网络协议，从文档到媒体，从地址簿到用户首选项）进行归档、整理和共享的过程。数据存储是大数据的核心环节。
-试想一下，计算机就像大脑一样。两者都有短期记忆和长期记忆。大脑通过前额叶皮层来处理短期记忆，而计算机则利用随机存取存储器（RAM）来处理短期记忆。
-大脑和 RAM 都要在清醒
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-06 22:33" pubdate>
-              2021-03-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/CS/">CS</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/CS/">CS</a>
+              <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
             
           </div>
         
@@ -738,7 +772,7 @@ Mac 安装 Homebrew国内安装 (可用)：/bin/zsh -c &quot;$(curl -fsSL https:
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
@@ -770,7 +804,7 @@ Mac 安装 Homebrew国内安装 (可用)：/bin/zsh -c &quot;$(curl -fsSL https:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -779,7 +813,7 @@ Mac 安装 Homebrew国内安装 (可用)：/bin/zsh -c &quot;$(curl -fsSL https:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">キーワード</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

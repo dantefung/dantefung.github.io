@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                ホーム
+                Home
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                アーカイブ
+                Archives
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                カテゴリー
+                Categories
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                タグ
+                Tags
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                リンク
+                Links
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                本ブログ情報　
+                About
               </a>
             </li>
           
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      537 字
+      775 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      10
        分钟
     </span>
   
@@ -263,7 +263,66 @@
 
 <img src="/2022/04/12/idea-live-templates/2022-04-12-09-41-58.png" srcset="/img/loading.gif" class="">
 
+<h2 id="内置模板"><a href="#内置模板" class="headerlink" title="内置模板"></a>内置模板</h2><ol>
+<li><code>sbc</code></li>
+</ol>
+<p><strong>说明:</strong> sbc + 回车</p>
+<ol start="2">
+<li>快速生成main方法</li>
+</ol>
+<p><code>main</code> + 回车<br><code>psvm</code> + 回车</p>
+<ol start="3">
+<li>快速生成System.out.println</li>
+</ol>
+<p><code>sout</code> + 回车</p>
+<ol start="4">
+<li>快速生成TODO注释</li>
+</ol>
+<p><code>todo</code> + 回车</p>
+<ol start="5">
+<li>快速生成public static final</li>
+</ol>
+<p><code>psf</code> + 回车</p>
+<ol start="6">
+<li>快速生成public static final String</li>
+</ol>
+<p><code>psfs</code> + 回车</p>
+<p>同理: </p>
+<p><code>psfi</code>: public static final int<br><code>prsf</code>: private static fianl </p>
+<ol start="7">
+<li>快速生成获取单例方法</li>
+</ol>
+<p><code>geti</code> + 回车</p>
+<ol start="8">
+<li>快速生成私有静态final字符串</li>
+</ol>
+<p>key + 回车 =&gt; 可以快速生成以KEY_为前缀的私有静态final字符串</p>
+<div class="hljs"><pre><code class="hljs arduino">
+<span class="hljs-keyword">private</span> <span class="hljs-type">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> KEY_光标所在位置= <span class="hljs-string">&quot;&quot;</span>;
+</code></pre></div>
+<ol start="9">
+<li>快速生成私有final整型变量</li>
+</ol>
+<p><code>const</code> + 回车 =&gt; </p>
+<div class="hljs"><pre><code class="hljs arduino">
+<span class="hljs-keyword">private</span> <span class="hljs-type">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> 光标所在位置 = <span class="hljs-number">958</span>;
+</code></pre></div>
 
+<ol start="10">
+<li>ctrl + j , 调出代码模板生成菜单.</li>
+</ol>
+<p><strong>其他:</strong></p>
+<p><code>sb.main</code><br><code>sb.post</code><br><code>sb.get</code></p>
+<h2 id="生成固定代码片段"><a href="#生成固定代码片段" class="headerlink" title="生成固定代码片段"></a>生成固定代码片段</h2><ol>
+<li><p>选中要生成的代码片段</p>
+</li>
+<li><p>在菜单中选择Tools | Save as Live Template</p>
+</li>
+<li><p>填写触发单词（Abbreviation）</p>
+</li>
+<li><p>在代码中输入触发单词后按 Tab，可以重复生成代码片段。</p>
+</li>
+</ol>
 <h2 id="常用模板"><a href="#常用模板" class="headerlink" title="常用模板"></a>常用模板</h2><p><strong>loggerDefineStatic</strong></p>
 <div class="hljs"><pre><code class="hljs php"><span class="hljs-keyword">private</span> <span class="hljs-built_in">static</span> <span class="hljs-keyword">final</span> Logger logger = LoggerFactory.<span class="hljs-title function_ invoke__">getLogger</span>(<span class="hljs-variable">$CLASS</span>_NAME$.<span class="hljs-keyword">class</span>);</code></pre></div>
 
@@ -274,7 +333,27 @@
 <p><strong>logStart</strong></p>
 <div class="hljs"><pre><code class="hljs powershell">logger.info(<span class="hljs-string">&quot;op=start_<span class="hljs-variable">$METHOD_NAME</span><span class="hljs-variable">$</span>, <span class="hljs-variable">$PARAMS_FORMAT</span><span class="hljs-variable">$</span>&quot;</span>, <span class="hljs-variable">$PARAMS</span><span class="hljs-variable">$</span>);</code></pre></div>
 
-<p>自定义变量:<br>|变量名|取值|<br>|—|—|<br>|METHOD_NAME|methodName()|<br>|PARAMS_FORMAT|groovyScript(“_1.collect{it+’={}’}.join(‘,’)”, methodParameters())|<br>|PARAMS|groovyScript(“_1.collect{it}.join(‘,’)”, methodParameters())|</p>
+<p>自定义变量:</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>取值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>METHOD_NAME</td>
+<td>methodName()</td>
+</tr>
+<tr>
+<td>PARAMS_FORMAT</td>
+<td>groovyScript(“_1.collect{it+’={}’}.join(‘,’)”, methodParameters())</td>
+</tr>
+<tr>
+<td>PARAMS</td>
+<td>groovyScript(“_1.collect{it}.join(‘,’)”, methodParameters())</td>
+</tr>
+</tbody></table>
 <p><strong>test</strong></p>
 <div class="hljs"><pre><code class="hljs typescript"><span class="hljs-meta">@Test</span>
 <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;
@@ -407,13 +486,19 @@ private <span class="hljs-built_in">Set</span>&lt;<span class="hljs-variable">$v
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/07/03/%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%E4%BF%A1%E6%81%AF%E6%BA%90/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我的阅读信息源</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
                       <a href="/2022/03/30/IDEA%E4%BD%BF%E7%94%A8ideavim/">
                         <span class="hidden-mobile">IDEA使用ideavim</span>
-                        <span class="visible-mobile">次の記事</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -462,7 +547,7 @@ private <span class="hljs-built_in">Set</span>&lt;<span class="hljs-variable">$v
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
 
@@ -489,7 +574,7 @@ private <span class="hljs-built_in">Set</span>&lt;<span class="hljs-variable">$v
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -498,7 +583,7 @@ private <span class="hljs-built_in">Set</span>&lt;<span class="hljs-variable">$v
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">キーワード</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
