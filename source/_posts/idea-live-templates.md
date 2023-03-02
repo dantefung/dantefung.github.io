@@ -396,6 +396,21 @@ if (StringUtils.isBlank($var1$)) {
 
 ```
 
+**javax bean inject**
+Abbreviation : rpr
+
+Description : @Resource方式注入
+
+Variables : 
+
+
+Template text:
+```
+@Resource
+private $var1$ $var2$;
+
+```
+
 作用范围: Applicable in Java
 
 未完待续... ...
