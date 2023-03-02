@@ -309,6 +309,95 @@ private $var1$ $var2$;
 
 ```
 
+----
+
+**Controller Rest Post**
+Abbreviation : cpost
+
+Description : Controller层Post请求模板代码 
+
+Variables : 
+
+
+Template text:
+```
+@PostMapping("$var1$")
+public Result<$var2$> get$var3$() {
+	return Result.buildSuccess($var4$);
+}
+
+```
+
+----
+
+**lombok**
+Abbreviation : lmk
+
+Description : lombok模板代码
+
+Variables : 
+
+
+Template text:
+```
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Accessors(chain = true)
+
+```
+
+**CollectionUtils.isEmpty**
+Abbreviation : cie
+
+Description : 判断集合是否为空模板
+
+Variables : 
+
+
+Template text:
+```
+if (CollectionUtils.isEmpty($var1$)) {
+	$var2$
+}
+
+```
+
+
+**StringUtils.isNotBlank**
+Abbreviation : sinotb
+
+Description : 判断字符串是否不为空
+
+Variables : 
+
+
+Template text:
+```
+if (StringUtils.isNotBlank($var1$)) {
+	$var2$
+}
+
+```
+
+**StringUtils.isBlank**
+Abbreviation : sinotb
+
+Description : 判断字符串是否为空
+
+Variables : 
+
+
+Template text:
+```
+if (StringUtils.isBlank($var1$)) {
+	$var2$
+}
+
+```
+
+作用范围: Applicable in Java
+
 未完待续... ...
 
 
