@@ -46,6 +46,81 @@ Default value：表达式计算失败时的默认值。
 
 {% asset_img 2022-04-12-09-41-58.png %}
 
+## 内置模板
+
+1. `sbc`
+
+**说明:** sbc + 回车
+
+2. 快速生成main方法
+
+`main` + 回车 
+`psvm` + 回车
+
+3. 快速生成System.out.println
+
+`sout` + 回车
+
+4. 快速生成TODO注释
+
+`todo` + 回车
+
+5. 快速生成public static final
+
+`psf` + 回车
+
+6. 快速生成public static final String
+
+`psfs` + 回车
+
+同理: 
+
+`psfi`: public static final int
+`prsf`: private static fianl 
+
+7. 快速生成获取单例方法
+
+`geti` + 回车
+
+8. 快速生成私有静态final字符串
+
+key + 回车 => 可以快速生成以KEY_为前缀的私有静态final字符串
+
+```
+
+private static final String KEY_光标所在位置= "";
+
+```
+9. 快速生成私有final整型变量
+
+`const` + 回车 => 
+
+```
+
+private static final int 光标所在位置 = 958;
+
+```
+
+10. ctrl + j , 调出代码模板生成菜单.
+
+
+**其他:**
+
+`sb.main` 
+`sb.post` 
+`sb.get`
+
+
+## 生成固定代码片段
+
+1. 选中要生成的代码片段
+
+2. 在菜单中选择Tools | Save as Live Template
+
+3. 填写触发单词（Abbreviation）
+
+4. 在代码中输入触发单词后按 Tab，可以重复生成代码片段。
+
 
 ## 常用模板
 
@@ -70,8 +145,9 @@ logger.info("op=start_$METHOD_NAME$, $PARAMS_FORMAT$", $PARAMS$);
 ```
 
 自定义变量:
+
 |变量名|取值|
-|---|---|
+|:----:|:----:|
 |METHOD_NAME|methodName()|
 |PARAMS_FORMAT|groovyScript("_1.collect{it+'={}'}.join(',')", methodParameters())|
 |PARAMS|groovyScript("_1.collect{it}.join(',')", methodParameters())|
@@ -86,6 +162,7 @@ public void test() {
 ```
 
 # Live-Templates
+
 分享个人 IntelliJ idea Live Template 配置,希望可以帮助大家提高编程效率,如果你那也有一些好用的template欢迎添加.
 
 对于Live Template 还熟悉的童鞋可以先查看[**本文**](http://blog.xiaohansong.com/2017/03/17/idea-live-templates/).
@@ -231,6 +308,110 @@ Template text:
 private $var1$ $var2$;
 
 ```
+
+----
+
+**Controller Rest Post**
+Abbreviation : cpost
+
+Description : Controller层Post请求模板代码 
+
+Variables : 
+
+
+Template text:
+```
+@PostMapping("$var1$")
+public Result<$var2$> get$var3$() {
+	return Result.buildSuccess($var4$);
+}
+
+```
+
+----
+
+**lombok**
+Abbreviation : lmk
+
+Description : lombok模板代码
+
+Variables : 
+
+
+Template text:
+```
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Accessors(chain = true)
+
+```
+
+**CollectionUtils.isEmpty**
+Abbreviation : cie
+
+Description : 判断集合是否为空模板
+
+Variables : 
+
+
+Template text:
+```
+if (CollectionUtils.isEmpty($var1$)) {
+	$var2$
+}
+
+```
+
+
+**StringUtils.isNotBlank**
+Abbreviation : sinotb
+
+Description : 判断字符串是否不为空
+
+Variables : 
+
+
+Template text:
+```
+if (StringUtils.isNotBlank($var1$)) {
+	$var2$
+}
+
+```
+
+**StringUtils.isBlank**
+Abbreviation : sinotb
+
+Description : 判断字符串是否为空
+
+Variables : 
+
+
+Template text:
+```
+if (StringUtils.isBlank($var1$)) {
+	$var2$
+}
+
+```
+
+**javax bean inject**
+Abbreviation : rpr
+
+Description : @Resource方式注入
+
+Variables : 
+
+
+Template text:
+```
+@Resource
+private $var1$ $var2$;
+
+```
+
+作用范围: Applicable in Java
 
 未完待续... ...
 

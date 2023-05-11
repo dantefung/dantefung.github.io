@@ -84,6 +84,9 @@ nnoremap <Leader>Q  :qa!<CR>
 " (上下翻页)
 nnoremap <Leader>d  <C-d>
 nnoremap <Leader>u  <C-u>
+" 左右翻页
+nnoremap <C-h> zH
+nnoremap <C-l> zL
 
 " 快速进入vim模式
 inoremap jj <Esc>
