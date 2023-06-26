@@ -104,7 +104,8 @@ theme: fluid
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: 'git'
-  repository: git@github.com:dantefung/dantefung.github.io.git
+  repository: git@github:dantefung/dantefung.github.io.git
+  #repository: git@github.com:dantefung/dantefung.github.io.git
   branch: master
 
 # 支持dplayer,在markdown文章中插入视频
