@@ -1,5 +1,5 @@
 ---
-title: 如果是MySQL引起的CPU消耗过大，你会如何优化?
+title: 优化MySQL引起的CPU消耗过大
 date: 2020-09-30 11:15:53
 tags:
   - 性能优化
