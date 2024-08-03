@@ -38,13 +38,17 @@ tags:
 - [16.15 共享剪切板](#16.15-共享剪切板)
 - [16.16 vim 实现系统剪切板复制](#16.16-vim实现系统剪切板复制)
 
-我阅读过一些好看的文章:
-
-- [用聪明的方式学 Vim](https://github.com/wsdjeg/Learn-Vim_zh_cn)
+我阅读过一些好看的文章:         
+- [用聪明的方Vimim](https://gvim.nauxscriptindex.html_cn)
 - [Vim 终极指南：所思即所得\_西代零零发 - CSDN 博客](https://blog.csdn.net/dc_726/article/details/78981756?spm=1001.2014.3001.5501)
 - [Vim 从入门到精通](https://github.com/wsdjeg/vim-galore-zh_cn`)
 - [Vim 练级手册](https://vim.wxnacy.com/)
 - [Vim Everywhere](https://github.com/LintaoAmons/VimEverywhere)
+- [Practical Vim](https://learnku.com/docs/practical-vim-2nd-edition)
+- [Awesome Vim plugins](https://vimawesome.com/?spm=a2c6h.12873639.0.0.248314adpINpOM)
+- [typingclub](https://www.typingclub.com/)
+- [Just Vim It](https://vim.nauxscript.com/index.html)
+- [full-keyboard](https://github.com/dantefung/full-keyboard)
 
 我看过的一些视频:
 
