@@ -49,6 +49,7 @@ tags:
 - [typingclub](https://www.typingclub.com/)
 - [Just Vim It](https://vim.nauxscript.com/index.html)
 - [full-keyboard](https://github.com/dantefung/full-keyboard)
+- [《明无梦的 Vim 使用记录》](https://www.mwum.com/books/)
 
 我看过的一些视频:
 
