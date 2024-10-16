@@ -38,13 +38,17 @@ tags:
 - [16.15 共享剪切板](#16.15-共享剪切板)
 - [16.16 vim 实现系统剪切板复制](#16.16-vim实现系统剪切板复制)
 
-我阅读过一些好看的文章:
-
+我阅读过一些好看的文章:         
 - [用聪明的方式学 Vim](https://github.com/wsdjeg/Learn-Vim_zh_cn)
 - [Vim 终极指南：所思即所得\_西代零零发 - CSDN 博客](https://blog.csdn.net/dc_726/article/details/78981756?spm=1001.2014.3001.5501)
 - [Vim 从入门到精通](https://github.com/wsdjeg/vim-galore-zh_cn`)
 - [Vim 练级手册](https://vim.wxnacy.com/)
 - [Vim Everywhere](https://github.com/LintaoAmons/VimEverywhere)
+- [Practical Vim](https://learnku.com/docs/practical-vim-2nd-edition)
+- [Awesome Vim plugins](https://vimawesome.com/?spm=a2c6h.12873639.0.0.248314adpINpOM)
+- [typingclub](https://www.typingclub.com/)
+- [Just Vim It](https://vim.nauxscript.com/index.html)
+- [full-keyboard](https://github.com/dantefung/full-keyboard)
 
 我看过的一些视频:
 
@@ -218,6 +222,7 @@ c[n]h: 改写光标前 n 个字母。
 
 ### 6.1 剪切和复制、粘贴
 
+```
 x 删除当前光标下的字符。
 [n]x: 剪切光标右边 n 个字符，相当于 d[n]l。
 [n]X: 剪切光标左边 n 个字符，相当于 d[n]h。
@@ -248,28 +253,34 @@ p: 在光标之后粘贴。
 P: 在光标之前粘贴。
 c 功能和 d 相同，区别在于完成删除操作后进入 INSERT MODE
 cc 也是删除当前行，然后进入 INSERT MODE
+```
 
 ### 6.2 文本对象
 
+```
 aw：一个词
 as：一句。
 ap：一段。
 ab：一块（包含在圆括号中的）。
 y, d, c, v 都可以跟文本对象。
+```
 
 ### 6.3 寄存器
 
+```
 a-z：都可以用作寄存器名。"ayy 把当前行的内容放入 a 寄存器。
 A-Z：用大写字母索引寄存器，可以在寄存器中追加内容。 如"Ayy 把当前行的内容追加到 a 寄存器中。
 :reg 显示所有寄存器的内容。
 ""：不加寄存器索引时，默认使用的寄存器。
 "*：当前选择缓冲区，"*yy 把当前行的内容放入当前选择缓冲区。
 "+：系统剪贴板。"+yy 把当前行的内容放入系统剪贴板。
+```
 
 ## 7. 查找与替换
 
 ### 7.1 查找
 
+```
 /something: 在后面的文本中查找 something。
 ?something: 在前面的文本中查找 something。
 /pattern/+number: 将光标停在包含 pattern 的行后面第 number 行上。
@@ -289,9 +300,11 @@ vimgrep 前面可以加数字限定搜索结果的上限，如
 :vim/^d{1,}./ %
 然后用:cw 或:copen 查看结果，可以用 C-w H 把 quickfix 窗口移到左侧，
 就更像个目录了。
+```
 
 ### 7.2 替换
 
+```
 :s/old/new - 用 new 替换当前行第一个 old。
 :s/old/new/g - 用 new 替换当前行所有的 old。
 :n1,n2s/old/new/g - 用 new 替换文件 n1 行到 n2 行所有的 old。
@@ -311,8 +324,11 @@ m,n: 从 m 行到 n 行。
 \$: 最后一行
 .: 当前行
 %: 所有行
+```
 
 **vim 查找与替换带有特殊字符:**
+
+```
 :s/aa/bb # 将光标所在行第一个 aa 替换为 bb
 :s/aa/bb/g # 将光标所在行所有 aa 替换为 bb
 :%s/aa/bb/g # 全文执行替换 aa 替换为 bb
@@ -367,6 +383,8 @@ i 忽略大小写
 \*\*: 当前目录下的所有子目录。
 :help pattern 得到更多帮助。
 
+```
+
 ## 8. 排版
 
 ### 8.1 基本排版
@@ -386,6 +404,7 @@ i 忽略大小写
 `> >` gqQ 重排当前段对文章末尾
 `> >` J 拼接当前行和下一行
 `> >` gJ 同 J ，不过合并后不留空格。
+`==` 缩进当前行
 
 ### 8.2 拼写检查
 
@@ -788,12 +807,14 @@ q/和 q? 可以打开查找历史记录。
 
 ### 15.2 一些快捷键（收集中）
 
+```
 K: 打开光标所在词的 manpage。
 *: 向下搜索光标所在词。
 g*: 同上，但部分符合即可。
 #: 向上搜索光标所在词。
 g#: 同上，但部分符合即可。
 g C-g: 统计全文或统计部分的字数。
+```
 
 ### 15.3 在线帮助
 
