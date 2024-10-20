@@ -49,6 +49,7 @@ tags:
 - [typingclub](https://www.typingclub.com/)
 - [Just Vim It](https://vim.nauxscript.com/index.html)
 - [full-keyboard](https://github.com/dantefung/full-keyboard)
+- [《明无梦的 Vim 使用记录》](https://www.mwum.com/books/)
 
 我看过的一些视频:
 
@@ -833,6 +834,15 @@ Ctrl+] 跳转到 tag 主题，Ctrl+t 跳回。
 ## 16. 实用技巧
 
 ### 16.1 场景一: 多行编辑
+
+>列编辑模式.
+> Ctrl-V 进入列编辑模式 (win下Gvim使用Ctrl-Q)
+> 
+> j or k 选择要编辑的范围
+> 
+> I or A进入编辑模式,输入要编辑的内容
+> 
+> ESC 结束 
 
 `方法一:`
 **需求描述:**
