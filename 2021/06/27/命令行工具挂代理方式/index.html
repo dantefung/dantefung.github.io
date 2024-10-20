@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      25
        分钟
     </span>
   
@@ -264,6 +264,11 @@ ALL_PROXY=socks5:<span class="hljs-regexp">//</span><span class="hljs-number">12
 <p><strong>参数说明:</strong></p>
 <p><code>-Y</code>  是否使用代理</p>
 <p><code>-e</code>  执行命令</p>
+<h2 id="CMD代理"><a href="#CMD代理" class="headerlink" title="CMD代理"></a>CMD代理</h2><p>通过命令行设置环境变量：<br>打开命令提示符（CMD）。<br>使用 set 命令临时设置代理：</p>
+<div class="hljs"><pre><code class="hljs routeros"><span class="hljs-built_in">set</span> <span class="hljs-attribute">http_proxy</span>=http://127.0.0.1:1080    
+<span class="hljs-built_in">set</span> <span class="hljs-attribute">https_proxy</span>=http://127.0.0.1:1080</code></pre></div>
+
+
 <h2 id="powershell代理"><a href="#powershell代理" class="headerlink" title="powershell代理"></a>powershell代理</h2><p><strong>以管理员的身份运行powershell:</strong></p>
 <div class="hljs"><pre><code class="hljs arduino">Start-<span class="hljs-built_in">Process</span> powershell -Verb runAs</code></pre></div>
 

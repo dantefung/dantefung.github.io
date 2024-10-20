@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12.5k 字
+      12.6k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      146
+      147
        分钟
     </span>
   
@@ -276,6 +276,7 @@
 <li><a target="_blank" rel="noopener" href="https://www.typingclub.com/">typingclub</a></li>
 <li><a target="_blank" rel="noopener" href="https://vim.nauxscript.com/index.html">Just Vim It</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/dantefung/full-keyboard">full-keyboard</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mwum.com/books/">《明无梦的 Vim 使用记录》</a></li>
 </ul>
 <p>我看过的一些视频:</p>
 <ul>
@@ -528,7 +529,13 @@ i 忽略大小写
 
 <h3 id="15-3-在线帮助"><a href="#15-3-在线帮助" class="headerlink" title="15.3 在线帮助"></a>15.3 在线帮助</h3><p>:h(elp)或 F1 打开总的帮助。<br>:help user-manual 打开用户手册。<br>命令帮助的格式为：第一行指明怎么使用那个命令； 然后是缩进的一段解释这个命令的作用，然后是进一步的信息。<br>:helptags somepath 为 somepath 中的文档生成索引。<br>:helpgrep 可以搜索整个帮助文档，匹配的列表显示在 quickfix 窗口中。<br>Ctrl+] 跳转到 tag 主题，Ctrl+t 跳回。<br>:ver 显示版本信息。</p>
 <h3 id="15-4-一些小功能"><a href="#15-4-一些小功能" class="headerlink" title="15.4 一些小功能"></a>15.4 一些小功能</h3><p>简单计算器: 在插入模式下，输入 C-r =，然后输入表达式，就能在 光标处得到计算结果。</p>
-<h2 id="16-实用技巧"><a href="#16-实用技巧" class="headerlink" title="16. 实用技巧"></a>16. 实用技巧</h2><h3 id="16-1-场景一-多行编辑"><a href="#16-1-场景一-多行编辑" class="headerlink" title="16.1 场景一: 多行编辑"></a>16.1 场景一: 多行编辑</h3><p><code>方法一:</code><br><strong>需求描述:</strong></p>
+<h2 id="16-实用技巧"><a href="#16-实用技巧" class="headerlink" title="16. 实用技巧"></a>16. 实用技巧</h2><h3 id="16-1-场景一-多行编辑"><a href="#16-1-场景一-多行编辑" class="headerlink" title="16.1 场景一: 多行编辑"></a>16.1 场景一: 多行编辑</h3><blockquote>
+<p>列编辑模式.<br>Ctrl-V 进入列编辑模式 (win下Gvim使用Ctrl-Q)</p>
+<p>j or k 选择要编辑的范围</p>
+<p>I or A进入编辑模式,输入要编辑的内容</p>
+<p>ESC 结束 </p>
+</blockquote>
+<p><code>方法一:</code><br><strong>需求描述:</strong></p>
 <p>实现 3-10 行同时输入: <code>hello world!</code>.</p>
 <p><strong>步骤一:</strong><br>在 NORMAL 模式下，将光标移动到第 3 行，如下图所示:</p>
 <center><img src="/2020/09/24/vim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AEcheatsheet/2020-09-24-15-14-59.png" srcset="/img/loading.gif" class=""></center>
