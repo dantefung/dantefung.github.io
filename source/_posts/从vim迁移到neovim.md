@@ -42,6 +42,40 @@ sudo apt-get update
 sudo apt-get install neovim
 ```
 
+#### windows 安装 neovim
+
+[点我](https://github.com/neovim/neovim/releases/tag/v0.11.0)
+[安装包](https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-win64.zip)
+
+> Windows
+> *Zip*
+> 
+> Download nvim-win64.zip
+> Extract the zip
+> Run nvim.exe on your CLI of choice
+> 
+> *MSI*
+> Download nvim-win64.msi
+> Run the MSI
+> Run nvim.exe on your CLI of choice
+> Note: On Windows "Server" you may need to install vcruntime140.dll.
+
+1. 打开git-bash
+2. 新增别名
+```
+vi ~/.bashrc
+```
+写入:
+```
+alias vim="D:/software/develop/nvim-win64/nvim-win64/bin/nvim.exe"
+```
+重新载入.bashrc
+```
+source ~/.bashrc
+```
+3. 命令行键入 `vim`, 即可开始简单愉快使用neovim了.
+
+
 *   vim 迁移到 neovim
 
 ```
