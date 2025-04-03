@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      775 字
+      1.3k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      20
        分钟
     </span>
   
@@ -337,21 +337,21 @@
 <table>
 <thead>
 <tr>
-<th>变量名</th>
-<th>取值</th>
+<th align="center">变量名</th>
+<th align="center">取值</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>METHOD_NAME</td>
-<td>methodName()</td>
+<td align="center">METHOD_NAME</td>
+<td align="center">methodName()</td>
 </tr>
 <tr>
-<td>PARAMS_FORMAT</td>
-<td>groovyScript(“_1.collect{it+’={}’}.join(‘,’)”, methodParameters())</td>
+<td align="center">PARAMS_FORMAT</td>
+<td align="center">groovyScript(“_1.collect{it+’={}’}.join(‘,’)”, methodParameters())</td>
 </tr>
 <tr>
-<td>PARAMS</td>
-<td>groovyScript(“_1.collect{it}.join(‘,’)”, methodParameters())</td>
+<td align="center">PARAMS</td>
+<td align="center">groovyScript(“_1.collect{it}.join(‘,’)”, methodParameters())</td>
 </tr>
 </tbody></table>
 <p><strong>test</strong></p>
@@ -451,6 +451,104 @@ private <span class="hljs-built_in">Set</span>&lt;<span class="hljs-variable">$v
 <span class="hljs-keyword">private</span> <span class="hljs-variable">$var</span>1<span class="hljs-variable">$ </span><span class="hljs-variable">$var</span>2<span class="hljs-variable">$;</span>
 </code></pre></div>
 
+<hr>
+<p><strong>Controller Rest Post</strong><br>Abbreviation : cpost</p>
+<p>Description : Controller层Post请求模板代码 </p>
+<p>Variables : </p>
+<p>Template text:</p>
+<div class="hljs"><pre><code class="hljs powershell">@PostMapping(<span class="hljs-string">&quot;<span class="hljs-variable">$var1</span><span class="hljs-variable">$</span>&quot;</span>)
+public Result&lt;<span class="hljs-variable">$var2</span><span class="hljs-variable">$</span>&gt; get<span class="hljs-variable">$var3</span><span class="hljs-variable">$</span>() &#123;
+	<span class="hljs-keyword">return</span> Result.buildSuccess(<span class="hljs-variable">$var4</span><span class="hljs-variable">$</span>);
+&#125;
+</code></pre></div>
+
+<hr>
+<p><strong>lombok</strong><br>Abbreviation : lmk</p>
+<p>Description : lombok模板代码</p>
+<p>Variables : </p>
+<p>Template text:</p>
+<div class="hljs"><pre><code class="hljs less"><span class="hljs-variable">@Data</span>
+<span class="hljs-variable">@AllArgsConstructor</span>
+<span class="hljs-variable">@NoArgsConstructor</span>
+<span class="hljs-variable">@Accessors</span>(chain = true)
+</code></pre></div>
+
+<p><strong>CollectionUtils.isEmpty</strong><br>Abbreviation : cie</p>
+<p>Description : 判断集合是否为空模板</p>
+<p>Variables : </p>
+<p>Template text:</p>
+<div class="hljs"><pre><code class="hljs crystal"><span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(<span class="hljs-variable">$var</span>1<span class="hljs-variable">$)</span>) &#123;
+	<span class="hljs-variable">$var</span>2<span class="hljs-variable">$</span>
+<span class="hljs-variable"></span>&#125;
+</code></pre></div>
+
+
+<p><strong>StringUtils.isNotBlank</strong><br>Abbreviation : sinotb</p>
+<p>Description : 判断字符串是否不为空</p>
+<p>Variables : </p>
+<p>Template text:</p>
+<div class="hljs"><pre><code class="hljs crystal"><span class="hljs-keyword">if</span> (StringUtils.isNotBlank(<span class="hljs-variable">$var</span>1<span class="hljs-variable">$)</span>) &#123;
+	<span class="hljs-variable">$var</span>2<span class="hljs-variable">$</span>
+<span class="hljs-variable"></span>&#125;
+</code></pre></div>
+
+<p><strong>StringUtils.isBlank</strong><br>Abbreviation : sinotb</p>
+<p>Description : 判断字符串是否为空</p>
+<p>Variables : </p>
+<p>Template text:</p>
+<div class="hljs"><pre><code class="hljs crystal"><span class="hljs-keyword">if</span> (StringUtils.isBlank(<span class="hljs-variable">$var</span>1<span class="hljs-variable">$)</span>) &#123;
+	<span class="hljs-variable">$var</span>2<span class="hljs-variable">$</span>
+<span class="hljs-variable"></span>&#125;
+</code></pre></div>
+
+<p><strong>javax bean inject</strong><br>Abbreviation : rpr</p>
+<p>Description : @Resource方式注入</p>
+<p>Variables : </p>
+<p>Template text:</p>
+<div class="hljs"><pre><code class="hljs crystal"><span class="hljs-variable">@Resource</span>
+<span class="hljs-keyword">private</span> <span class="hljs-variable">$var</span>1<span class="hljs-variable">$ </span><span class="hljs-variable">$var</span>2<span class="hljs-variable">$;</span>
+</code></pre></div>
+
+<p>作用范围: Applicable in Java</p>
+<h2 id="stream"><a href="#stream" class="headerlink" title="stream"></a>stream</h2><h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><div class="hljs"><pre><code class="hljs sh">filter</code></pre></div>
+
+
+<p><img src="https://user-images.githubusercontent.com/5471228/52038427-3ad1c600-256d-11e9-88ad-0b32b75f8a26.gif" srcset="/img/loading.gif" alt="filter"></p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;filter&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$ITERABLE_TYPE$.stream()<span class="hljs-symbol">&amp;#10;</span>    .filter($VAR$ -<span class="hljs-symbol">&amp;gt;</span> $VAR_CONDITION$)<span class="hljs-symbol">&amp;#10;</span>    .collect(Collectors.toList());&quot;</span> <span class="hljs-attr">description</span>=<span class="hljs-string">&quot;Iterate Iterable | Array in J2SDK 5.0 syntax&quot;</span> <span class="hljs-attr">toReformat</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">toShortenFQNames</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ITERABLE_TYPE&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;iterableVariable()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;VAR&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;suggestVariableName()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;VAR_CONDITION&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;suggestVariableName()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">context</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;JAVA_CODE&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">context</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre></div>
+
+<h4 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h4><div class="hljs"><pre><code class="hljs sh">fore</code></pre></div>
+
+<p><img src="https://user-images.githubusercontent.com/5471228/52038810-04487b00-256e-11e9-9fa5-18c7647b6519.gif" srcset="/img/loading.gif" alt="foreach"></p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;fore&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$ITERABLE_TYPE$.forEach($VAR$ -<span class="hljs-symbol">&amp;gt;</span> &#123;<span class="hljs-symbol">&amp;#10;</span>  $EACH_VAR$<span class="hljs-symbol">&amp;#10;</span>&#125;);&quot;</span> <span class="hljs-attr">description</span>=<span class="hljs-string">&quot;Iterate Iterable | Array in J2SDK 5.0 syntax&quot;</span> <span class="hljs-attr">toReformat</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">toShortenFQNames</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ITERABLE_TYPE&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;iterableVariable()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;VAR&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;suggestVariableName()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;EACH_VAR&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;suggestVariableName()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">context</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;JAVA_CODE&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">context</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre></div>
+
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><div class="hljs"><pre><code class="hljs sh">map</code></pre></div>
+
+<p><img src="https://user-images.githubusercontent.com/5471228/52038121-2e00a280-256c-11e9-9503-3b11b5e7a922.gif" srcset="/img/loading.gif" alt="map"></p>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;map&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$ITERABLE_TYPE$.stream()<span class="hljs-symbol">&amp;#10;</span>    .map($VAR$ -<span class="hljs-symbol">&amp;gt;</span> $MAP_VAR$)<span class="hljs-symbol">&amp;#10;</span>    .collect(Collectors.toList());&quot;</span> <span class="hljs-attr">description</span>=<span class="hljs-string">&quot;Iterate Iterable | Array in J2SDK 5.0 syntax&quot;</span> <span class="hljs-attr">toReformat</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">toShortenFQNames</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;VAR&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;suggestVariableName()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ITERABLE_TYPE&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;iterableVariable()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;MAP_VAR&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;suggestFirstVariableName()&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alwaysStopAt</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">context</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;JAVA_CODE&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">context</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre></div>
+
+<h3 id="Where-and-how-to-conf"><a href="#Where-and-how-to-conf" class="headerlink" title="Where and how to conf"></a>Where and how to conf</h3><p>Copy the xml template above, go to the intellij live template editor, paste to whatever group you want to it to sit.</p>
+<p><img src="https://user-images.githubusercontent.com/5471228/52039182-cdbf3000-256e-11e9-9455-953a90c2c652.png" srcset="/img/loading.gif" alt="image"></p>
 <p>未完待续… …</p>
 <h2 id="巨人肩膀"><a href="#巨人肩膀" class="headerlink" title="巨人肩膀"></a>巨人肩膀</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cxxjohnson/p/8909420.html">Idea Live Templates代码模板</a></li>

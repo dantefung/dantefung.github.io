@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12.5k 字
+      12.6k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      146
+      147
        分钟
     </span>
   
@@ -264,13 +264,19 @@
 <li><a href="#16.15-%E5%85%B1%E4%BA%AB%E5%89%AA%E5%88%87%E6%9D%BF">16.15 共享剪切板</a></li>
 <li><a href="#16.16-vim%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E5%89%AA%E5%88%87%E6%9D%BF%E5%A4%8D%E5%88%B6">16.16 vim 实现系统剪切板复制</a></li>
 </ul>
-<p>我阅读过一些好看的文章:</p>
+<p>我阅读过一些好看的文章:         </p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/Learn-Vim_zh_cn">用聪明的方式学 Vim</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/dc_726/article/details/78981756?spm=1001.2014.3001.5501">Vim 终极指南：所思即所得_西代零零发 - CSDN 博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn%60">Vim 从入门到精通</a></li>
 <li><a target="_blank" rel="noopener" href="https://vim.wxnacy.com/">Vim 练级手册</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/LintaoAmons/VimEverywhere">Vim Everywhere</a></li>
+<li><a target="_blank" rel="noopener" href="https://learnku.com/docs/practical-vim-2nd-edition">Practical Vim</a></li>
+<li><a target="_blank" rel="noopener" href="https://vimawesome.com/?spm=a2c6h.12873639.0.0.248314adpINpOM">Awesome Vim plugins</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.typingclub.com/">typingclub</a></li>
+<li><a target="_blank" rel="noopener" href="https://vim.nauxscript.com/index.html">Just Vim It</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dantefung/full-keyboard">full-keyboard</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mwum.com/books/">《明无梦的 Vim 使用记录》</a></li>
 </ul>
 <p>我看过的一些视频:</p>
 <ul>
@@ -299,31 +305,148 @@
 <p>m{a-z}: 标记光标所在位置，局部标记，只用于当前文件。<br>m{A-Z}: 标记光标所在位置，全局标记。标记之后，退出 Vim， 重新启动，标记仍然有效。<br><code>&#123;a-z&#125;: 移动到标记位置。 &#39;&#123;a-z&#125;: 移动到标记行的行首。 </code>{0-9}：回到上[2-10]次关闭 vim 时最后离开的位置。<br><code>: 移动到上次编辑的位置。&#39;&#39;也可以，不过</code>精确到列，而’’精确到行 。如果想跳转到更老的位置，可以按 C-o，跳转到更新的位置用 C-i。<br><code>&quot;: 移动到上次离开的地方。 </code>.: 移动到最后改动的地方。<br>:marks 显示所有标记。<br>:delmarks a b – 删除标记 a 和 b。<br>:delmarks a-c – 删除标记 a、b 和 c。<br>:delmarks a c-f – 删除标记 a、c、d、e、f。<br>:delmarks! – 删除当前缓冲区的所有标记。<br>:help mark-motions 查看更多关于 mark 的知识。</p>
 <h2 id="5-插入文本"><a href="#5-插入文本" class="headerlink" title="5. 插入文本"></a>5. 插入文本</h2><h3 id="5-1-基本插入"><a href="#5-1-基本插入" class="headerlink" title="5.1 基本插入"></a>5.1 基本插入</h3><p>i: 在光标前插入；一个小技巧：按 8，再按 i，进入插入模式，输入=， 按 esc 进入命令模式，就会出现 8 个=。 这在插入分割线时非常有用，如 30i+<esc>就插入了 36 个+组成的分割线。<br>I: 在当前行第一个非空字符前插入；<br>gI: 在当前行第一列插入；<br>a: 在光标后插入；<br>A: 在当前行最后插入；<br>o: 在下面新建一行插入；<br>O: 在上面新建一行插入；<br>:r filename 在当前位置插入另一个文件的内容。<br>:[n]r filename 在第 n 行插入另一个文件的内容。<br>:r !date 在光标处插入当前日期与时间。同理，:r !command 可以将其它 shell 命令的输出插入当前文档。</p>
 <h3 id="5-2-改写插入"><a href="#5-2-改写插入" class="headerlink" title="5.2 改写插入"></a>5.2 改写插入</h3><p>c[n]w: 改写光标后 1(n)个词。<br>c[n]l: 改写光标后 n 个字母。<br>c[n]h: 改写光标前 n 个字母。<br>[n]cc: 修改当前[n]行。<br>[n]s: 以输入的文本替代光标之后 1(n)个字符，相当于 c[n]l。<br>[n]S: 删除指定数目的行，并以所输入文本代替之。<br>注意，类似 cnw,dnw,ynw 的形式同样可以写为 ncw,ndw,nyw。</p>
-<h2 id="6-剪切复制和寄存器"><a href="#6-剪切复制和寄存器" class="headerlink" title="6. 剪切复制和寄存器"></a>6. 剪切复制和寄存器</h2><h3 id="6-1-剪切和复制、粘贴"><a href="#6-1-剪切和复制、粘贴" class="headerlink" title="6.1 剪切和复制、粘贴"></a>6.1 剪切和复制、粘贴</h3><p>x 删除当前光标下的字符。<br>[n]x: 剪切光标右边 n 个字符，相当于 d[n]l。<br>[n]X: 剪切光标左边 n 个字符，相当于 d[n]h。<br>y: 复制在可视模式下选中的文本。<br>yy or Y: 复制整行文本。<br>y[n]w: 复制一(n)个词。<br>y[n]l: 复制光标右边 1(n)个字符。<br>y[n]h: 复制光标左边 1(n)个字符。<br>y$: 从光标当前位置复制到行尾。<br>y0: 从光标当前位置复制到行首。<br>:m,ny<cr> 复制m行到n行的内容。<br>y1G或ygg: 复制光标以上的所有行。<br>yG: 复制光标以下的所有行。<br>yaw和yas：复制一个词和复制一个句子，即使光标不在词首和句首也没关系。<br>d: 删除（剪切）在可视模式下选中的文本。<br>d$ or D: 删除（剪切）当前位置到行尾的内容。<br>d[n]w: 删除（剪切）1(n)个单词<br>d[n]l: 删除（剪切）光标右边 1(n)个字符。<br>d[n]h: 删除（剪切）光标左边 1(n)个字符。<br>d0: 删除（剪切）当前位置到行首的内容<br>[n] dd: 删除（剪切）1(n)行。<br>:m,nd<cr> 剪切 m 行到 n 行的内容。<br>d1G 或 dgg: 剪切光标以上的所有行。<br>dG: 剪切光标以下的所有行。<br>daw 和 das：剪切一个词和剪切一个句子，即使光标不在词首和句首也没关系。<br>d/f<cr>：这是一个比较高级的组合命令，它将删除当前位置 到下一个 f 之间的内容。<br>p: 在光标之后粘贴。<br>P: 在光标之前粘贴。<br>c 功能和 d 相同，区别在于完成删除操作后进入 INSERT MODE<br>cc 也是删除当前行，然后进入 INSERT MODE</p>
-<h3 id="6-2-文本对象"><a href="#6-2-文本对象" class="headerlink" title="6.2 文本对象"></a>6.2 文本对象</h3><p>aw：一个词<br>as：一句。<br>ap：一段。<br>ab：一块（包含在圆括号中的）。<br>y, d, c, v 都可以跟文本对象。</p>
-<h3 id="6-3-寄存器"><a href="#6-3-寄存器" class="headerlink" title="6.3 寄存器"></a>6.3 寄存器</h3><p>a-z：都可以用作寄存器名。”ayy 把当前行的内容放入 a 寄存器。<br>A-Z：用大写字母索引寄存器，可以在寄存器中追加内容。 如”Ayy 把当前行的内容追加到 a 寄存器中。<br>:reg 显示所有寄存器的内容。<br>“”：不加寄存器索引时，默认使用的寄存器。<br>“*：当前选择缓冲区，”*yy 把当前行的内容放入当前选择缓冲区。<br>“+：系统剪贴板。”+yy 把当前行的内容放入系统剪贴板。</p>
-<h2 id="7-查找与替换"><a href="#7-查找与替换" class="headerlink" title="7. 查找与替换"></a>7. 查找与替换</h2><h3 id="7-1-查找"><a href="#7-1-查找" class="headerlink" title="7.1 查找"></a>7.1 查找</h3><p>/something: 在后面的文本中查找 something。<br>?something: 在前面的文本中查找 something。<br>/pattern/+number: 将光标停在包含 pattern 的行后面第 number 行上。<br>/pattern/-number: 将光标停在包含 pattern 的行前面第 number 行上。<br>n: 向后查找下一个。<br>N: 向前查找下一个。<br>可以用 grep 或 vimgrep 查找一个模式都在哪些地方出现过，<br>其中:grep 是调用外部的 grep 程序，而:vimgrep 是 vim 自己的查找算法。<br>用法为： :vim[grep]/pattern/[g] [j] files<br>g 的含义是如果一个模式在一行中多次出现，则这一行也在结果中多次出现。<br>j 的含义是 grep 结束后，结果停在第 j 项，默认是停在第一项。<br>vimgrep 前面可以加数字限定搜索结果的上限，如<br>:1vim/pattern/ % 只查找那个模式在本文件中的第一个出现。</p>
-<p>其实 vimgrep 在读纯文本电子书时特别有用，可以生成导航的目录。<br>比如电子书中每一节的标题形式为：n. xxxx。你就可以这样：<br>:vim/^d{1,}./ %<br>然后用:cw 或:copen 查看结果，可以用 C-w H 把 quickfix 窗口移到左侧，<br>就更像个目录了。</p>
-<h3 id="7-2-替换"><a href="#7-2-替换" class="headerlink" title="7.2 替换"></a>7.2 替换</h3><p>:s/old/new - 用 new 替换当前行第一个 old。<br>:s/old/new/g - 用 new 替换当前行所有的 old。<br>:n1,n2s/old/new/g - 用 new 替换文件 n1 行到 n2 行所有的 old。<br>:%s/old/new/g - 用 new 替换文件中所有的 old。<br>:%s/^/xxx/g - 在每一行的行首插入 xxx，^表示行首。<br>:%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。<br>所有替换命令末尾加上 c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上 i 则忽略大小写(ignore)。<br>还有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，<br>语法为 :[range]g/pattern/command<br>例如 :%g/^ xyz/normal dd。<br>表示对于以一个空格和 xyz 开头的行执行 normal 模式下的 dd 命令。<br>关于 range 的规定为：</p>
-<p>如果不指定 range，则表示当前行。<br>m,n: 从 m 行到 n 行。<br>0: 最开始一行（可能是这样）。<br>$: 最后一行<br>.: 当前行<br>%: 所有行</p>
-<p><strong>vim 查找与替换带有特殊字符:</strong><br>:s/aa/bb # 将光标所在行第一个 aa 替换为 bb<br>:s/aa/bb/g # 将光标所在行所有 aa 替换为 bb<br>:%s/aa/bb/g # 全文执行替换 aa 替换为 bb<br>:3,10s/aa/bb/g # 将第 3 行到第 10 行 aa 替换为 bb<br>:%s/\///g # 全文\替换为/ （特殊字符：^、$、*、/、\和.都需要转义，前面加上\）<br>:%s,\,/,g # 或用逗号分割（/可以不用转义）<br>:%s,aa,bb,gic # 全文 aa（忽略大小写） 替换为 bb，每次替换提示是否替换<br>常用标记，gic 可自由组合使用：<br>% 所有行<br> g 单行内所有匹配项(默认只匹配单行第一个)<br>i 忽略大小写<br> c 确认是否替换</p>
-<p>以下命令将文中所有的字符串 idiots 替换成 managers：</p>
-<p>:1,$s/idiots/manages/g</p>
-<p>通常我们会在命令中使用%指代整个文件做为替换范围：</p>
-<p>:%s/search/replace/g</p>
-<p>以下命令指定只在第 5 至第 15 行间进行替换:</p>
-<p>:5,15s/dog/cat/g</p>
-<p>以下命令指定只在当前行至文件结尾间进行替换:</p>
-<p>:.,$s/dog/cat/g</p>
-<p>以下命令指定只在后续 9 行内进行替换:</p>
-<p>:.,.+8s/dog/cat/g</p>
-<p>你还可以将特定字符做为替换范围。比如，将 SQL 语句从 FROM 至分号部分中的所有等号（=）替换为不等号（&lt;&gt;）：</p>
-<p>:/FROM/,/;/s/=/&lt;&gt;/g</p>
-<p>在可视化模式下，首先选择替换范围, 然后输入:进入命令模式，就可以利用 s 命令在选中的范围内进行文本替换。</p>
-<h3 id="7-3-正则表达式"><a href="#7-3-正则表达式" class="headerlink" title="7.3 正则表达式"></a>7.3 正则表达式</h3><p>高级的查找替换就要用到正则表达式。</p>
-<p>\d: 表示十进制数（我猜的）<br>\s: 表示空格<br>\S: 非空字符<br>\a: 英文字母<br>|: 表示 或<br>.: 表示.<br>{m,n}: 表示 m 到 n 个字符。这要和 \s 与\a 等连用，如 \a{m,n} 表示 m 到 n 个英文字母。<br>{m,}: 表示 m 到无限多个字符。<br>**: 当前目录下的所有子目录。<br>:help pattern 得到更多帮助。</p>
+<h2 id="6-剪切复制和寄存器"><a href="#6-剪切复制和寄存器" class="headerlink" title="6. 剪切复制和寄存器"></a>6. 剪切复制和寄存器</h2><h3 id="6-1-剪切和复制、粘贴"><a href="#6-1-剪切和复制、粘贴" class="headerlink" title="6.1 剪切和复制、粘贴"></a>6.1 剪切和复制、粘贴</h3><div class="hljs"><pre><code class="hljs nestedtext"><span class="hljs-attribute">x 删除当前光标下的字符。</span>
+<span class="hljs-attribute">[n]x</span><span class="hljs-punctuation">:</span> <span class="hljs-string">剪切光标右边 n 个字符，相当于 d[n]l。</span>
+<span class="hljs-attribute">[n]X</span><span class="hljs-punctuation">:</span> <span class="hljs-string">剪切光标左边 n 个字符，相当于 d[n]h。</span>
+<span class="hljs-attribute">y</span><span class="hljs-punctuation">:</span> <span class="hljs-string">复制在可视模式下选中的文本。</span>
+<span class="hljs-attribute">yy or Y</span><span class="hljs-punctuation">:</span> <span class="hljs-string">复制整行文本。</span>
+<span class="hljs-attribute">y[n]w</span><span class="hljs-punctuation">:</span> <span class="hljs-string">复制一(n)个词。</span>
+<span class="hljs-attribute">y[n]l</span><span class="hljs-punctuation">:</span> <span class="hljs-string">复制光标右边 1(n)个字符。</span>
+<span class="hljs-attribute">y[n]h</span><span class="hljs-punctuation">:</span> <span class="hljs-string">复制光标左边 1(n)个字符。</span>
+<span class="hljs-attribute">y$</span><span class="hljs-punctuation">:</span> <span class="hljs-string">从光标当前位置复制到行尾。</span>
+<span class="hljs-attribute">y0</span><span class="hljs-punctuation">:</span> <span class="hljs-string">从光标当前位置复制到行首。</span>
+:m,ny&lt;cr&gt; 复制m行到n行的内容。
+<span class="hljs-attribute">y1G或ygg</span><span class="hljs-punctuation">:</span> <span class="hljs-string">复制光标以上的所有行。</span>
+<span class="hljs-attribute">yG</span><span class="hljs-punctuation">:</span> <span class="hljs-string">复制光标以下的所有行。</span>
+<span class="hljs-attribute">yaw和yas：复制一个词和复制一个句子，即使光标不在词首和句首也没关系。</span>
+<span class="hljs-attribute">d</span><span class="hljs-punctuation">:</span> <span class="hljs-string">删除（剪切）在可视模式下选中的文本。</span>
+<span class="hljs-attribute">d$ or D</span><span class="hljs-punctuation">:</span> <span class="hljs-string">删除（剪切）当前位置到行尾的内容。</span>
+<span class="hljs-attribute">d[n]w</span><span class="hljs-punctuation">:</span> <span class="hljs-string">删除（剪切）1(n)个单词</span>
+<span class="hljs-attribute">d[n]l</span><span class="hljs-punctuation">:</span> <span class="hljs-string">删除（剪切）光标右边 1(n)个字符。</span>
+<span class="hljs-attribute">d[n]h</span><span class="hljs-punctuation">:</span> <span class="hljs-string">删除（剪切）光标左边 1(n)个字符。</span>
+<span class="hljs-attribute">d0</span><span class="hljs-punctuation">:</span> <span class="hljs-string">删除（剪切）当前位置到行首的内容</span>
+<span class="hljs-attribute">[n] dd</span><span class="hljs-punctuation">:</span> <span class="hljs-string">删除（剪切）1(n)行。</span>
+:m,nd&lt;cr&gt; 剪切 m 行到 n 行的内容。
+<span class="hljs-attribute">d1G 或 dgg</span><span class="hljs-punctuation">:</span> <span class="hljs-string">剪切光标以上的所有行。</span>
+<span class="hljs-attribute">dG</span><span class="hljs-punctuation">:</span> <span class="hljs-string">剪切光标以下的所有行。</span>
+<span class="hljs-attribute">daw 和 das：剪切一个词和剪切一个句子，即使光标不在词首和句首也没关系。</span>
+<span class="hljs-attribute">d/f&lt;cr&gt;：这是一个比较高级的组合命令，它将删除当前位置 到下一个 f 之间的内容。</span>
+<span class="hljs-attribute">p</span><span class="hljs-punctuation">:</span> <span class="hljs-string">在光标之后粘贴。</span>
+<span class="hljs-attribute">P</span><span class="hljs-punctuation">:</span> <span class="hljs-string">在光标之前粘贴。</span>
+c 功能和 d 相同，区别在于完成删除操作后进入 INSERT MODE
+cc 也是删除当前行，然后进入 INSERT MODE</code></pre></div>
+
+<h3 id="6-2-文本对象"><a href="#6-2-文本对象" class="headerlink" title="6.2 文本对象"></a>6.2 文本对象</h3><div class="hljs"><pre><code class="hljs stata">aw：一个词
+<span class="hljs-keyword">as</span>：一句。
+<span class="hljs-keyword">ap</span>：一段。
+ab：一块（包含在圆括号中的）。
+y, <span class="hljs-keyword">d</span>, c, v 都可以跟文本对象。</code></pre></div>
+
+<h3 id="6-3-寄存器"><a href="#6-3-寄存器" class="headerlink" title="6.3 寄存器"></a>6.3 寄存器</h3><div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>-z：都可以用作寄存器名。&quot;ayy 把当前行的内容放入 <span class="hljs-selector-tag">a</span> 寄存器。
+<span class="hljs-selector-tag">A</span>-Z：用大写字母索引寄存器，可以在寄存器中追加内容。 如&quot;Ayy 把当前行的内容追加到 <span class="hljs-selector-tag">a</span> 寄存器中。
+:reg 显示所有寄存器的内容。
+<span class="hljs-string">&quot;&quot;</span>：不加寄存器索引时，默认使用的寄存器。
+<span class="hljs-string">&quot;*：当前选择缓冲区，&quot;</span>*yy 把当前行的内容放入当前选择缓冲区。
+<span class="hljs-string">&quot;+：系统剪贴板。&quot;</span>+yy 把当前行的内容放入系统剪贴板。</code></pre></div>
+
+<h2 id="7-查找与替换"><a href="#7-查找与替换" class="headerlink" title="7. 查找与替换"></a>7. 查找与替换</h2><h3 id="7-1-查找"><a href="#7-1-查找" class="headerlink" title="7.1 查找"></a>7.1 查找</h3><div class="hljs"><pre><code class="hljs vim">/something: 在后面的文本中查找 something。
+?something: 在前面的文本中查找 something。
+/pattern/+<span class="hljs-keyword">number</span>: 将光标停在包含 pattern 的行后面第 <span class="hljs-keyword">number</span> 行上。
+/pattern/-<span class="hljs-keyword">number</span>: 将光标停在包含 pattern 的行前面第 <span class="hljs-keyword">number</span> 行上。
+n: 向后查找下一个。
+<span class="hljs-keyword">N</span>: 向前查找下一个。
+可以用 <span class="hljs-keyword">grep</span> 或 <span class="hljs-keyword">vimgrep</span> 查找一个模式都在哪些地方出现过，
+其中:<span class="hljs-keyword">grep</span> 是调用外部的 <span class="hljs-keyword">grep</span> 程序，而:<span class="hljs-keyword">vimgrep</span> 是 <span class="hljs-keyword">vim</span> 自己的查找算法。
+用法为： :<span class="hljs-keyword">vim</span>[<span class="hljs-keyword">grep</span>]/pattern/[g] [<span class="hljs-keyword">j</span>] <span class="hljs-keyword">files</span>
+g 的含义是如果一个模式在一行中多次出现，则这一行也在结果中多次出现。
+<span class="hljs-keyword">j</span> 的含义是 <span class="hljs-keyword">grep</span> 结束后，结果停在第 <span class="hljs-keyword">j</span> 项，默认是停在第一项。
+<span class="hljs-keyword">vimgrep</span> 前面可以加数字限定搜索结果的上限，如
+:<span class="hljs-number">1</span><span class="hljs-keyword">vim</span>/pattern/ % 只查找那个模式在本文件中的第一个出现。
+
+其实 <span class="hljs-keyword">vimgrep</span> 在读纯文本电子书时特别有用，可以生成导航的目录。
+比如电子书中每一节的标题形式为：n. xxxx。你就可以这样：
+:<span class="hljs-keyword">vim</span>/^d&#123;<span class="hljs-number">1</span>,&#125;./ %
+然后用:<span class="hljs-keyword">cw</span> 或:<span class="hljs-keyword">copen</span> 查看结果，可以用 C-<span class="hljs-keyword">w</span> H 把 quickfix 窗口移到左侧，
+就更像个目录了。</code></pre></div>
+
+<h3 id="7-2-替换"><a href="#7-2-替换" class="headerlink" title="7.2 替换"></a>7.2 替换</h3><div class="hljs"><pre><code class="hljs elixir"><span class="hljs-symbol">:s/old/new</span> - 用 new 替换当前行第一个 old。
+<span class="hljs-symbol">:s/old/new/g</span> - 用 new 替换当前行所有的 old。
+<span class="hljs-symbol">:n1</span>,n2s/old/new/g - 用 new 替换文件 n1 行到 n2 行所有的 old。
+<span class="hljs-symbol">:%s/old/new/g</span> - 用 new 替换文件中所有的 old。
+<span class="hljs-symbol">:%s/^/xxx/g</span> - 在每一行的行首插入 xxx，^表示行首。
+<span class="hljs-symbol">:%s/</span><span class="hljs-variable">$/</span>xxx/g - 在每一行的行尾插入xxx，<span class="hljs-variable">$表</span>示行尾。
+所有替换命令末尾加上 c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上 i 则忽略大小写(ignore)。
+还有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，
+语法为 <span class="hljs-symbol">:</span>[range]g/pattern/command
+例如 <span class="hljs-symbol">:%g/^</span> xyz/normal dd。
+表示对于以一个空格和 xyz 开头的行执行 normal 模式下的 dd 命令。
+关于 range 的规定为：
+
+如果不指定 range，则表示当前行。
+m,<span class="hljs-symbol">n:</span> 从 m 行到 n 行。
+<span class="hljs-number">0</span>: 最开始一行（可能是这样）。
+\<span class="hljs-variable">$:</span> 最后一行
+.: 当前行
+%: 所有行</code></pre></div>
+
+<p><strong>vim 查找与替换带有特殊字符:</strong></p>
+<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-symbol">:s/aa/bb</span> <span class="hljs-comment"># 将光标所在行第一个 aa 替换为 bb</span>
+<span class="hljs-symbol">:s/aa/bb/g</span> <span class="hljs-comment"># 将光标所在行所有 aa 替换为 bb</span>
+<span class="hljs-symbol">:%s/aa/bb/g</span> <span class="hljs-comment"># 全文执行替换 aa 替换为 bb</span>
+<span class="hljs-symbol">:</span><span class="hljs-number">3</span>,<span class="hljs-number">10</span>s/aa/bb/g <span class="hljs-comment"># 将第 3 行到第 10 行 aa 替换为 bb</span>
+<span class="hljs-symbol">:%s/</span>\\/\//g <span class="hljs-comment"># 全文\替换为/ （特殊字符：^、$、\*、/、\和.都需要转义，前面加上\）</span>
+<span class="hljs-symbol">:%s</span>,\\,/,g <span class="hljs-comment"># 或用逗号分割（/可以不用转义）</span>
+<span class="hljs-symbol">:%s</span>,aa,bb,gic <span class="hljs-comment"># 全文 aa（忽略大小写） 替换为 bb，每次替换提示是否替换</span>
+常用标记，gic 可自由组合使用：
+% 所有行  
+ g 单行内所有匹配项(默认只匹配单行第一个)
+i 忽略大小写  
+ c 确认是否替换
+
+以下命令将文中所有的字符串 idiots 替换成 managers：
+
+<span class="hljs-symbol">:</span><span class="hljs-number">1</span>,<span class="hljs-variable">$s</span>/idiots/manages/g
+
+通常我们会在命令中使用%指代整个文件做为替换范围：
+
+<span class="hljs-symbol">:%s/search/replace/g</span>
+
+以下命令指定只在第 <span class="hljs-number">5</span> 至第 <span class="hljs-number">15</span> 行间进行替换:
+
+<span class="hljs-symbol">:</span><span class="hljs-number">5</span>,<span class="hljs-number">15</span>s/dog/cat/g
+
+以下命令指定只在当前行至文件结尾间进行替换:
+
+<span class="hljs-symbol">:</span>.,<span class="hljs-variable">$s</span>/dog/cat/g
+
+以下命令指定只在后续 <span class="hljs-number">9</span> 行内进行替换:
+
+<span class="hljs-symbol">:</span>.,.+<span class="hljs-number">8</span>s/dog/cat/g
+
+你还可以将特定字符做为替换范围。比如，将 <span class="hljs-title class_">SQL</span> 语句从 <span class="hljs-title class_">FROM</span> 至分号部分中的所有等号（=）替换为不等号（&lt;&gt;）：
+
+<span class="hljs-symbol">:/FROM/</span>,/;/s/=/&lt;&gt;/g
+
+在可视化模式下，首先选择替换范围, 然后输入<span class="hljs-symbol">:</span>进入命令模式，就可以利用 s 命令在选中的范围内进行文本替换。
+
+<span class="hljs-comment">### 7.3 正则表达式</span>
+
+高级的查找替换就要用到正则表达式。
+
+\<span class="hljs-symbol">d:</span> 表示十进制数（我猜的）
+\<span class="hljs-symbol">s:</span> 表示空格
+\<span class="hljs-symbol">S:</span> 非空字符
+\<span class="hljs-symbol">a:</span> 英文字母
+\|: 表示 或
+\.: 表示.
+&#123;m,n&#125;: 表示 m 到 n 个字符。这要和 \s 与\a 等连用，如 \a\&#123;m,n&#125; 表示 m 到 n 个英文字母。
+&#123;m,&#125;: 表示 m 到无限多个字符。
+\*\*: 当前目录下的所有子目录。
+<span class="hljs-symbol">:help</span> pattern 得到更多帮助。
+</code></pre></div>
+
 <h2 id="8-排版"><a href="#8-排版" class="headerlink" title="8. 排版"></a>8. 排版</h2><h3 id="8-1-基本排版"><a href="#8-1-基本排版" class="headerlink" title="8.1 基本排版"></a>8.1 基本排版</h3><p><code>&lt;&lt;</code> 向左缩进一个 shiftwidth</p>
-<p><code>&gt; &gt;</code> 向右缩进一个 shiftwidth<br><code>&gt; &gt;</code> :ce(nter) 本行文字居中<br><code>&gt; &gt;</code> :le(ft) 本行文字靠左<br><code>&gt; &gt;</code> :ri(ght) 本行文字靠右<br><code>&gt; &gt;</code> gq 对选中的文字重排，即对过长的文字进行断行<br><code>&gt; &gt;</code> gqq 重排当前行<br><code>&gt; &gt;</code> gqnq 重排 n 行<br><code>&gt; &gt;</code> gqap 重排当前段<br><code>&gt; &gt;</code> gqnap 重排 n 段<br><code>&gt; &gt;</code> gqnj 重排当前行和下面 n 行<br><code>&gt; &gt;</code> gqQ 重排当前段对文章末尾<br><code>&gt; &gt;</code> J 拼接当前行和下一行<br><code>&gt; &gt;</code> gJ 同 J ，不过合并后不留空格。</p>
+<p><code>&gt; &gt;</code> 向右缩进一个 shiftwidth<br><code>&gt; &gt;</code> :ce(nter) 本行文字居中<br><code>&gt; &gt;</code> :le(ft) 本行文字靠左<br><code>&gt; &gt;</code> :ri(ght) 本行文字靠右<br><code>&gt; &gt;</code> gq 对选中的文字重排，即对过长的文字进行断行<br><code>&gt; &gt;</code> gqq 重排当前行<br><code>&gt; &gt;</code> gqnq 重排 n 行<br><code>&gt; &gt;</code> gqap 重排当前段<br><code>&gt; &gt;</code> gqnap 重排 n 段<br><code>&gt; &gt;</code> gqnj 重排当前行和下面 n 行<br><code>&gt; &gt;</code> gqQ 重排当前段对文章末尾<br><code>&gt; &gt;</code> J 拼接当前行和下一行<br><code>&gt; &gt;</code> gJ 同 J ，不过合并后不留空格。<br><code>==</code> 缩进当前行</p>
 <h3 id="8-2-拼写检查"><a href="#8-2-拼写检查" class="headerlink" title="8.2 拼写检查"></a>8.2 拼写检查</h3><p>:set spell－开启拼写检查功能<br>:set nospell－关闭拼写检查功能<br>]s－移到下一个拼写错误的单词<br>[s－作用与上一命令类似，但它是从相反方向进行搜索<br>z=－显示一个有关拼写错误单词的列表，可从中选择<br>zg－告诉拼写检查器该单词是拼写正确的<br>zw－与上一命令相反，告诉拼写检查器该单词是拼写错误的</p>
 <h3 id="8-3-统计字数"><a href="#8-3-统计字数" class="headerlink" title="8.3 统计字数"></a>8.3 统计字数</h3><p>g ^g 可以统计文档字符数，行数。 将光标放在最后一个字符上，用字符数减去行数可以粗略统计中文文档的字数。 以上对 Mac 或 Unix 的文件格式适用。 如果是 Windows 文件格式（即换行符有两个字节），字数的统计方法为： 字符数 - 行数 * 2。</p>
 <h2 id="9-编辑多个文件"><a href="#9-编辑多个文件" class="headerlink" title="9. 编辑多个文件"></a>9. 编辑多个文件</h2><h3 id="9-1-一次编辑多个文件"><a href="#9-1-一次编辑多个文件" class="headerlink" title="9.1 一次编辑多个文件"></a>9.1 一次编辑多个文件</h3><p>我们可以一次打开多个文件，如</p>
@@ -397,10 +520,22 @@
 <h2 id="14-命令行"><a href="#14-命令行" class="headerlink" title="14. 命令行"></a>14. 命令行</h2><p>normal 模式下按:进入命令行模式</p>
 <h3 id="14-1-命令行模式下的快捷键："><a href="#14-1-命令行模式下的快捷键：" class="headerlink" title="14.1 命令行模式下的快捷键："></a>14.1 命令行模式下的快捷键：</h3><p>上下方向键：上一条或者下一条命令。如果已经输入了部分命令，则找上一 条或者下一条匹配的命令。<br>左右方向键：左/右移一个字符。<br>C-w： 向前删除一个单词。<br>C-h： 向前删除一个字符，等同于 Backspace。<br>C-u： 从当前位置移动到命令行开头。<br>C-b： 移动到命令行开头。<br>C-e： 移动到命令行末尾。<br>Shift-Left： 左移一个单词。<br>Shift-Right： 右移一个单词。<br>@： 重复上一次的冒号命令。<br>q： 正常模式下，q 然后按’:’，打开命令行历史缓冲区， 可以像编辑文件一样编辑命令。<br>q/和 q? 可以打开查找历史记录。<br>14.2 执行外部命令<br>:! cmd 执行外部命令。<br>:!! 执行上一次的外部命令。<br>:sh 调用 shell，用 exit 返回 vim。<br>:r !cmd 将命令的返回结果插入文件当前位置。<br>:m,nw !cmd 将文件的 m 行到 n 行之间的内容做为命令输入执行命令。</p>
 <h2 id="15-其它"><a href="#15-其它" class="headerlink" title="15. 其它"></a>15. 其它</h2><h3 id="15-1-工作目录"><a href="#15-1-工作目录" class="headerlink" title="15.1 工作目录"></a>15.1 工作目录</h3><p>:pwd 显示 vim 的工作目录。<br>:cd path 改变 vim 的工作目录。<br>:set autochdir 可以让 vim 根据编辑的文件自动切换工作目录。</p>
-<h3 id="15-2-一些快捷键（收集中）"><a href="#15-2-一些快捷键（收集中）" class="headerlink" title="15.2 一些快捷键（收集中）"></a>15.2 一些快捷键（收集中）</h3><p>K: 打开光标所在词的 manpage。<br><em>: 向下搜索光标所在词。<br>g</em>: 同上，但部分符合即可。<br>#: 向上搜索光标所在词。<br>g#: 同上，但部分符合即可。<br>g C-g: 统计全文或统计部分的字数。</p>
+<h3 id="15-2-一些快捷键（收集中）"><a href="#15-2-一些快捷键（收集中）" class="headerlink" title="15.2 一些快捷键（收集中）"></a>15.2 一些快捷键（收集中）</h3><div class="hljs"><pre><code class="hljs nestedtext"><span class="hljs-attribute">K</span><span class="hljs-punctuation">:</span> <span class="hljs-string">打开光标所在词的 manpage。</span>
+<span class="hljs-attribute">*</span><span class="hljs-punctuation">:</span> <span class="hljs-string">向下搜索光标所在词。</span>
+<span class="hljs-attribute">g*</span><span class="hljs-punctuation">:</span> <span class="hljs-string">同上，但部分符合即可。</span>
+<span class="hljs-comment">#: 向上搜索光标所在词。</span>
+<span class="hljs-attribute">g#</span><span class="hljs-punctuation">:</span> <span class="hljs-string">同上，但部分符合即可。</span>
+<span class="hljs-attribute">g C-g</span><span class="hljs-punctuation">:</span> <span class="hljs-string">统计全文或统计部分的字数。</span></code></pre></div>
+
 <h3 id="15-3-在线帮助"><a href="#15-3-在线帮助" class="headerlink" title="15.3 在线帮助"></a>15.3 在线帮助</h3><p>:h(elp)或 F1 打开总的帮助。<br>:help user-manual 打开用户手册。<br>命令帮助的格式为：第一行指明怎么使用那个命令； 然后是缩进的一段解释这个命令的作用，然后是进一步的信息。<br>:helptags somepath 为 somepath 中的文档生成索引。<br>:helpgrep 可以搜索整个帮助文档，匹配的列表显示在 quickfix 窗口中。<br>Ctrl+] 跳转到 tag 主题，Ctrl+t 跳回。<br>:ver 显示版本信息。</p>
 <h3 id="15-4-一些小功能"><a href="#15-4-一些小功能" class="headerlink" title="15.4 一些小功能"></a>15.4 一些小功能</h3><p>简单计算器: 在插入模式下，输入 C-r =，然后输入表达式，就能在 光标处得到计算结果。</p>
-<h2 id="16-实用技巧"><a href="#16-实用技巧" class="headerlink" title="16. 实用技巧"></a>16. 实用技巧</h2><h3 id="16-1-场景一-多行编辑"><a href="#16-1-场景一-多行编辑" class="headerlink" title="16.1 场景一: 多行编辑"></a>16.1 场景一: 多行编辑</h3><p><code>方法一:</code><br><strong>需求描述:</strong></p>
+<h2 id="16-实用技巧"><a href="#16-实用技巧" class="headerlink" title="16. 实用技巧"></a>16. 实用技巧</h2><h3 id="16-1-场景一-多行编辑"><a href="#16-1-场景一-多行编辑" class="headerlink" title="16.1 场景一: 多行编辑"></a>16.1 场景一: 多行编辑</h3><blockquote>
+<p>列编辑模式.<br>Ctrl-V 进入列编辑模式 (win下Gvim使用Ctrl-Q)</p>
+<p>j or k 选择要编辑的范围</p>
+<p>I or A进入编辑模式,输入要编辑的内容</p>
+<p>ESC 结束 </p>
+</blockquote>
+<p><code>方法一:</code><br><strong>需求描述:</strong></p>
 <p>实现 3-10 行同时输入: <code>hello world!</code>.</p>
 <p><strong>步骤一:</strong><br>在 NORMAL 模式下，将光标移动到第 3 行，如下图所示:</p>
 <center><img src="/2020/09/24/vim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AEcheatsheet/2020-09-24-15-14-59.png" srcset="/img/loading.gif" class=""></center>

@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2.1k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      32
        分钟
     </span>
   
@@ -257,13 +257,63 @@ ALL_PROXY=socks5:<span class="hljs-regexp">//</span><span class="hljs-number">12
 
 <h2 id="curl代理"><a href="#curl代理" class="headerlink" title="curl代理"></a>curl代理</h2><div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">curl</span> -x <span class="hljs-number">127.0.0.1:8087</span> google.com</code></pre></div>
 
+<h2 id="设置-http-代理"><a href="#设置-http-代理" class="headerlink" title="设置 http 代理"></a>设置 http 代理</h2><div class="hljs"><pre><code class="hljs awk">curl -x HTTPS_PROXY:<span class="hljs-regexp">//</span>代理ip:端口 -OL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/alibaba/</span>arthas<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/arthas-all-4.0.4/</span>arthas-tunnel-server-<span class="hljs-number">4.0</span>.<span class="hljs-number">4</span>-fatjar.jar</code></pre></div>
+
+<div class="hljs"><pre><code class="hljs awk"><span class="hljs-comment"># 指定http代理IP和端口</span>
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl --proxy <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定为http代理</span>
+curl -x http_proxy:<span class="hljs-regexp">//</span><span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定为https代理</span>
+curl -x HTTPS_PROXY:<span class="hljs-regexp">//</span><span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定代理用户名和密码，basic认证方式</span>
+curl -x aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> -U aiezu:<span class="hljs-number">123456</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> --proxy-user aiezu:<span class="hljs-number">123456</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定代理用户名和密码，ntlm认证方式</span>
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> -U aiezu:<span class="hljs-number">123456</span> --proxy-ntlm http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定代理协议、用户名和密码，basic认证方式</span>
+curl -x http_proxy:<span class="hljs-regexp">//</span>aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+</code></pre></div>
+
+<h2 id="设置-socks-代理："><a href="#设置-socks-代理：" class="headerlink" title="设置 socks 代理："></a>设置 socks 代理：</h2><div class="hljs"><pre><code class="hljs awk"><span class="hljs-comment">#使用socks4代理，无需认证方式</span>
+curl --socks4 <span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x socks4:<span class="hljs-regexp">//</span><span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#使用socks4a代理，无需认证方式</span>
+curl --socks4a <span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x socks4a:<span class="hljs-regexp">//</span><span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#使用socks5代理，basic认证方式</span>
+curl --socks5 <span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> -U aiezu:<span class="hljs-number">123456</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x socks5:<span class="hljs-regexp">//</span>aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#使用socks5代理，basic认证方式，ntlm认证方式</span>
+curl -x socks5:<span class="hljs-regexp">//</span>aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> --proxy-ntlm http:<span class="hljs-regexp">//</span>aiezu.com/test.php</code></pre></div>
+
+
+
 <p><strong>参数说明:</strong></p>
 <p><code>-x</code>  设置代理，格式为host[:port]，port的缺省值为1080</p>
+<p>*参考文档: *</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/panxuejun/p/10574038.html">Linux curl 命令使用代理、以及代理种类介绍</a></li>
+</ul>
 <h2 id="wget代理"><a href="#wget代理" class="headerlink" title="wget代理"></a>wget代理</h2><div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">wget</span> -Y <span class="hljs-literal">on</span> -e <span class="hljs-string">&quot;http_proxy=http://127.0.0.1:8087&quot;</span> <span class="hljs-string">&quot;google.com&quot;</span></code></pre></div>
 
 <p><strong>参数说明:</strong></p>
 <p><code>-Y</code>  是否使用代理</p>
 <p><code>-e</code>  执行命令</p>
+<h2 id="CMD代理"><a href="#CMD代理" class="headerlink" title="CMD代理"></a>CMD代理</h2><p>通过命令行设置环境变量：<br>打开命令提示符（CMD）。<br>使用 set 命令临时设置代理：</p>
+<div class="hljs"><pre><code class="hljs routeros"><span class="hljs-built_in">set</span> <span class="hljs-attribute">http_proxy</span>=http://127.0.0.1:1080    
+<span class="hljs-built_in">set</span> <span class="hljs-attribute">https_proxy</span>=http://127.0.0.1:1080</code></pre></div>
+
+
 <h2 id="powershell代理"><a href="#powershell代理" class="headerlink" title="powershell代理"></a>powershell代理</h2><p><strong>以管理员的身份运行powershell:</strong></p>
 <div class="hljs"><pre><code class="hljs arduino">Start-<span class="hljs-built_in">Process</span> powershell -Verb runAs</code></pre></div>
 
