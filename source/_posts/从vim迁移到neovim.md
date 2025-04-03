@@ -77,7 +77,7 @@ Downloads are available on the [Releases](https://github.com/neovim/neovim/relea
 > Run nvim.exe on your CLI of choice
 > Note: On Windows "Server" you may need to install vcruntime140.dll.
 
-
+安装 `nvim-win64.msi`, 然后一直下一步即可. 
 
 1. 打开git-bash
 2. 新增别名
