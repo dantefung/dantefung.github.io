@@ -79,6 +79,12 @@ Downloads are available on the [Releases](https://github.com/neovim/neovim/relea
 
 安装 `nvim-win64.msi`, 然后一直下一步即可. 
 
+{% asset_img 2025-04-03-17-42-55.png %}
+
+等会按 `q`
+
+{% asset_img 2025-04-03-17-53-47.png %}
+
 1. 打开git-bash
 2. 新增别名
 ```
@@ -119,6 +125,9 @@ git clone https://github.com/LazyVim/starter.git
 ```
 vim
 ```
+
+{% asset_img 2025-04-03-17-41-21.png %}
+
 > 注意:  这里的vim命令是 `nvim`, 因为用户的配置文件里边改了别名: alias vim=/{你的安装路径}/nvim
 >
 > Neovim 从 `0.5` 版本开始，已经内置了 **LuaJIT**（高性能 Lua 解释器），可以直接执行 Lua 脚本。这意味着：
