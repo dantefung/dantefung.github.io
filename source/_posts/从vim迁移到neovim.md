@@ -44,6 +44,23 @@ sudo apt-get install neovim
 
 #### windows 安装 neovim
 
+https://github.com/neovim/neovim/blob/master/INSTALL.md
+
+---
+
+Install from download
+=====================
+
+Downloads are available on the [Releases](https://github.com/neovim/neovim/releases) page.
+
+* Latest [stable release](https://github.com/neovim/neovim/releases/latest)
+    * [macOS x86_64](https://github.com/neovim/neovim/releases/latest/download/nvim-macos-x86_64.tar.gz)
+    * [macOS arm64](https://github.com/neovim/neovim/releases/latest/download/nvim-macos-arm64.tar.gz)
+    * [Linux x86_64](https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz)
+    * [Linux arm64](https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.tar.gz)
+    * [Windows](https://github.com/neovim/neovim/releases/latest/download/nvim-win64.msi)
+* Latest [development prerelease](https://github.com/neovim/neovim/releases/nightly)
+
 [点我](https://github.com/neovim/neovim/releases/tag/v0.11.0)
 [安装包](https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-win64.zip)
 
@@ -60,6 +77,8 @@ sudo apt-get install neovim
 > Run nvim.exe on your CLI of choice
 > Note: On Windows "Server" you may need to install vcruntime140.dll.
 
+
+
 1. 打开git-bash
 2. 新增别名
 ```
@@ -75,6 +94,38 @@ source ~/.bashrc
 ```
 3. 命令行键入 `vim`, 即可开始简单愉快使用neovim了.
 
+## windows迁移配置
+
+```
+curl -fLo ~/AppData/Local/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+## windows结合lazyVim
+
+*第一步*:
+
+```
+git clone https://github.com/LazyVim/starter.git
+```
+
+*第二步*:
+
+这个仓库中最重要的就是 `lua 文件夹`和 `init.lua`(这个就是初始化文件) 将其他文件删除
+
+将这两个文件移动到 `~/AppData/Local/nvim/` 目录下
+
+*第三步*:
+
+```
+vim
+```
+> 注意:  这里的vim命令是 `nvim`, 因为用户的配置文件里边改了别名: alias vim=/{你的安装路径}/nvim
+>
+> Neovim 从 `0.5` 版本开始，已经内置了 **LuaJIT**（高性能 Lua 解释器），可以直接执行 Lua 脚本。这意味着：
+> - **无需单独安装 Lua**：Neovim 的安装包已经包含完整的 Lua 环境。
+> - **插件和配置直接调用内置 Lua**：所有 Lua 代码（如 LazyVim 的配置文件）都由 Neovim 自身的 Lua 运行时解析。
+
+## linux或MacOS迁移配置
 
 *   vim 迁移到 neovim
 
