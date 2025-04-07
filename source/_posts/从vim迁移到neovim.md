@@ -108,6 +108,8 @@ curl -fLo ~/AppData/Local/nvim/autoload/plug.vim  --create-dirs https://raw.gith
 
 ## windows结合lazyVim
 
+- [LazyVim for Ambitious Developers](https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/)
+
 *第一步*:
 
 ```
