@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                ホーム
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                アーカイブ
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                カテゴリー
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                タグ
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                Links
+                リンク
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                本ブログ情報　
               </a>
             </li>
           
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.7k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      24
        分钟
     </span>
   
@@ -349,13 +349,51 @@ sudo apt-<span class="hljs-built_in">get</span> install neovim</code></pre></div
 </li>
 </ul>
 <p>解压到你喜欢的目录下，然后把解压后的文件夹移动到 <code>&#123;你的解压目录&#125;</code> 目录下，然后把 <code>&#123;填写你的解压目录&#125;\mingw64\bin</code> 添加到 <code>PATH</code> 环境变量中。</p>
-<div class="hljs"><pre><code class="hljs awk">curl -OL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/niXman/mi</span>ngw-builds-binaries<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/14.2.0-rt_v12-rev0/</span>x86_64-<span class="hljs-number">14.2</span>.<span class="hljs-number">0</span>-release-win32-seh-ucrt-rt_v12-rev0.<span class="hljs-number">7</span>z</code></pre></div>
+<div class="hljs"><pre><code class="hljs awk">curl -OL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/niXman/mi</span>ngw-builds-binaries<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/14.2.0-rt_v12-rev0/</span>x86_64-<span class="hljs-number">14.2</span>.<span class="hljs-number">0</span>-release-win32-seh-ucrt-rt_v12-rev0.<span class="hljs-number">7</span>z -o <span class="hljs-regexp">/d/</span>software<span class="hljs-regexp">/develop/</span></code></pre></div>
 
 <p>配置环境变量:</p>
 <div class="hljs"><pre><code class="hljs moonscript"><span class="hljs-name">D</span>:\software\develop\mingw64\bin</code></pre></div>
 
 <p><strong>neovim配置目录说明</strong></p>
 <p>windows下的配置目录 <code>~\AppData\Local\nvim</code><br>windows 下的数据目录 <code>~\AppData\Local\nvim-data</code></p>
+<h3 id="lazyvim懒人安装法"><a href="#lazyvim懒人安装法" class="headerlink" title="lazyvim懒人安装法"></a>lazyvim懒人安装法</h3><p>管理员身份打开 PowerShell 的命令行界面，输入如下命令：</p>
+<div class="hljs"><pre><code class="hljs pgsql"><span class="hljs-keyword">Set</span>-ExecutionPolicy Bypass -Scope Process -Force; [<span class="hljs-keyword">System</span>.Net.ServicePointManager]::SecurityProtocol = [<span class="hljs-keyword">System</span>.Net.ServicePointManager]::SecurityProtocol -bor <span class="hljs-number">3072</span>; iex ((<span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.Net.WebClient).DownloadString(<span class="hljs-string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))
+</code></pre></div>
+
+<div class="hljs"><pre><code class="hljs crmsh">choco config set <span class="hljs-keyword">location</span> <span class="hljs-title">D</span>:/software/develop/</code></pre></div>
+
+<blockquote>
+<p><strong>1. Chocolatey 的默认安装路径是什么？</strong><br>A: <code>C:\ProgramData\chocolatey\lib</code>。</p>
+</blockquote>
+<p>如果安装过内容, C:\ProgramData\chocolatey\lib中的内容如下:</p>
+<div class="hljs"><pre><code class="hljs tap">-rw-r--r--<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span> <span class="hljs-number"> 21 </span>Apr <span class="hljs-number"> 9 </span>23:46 _processed.txt
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 bin2c5.1.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>144K Feb<span class="hljs-number"> 27 </span>14:04 choco.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:39 fd.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:40 fzf.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>383K Apr<span class="hljs-number"> 10 </span>00:41 lua5.1.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luac5.1.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocks.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocks-admin.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocksw.exe*
+-rw-r--r--<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>4.4K Feb<span class="hljs-number"> 27 </span>14:04 RefreshEnv.cmd
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:38 rg.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>383K Apr<span class="hljs-number"> 10 </span>00:41 wlua5.1.exe*</code></pre></div>
+
+<blockquote>
+<p><strong>2. 如何更改 Chocolatey 的安装路径？</strong><br>A: 使用 <code>choco config set location &lt;new-path&gt;</code> 命令。</p>
+<p><strong>3. 如何查找已安装软件包的路径？</strong><br>A: 使用 <code>choco list -lo</code> PowerShell 命令或 ChocolateyGUI。</p>
+<p><strong>4. 更改 Chocolatey 安装路径后需要做什么？</strong><br>A: 重新启动 PowerShell 以使更改生效。</p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs cmake">choco <span class="hljs-keyword">install</span> neovide ripgrep fd fzf luarocks</code></pre></div>
+<blockquote>
+<p>如果你很多都没装, 则下边的命令会全一些<br>scoop install neovim neovide git lazygit gcc ripgrep fd unzip tree-sitter luarocks</p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/LazyVim/</span>starter <span class="hljs-variable">$env</span>:LOCALAPPDATA\nvim --depth=<span class="hljs-number">1</span></code></pre></div>
+
+<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">nvim</span></code></pre></div>
+
+
 <h4 id="linux或MacOS迁移配置"><a href="#linux或MacOS迁移配置" class="headerlink" title="linux或MacOS迁移配置"></a>linux或MacOS迁移配置</h4><ul>
 <li>vim 迁移到 neovim</li>
 </ul>
@@ -441,7 +479,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
                       <a href="/2022/08/21/Mac%E4%BD%BF%E7%94%A8Privoxy%E8%BD%AC%E5%8F%91Socks5%E4%BB%A3%E7%90%86/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Mac使用Privoxy转发Socks5代理</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
@@ -450,7 +488,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
                     
                       <a href="/2022/07/17/Docker%E5%AE%89%E8%A3%85Nginx/">
                         <span class="hidden-mobile">Docker安装Nginx</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -499,7 +537,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div id="tocbot"></div>
 </div>
 
@@ -526,7 +564,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -535,7 +573,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
