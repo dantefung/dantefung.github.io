@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2.4k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25
+      35
        分钟
     </span>
   
@@ -257,8 +257,53 @@ ALL_PROXY=socks5:<span class="hljs-regexp">//</span><span class="hljs-number">12
 
 <h2 id="curl代理"><a href="#curl代理" class="headerlink" title="curl代理"></a>curl代理</h2><div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">curl</span> -x <span class="hljs-number">127.0.0.1:8087</span> google.com</code></pre></div>
 
+<h2 id="设置-http-代理"><a href="#设置-http-代理" class="headerlink" title="设置 http 代理"></a>设置 http 代理</h2><div class="hljs"><pre><code class="hljs awk">curl -x HTTPS_PROXY:<span class="hljs-regexp">//</span>代理ip:端口 -OL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/alibaba/</span>arthas<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/arthas-all-4.0.4/</span>arthas-tunnel-server-<span class="hljs-number">4.0</span>.<span class="hljs-number">4</span>-fatjar.jar</code></pre></div>
+
+<div class="hljs"><pre><code class="hljs awk"><span class="hljs-comment"># 指定http代理IP和端口</span>
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl --proxy <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定为http代理</span>
+curl -x http_proxy:<span class="hljs-regexp">//</span><span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定为https代理</span>
+curl -x HTTPS_PROXY:<span class="hljs-regexp">//</span><span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定代理用户名和密码，basic认证方式</span>
+curl -x aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> -U aiezu:<span class="hljs-number">123456</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> --proxy-user aiezu:<span class="hljs-number">123456</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定代理用户名和密码，ntlm认证方式</span>
+curl -x <span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> -U aiezu:<span class="hljs-number">123456</span> --proxy-ntlm http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#指定代理协议、用户名和密码，basic认证方式</span>
+curl -x http_proxy:<span class="hljs-regexp">//</span>aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">113.185</span>.<span class="hljs-number">19.192</span>:<span class="hljs-number">80</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+</code></pre></div>
+
+<h2 id="设置-socks-代理："><a href="#设置-socks-代理：" class="headerlink" title="设置 socks 代理："></a>设置 socks 代理：</h2><div class="hljs"><pre><code class="hljs awk"><span class="hljs-comment">#使用socks4代理，无需认证方式</span>
+curl --socks4 <span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x socks4:<span class="hljs-regexp">//</span><span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#使用socks4a代理，无需认证方式</span>
+curl --socks4a <span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x socks4a:<span class="hljs-regexp">//</span><span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#使用socks5代理，basic认证方式</span>
+curl --socks5 <span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> -U aiezu:<span class="hljs-number">123456</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+curl -x socks5:<span class="hljs-regexp">//</span>aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> http:<span class="hljs-regexp">//</span>aiezu.com/test.php
+ 
+<span class="hljs-comment">#使用socks5代理，basic认证方式，ntlm认证方式</span>
+curl -x socks5:<span class="hljs-regexp">//</span>aiezu:<span class="hljs-number">123456</span>@<span class="hljs-number">122.192</span>.<span class="hljs-number">32.76</span>:<span class="hljs-number">7280</span> --proxy-ntlm http:<span class="hljs-regexp">//</span>aiezu.com/test.php</code></pre></div>
+
+
+
 <p><strong>参数说明:</strong></p>
 <p><code>-x</code>  设置代理，格式为host[:port]，port的缺省值为1080</p>
+<p>*参考文档: *</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/panxuejun/p/10574038.html">Linux curl 命令使用代理、以及代理种类介绍</a></li>
+</ul>
 <h2 id="wget代理"><a href="#wget代理" class="headerlink" title="wget代理"></a>wget代理</h2><div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">wget</span> -Y <span class="hljs-literal">on</span> -e <span class="hljs-string">&quot;http_proxy=http://127.0.0.1:8087&quot;</span> <span class="hljs-string">&quot;google.com&quot;</span></code></pre></div>
 
 <p><strong>参数说明:</strong></p>
@@ -297,6 +342,20 @@ iwr -Uri https:<span class="hljs-regexp">//</span>www.google.com | Select-Object
 
 <h2 id="git-bash-终端设置代理"><a href="#git-bash-终端设置代理" class="headerlink" title="git bash 终端设置代理"></a>git bash 终端设置代理</h2><div class="hljs"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">https_proxy</span>=socks5://127.0.0.1:1080</code></pre></div>
 
+<p>众所周知 Github DNS 被污染了，所有有时候下载十分困难，LazyVim 基本上所有的东西都托管在 Github 上，所以我们其实不用梯子也可以很完美的安装好 LazyVim，用代理就行。 我喜欢用 <a target="_blank" rel="noopener" href="https://mirror.ghproxy.com/">GitHub Proxy</a> 这个代理，也有其他代理，大家可以自行找寻。</p>
+<p>我们打开一个终端，输入：</p>
+<div class="hljs"><pre><code class="hljs jboss-cli">git config <span class="hljs-params">--global</span> url.<span class="hljs-string">&quot;https://mirror.ghproxy.com/https://github.com/&quot;</span><span class="hljs-string">.insteadof</span> <span class="hljs-string">&quot;https://github.com/&quot;</span></code></pre></div>
+
+<p>这样就可以让 <a target="_blank" rel="noopener" href="https://mirror.ghproxy.com/">GitHub Proxy</a> 代理 GitHub 的 git clone , wget , curl 了。一般来说，这种 Github 代理都不会代理 ssh 协议，所以不会影响 ssh 访问 Github，另外其实 ssh 也没有被污染。</p>
+<p>取消也很简单，首先我们看一下 git 的设置列表：</p>
+<div class="hljs"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--list</span></code></pre></div>
+
+<p>就可以看到 Git 的一些设置</p>
+<p>也许可以看到有这么一项：</p>
+<div class="hljs"><pre><code class="hljs awk">url.https:<span class="hljs-regexp">//mi</span>rror.ghproxy.com<span class="hljs-regexp">/https:/</span><span class="hljs-regexp">/github.com/</span>.insteadof=https:<span class="hljs-regexp">//gi</span>thub.com/</code></pre></div>
+
+<p>加入想取消这一项，就输入等号前面的内容：</p>
+<div class="hljs"><pre><code class="hljs awk">git config --global --unset url.https:<span class="hljs-regexp">//mi</span>rror.ghproxy.com<span class="hljs-regexp">/https:/</span><span class="hljs-regexp">/github.com/</span>.insteadof</code></pre></div>
 
 
 

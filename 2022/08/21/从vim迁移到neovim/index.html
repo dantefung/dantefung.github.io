@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      554 字
+      1.3k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      17
        分钟
     </span>
   
@@ -265,7 +265,98 @@
 sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span>
 sudo apt-<span class="hljs-built_in">get</span> install neovim</code></pre></div>
 
+<h4 id="windows-安装-neovim"><a href="#windows-安装-neovim" class="headerlink" title="windows 安装 neovim"></a>windows 安装 neovim</h4><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li>前置条件（一般在linux上大多要点是天然满足的）：</li>
+<li>正常的网络环境</li>
+<li>安装有neovim</li>
+<li>拥有c/c++工具链</li>
+<li>neovim构建时包含LuaJIT支持</li>
+<li>neovim构建时包含python支持</li>
+<li>安装有Nerd Font系列字体</li>
+<li>终端支持真色彩和下划线显示</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/blob/master/INSTALL.md">https://github.com/neovim/neovim/blob/master/INSTALL.md</a></p>
+<hr>
+<h1 id="Install-from-download"><a href="#Install-from-download" class="headerlink" title="Install from download"></a>Install from download</h1><p>Downloads are available on the <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases">Releases</a> page.</p>
 <ul>
+<li>Latest <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest">stable release</a><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest/download/nvim-macos-x86_64.tar.gz">macOS x86_64</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest/download/nvim-macos-arm64.tar.gz">macOS arm64</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz">Linux x86_64</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.tar.gz">Linux arm64</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest/download/nvim-win64.msi">Windows</a></li>
+</ul>
+</li>
+<li>Latest <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/nightly">development prerelease</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/tag/v0.11.0">点我</a><br><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-win64.zip">安装包</a></p>
+<blockquote>
+<p>Windows<br><em>Zip</em></p>
+<p>Download nvim-win64.zip<br>Extract the zip<br>Run nvim.exe on your CLI of choice</p>
+<p><em>MSI</em><br>Download nvim-win64.msi<br>Run the MSI<br>Run nvim.exe on your CLI of choice<br>Note: On Windows “Server” you may need to install vcruntime140.dll.</p>
+</blockquote>
+<p>安装 <code>nvim-win64.msi</code>, 然后一直下一步即可. </p>
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-42-55.png" srcset="/img/loading.gif" class="">
+
+<p>等会按 <code>q</code></p>
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-53-47.png" srcset="/img/loading.gif" class="">
+
+<ol>
+<li>打开git-bash</li>
+<li>新增别名<div class="hljs"><pre><code class="hljs bash">vi ~/.bashrc</code></pre></div>
+写入:<div class="hljs"><pre><code class="hljs abnf">alias vim<span class="hljs-operator">=</span><span class="hljs-string">&quot;D:/software/develop/nvim-win64/nvim-win64/bin/nvim.exe&quot;</span></code></pre></div>
+重新载入.bashrc<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.bashrc</code></pre></div></li>
+<li>命令行键入 <code>vim</code>, 即可开始简单愉快使用neovim了.</li>
+</ol>
+<h4 id="windows迁移配置"><a href="#windows迁移配置" class="headerlink" title="windows迁移配置"></a>windows迁移配置</h4><div class="hljs"><pre><code class="hljs awk">curl -fLo ~<span class="hljs-regexp">/AppData/</span>Local<span class="hljs-regexp">/nvim/</span>autoload<span class="hljs-regexp">/plug.vim  --create-dirs https:/</span><span class="hljs-regexp">/raw.githubusercontent.com/</span>junegunn<span class="hljs-regexp">/vim-plug/m</span>aster/plug.vim</code></pre></div>
+
+<h4 id="windows结合lazyVim"><a href="#windows结合lazyVim" class="headerlink" title="windows结合lazyVim"></a>windows结合lazyVim</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/">LazyVim for Ambitious Developers</a></li>
+</ul>
+<p><em>第一步</em>:</p>
+<div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/LazyVim/</span>starter.git</code></pre></div>
+
+<p><em>第二步</em>:</p>
+<p>这个仓库中最重要的就是 <code>lua 文件夹</code>和 <code>init.lua</code>(这个就是初始化文件) 将其他文件删除</p>
+<p>将这两个文件移动到 <code>~/AppData/Local/nvim/</code> 目录下</p>
+<blockquote>
+</blockquote>
+<p><em>第三步</em>:</p>
+<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">vim</span></code></pre></div>
+
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-41-21.png" srcset="/img/loading.gif" class="">
+
+<blockquote>
+<p>注意:  这里的vim命令是 <code>nvim</code>, 因为用户的配置文件里边改了别名: alias vim=/{你的安装路径}/nvim</p>
+<p>Neovim 从 <code>0.5</code> 版本开始，已经内置了 <strong>LuaJIT</strong>（高性能 Lua 解释器），可以直接执行 Lua 脚本。这意味着：</p>
+<ul>
+<li><strong>无需单独安装 Lua</strong>：Neovim 的安装包已经包含完整的 Lua 环境。</li>
+<li><strong>插件和配置直接调用内置 Lua</strong>：所有 Lua 代码（如 LazyVim 的配置文件）都由 Neovim 自身的 Lua 运行时解析。</li>
+</ul>
+</blockquote>
+<p><em>第四步</em>:</p>
+<p>Linux 和 Mac OS 这里应该不会有问题。</p>
+<p>对于 Windows，因为 <code>Treesitter</code> 需要 C 语言编译器编译一些语法解析器，所以我们需要装一个 C 编译器.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z">x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z</a>，直接点击就可以下载到浏览器下载目录下。如果有其他需要，也可以下载其他的压缩包，其中：</p>
+<ul>
+<li><p><code>i686</code> 是 32 位版本，x86_64 是 64 位版本</p>
+</li>
+<li><p><code>win32</code> 适用于 windows 操作系统，posix 适用于其他操作系统</p>
+</li>
+<li><p><code>dwarf</code> 是 32 位的异常处理系统，seh 适用于 64 位</p>
+</li>
+<li><p><code>msvcrt</code> 是旧版微软 C 运行时库，ucrt 是新版运行时库</p>
+</li>
+</ul>
+<p>解压到你喜欢的目录下，然后把解压后的文件夹移动到 <code>&#123;你的解压目录&#125;</code> 目录下，然后把 <code>&#123;填写你的解压目录&#125;\mingw64\bin</code> 添加到 <code>PATH</code> 环境变量中。</p>
+<div class="hljs"><pre><code class="hljs awk">curl -OL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/niXman/mi</span>ngw-builds-binaries<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/14.2.0-rt_v12-rev0/</span>x86_64-<span class="hljs-number">14.2</span>.<span class="hljs-number">0</span>-release-win32-seh-ucrt-rt_v12-rev0.<span class="hljs-number">7</span>z</code></pre></div>
+
+<p>配置环境变量:</p>
+<div class="hljs"><pre><code class="hljs moonscript"><span class="hljs-name">D</span>:\software\develop\mingw64\bin</code></pre></div>
+
+<p><strong>neovim配置目录说明</strong></p>
+<p>windows下的配置目录 <code>~\AppData\Local\nvim</code><br>windows 下的数据目录 <code>~\AppData\Local\nvim-data</code></p>
+<h4 id="linux或MacOS迁移配置"><a href="#linux或MacOS迁移配置" class="headerlink" title="linux或MacOS迁移配置"></a>linux或MacOS迁移配置</h4><ul>
 <li>vim 迁移到 neovim</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.config/nvim/
