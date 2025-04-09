@@ -44,6 +44,16 @@ sudo apt-get install neovim
 
 #### windows 安装 neovim
 
+#### 安装
+- 前置条件（一般在linux上大多要点是天然满足的）：
+- 正常的网络环境
+- 安装有neovim
+- 拥有c/c++工具链
+- neovim构建时包含LuaJIT支持
+- neovim构建时包含python支持
+- 安装有Nerd Font系列字体
+- 终端支持真色彩和下划线显示
+
 https://github.com/neovim/neovim/blob/master/INSTALL.md
 
 ---
@@ -100,13 +110,13 @@ source ~/.bashrc
 ```
 3. 命令行键入 `vim`, 即可开始简单愉快使用neovim了.
 
-## windows迁移配置
+#### windows迁移配置
 
 ```
 curl -fLo ~/AppData/Local/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-## windows结合lazyVim
+#### windows结合lazyVim
 
 - [LazyVim for Ambitious Developers](https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/)
 
@@ -122,6 +132,8 @@ git clone https://github.com/LazyVim/starter.git
 
 将这两个文件移动到 `~/AppData/Local/nvim/` 目录下
 
+> 
+
 *第三步*:
 
 ```
@@ -136,7 +148,41 @@ vim
 > - **无需单独安装 Lua**：Neovim 的安装包已经包含完整的 Lua 环境。
 > - **插件和配置直接调用内置 Lua**：所有 Lua 代码（如 LazyVim 的配置文件）都由 Neovim 自身的 Lua 运行时解析。
 
-## linux或MacOS迁移配置
+
+*第四步*:
+
+Linux 和 Mac OS 这里应该不会有问题。
+
+对于 Windows，因为 `Treesitter` 需要 C 语言编译器编译一些语法解析器，所以我们需要装一个 C 编译器.
+
+[x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z](https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z)，直接点击就可以下载到浏览器下载目录下。如果有其他需要，也可以下载其他的压缩包，其中：
+
+- `i686` 是 32 位版本，x86_64 是 64 位版本
+
+- `win32` 适用于 windows 操作系统，posix 适用于其他操作系统
+
+- `dwarf` 是 32 位的异常处理系统，seh 适用于 64 位
+
+- `msvcrt` 是旧版微软 C 运行时库，ucrt 是新版运行时库
+
+解压到你喜欢的目录下，然后把解压后的文件夹移动到 `{你的解压目录}` 目录下，然后把 `{填写你的解压目录}\mingw64\bin` 添加到 `PATH` 环境变量中。
+
+```
+curl -OL https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z
+```
+
+配置环境变量:
+```
+D:\software\develop\mingw64\bin
+```
+
+**neovim配置目录说明**
+
+windows下的配置目录 `~\AppData\Local\nvim`
+windows 下的数据目录 `~\AppData\Local\nvim-data`
+
+
+#### linux或MacOS迁移配置
 
 *   vim 迁移到 neovim
 
