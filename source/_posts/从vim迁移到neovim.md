@@ -168,7 +168,8 @@ Linux 和 Mac OS 这里应该不会有问题。
 解压到你喜欢的目录下，然后把解压后的文件夹移动到 `{你的解压目录}` 目录下，然后把 `{填写你的解压目录}\mingw64\bin` 添加到 `PATH` 环境变量中。
 
 ```
-curl -OL https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z -o /d/software/develop/```
+curl -OL https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z -o /d/software/develop/
+```
 
 配置环境变量:
 ```
@@ -197,6 +198,24 @@ choco config set location D:/software/develop/
 > **1. Chocolatey 的默认安装路径是什么？**\
 > A: `C:\ProgramData\chocolatey\lib`。
 > 
+
+如果安装过内容, C:\ProgramData\chocolatey\lib中的内容如下:
+```
+-rw-r--r-- 1 fhlin 197609   21 Apr  9 23:46 _processed.txt
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:41 bin2c5.1.exe*
+-rwxr-xr-x 1 fhlin 197609 144K Feb 27 14:04 choco.exe*
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:39 fd.exe*
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:40 fzf.exe*
+-rwxr-xr-x 1 fhlin 197609 383K Apr 10 00:41 lua5.1.exe*
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:41 luac5.1.exe*
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:41 luarocks.exe*
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:41 luarocks-admin.exe*
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:41 luarocksw.exe*
+-rw-r--r-- 1 fhlin 197609 4.4K Feb 27 14:04 RefreshEnv.cmd
+-rwxr-xr-x 1 fhlin 197609 384K Apr 10 00:38 rg.exe*
+-rwxr-xr-x 1 fhlin 197609 383K Apr 10 00:41 wlua5.1.exe*
+```
+
 > **2. 如何更改 Chocolatey 的安装路径？**\
 > A: 使用 `choco config set location <new-path>` 命令。
 > 
@@ -205,6 +224,7 @@ choco config set location D:/software/develop/
 > 
 > **4. 更改 Chocolatey 安装路径后需要做什么？**\
 > A: 重新启动 PowerShell 以使更改生效。
+
  
 
 ```
