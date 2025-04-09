@@ -168,8 +168,7 @@ Linux 和 Mac OS 这里应该不会有问题。
 解压到你喜欢的目录下，然后把解压后的文件夹移动到 `{你的解压目录}` 目录下，然后把 `{填写你的解压目录}\mingw64\bin` 添加到 `PATH` 环境变量中。
 
 ```
-curl -OL https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z
-```
+curl -OL https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z -o /d/software/develop/```
 
 配置环境变量:
 ```
