@@ -181,6 +181,22 @@ windows下的配置目录 `~\AppData\Local\nvim`
 windows 下的数据目录 `~\AppData\Local\nvim-data`
 
 
+管理员身份打开 PowerShell 的命令行界面，输入如下命令：
+
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+```
+
+```
+choco config set location D:/software/develop/
+```
+
+```
+choco install neovide ripgrep fd fzf luarocks    
+```
+
+
 #### linux或MacOS迁移配置
 
 *   vim 迁移到 neovim
