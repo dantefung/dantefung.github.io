@@ -180,6 +180,7 @@ D:\software\develop\mingw64\bin
 windows下的配置目录 `~\AppData\Local\nvim`
 windows 下的数据目录 `~\AppData\Local\nvim-data`
 
+### lazyvim懒人安装法
 
 管理员身份打开 PowerShell 的命令行界面，输入如下命令：
 
@@ -194,6 +195,16 @@ choco config set location D:/software/develop/
 
 ```
 choco install neovide ripgrep fd fzf luarocks    
+```
+> 如果你很多都没装, 则下边的命令会全一些
+> scoop install neovim neovide git lazygit gcc ripgrep fd unzip tree-sitter luarocks
+
+``` 
+git clone https://github.com/LazyVim/starter $env:LOCALAPPDATA\nvim --depth=1
+```
+
+```
+nvim
 ```
 
 
