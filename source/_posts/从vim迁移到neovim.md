@@ -193,6 +193,20 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco config set location D:/software/develop/
 ```
 
+>
+> **1. Chocolatey 的默认安装路径是什么？**\
+> A: `C:\ProgramData\chocolatey\lib`。
+> 
+> **2. 如何更改 Chocolatey 的安装路径？**\
+> A: 使用 `choco config set location <new-path>` 命令。
+> 
+> **3. 如何查找已安装软件包的路径？**\
+> A: 使用 `choco list -lo` PowerShell 命令或 ChocolateyGUI。
+> 
+> **4. 更改 Chocolatey 安装路径后需要做什么？**\
+> A: 重新启动 PowerShell 以使更改生效。
+ 
+
 ```
 choco install neovide ripgrep fd fzf luarocks    
 ```
