@@ -27,11 +27,6 @@ tags:
     - [第二步: 配置文件](#第二步-配置文件)
     - [第三步: 启动nvim](#第三步-启动nvim)
     - [第四步: 安装Lazyvim所需的依赖:](#第四步-安装lazyvim所需的依赖)
-    - [常见的 npm 镜像源](#常见的-npm-镜像源)
-    - [如何切换 npm 镜像源](#如何切换-npm-镜像源)
-      - [临时使用](#临时使用)
-      - [全局设置](#全局设置)
-      - [使用 nrm 管理镜像源](#使用-nrm-管理镜像源)
     - [第五步: 安装Nerd font支持Lazyvim的icon展示](#第五步-安装nerd-font支持lazyvim的icon展示)
   - [扩展阅读(可选)](#扩展阅读可选)
 
@@ -312,7 +307,7 @@ npm --version
 
 为了加速 npm 包的下载速度，尤其是在国内网络环境下，使用国内的 npm 镜像源是一个非常有效的方法。以下是一些常见的 npm 镜像源以及如何切换它们的方法。
 
-### 常见的 npm 镜像源
+**常见的 npm 镜像源**
 
 1. **淘宝 npm 镜像**：这是一个广泛使用的 npm 国内镜像，由阿里巴巴维护。
    - URL: https://registry.npmmirror.com
@@ -320,16 +315,16 @@ npm --version
 2. **cnpm**：由淘宝提供的 npm 客户端，它默认使用淘宝的 npm 镜像。
    - URL: https://r.cnpmjs.org
 
-### 如何切换 npm 镜像源
+**如何切换 npm 镜像源**
 
-#### 临时使用
+**临时使用**
 如果你只想对某个特定命令使用镜像源，可以在命令前加上 `--registry` 参数指定镜像地址。例如：
 
 ```bash
 npm install <package-name> --registry=https://registry.npmmirror.com
 ```
 
-#### 全局设置
+**全局设置**
 如果你想永久更改 npm 的 registry 地址，可以使用如下命令：
 
 - 设置为淘宝 npm 镜像：
@@ -342,28 +337,6 @@ npm install <package-name> --registry=https://registry.npmmirror.com
   npm config set registry https://registry.npmjs.org
   ```
 
-#### 使用 nrm 管理镜像源
-`nrm` 是一个 npm registry 管理工具，它可以让你更方便地切换不同的 npm 镜像源。
-
-- 安装 nrm：
-  ```bash
-  npm install -g nrm
-  ```
-
-- 查看可用的 registry 列表：
-  ```bash
-  nrm ls
-  ```
-
-- 切换到淘宝镜像：
-  ```bash
-  nrm use taobao
-  ```
-
-- 测试当前 registry 的响应时间：
-  ```bash
-  nrm test <registry>
-  ```
 
 参考文档：[nvm 安装和更新](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 
