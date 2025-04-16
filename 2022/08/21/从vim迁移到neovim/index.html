@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                ホーム
+                Home
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                アーカイブ
+                Archives
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                カテゴリー
+                Categories
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                タグ
+                Tags
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                リンク
+                Links
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                本ブログ情報　
+                About
               </a>
             </li>
           
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      4.3k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      62
        分钟
     </span>
   
@@ -240,9 +240,39 @@
             <h1 style="display: none">从vim迁移到neovim</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="从vim迁移到neovim"><a href="#从vim迁移到neovim" class="headerlink" title="从vim迁移到neovim"></a>从vim迁移到neovim</h1><blockquote>
-<p>本文由 <a target="_blank" rel="noopener" href="http://ksria.com/simpread/">简悦 SimpRead</a> 转码， 原文地址 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/72bcd9fc868e/">www.jianshu.com</a></p>
-</blockquote>
+              <h1 id="从vim迁移到neovim"><a href="#从vim迁移到neovim" class="headerlink" title="从vim迁移到neovim"></a>从vim迁移到neovim</h1><!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+<ul>
+<li><a href="#%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim">从vim迁移到neovim</a><ul>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%8E-vim-%E8%BF%81%E7%A7%BB%E5%88%B0%E4%BA%86-neovim">为什么我从 vim 迁移到了 neovim</a></li>
+<li><a href="#install">Install</a><ul>
+<li><a href="#mac-%E5%AE%89%E8%A3%85-neovim">mac 安装 neovim</a></li>
+<li><a href="#ubuntu-%E5%AE%89%E8%A3%85-neovim">ubuntu 安装 neovim</a></li>
+<li><a href="#windows-%E5%AE%89%E8%A3%85-neovim">windows 安装 neovim</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#windows%E8%BF%81%E7%A7%BB%E9%85%8D%E7%BD%AE">windows迁移配置</a></li>
+<li><a href="#linux%E6%88%96macos%E8%BF%81%E7%A7%BB%E9%85%8D%E7%BD%AE">linux或MacOS迁移配置</a></li>
+<li><a href="#%E6%8E%A8%E8%8D%90%E5%87%A0%E4%B8%AA%E5%AE%9E%E7%94%A8%E6%8F%92%E4%BB%B6">推荐几个实用插件</a></li>
+<li><a href="#windows%E4%B8%8Bneovim--lazyvim">windows下neovim + lazyVim</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%B8%8B%E8%BD%BD">第一步: 下载</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">第二步: 配置文件</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%90%AF%E5%8A%A8nvim">第三步: 启动nvim</a></li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%89%E8%A3%85lazyvim%E6%89%80%E9%9C%80%E7%9A%84%E4%BE%9D%E8%B5%96">第四步: 安装Lazyvim所需的依赖:</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E5%AE%89%E8%A3%85nerd-font%E6%94%AF%E6%8C%81lazyvim%E7%9A%84icon%E5%B1%95%E7%A4%BA">第五步: 安装Nerd font支持Lazyvim的icon展示</a><ul>
+<li><a href="#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB%E5%8F%AF%E9%80%89">扩展阅读(可选)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /code_chunk_output -->
+
+
+
 <blockquote>
 <p>为什么我从 vim 迁移到了 neovim 1 vim 打开大文件时的速度实在太慢, 经常容易卡顿. 毕竟一款上世纪的编辑器了, 速度有些慢是可以理解的, 但是我不能接受. hhhhhh. 而 nvim 打开大文件的速…</p>
 </blockquote>
@@ -277,7 +307,8 @@ sudo apt-<span class="hljs-built_in">get</span> install neovim</code></pre></div
 </ul>
 <p><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/blob/master/INSTALL.md">https://github.com/neovim/neovim/blob/master/INSTALL.md</a></p>
 <hr>
-<h1 id="Install-from-download"><a href="#Install-from-download" class="headerlink" title="Install from download"></a>Install from download</h1><p>Downloads are available on the <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases">Releases</a> page.</p>
+<p><strong>Install from download</strong></p>
+<p>Downloads are available on the <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases">Releases</a> page.</p>
 <ul>
 <li>Latest <a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest">stable release</a><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/latest/download/nvim-macos-x86_64.tar.gz">macOS x86_64</a></li>
@@ -308,92 +339,17 @@ sudo apt-<span class="hljs-built_in">get</span> install neovim</code></pre></div
 重新载入.bashrc<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.bashrc</code></pre></div></li>
 <li>命令行键入 <code>vim</code>, 即可开始简单愉快使用neovim了.</li>
 </ol>
-<h4 id="windows迁移配置"><a href="#windows迁移配置" class="headerlink" title="windows迁移配置"></a>windows迁移配置</h4><div class="hljs"><pre><code class="hljs awk">curl -fLo ~<span class="hljs-regexp">/AppData/</span>Local<span class="hljs-regexp">/nvim/</span>autoload<span class="hljs-regexp">/plug.vim  --create-dirs https:/</span><span class="hljs-regexp">/raw.githubusercontent.com/</span>junegunn<span class="hljs-regexp">/vim-plug/m</span>aster/plug.vim</code></pre></div>
-
-<h4 id="windows结合lazyVim"><a href="#windows结合lazyVim" class="headerlink" title="windows结合lazyVim"></a>windows结合lazyVim</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/">LazyVim for Ambitious Developers</a></li>
-</ul>
-<p><em>第一步</em>:</p>
-<div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/LazyVim/</span>starter.git</code></pre></div>
-
-<p><em>第二步</em>:</p>
-<p>这个仓库中最重要的就是 <code>lua 文件夹</code>和 <code>init.lua</code>(这个就是初始化文件) 将其他文件删除</p>
-<p>将这两个文件移动到 <code>~/AppData/Local/nvim/</code> 目录下</p>
-<blockquote>
+<h4 id="windows迁移配置"><a href="#windows迁移配置" class="headerlink" title="windows迁移配置"></a>windows迁移配置</h4><blockquote>
+<p><code>注意: </code> 纯vim迁移过来,只是复用vim的配置,没有额外的需求,其实到这里就可以结束了, 不用再关注本文中Lazyvim部分.<br>以下命令的操作是在git-bash.exe环境下执行的</p>
 </blockquote>
-<p><em>第三步</em>:</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">vim</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs awk">curl -fLo ~<span class="hljs-regexp">/AppData/</span>Local<span class="hljs-regexp">/nvim/</span>autoload<span class="hljs-regexp">/plug.vim  --create-dirs https:/</span><span class="hljs-regexp">/raw.githubusercontent.com/</span>junegunn<span class="hljs-regexp">/vim-plug/m</span>aster/plug.vim</code></pre></div>
 
-<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-41-21.png" srcset="/img/loading.gif" class="">
+<div class="hljs"><pre><code class="hljs awk">cd ~<span class="hljs-regexp">/AppData/</span>Local<span class="hljs-regexp">/nvim/</span>
+cp ~<span class="hljs-regexp">/.vimrc ./i</span>nit.vim</code></pre></div>
 
-<blockquote>
-<p>注意:  这里的vim命令是 <code>nvim</code>, 因为用户的配置文件里边改了别名: alias vim=/{你的安装路径}/nvim</p>
-<p>Neovim 从 <code>0.5</code> 版本开始，已经内置了 <strong>LuaJIT</strong>（高性能 Lua 解释器），可以直接执行 Lua 脚本。这意味着：</p>
-<ul>
-<li><strong>无需单独安装 Lua</strong>：Neovim 的安装包已经包含完整的 Lua 环境。</li>
-<li><strong>插件和配置直接调用内置 Lua</strong>：所有 Lua 代码（如 LazyVim 的配置文件）都由 Neovim 自身的 Lua 运行时解析。</li>
-</ul>
-</blockquote>
-<p><em>第四步</em>:</p>
-<p>Linux 和 Mac OS 这里应该不会有问题。</p>
-<p>对于 Windows，因为 <code>Treesitter</code> 需要 C 语言编译器编译一些语法解析器，所以我们需要装一个 C 编译器.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z">x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z</a>，直接点击就可以下载到浏览器下载目录下。如果有其他需要，也可以下载其他的压缩包，其中：</p>
-<ul>
-<li><p><code>i686</code> 是 32 位版本，x86_64 是 64 位版本</p>
-</li>
-<li><p><code>win32</code> 适用于 windows 操作系统，posix 适用于其他操作系统</p>
-</li>
-<li><p><code>dwarf</code> 是 32 位的异常处理系统，seh 适用于 64 位</p>
-</li>
-<li><p><code>msvcrt</code> 是旧版微软 C 运行时库，ucrt 是新版运行时库</p>
-</li>
-</ul>
-<p>解压到你喜欢的目录下，然后把解压后的文件夹移动到 <code>&#123;你的解压目录&#125;</code> 目录下，然后把 <code>&#123;填写你的解压目录&#125;\mingw64\bin</code> 添加到 <code>PATH</code> 环境变量中。</p>
-<div class="hljs"><pre><code class="hljs awk">curl -OL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/niXman/mi</span>ngw-builds-binaries<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/14.2.0-rt_v12-rev0/</span>x86_64-<span class="hljs-number">14.2</span>.<span class="hljs-number">0</span>-release-win32-seh-ucrt-rt_v12-rev0.<span class="hljs-number">7</span>z -o <span class="hljs-regexp">/d/</span>software<span class="hljs-regexp">/develop/</span></code></pre></div>
-
-<p>配置环境变量:</p>
-<div class="hljs"><pre><code class="hljs moonscript"><span class="hljs-name">D</span>:\software\develop\mingw64\bin</code></pre></div>
 
 <p><strong>neovim配置目录说明</strong></p>
 <p>windows下的配置目录 <code>~\AppData\Local\nvim</code><br>windows 下的数据目录 <code>~\AppData\Local\nvim-data</code></p>
-<h3 id="lazyvim懒人安装法"><a href="#lazyvim懒人安装法" class="headerlink" title="lazyvim懒人安装法"></a>lazyvim懒人安装法</h3><p>管理员身份打开 PowerShell 的命令行界面，输入如下命令：</p>
-<div class="hljs"><pre><code class="hljs pgsql"><span class="hljs-keyword">Set</span>-ExecutionPolicy Bypass -Scope Process -Force; [<span class="hljs-keyword">System</span>.Net.ServicePointManager]::SecurityProtocol = [<span class="hljs-keyword">System</span>.Net.ServicePointManager]::SecurityProtocol -bor <span class="hljs-number">3072</span>; iex ((<span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.Net.WebClient).DownloadString(<span class="hljs-string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))
-</code></pre></div>
-
-<div class="hljs"><pre><code class="hljs crmsh">choco config set <span class="hljs-keyword">location</span> <span class="hljs-title">D</span>:/software/develop/</code></pre></div>
-
-<blockquote>
-<p><strong>1. Chocolatey 的默认安装路径是什么？</strong><br>A: <code>C:\ProgramData\chocolatey\lib</code>。</p>
-</blockquote>
-<p>如果安装过内容, C:\ProgramData\chocolatey\lib中的内容如下:</p>
-<div class="hljs"><pre><code class="hljs tap">-rw-r--r--<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span> <span class="hljs-number"> 21 </span>Apr <span class="hljs-number"> 9 </span>23:46 _processed.txt
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 bin2c5.1.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>144K Feb<span class="hljs-number"> 27 </span>14:04 choco.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:39 fd.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:40 fzf.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>383K Apr<span class="hljs-number"> 10 </span>00:41 lua5.1.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luac5.1.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocks.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocks-admin.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocksw.exe*
--rw-r--r--<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>4.4K Feb<span class="hljs-number"> 27 </span>14:04 RefreshEnv.cmd
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:38 rg.exe*
--rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>383K Apr<span class="hljs-number"> 10 </span>00:41 wlua5.1.exe*</code></pre></div>
-
-<blockquote>
-<p><strong>2. 如何更改 Chocolatey 的安装路径？</strong><br>A: 使用 <code>choco config set location &lt;new-path&gt;</code> 命令。</p>
-<p><strong>3. 如何查找已安装软件包的路径？</strong><br>A: 使用 <code>choco list -lo</code> PowerShell 命令或 ChocolateyGUI。</p>
-<p><strong>4. 更改 Chocolatey 安装路径后需要做什么？</strong><br>A: 重新启动 PowerShell 以使更改生效。</p>
-</blockquote>
-<div class="hljs"><pre><code class="hljs cmake">choco <span class="hljs-keyword">install</span> neovide ripgrep fd fzf luarocks</code></pre></div>
-<blockquote>
-<p>如果你很多都没装, 则下边的命令会全一些<br>scoop install neovim neovide git lazygit gcc ripgrep fd unzip tree-sitter luarocks</p>
-</blockquote>
-<div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/LazyVim/</span>starter <span class="hljs-variable">$env</span>:LOCALAPPDATA\nvim --depth=<span class="hljs-number">1</span></code></pre></div>
-
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">nvim</span></code></pre></div>
-
-
 <h4 id="linux或MacOS迁移配置"><a href="#linux或MacOS迁移配置" class="headerlink" title="linux或MacOS迁移配置"></a>linux或MacOS迁移配置</h4><ul>
 <li>vim 迁移到 neovim</li>
 </ul>
@@ -454,6 +410,403 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
 </ul>
 <div class="hljs"><pre><code class="hljs elixir"><span class="hljs-title class_">Plug</span> <span class="hljs-string">&#x27;godlygeek/tabular&#x27;</span>
 <span class="hljs-symbol">:Tab/</span>=</code></pre></div>
+
+<h2 id="windows下neovim-lazyVim"><a href="#windows下neovim-lazyVim" class="headerlink" title="windows下neovim + lazyVim"></a>windows下neovim + lazyVim</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/">LazyVim for Ambitious Developers</a></li>
+</ul>
+<h3 id="第一步-下载"><a href="#第一步-下载" class="headerlink" title="第一步: 下载"></a>第一步: 下载</h3><div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/LazyVim/</span>starter.git</code></pre></div>
+
+<h3 id="第二步-配置文件"><a href="#第二步-配置文件" class="headerlink" title="第二步: 配置文件"></a>第二步: 配置文件</h3><p>这个仓库中最重要的就是 <code>lua 文件夹</code>和 <code>init.lua</code>(这个就是初始化文件) 将其他文件删除</p>
+<p>将这两个文件移动到 <code>~/AppData/Local/nvim/</code> 目录下</p>
+<blockquote>
+</blockquote>
+<h3 id="第三步-启动nvim"><a href="#第三步-启动nvim" class="headerlink" title="第三步: 启动nvim"></a>第三步: 启动nvim</h3><div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">vim</span></code></pre></div>
+
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-41-21.png" srcset="/img/loading.gif" class="">
+
+<blockquote>
+<p>注意:  这里的vim命令是 <code>nvim</code>, 因为用户的配置文件里边改了别名: alias vim=/{你的安装路径}/nvim</p>
+<p>Neovim 从 <code>0.5</code> 版本开始，已经内置了 <strong>LuaJIT</strong>（高性能 Lua 解释器），可以直接执行 Lua 脚本。这意味着：</p>
+<ul>
+<li><strong>无需单独安装 Lua</strong>：Neovim 的安装包已经包含完整的 Lua 环境。</li>
+<li><strong>插件和配置直接调用内置 Lua</strong>：所有 Lua 代码（如 LazyVim 的配置文件）都由 Neovim 自身的 Lua 运行时解析。</li>
+</ul>
+</blockquote>
+<p>至此, neovim 已经安装完成, Lazyvim也基本生效了, 但是需要安装一些依赖才能完整使用Lazyvim.</p>
+<h3 id="第四步-安装Lazyvim所需的依赖"><a href="#第四步-安装Lazyvim所需的依赖" class="headerlink" title="第四步: 安装Lazyvim所需的依赖:"></a>第四步: 安装Lazyvim所需的依赖:</h3><div class="hljs"><pre><code class="hljs dos">neovide git lazygit gcc ripgrep fd unzip <span class="hljs-built_in">tree</span>-sitter luarocks</code></pre></div>
+<ul>
+<li>tree-sitter - 用于代码语法解析</li>
+<li>fzf - 命令行模糊查找工具</li>
+<li>fd - 现代化替代 find 的工具</li>
+<li>luarocks - Lua 包管理器</li>
+<li>ripgrep - 快速文本搜索 (替代 grep)</li>
+<li>unzip - 解压 ZIP 文件</li>
+<li>lazygit - Git 命令行界面管理工具</li>
+<li>gcc - GNU C/C++ 编译器</li>
+<li>git - 版本控制管理工具</li>
+<li>neovide - Neovim 的图形界面</li>
+</ul>
+<blockquote>
+<p>以上的需要安装的依赖, 如果你的机器上没有安装, 请先安装.<br>这些软件包都在github上有对应的安装包, 可以直接下载安装.<br>一般都是编译好的二进制文件, windows平台都是exe文件, 配置好对应的环境变量即可.<br>但是, 手动安装的过程太过繁琐, 所以下面使用包管理工具安装依赖(对如何手动安装依赖, 可以移步到下方的扩展阅读或自行百度).</p>
+</blockquote>
+<p><strong>windows下包管理工具的选择</strong></p>
+<p><em>Chocolatey</em></p>
+<p><code>Chocolatey</code> 的社区仓库里有 9000 多个软件，几乎涵盖了所有的主流软件。Chocolatey 还提供一个 GUI 程序，方便普通用户使用。</p>
+<p>由于 Chocolatey 采用常规全局模式安装软件，所以需要管理员权限。如果采用非管理员模式，Chocolatey 只能安装 Portable 版本的软件，可用软件数量就少了很多。</p>
+<p><em>Scoop</em></p>
+<p><code>Scoop</code> 可以添加第三方的 bucket，也就是安装源。默认的 main bucket 里有 900 多个软件，extras bucket 里有 1300 多个软件。值得一提的是，还有个 versions bucket，里面包含了一些软件的历史版本。虽然 Scoop 上的软件数量不多，但是涵盖了大多数开发工具。对于软件开发人员来说，使用 Scoop 来搭建开发环境相当方便。</p>
+<p>与 Chocolatey 采用系统全局安装方式不同的是，Scoop 安装的软件都保存在 %userprofile%\scoop\apps 路径下，不会污染全局环境，不需要管理员权限就可以安装软件。</p>
+<p><strong>安装Scoop</strong></p>
+<blockquote>
+<p>这里以下写好的安装脚本, 执行环境需要是管理员权限</p>
+</blockquote>
+<p><em>0: 代理环境准备(如果你不是在墙内,可以跳过)</em></p>
+<p><strong><em>powershell代理</em></strong></p>
+<p>以管理员的身份运行powershell:</p>
+<div class="hljs"><pre><code class="hljs arduino">Start-<span class="hljs-built_in">Process</span> powershell -Verb runAs</code></pre></div>
+
+<p>设置代理</p>
+<div class="hljs"><pre><code class="hljs routeros">netsh winhttp <span class="hljs-built_in">set</span><span class="hljs-built_in"> proxy </span><span class="hljs-string">&quot;127.0.0.1:7890&quot;</span></code></pre></div>
+
+<p>检查代理:</p>
+<div class="hljs"><pre><code class="hljs dart">netsh winhttp <span class="hljs-keyword">show</span> proxy</code></pre></div>
+<p>测试连接:</p>
+<div class="hljs"><pre><code class="hljs awk">iwr -Uri https:<span class="hljs-regexp">//</span>www.google.com
+
+<span class="hljs-comment"># or</span>
+
+iwr -Uri https:<span class="hljs-regexp">//</span>www.google.com | Select-Object -Property StatusCode</code></pre></div>
+
+<p>关闭proxy:</p>
+<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">netsh winhttp reset proxy</span></code></pre></div>
+
+
+
+<p><em>1. 创建文件 <code>install.ps1</code></em></p>
+<p>内容如下:</p>
+<div class="hljs"><pre><code class="hljs powershell"><span class="hljs-comment"># Self-elevate the script if not running as administrator</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-operator">-not</span> ([<span class="hljs-type">Security.Principal.WindowsPrincipal</span>] [<span class="hljs-type">Security.Principal.WindowsIdentity</span>]::GetCurrent()).IsInRole(`
+    [<span class="hljs-type">Security.Principal.WindowsBuiltInRole</span>] <span class="hljs-string">&quot;Administrator&quot;</span>)) &#123;
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Restarting as administrator...&quot;</span>
+    <span class="hljs-built_in">Start-Process</span> powershell <span class="hljs-string">&quot;-NoProfile -ExecutionPolicy Bypass -File `&quot;<span class="hljs-variable">$PSCommandPath</span>`&quot;&quot;</span> <span class="hljs-literal">-Verb</span> RunAs
+    <span class="hljs-keyword">exit</span>
+&#125;
+
+
+<span class="hljs-comment"># Set execution policy</span>
+<span class="hljs-built_in">Set-ExecutionPolicy</span> <span class="hljs-literal">-ExecutionPolicy</span> RemoteSigned <span class="hljs-literal">-Scope</span> CurrentUser <span class="hljs-literal">-Force</span>
+
+<span class="hljs-comment"># Install Scoop</span>
+<span class="hljs-comment"># Check if Scoop is already installed</span>
+<span class="hljs-variable">$ScoopInstalled</span> = <span class="hljs-built_in">Get-Command</span> scoop <span class="hljs-literal">-ErrorAction</span> SilentlyContinue
+
+<span class="hljs-keyword">if</span> (<span class="hljs-operator">-not</span> <span class="hljs-variable">$ScoopInstalled</span>) &#123;
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Scoop not found. Installing Scoop...&quot;</span>
+    <span class="hljs-built_in">irm</span> get.scoop.sh <span class="hljs-literal">-outfile</span> <span class="hljs-string">&#x27;install.ps1&#x27;</span>
+    <span class="hljs-built_in">iex</span> <span class="hljs-string">&quot;&amp; &#123;<span class="hljs-variable">$</span>(irm get.scoop.sh)&#125; -RunAsAdmin&quot;</span>
+
+    <span class="hljs-comment"># Clean up install.ps1</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Test-Path</span> <span class="hljs-string">&quot;./install.ps1&quot;</span>) &#123;
+        <span class="hljs-built_in">Remove-Item</span> <span class="hljs-string">&quot;./install.ps1&quot;</span> <span class="hljs-literal">-Force</span>
+        <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Removed install.ps1&quot;</span>
+    &#125;
+&#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Scoop is already installed. Skipping installation.&quot;</span>
+&#125;
+
+<span class="hljs-comment"># Define Scoop directories</span>
+<span class="hljs-variable">$SCOOP_USER</span> = <span class="hljs-string">&#x27;D:\software\develop\Scoop\userApps&#x27;</span>
+<span class="hljs-variable">$SCOOP_GLOBAL</span> = <span class="hljs-string">&#x27;D:\software\develop\Scoop\globalApps&#x27;</span>
+
+<span class="hljs-comment"># Create directories if not exist</span>
+<span class="hljs-keyword">if</span> (!(<span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$SCOOP_USER</span>)) &#123;
+    <span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-ItemType</span> Directory <span class="hljs-literal">-Path</span> <span class="hljs-variable">$SCOOP_USER</span> <span class="hljs-literal">-Force</span> | <span class="hljs-built_in">Out-Null</span>
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Created user app directory: <span class="hljs-variable">$SCOOP_USER</span>&quot;</span>
+&#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;User app directory already exists: <span class="hljs-variable">$SCOOP_USER</span>&quot;</span>
+&#125;
+
+<span class="hljs-keyword">if</span> (!(<span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$SCOOP_GLOBAL</span>)) &#123;
+    <span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-ItemType</span> Directory <span class="hljs-literal">-Path</span> <span class="hljs-variable">$SCOOP_GLOBAL</span> <span class="hljs-literal">-Force</span> | <span class="hljs-built_in">Out-Null</span>
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Created global app directory: <span class="hljs-variable">$SCOOP_GLOBAL</span>&quot;</span>
+&#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Global app directory already exists: <span class="hljs-variable">$SCOOP_GLOBAL</span>&quot;</span>
+&#125;
+
+<span class="hljs-comment"># Set environment variables for current user</span>
+[<span class="hljs-type">Environment</span>]::SetEnvironmentVariable(<span class="hljs-string">&#x27;SCOOP&#x27;</span>, <span class="hljs-variable">$SCOOP_USER</span>, [<span class="hljs-type">EnvironmentVariableTarget</span>]::User)
+[<span class="hljs-type">Environment</span>]::SetEnvironmentVariable(<span class="hljs-string">&#x27;SCOOP_GLOBAL&#x27;</span>, <span class="hljs-variable">$SCOOP_GLOBAL</span>, [<span class="hljs-type">EnvironmentVariableTarget</span>]::User)
+
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Environment variables set:&quot;</span>
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;  SCOOP = <span class="hljs-variable">$SCOOP_USER</span>&quot;</span>
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;  SCOOP_GLOBAL = <span class="hljs-variable">$SCOOP_GLOBAL</span>&quot;</span>
+
+<span class="hljs-comment"># Set them for current session as well</span>
+<span class="hljs-variable">$env:SCOOP</span> = <span class="hljs-variable">$SCOOP_USER</span>
+<span class="hljs-variable">$env:SCOOP_GLOBAL</span> = <span class="hljs-variable">$SCOOP_GLOBAL</span>
+
+<span class="hljs-comment"># Install aria2 to speed up downloads</span>
+scoop install aria2
+
+<span class="hljs-comment"># Clean up install.ps1</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">Test-Path</span> <span class="hljs-string">&quot;./install.ps1&quot;</span>) &#123;
+    <span class="hljs-built_in">Remove-Item</span> <span class="hljs-string">&quot;./install.ps1&quot;</span> <span class="hljs-literal">-Force</span>
+    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Removed install.ps1&quot;</span>
+&#125;
+
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;Setup complete&quot;</span>
+</code></pre></div>
+<p><em>2. 管理员运行powershell</em></p>
+<p>执行如下命令:</p>
+<div class="hljs"><pre><code class="hljs bash">./install.ps1</code></pre></div>
+
+<p><strong>Scoop安装LazyVim所需依赖</strong></p>
+<p>打开git-bash.exe， 新建文件 <code>scoop_tools_installer.sh</code>, 写入如下内容</p>
+<div class="hljs"><pre><code class="hljs bash">
+<span class="hljs-comment">#!/usr/bin/env bash</span>
+
+<span class="hljs-comment"># 定义输出颜色（绿色、黄色、重置）</span>
+GREEN=<span class="hljs-string">&quot;\033[32m&quot;</span>
+YELLOW=<span class="hljs-string">&quot;\033[33m&quot;</span>
+RESET=<span class="hljs-string">&quot;\033[0m&quot;</span>
+
+<span class="hljs-comment"># 工具名到描述的映射表（用于展示）</span>
+<span class="hljs-built_in">declare</span> -A TOOL_MAP=(
+  [httpd]=<span class="hljs-string">&quot;Apache HTTP Server (含 ab 性能测试工具)&quot;</span>
+  [fzf]=<span class="hljs-string">&quot;命令行模糊查找工具&quot;</span>
+  [fd]=<span class="hljs-string">&quot;现代化替代 find 的工具&quot;</span>
+  [gcc]=<span class="hljs-string">&quot;GNU C/C++ 编译器&quot;</span>
+  [ripgrep]=<span class="hljs-string">&quot;快速文本搜索 (替代 grep)&quot;</span>
+  [unzip]=<span class="hljs-string">&quot;解压 ZIP 文件&quot;</span>
+  [tree-sitter]=<span class="hljs-string">&quot;用于代码语法解析&quot;</span>
+  [luarocks]=<span class="hljs-string">&quot;Lua 包管理器&quot;</span>
+  [lazygit]=<span class="hljs-string">&quot;Git 命令行界面管理工具&quot;</span>
+  [jq]=<span class="hljs-string">&quot;轻量级 JSON 处理工具&quot;</span>
+  [mycli]=<span class="hljs-string">&quot;MySQL 命令行客户端&quot;</span>
+  [shellcheck]=<span class="hljs-string">&quot;Shell 脚本静态分析工具&quot;</span>
+  [htop]=<span class="hljs-string">&quot;交互式进程查看器&quot;</span>
+  [axel]=<span class="hljs-string">&quot;多线程下载工具&quot;</span>
+  [sz]=<span class="hljs-string">&quot;Zmodem 传输工具&quot;</span>
+  [rz]=<span class="hljs-string">&quot;Zmodem 传输工具&quot;</span>
+  [cloc]=<span class="hljs-string">&quot;代码统计工具&quot;</span>
+  [tmux]=<span class="hljs-string">&quot;终端复用工具&quot;</span>
+  [you-get]=<span class="hljs-string">&quot;媒体下载工具&quot;</span>
+  [thefuck]=<span class="hljs-string">&quot;命令行命令更正工具&quot;</span>
+  [wget]=<span class="hljs-string">&quot;下载文件工具&quot;</span>
+)
+
+<span class="hljs-comment"># 工具名到使用提示的映射（安装后展示）</span>
+<span class="hljs-built_in">declare</span> -A TOOL_TIPS=(
+  [httpd]=<span class="hljs-string">&quot;运行 ab 性能测试：ab -n 100 -c 10 http://localhost/&quot;</span>
+  [fzf]=<span class="hljs-string">&quot;使用：git ls-files | fzf&quot;</span>
+  [fd]=<span class="hljs-string">&quot;使用：fd keyword&quot;</span>
+  [gcc]=<span class="hljs-string">&quot;使用：gcc hello.c -o hello&quot;</span>
+  [ripgrep]=<span class="hljs-string">&quot;使用：rg &#x27;pattern&#x27; ./src&quot;</span>
+  [unzip]=<span class="hljs-string">&quot;使用：unzip file.zip&quot;</span>
+  [tree-sitter]=<span class="hljs-string">&quot;使用需搭配 Neovim / CLI 工具&quot;</span>
+  [luarocks]=<span class="hljs-string">&quot;使用：luarocks install &lt;package&gt;&quot;</span>
+  [lazygit]=<span class="hljs-string">&quot;使用：lazygit&quot;</span>
+  [jq]=<span class="hljs-string">&quot;使用：echo &#x27;&#123;&quot;</span>name<span class="hljs-string">&quot;: &quot;</span>John<span class="hljs-string">&quot;&#125;&#x27; | jq .name&quot;</span>
+  [mycli]=<span class="hljs-string">&quot;使用：mycli -u root -p&quot;</span>
+  [shellcheck]=<span class="hljs-string">&quot;使用：shellcheck your_script.sh&quot;</span>
+  [htop]=<span class="hljs-string">&quot;使用：htop&quot;</span>
+  [axel]=<span class="hljs-string">&quot;使用：axel https://example.com/file.zip&quot;</span>
+  [sz]=<span class="hljs-string">&quot;使用：sz filename&quot;</span>
+  [rz]=<span class="hljs-string">&quot;使用：rz&quot;</span>
+  [cloc]=<span class="hljs-string">&quot;使用：cloc .&quot;</span>
+  [tmux]=<span class="hljs-string">&quot;使用：tmux new-session -s mysession&quot;</span>
+  [you-get]=<span class="hljs-string">&quot;使用：you-get https://www.youtube.com/watch?v=example&quot;</span>
+  [thefuck]=<span class="hljs-string">&quot;使用：fuck&quot;</span>
+  [wget]=<span class="hljs-string">&quot;使用：wget --help&quot;</span>
+)
+
+selected_tools=()
+TOOL_KEYS=()
+
+<span class="hljs-comment"># 检查 scoop 是否安装，若无则使用管理员权限安装</span>
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">check_scoop</span></span>() &#123;
+  <span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v scoop &amp;&gt;/dev/null; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;YELLOW&#125;</span>未检测到 scoop，正在以管理员权限安装...<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+    powershell -Command <span class="hljs-string">&quot;Write-Host &#x27;Scoop not found. Installing Scoop...&#x27;; irm get.scoop.sh -outfile &#x27;install.ps1&#x27;; iex \&quot;&amp; &#123;<span class="hljs-subst">$(irm get.scoop.sh)</span>&#125; -RunAsAdmin\&quot;&quot;</span>
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;GREEN&#125;</span>✔ Scoop 已安装<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+  <span class="hljs-keyword">fi</span>
+&#125;
+
+<span class="hljs-comment"># 添加常用的 bucket（仓库），以获取更多软件</span>
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">add_buckets</span></span>() &#123;
+  <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;YELLOW&#125;</span>添加常用 bucket...<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+  scoop bucket add main || <span class="hljs-literal">true</span>      <span class="hljs-comment"># 主仓库</span>
+  scoop bucket add extras || <span class="hljs-literal">true</span>    <span class="hljs-comment"># 额外工具仓库</span>
+  scoop bucket add versions || <span class="hljs-literal">true</span>  <span class="hljs-comment"># 版本控制类工具仓库</span>
+&#125;
+
+<span class="hljs-comment"># 交互式选择安装的工具</span>
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">select_tools_interactive</span></span>() &#123;
+  <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;YELLOW&#125;</span>请选择你要安装的工具（空格分隔编号，如 1 3 5）：<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+  
+  i=1
+  <span class="hljs-comment"># 遍历 TOOL_MAP 中的所有键（工具名）</span>
+  <span class="hljs-keyword">for</span> tool <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;!TOOL_MAP[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;  [<span class="hljs-variable">$i</span>] <span class="hljs-variable">$&#123;tool&#125;</span> - <span class="hljs-variable">$&#123;TOOL_MAP[$tool]&#125;</span>&quot;</span>
+    TOOL_KEYS[<span class="hljs-variable">$i</span>]=<span class="hljs-variable">$tool</span>
+    ((i++))  <span class="hljs-comment"># 递增编号</span>
+  <span class="hljs-keyword">done</span>
+
+  <span class="hljs-built_in">read</span> -rp <span class="hljs-string">&quot;你的选择: &quot;</span> selection
+  <span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> <span class="hljs-variable">$selection</span>; <span class="hljs-keyword">do</span>
+    selected_tools+=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;TOOL_KEYS[$index]&#125;</span>&quot;</span>)
+  <span class="hljs-keyword">done</span>
+&#125;
+
+<span class="hljs-comment"># 安装选择的工具</span>
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">install_tools</span></span>() &#123;
+  <span class="hljs-keyword">for</span> tool <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;selected_tools[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;YELLOW&#125;</span>安装 <span class="hljs-variable">$&#123;tool&#125;</span>...<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+    scoop install <span class="hljs-string">&quot;<span class="hljs-variable">$tool</span>&quot;</span>
+  <span class="hljs-keyword">done</span>
+  <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;\n<span class="hljs-variable">$&#123;GREEN&#125;</span>✅ 所有工具已安装完成！<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+&#125;
+
+<span class="hljs-comment"># 显示每个工具的使用小贴士</span>
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">show_tips</span></span>() &#123;
+  <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;\n<span class="hljs-variable">$&#123;YELLOW&#125;</span>🧠 使用小贴士:<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+  <span class="hljs-keyword">for</span> tool <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;selected_tools[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;GREEN&#125;</span>- <span class="hljs-variable">$tool</span>:<span class="hljs-variable">$&#123;RESET&#125;</span> <span class="hljs-variable">$&#123;TOOL_TIPS[$tool]&#125;</span>&quot;</span>
+  <span class="hljs-keyword">done</span>
+&#125;
+
+<span class="hljs-comment"># 解析命令行参数</span>
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">parse_args</span></span>() &#123;
+  <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$#</span> -gt 0 ]]; <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-keyword">in</span>
+      --all)
+        <span class="hljs-comment"># --all: 安装所有工具</span>
+        selected_tools=(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;!TOOL_MAP[@]&#125;</span>&quot;</span>)
+        <span class="hljs-built_in">return</span>
+        ;;
+      --tools)
+        <span class="hljs-comment"># --tools 后面接多个工具名</span>
+        <span class="hljs-built_in">shift</span>
+        <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$#</span> -gt 0 &amp;&amp; ! <span class="hljs-variable">$1</span> =~ ^-- ]]; <span class="hljs-keyword">do</span>
+          selected_tools+=(<span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>)
+          <span class="hljs-built_in">shift</span>
+        <span class="hljs-keyword">done</span>
+        ;;
+      *)
+        <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;YELLOW&#125;</span>⚠️ 未知参数：$1<span class="hljs-variable">$&#123;RESET&#125;</span>&quot;</span>
+        <span class="hljs-built_in">shift</span>
+        ;;
+    <span class="hljs-keyword">esac</span>
+  <span class="hljs-keyword">done</span>
+&#125;
+
+<span class="hljs-comment"># 主函数</span>
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">main</span></span>() &#123;
+  check_scoop       <span class="hljs-comment"># 检查 Scoop 安装</span>
+  add_buckets       <span class="hljs-comment"># 添加 bucket</span>
+
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$#</span> -gt 0 ]]; <span class="hljs-keyword">then</span>
+    parse_args <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>  <span class="hljs-comment"># 解析命令行参数</span>
+  <span class="hljs-keyword">fi</span>
+
+  <span class="hljs-comment"># 如果没有通过参数选择工具，就进入交互模式</span>
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$&#123;#selected_tools[@]&#125;</span> -eq 0 ]]; <span class="hljs-keyword">then</span>
+    select_tools_interactive
+  <span class="hljs-keyword">fi</span>
+
+  install_tools
+  show_tips
+&#125;
+
+<span class="hljs-comment"># 执行主函数，传入所有参数</span>
+main <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+
+</code></pre></div>
+
+<p>执行安装</p>
+<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-string">./scoop_tools_installer.sh</span> <span class="hljs-params">--all</span></code></pre></div>
+
+<p><strong>进入neovim</strong></p>
+<blockquote>
+<p>进入neovim后, lazyvim会自动安装依赖包</p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">nvim</span></code></pre></div>
+
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-41-21.png" srcset="/img/loading.gif" class="">
+
+<h3 id="第五步-安装Nerd-font支持Lazyvim的icon展示"><a href="#第五步-安装Nerd-font支持Lazyvim的icon展示" class="headerlink" title="第五步: 安装Nerd font支持Lazyvim的icon展示"></a>第五步: 安装Nerd font支持Lazyvim的icon展示</h3><p>这是关键的一步，因为Neovim显示的许多细节依赖于额外的“字形”才能正确显示。你问，什么是字形？简单来说：单词中的一个字符在技术上是一个字形，图标也是一个字形，边框字符或角落字符等也是字形。Neovim使用这些字形一点一点构建用户界面。你可以在Nerdfont.com找到大量可免费下载的Nerd字体。我个人喜欢Caskaydia Cove，所以我下载了它。</p>
+<p>然后通过右键点击你刚刚下载的文件夹并选择“全部解压缩”，来解压（提取）文件夹，然后打开弹出的新解压后的文件夹。<del>你会看到一大堆文件，你需要找到那些标明与Windows兼容的文件。</del> 编辑提示 - 此字体现在似乎已经更新，所以只需全部选中即可，但请注意，此下载包含Monospace（等宽）和Regular（常规）版本，因此你会得到这两者。</p>
+
+
+
+<p>然后，右键点击你选中的字体组，并选择“为所有用户安装”。这将使这些字体在你的系统中对所有用户都可用。</p>
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-17-00-14-54.png" srcset="/img/loading.gif" class="">
+
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-17-00-12-57.png" srcset="/img/loading.gif" class="">
+
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-17-00-09-36.png" srcset="/img/loading.gif" class="">
+
+<p>如图搜所示, icon都显示正常了:</p>
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-17-00-17-52.png" srcset="/img/loading.gif" class="">
+
+
+<h2 id="扩展阅读-可选"><a href="#扩展阅读-可选" class="headerlink" title="扩展阅读(可选)"></a>扩展阅读(可选)</h2><p>有时候, 一些包管理工具没有对应的软件源, 则需要手动安装了对应的软件包.</p>
+<p><strong>手动安装gcc环境</strong></p>
+<p>Linux 和 Mac OS 这里应该不会有问题。</p>
+<p>对于 Windows，因为 <code>Treesitter</code> 需要 C 语言编译器编译一些语法解析器，所以我们需要装一个 C 编译器.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z">x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z</a>，直接点击就可以下载到浏览器下载目录下。如果有其他需要，也可以下载其他的压缩包，其中：</p>
+<ul>
+<li><p><code>i686</code> 是 32 位版本，x86_64 是 64 位版本</p>
+</li>
+<li><p><code>win32</code> 适用于 windows 操作系统，posix 适用于其他操作系统</p>
+</li>
+<li><p><code>dwarf</code> 是 32 位的异常处理系统，seh 适用于 64 位</p>
+</li>
+<li><p><code>msvcrt</code> 是旧版微软 C 运行时库，ucrt 是新版运行时库</p>
+</li>
+</ul>
+<p>解压到你喜欢的目录下，然后把解压后的文件夹移动到 <code>&#123;你的解压目录&#125;</code> 目录下，然后把 <code>&#123;填写你的解压目录&#125;\mingw64\bin</code> 添加到 <code>PATH</code> 环境变量中。</p>
+<div class="hljs"><pre><code class="hljs awk">curl -OL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/niXman/mi</span>ngw-builds-binaries<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/14.2.0-rt_v12-rev0/</span>x86_64-<span class="hljs-number">14.2</span>.<span class="hljs-number">0</span>-release-win32-seh-ucrt-rt_v12-rev0.<span class="hljs-number">7</span>z -o <span class="hljs-regexp">/d/</span>software<span class="hljs-regexp">/develop/</span></code></pre></div>
+
+<p>配置环境变量:</p>
+<div class="hljs"><pre><code class="hljs moonscript"><span class="hljs-name">D</span>:\software\develop\mingw64\bin</code></pre></div>
+
+<p><strong>手动安装chocolatey</strong></p>
+<p>管理员身份打开 PowerShell 的命令行界面，输入如下命令：</p>
+<div class="hljs"><pre><code class="hljs pgsql"><span class="hljs-keyword">Set</span>-ExecutionPolicy Bypass -Scope Process -Force; [<span class="hljs-keyword">System</span>.Net.ServicePointManager]::SecurityProtocol = [<span class="hljs-keyword">System</span>.Net.ServicePointManager]::SecurityProtocol -bor <span class="hljs-number">3072</span>; iex ((<span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.Net.WebClient).DownloadString(<span class="hljs-string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))
+</code></pre></div>
+
+<div class="hljs"><pre><code class="hljs crmsh">choco config set <span class="hljs-keyword">location</span> <span class="hljs-title">D</span>:/software/develop/</code></pre></div>
+
+<blockquote>
+<p><strong>1. Chocolatey 的默认安装路径是什么？</strong><br>A: <code>C:\ProgramData\chocolatey\lib</code>。</p>
+</blockquote>
+<p>如果安装过内容, C:\ProgramData\chocolatey\lib中的内容如下:</p>
+<div class="hljs"><pre><code class="hljs tap">-rw-r--r--<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span> <span class="hljs-number"> 21 </span>Apr <span class="hljs-number"> 9 </span>23:46 _processed.txt
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 bin2c5.1.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>144K Feb<span class="hljs-number"> 27 </span>14:04 choco.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:39 fd.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:40 fzf.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>383K Apr<span class="hljs-number"> 10 </span>00:41 lua5.1.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luac5.1.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocks.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocks-admin.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:41 luarocksw.exe*
+-rw-r--r--<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>4.4K Feb<span class="hljs-number"> 27 </span>14:04 RefreshEnv.cmd
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>384K Apr<span class="hljs-number"> 10 </span>00:38 rg.exe*
+-rwxr-xr-x<span class="hljs-number"> 1 </span>fhlin<span class="hljs-number"> 197609 </span>383K Apr<span class="hljs-number"> 10 </span>00:41 wlua5.1.exe*</code></pre></div>
+
+<blockquote>
+<p><strong>2. 如何更改 Chocolatey 的安装路径？</strong><br>A: 使用 <code>choco config set location &lt;new-path&gt;</code> 命令。</p>
+<p><strong>3. 如何查找已安装软件包的路径？</strong><br>A: 使用 <code>choco list -lo</code> PowerShell 命令或 ChocolateyGUI。</p>
+<p><strong>4. 更改 Chocolatey 安装路径后需要做什么？</strong><br>A: 重新启动 PowerShell 以使更改生效。</p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs cmake">choco <span class="hljs-keyword">install</span> neovide ripgrep fd fzf luarocks</code></pre></div>
+<blockquote>
+<p>如果你很多都没装, 则下边的命令会全一些<br>scoop install neovim neovide git lazygit gcc ripgrep fd unzip tree-sitter luarocks</p>
+</blockquote>
+
             </div>
             <hr>
             <div>
@@ -479,7 +832,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
                       <a href="/2022/08/21/Mac%E4%BD%BF%E7%94%A8Privoxy%E8%BD%AC%E5%8F%91Socks5%E4%BB%A3%E7%90%86/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Mac使用Privoxy转发Socks5代理</span>
-                        <span class="visible-mobile">前の記事</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -488,7 +841,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
                     
                       <a href="/2022/07/17/Docker%E5%AE%89%E8%A3%85Nginx/">
                         <span class="hidden-mobile">Docker安装Nginx</span>
-                        <span class="visible-mobile">次の記事</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -537,7 +890,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
 
@@ -564,7 +917,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -573,7 +926,7 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">キーワード</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
