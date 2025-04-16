@@ -78,7 +78,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                首页
               </a>
             </li>
           
@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                归档
               </a>
             </li>
           
@@ -102,7 +102,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                分类
               </a>
             </li>
           
@@ -114,7 +114,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                标签
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                Links
+                友链
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                关于
               </a>
             </li>
           
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.3k 字
+      4.4k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      62
+      63
        分钟
     </span>
   
@@ -445,10 +445,22 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
 <li>gcc - GNU C/C++ 编译器</li>
 <li>git - 版本控制管理工具</li>
 <li>neovide - Neovim 的图形界面</li>
+<li>nodejs - Node.js 的 JavaScript 运行时环境</li>
 </ul>
 <blockquote>
 <p>以上的需要安装的依赖, 如果你的机器上没有安装, 请先安装.<br>这些软件包都在github上有对应的安装包, 可以直接下载安装.<br>一般都是编译好的二进制文件, windows平台都是exe文件, 配置好对应的环境变量即可.<br>但是, 手动安装的过程太过繁琐, 所以下面使用包管理工具安装依赖(对如何手动安装依赖, 可以移步到下方的扩展阅读或自行百度).</p>
 </blockquote>
+<p><strong>使用版本管理器 nvm 安装 NodeJS</strong></p>
+<p>主要用于内置的 LazyVim 包管理器，称为 <code>mason</code>。</p>
+<p>执行以下命令来安装 nvm 和 NodeJS 的 LTS 版本：</p>
+<div class="hljs"><pre><code class="hljs bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+nvm install --lts
+nvm use --lts</code></pre></div>
+
+<p>检查是否安装成功：</p>
+<div class="hljs"><pre><code class="hljs bash">npm --version</code></pre></div>
+
+<p>参考文档：<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating">nvm 安装和更新</a></p>
 <p><strong>windows下包管理工具的选择</strong></p>
 <p><em>Chocolatey</em></p>
 <p><code>Chocolatey</code> 的社区仓库里有 9000 多个软件，几乎涵盖了所有的主流软件。Chocolatey 还提供一个 GUI 程序，方便普通用户使用。</p>
@@ -832,7 +844,7 @@ main <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;
                       <a href="/2022/08/21/Mac%E4%BD%BF%E7%94%A8Privoxy%E8%BD%AC%E5%8F%91Socks5%E4%BB%A3%E7%90%86/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Mac使用Privoxy转发Socks5代理</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
@@ -841,7 +853,7 @@ main <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;
                     
                       <a href="/2022/07/17/Docker%E5%AE%89%E8%A3%85Nginx/">
                         <span class="hidden-mobile">Docker安装Nginx</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -890,7 +902,7 @@ main <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -917,7 +929,7 @@ main <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -926,7 +938,7 @@ main <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
