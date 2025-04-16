@@ -279,13 +279,33 @@ neovide git lazygit gcc ripgrep fd unzip tree-sitter luarocks
 - gcc - GNU C/C++ 编译器
 - git - 版本控制管理工具
 - neovide - Neovim 的图形界面
+- nodejs - Node.js 的 JavaScript 运行时环境
 
 >
 > 以上的需要安装的依赖, 如果你的机器上没有安装, 请先安装.
 > 这些软件包都在github上有对应的安装包, 可以直接下载安装.
 > 一般都是编译好的二进制文件, windows平台都是exe文件, 配置好对应的环境变量即可.
 > 但是, 手动安装的过程太过繁琐, 所以下面使用包管理工具安装依赖(对如何手动安装依赖, 可以移步到下方的扩展阅读或自行百度).
-> 
+
+**使用版本管理器 nvm 安装 NodeJS**
+
+主要用于内置的 LazyVim 包管理器，称为 `mason`。
+
+执行以下命令来安装 nvm 和 NodeJS 的 LTS 版本：
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+nvm install --lts
+nvm use --lts
+```
+
+检查是否安装成功：
+
+```bash
+npm --version
+```
+
+参考文档：[nvm 安装和更新](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 
 **windows下包管理工具的选择**
 
