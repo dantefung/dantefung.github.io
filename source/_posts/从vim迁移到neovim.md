@@ -305,6 +305,17 @@ nvm use --lts
 npm --version
 ```
 
+由于众所周知的原因, 我们需要对npm进行一些配置, 否则会出现一些问题:
+
+```
+  ◍ markdownlint-cli2
+      ▶ # [8/8] spawn: npm.cmd failed with exit code 1 and signal 0. 
+    ◍ json-lsp
+      ▶ # [8/8] spawn: npm.cmd failed with exit code 1 and signal 0. 
+    ◍ markdown-toc
+      ▶ # [8/8] spawn: npm.cmd failed with exit code 1 and signal 0.
+```
+
 为了加速 npm 包的下载速度，尤其是在国内网络环境下，使用国内的 npm 镜像源是一个非常有效的方法。以下是一些常见的 npm 镜像源以及如何切换它们的方法。
 
 **常见的 npm 镜像源**
