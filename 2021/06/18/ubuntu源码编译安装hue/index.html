@@ -1,65 +1,110 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-Hans" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/icon.jpeg">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpeg">
+  <link rel="icon" href="/img/icon.jpeg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="DANTE FUNG">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="ubuntu源码编译安装hue简介Hue是一个开源的Apache Hadoop UI系统，最早是由Cloudera Desktop演化而来，由Cloudera贡献给开源社区，它是基于Python Web框架Django实现的。通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据，例如操作HDFS上的数据，运行MapReduce Job,Hive等等。 功能介绍数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu源码编译安装hue">
+<meta property="og:url" content="http://dantefung.github.io/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/index.html">
+<meta property="og:site_name" content="DANTE FUNGの像初雪一样洒落">
+<meta property="og:description" content="ubuntu源码编译安装hue简介Hue是一个开源的Apache Hadoop UI系统，最早是由Cloudera Desktop演化而来，由Cloudera贡献给开源社区，它是基于Python Web框架Django实现的。通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据，例如操作HDFS上的数据，运行MapReduce Job,Hive等等。 功能介绍数">
+<meta property="og:locale">
+<meta property="og:image" content="http://dantefung.github.io/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-17-26-05.png">
+<meta property="og:image" content="http://dantefung.github.io/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-17-49-29.png">
+<meta property="og:image" content="http://dantefung.github.io/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-18-26-44.png">
+<meta property="og:image" content="http://dantefung.github.io/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-21-17-05-41.png">
+<meta property="article:published_time" content="2021-06-18T09:12:59.000Z">
+<meta property="article:modified_time" content="2022-03-24T06:18:59.048Z">
+<meta property="article:author" content="DANTE FUNG">
+<meta property="article:tag" content="运维">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://dantefung.github.io/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-17-26-05.png">
+  
+  
+  
   <title>ubuntu源码编译安装hue - DANTE FUNGの像初雪一样洒落</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dantefung.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.1"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>DANTE FUNGの像初雪一样洒落</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -76,9 +121,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                <span>Startseite</span>
               </a>
             </li>
           
@@ -88,9 +133,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                <span>Archiv</span>
               </a>
             </li>
           
@@ -100,9 +145,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                <span>Kategorien</span>
               </a>
             </li>
           
@@ -112,9 +157,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                <span>Schlagwörter</span>
               </a>
             </li>
           
@@ -124,47 +169,26 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/musics/">
-                <i class="iconfont icon-category-fill"></i>
-                music
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                <span>Über</span>
               </a>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -172,96 +196,97 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/bg_night.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-06-18 17:12" pubdate>
-      June 18, 2021 pm
-    </time>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg_night.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ubuntu源码编译安装hue"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-18 17:12" pubdate>
+          June 18, 2021 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 minuten
+        
+      </span>
+    
+
+    
+    
   </div>
 
 
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      1.9k 字
-    </span>
-  
+        
+      </div>
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      31
-       分钟
-    </span>
-  
-
-  
-  
+    </div>
+  </div>
 </div>
 
-            
-          </div>
+</div>
 
-          
-        </div>
-      </div>
-    </div>
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">ubuntu源码编译安装hue</h1>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ubuntu源码编译安装hue</h1>
             
-            <div class="markdown-body" id="post-body">
-              <h1 id="ubuntu源码编译安装hue"><a href="#ubuntu源码编译安装hue" class="headerlink" title="ubuntu源码编译安装hue"></a>ubuntu源码编译安装hue</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Hue是一个开源的Apache Hadoop UI系统，最早是由Cloudera Desktop演化而来，<br>由Cloudera贡献给开源社区，它是基于Python Web框架Django实现的。<br>通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据，<br>例如操作HDFS上的数据，运行MapReduce Job,Hive等等。</p>
+            
+              <div class="markdown-body">
+                
+                <h1 id="ubuntu源码编译安装hue"><a href="#ubuntu源码编译安装hue" class="headerlink" title="ubuntu源码编译安装hue"></a>ubuntu源码编译安装hue</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Hue是一个开源的Apache Hadoop UI系统，最早是由Cloudera Desktop演化而来，<br>由Cloudera贡献给开源社区，它是基于Python Web框架Django实现的。<br>通过使用Hue我们可以在浏览器端的Web控制台上与Hadoop集群进行交互来分析处理数据，<br>例如操作HDFS上的数据，运行MapReduce Job,Hive等等。</p>
 <h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><p>数据库查询编辑器,支持 Hive, Impala, MySql, PostGres, Sqlite and Oracle<br>动态查询仪表盘,支持 Solr<br>支持 Spark 编辑器和仪表盘<br>浏览器查看状态,支持 YARN, HDFS, Hive table Metastore, HBase, ZooKeeper<br>支持 Pig Editor, Sqoop2, Oozie workflows 编辑器和仪表盘<br>将数据导入hdfs</p>
 <h2 id="安装包下载地址"><a href="#安装包下载地址" class="headerlink" title="安装包下载地址"></a>安装包下载地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/cloudera/hue/releases/tag/release-4.10.0">https://github.com/cloudera/hue/releases/tag/release-4.10.0</a></p>
-<h2 id="创建用户组及用户"><a href="#创建用户组及用户" class="headerlink" title="创建用户组及用户"></a>创建用户组及用户</h2><div class="hljs"><pre><code class="hljs processing">groupadd <span class="hljs-built_in">hue</span>
-useradd -g <span class="hljs-built_in">hue</span> <span class="hljs-built_in">hue</span> -m -s /bin/bash
-passwd <span class="hljs-built_in">hue</span> # 为<span class="hljs-built_in">hue</span>用户设置密码为<span class="hljs-built_in">hue</span>
-chown -R <span class="hljs-built_in">hue</span>.<span class="hljs-property">hue</span> /opt/<span class="hljs-built_in">hue</span>-release<span class="hljs-number">-4.10</span><span class="hljs-number">.0</span>
-su - <span class="hljs-built_in">hue</span></code></pre></div>
+<h2 id="创建用户组及用户"><a href="#创建用户组及用户" class="headerlink" title="创建用户组及用户"></a>创建用户组及用户</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs processing">groupadd <span class="hljs-built_in">hue</span><br>useradd -g <span class="hljs-built_in">hue</span> <span class="hljs-built_in">hue</span> -m -s /bin/bash<br>passwd <span class="hljs-built_in">hue</span> # 为<span class="hljs-built_in">hue</span>用户设置密码为<span class="hljs-built_in">hue</span><br>chown -R <span class="hljs-built_in">hue</span>.<span class="hljs-property">hue</span> /opt/<span class="hljs-built_in">hue</span>-release<span class="hljs-number">-4.10</span><span class="hljs-number">.0</span><br>su - <span class="hljs-built_in">hue</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="hosts文件配置"><a href="#hosts文件配置" class="headerlink" title="hosts文件配置"></a>hosts文件配置</h2><div class="hljs"><pre><code class="hljs accesslog">hue@utopa:/opt/hue-release-<span class="hljs-number">4</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>$ cat /etc/hosts
-<span class="hljs-number">127.0.0.1</span>       localhost
-<span class="hljs-number">127.0.1.1</span>       utopa
-
-# The following lines are desirable for IPv6 capable hosts
-::<span class="hljs-number">1</span>     ip6-localhost ip6-loopback
-fe00::<span class="hljs-number">0</span> ip6-localnet
-ff00::<span class="hljs-number">0</span> ip6-mcastprefix
-ff02::<span class="hljs-number">1</span> ip6-allnodes
-ff02::<span class="hljs-number">2</span> ip6-allrouters
-<span class="hljs-number">10.10.27.70</span> zk.had01 GT70
-<span class="hljs-number">10.10.27.8</span> zk.had02 root-RiskCtrl
-<span class="hljs-number">10.187.100.120</span> zk.had03 selenium-test</code></pre></div>
+<h2 id="hosts文件配置"><a href="#hosts文件配置" class="headerlink" title="hosts文件配置"></a>hosts文件配置</h2><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">hue@utopa:/opt/hue-release-<span class="hljs-number">4</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>$ cat /etc/hosts<br><span class="hljs-number">127.0.0.1</span>       localhost<br><span class="hljs-number">127.0.1.1</span>       utopa<br><br># The following lines are desirable for IPv6 capable hosts<br>::<span class="hljs-number">1</span>     ip6-localhost ip6-loopback<br>fe00::<span class="hljs-number">0</span> ip6-localnet<br>ff00::<span class="hljs-number">0</span> ip6-mcastprefix<br>ff02::<span class="hljs-number">1</span> ip6-allnodes<br>ff02::<span class="hljs-number">2</span> ip6-allrouters<br><span class="hljs-number">10.10.27.70</span> zk.had01 GT70<br><span class="hljs-number">10.10.27.8</span> zk.had02 root-RiskCtrl<br><span class="hljs-number">10.187.100.120</span> zk.had03 selenium-test<br></code></pre></td></tr></table></figure>
 
 
 <h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><h3 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h3><ul>
@@ -271,336 +296,244 @@ ff02::<span class="hljs-number">2</span> ip6-allrouters
 <li>python2.7</li>
 <li>npm</li>
 </ul>
-<div class="hljs"><pre><code class="hljs routeros">
-sudo apt-<span class="hljs-built_in">get</span> install maven
-sudo apt-<span class="hljs-built_in">get</span> install npm
-sudo apt-<span class="hljs-built_in">get</span> install mysql</code></pre></div>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>sudo apt-<span class="hljs-built_in">get</span> install maven<br>sudo apt-<span class="hljs-built_in">get</span> install npm<br>sudo apt-<span class="hljs-built_in">get</span> install mysql<br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs q">sudo apt-<span class="hljs-built_in">get</span> install ant gcc g++ libkrb5-<span class="hljs-built_in">dev</span> libffi-<span class="hljs-built_in">dev</span> libmysqlclient-<span class="hljs-built_in">dev</span> libssl-<span class="hljs-built_in">dev</span> libsasl2-<span class="hljs-built_in">dev</span> libsasl2-modules-gssapi-mit libsqlite3-<span class="hljs-built_in">dev</span> libtidy<span class="hljs-number">-0.99</span><span class="hljs-number">-0</span> libxml2-<span class="hljs-built_in">dev</span> libxslt-<span class="hljs-built_in">dev</span> make libldap2-<span class="hljs-built_in">dev</span> maven python-<span class="hljs-built_in">dev</span> python-setuptools libgmp3-<span class="hljs-built_in">dev</span></code></pre></div>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">sudo apt-<span class="hljs-built_in">get</span> install ant gcc g++ libkrb5-<span class="hljs-built_in">dev</span> libffi-<span class="hljs-built_in">dev</span> libmysqlclient-<span class="hljs-built_in">dev</span> libssl-<span class="hljs-built_in">dev</span> libsasl2-<span class="hljs-built_in">dev</span> libsasl2-modules-gssapi-mit libsqlite3-<span class="hljs-built_in">dev</span> libtidy<span class="hljs-number">-0.99</span><span class="hljs-number">-0</span> libxml2-<span class="hljs-built_in">dev</span> libxslt-<span class="hljs-built_in">dev</span> make libldap2-<span class="hljs-built_in">dev</span> maven python-<span class="hljs-built_in">dev</span> python-setuptools libgmp3-<span class="hljs-built_in">dev</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /opt/hue-release-<span class="hljs-number">4</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>
-<span class="hljs-attribute">sudo</span> make apps</code></pre></div>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /opt/hue-release-<span class="hljs-number">4</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span><br><span class="hljs-attribute">sudo</span> make apps<br></code></pre></td></tr></table></figure>
 
-<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-17-26-05.png" srcset="/img/loading.gif" class="">
+<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-17-26-05.png" srcset="/img/loading.gif" lazyload class="">
 
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><div class="hljs"><pre><code class="hljs awk">vi <span class="hljs-regexp">/home/</span>hue<span class="hljs-regexp">/hue/</span>desktop<span class="hljs-regexp">/conf/</span>pseudo-distributed.ini</code></pre></div>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs swift">vi <span class="hljs-regexp">/home/</span>hue<span class="hljs-regexp">/hue/</span>desktop<span class="hljs-regexp">/conf/</span>pseudo<span class="hljs-operator">-</span><span class="hljs-keyword">distributed</span>.ini<br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-section">[desktop]</span>
-       <span class="hljs-comment"># 安全秘钥，存储session的加密处理</span>
-       <span class="hljs-attr">secret_key</span>=malsjljljwrlwerwel
-       <span class="hljs-comment"># 不启用的模块</span>
-       <span class="hljs-attr">app_blacklist</span>=impala,security,filebrowser,jobbrowser,rdbms,jobsub，pig,hbase,sqoop,zookeeper,metastore,spark,oozie,indexer</code></pre></div>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[desktop]</span><br>       <span class="hljs-comment"># 安全秘钥，存储session的加密处理</span><br>       <span class="hljs-attr">secret_key</span>=malsjljljwrlwerwel<br>       <span class="hljs-comment"># 不启用的模块</span><br>       <span class="hljs-attr">app_blacklist</span>=impala,security,filebrowser,jobbrowser,rdbms,jobsub，pig,hbase,sqoop,zookeeper,metastore,spark,oozie,indexer <br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-section">[[database]]</span>
-       <span class="hljs-comment"># 数据库引擎类型</span>
-       <span class="hljs-attr">engine</span>=mysql
-       <span class="hljs-comment"># 数据库主机地址</span>
-       <span class="hljs-attr">host</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">221.130</span>
-       <span class="hljs-comment"># 数据库端口</span>
-       <span class="hljs-attr">port</span>=<span class="hljs-number">3306</span>
-       <span class="hljs-comment"># 数据库用户名</span>
-       <span class="hljs-attr">user</span>=hue
-       <span class="hljs-comment"># 数据库密码</span>
-       <span class="hljs-attr">password</span>=hue
-       <span class="hljs-comment"># 数据库库名</span>
-       <span class="hljs-attr">name</span>=hue</code></pre></div>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[[database]]</span><br>       <span class="hljs-comment"># 数据库引擎类型</span><br>       <span class="hljs-attr">engine</span>=mysql<br>       <span class="hljs-comment"># 数据库主机地址</span><br>       <span class="hljs-attr">host</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">221.130</span><br>       <span class="hljs-comment"># 数据库端口</span><br>       <span class="hljs-attr">port</span>=<span class="hljs-number">3306</span><br>       <span class="hljs-comment"># 数据库用户名</span><br>       <span class="hljs-attr">user</span>=hue<br>       <span class="hljs-comment"># 数据库密码</span><br>       <span class="hljs-attr">password</span>=hue<br>       <span class="hljs-comment"># 数据库库名</span><br>       <span class="hljs-attr">name</span>=hue<br></code></pre></td></tr></table></figure>
 
 <h2 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h2><p>创建数据库，数据库：hue，用户：hue，密码：hue</p>
-<div class="hljs"><pre><code class="hljs pgsql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> hue <span class="hljs-keyword">DEFAULT</span> CHARSET utf8 <span class="hljs-keyword">COLLATE</span> utf8_general_ci;
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">&#x27;hue&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span>IDENTIFIED <span class="hljs-keyword">BY</span> <span class="hljs-string">&#x27;hue&#x27;</span>;
-<span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> hue.* <span class="hljs-keyword">TO</span> <span class="hljs-string">&#x27;hue&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span>;
-FLUSH <span class="hljs-keyword">PRIVILEGES</span>;</code></pre></div>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> hue <span class="hljs-keyword">DEFAULT</span> CHARSET utf8 <span class="hljs-keyword">COLLATE</span> utf8_general_ci;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">&#x27;hue&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span>IDENTIFIED <span class="hljs-keyword">BY</span> <span class="hljs-string">&#x27;hue&#x27;</span>;<br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> hue.* <span class="hljs-keyword">TO</span> <span class="hljs-string">&#x27;hue&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span>;<br>FLUSH <span class="hljs-keyword">PRIVILEGES</span>;<br></code></pre></td></tr></table></figure>
 
 <p>初始化数据库</p>
-<div class="hljs"><pre><code class="hljs awk">sudo .<span class="hljs-regexp">/build/</span>env<span class="hljs-regexp">/bin/</span>hue syncdb
-sudo .<span class="hljs-regexp">/build/</span>env<span class="hljs-regexp">/bin/</span>hue migrate</code></pre></div>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo .<span class="hljs-regexp">/build/</span>env<span class="hljs-regexp">/bin/</span>hue syncdb<br>sudo .<span class="hljs-regexp">/build/</span>env<span class="hljs-regexp">/bin/</span>hue migrate<br></code></pre></td></tr></table></figure>
 
-<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-17-49-29.png" srcset="/img/loading.gif" class="">
+<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-17-49-29.png" srcset="/img/loading.gif" lazyload class="">
 
 
-<h2 id="启动系统服务，并通过浏览器访问"><a href="#启动系统服务，并通过浏览器访问" class="headerlink" title="启动系统服务，并通过浏览器访问"></a>启动系统服务，并通过浏览器访问</h2><div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> chown -R gtland.gtland /opt/hue-release-<span class="hljs-number">4</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span></code></pre></div>
+<h2 id="启动系统服务，并通过浏览器访问"><a href="#启动系统服务，并通过浏览器访问" class="headerlink" title="启动系统服务，并通过浏览器访问"></a>启动系统服务，并通过浏览器访问</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> chown -R gtland.gtland /opt/hue-release-<span class="hljs-number">4</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
 <p>启动服务:</p>
-<div class="hljs"><pre><code class="hljs gradle">nohup .<span class="hljs-regexp">/build/</span>env<span class="hljs-regexp">/bin/</span>supervisor &gt;&gt;<span class="hljs-regexp">/dev/</span><span class="hljs-keyword">null</span> <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &amp;</code></pre></div>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts">nohup .<span class="hljs-keyword">/build/</span>env<span class="hljs-keyword">/bin/</span>supervisor &gt;&gt;<span class="hljs-keyword">/dev/</span>null <span class="hljs-number">2</span>&gt;<span class="hljs-variable">&amp;1</span> &amp;<br></code></pre></td></tr></table></figure>
 
 <p>浏览器访问:</p>
-<div class="hljs"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span><span class="hljs-number">192.168</span>.<span class="hljs-number">221.130</span>:<span class="hljs-number">8000</span>/
-</code></pre></div>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//192.168.221.130:8000/</span><br><br></code></pre></td></tr></table></figure>
 
-<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-18-26-44.png" srcset="/img/loading.gif" class="">
+<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-18-18-26-44.png" srcset="/img/loading.gif" lazyload class="">
 
 <p><strong>启动与关闭:</strong></p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-comment"># 启动hue</span>
-cd <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/hue/</span>build<span class="hljs-regexp">/env/</span>bin
-supervisor &amp;
-<span class="hljs-comment"># 关闭hue</span>
-pkill -U hue
-或者
-killall -u hue</code></pre></div>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 启动hue</span><br>cd <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/hue/</span>build<span class="hljs-regexp">/env/</span>bin<br>supervisor &amp;<br><span class="hljs-comment"># 关闭hue</span><br>pkill -U hue<br>或者<br>killall -u hue<br></code></pre></td></tr></table></figure>
 
 
 <h2 id="HUE-集成Hadoop"><a href="#HUE-集成Hadoop" class="headerlink" title="HUE 集成Hadoop"></a>HUE 集成Hadoop</h2><p>1、<strong>修改core-site.xml</strong></p>
-<div class="hljs"><pre><code class="hljs awk">cd <span class="hljs-regexp">/opt/</span>hadoop-<span class="hljs-number">2.10</span>.<span class="hljs-number">1</span><span class="hljs-regexp">/etc/</span>hadoop
-vi core-site.xml</code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span>/etc/hadoop<br><span class="hljs-attribute">vi</span> core-site.xml <br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>2、<strong>修改hdfs-site.xml</strong></p>
-<div class="hljs"><pre><code class="hljs awk">cd <span class="hljs-regexp">/opt/</span>hadoop-<span class="hljs-number">2.10</span>.<span class="hljs-number">1</span><span class="hljs-regexp">/etc/</span>hadoop
-vi hdfs-site.xml</code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span>/etc/hadoop<br><span class="hljs-attribute">vi</span> hdfs-site.xml<br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.webhdfs.enabled<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.webhdfs.enabled<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>修改httpfs-site.xml</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>httpfs.proxyuser.hadoop.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>httpfs.proxyuser.hadoop.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>httpfs.proxyuser.hadoop.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>httpfs.proxyuser.hadoop.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>3、重启 HDFS</strong></p>
 <p><strong>4、修改 pseudo-distributed.ini</strong></p>
-<div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">sudo</span> vi pseudo-distributed.ini</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vi pseudo-distributed.ini<br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-section">[hadoop]</span>
-
-  <span class="hljs-comment"># Configuration for HDFS NameNode</span>
-  <span class="hljs-comment"># ------------------------------------------------------------------------</span>
-  <span class="hljs-section">[[hdfs_clusters]]</span>
-    <span class="hljs-comment"># HA support by using HttpFs</span>
-
-    <span class="hljs-section">[[[default]]]</span>
-      <span class="hljs-comment"># Enter the filesystem uri</span>
-      <span class="hljs-attr">fs_defaultfs</span>=hdfs://<span class="hljs-number">10.10</span>.<span class="hljs-number">27.70</span>:<span class="hljs-number">9000</span>
-
-      <span class="hljs-comment"># NameNode logical name.</span>
-      <span class="hljs-comment">## logical_name=</span>
-
-      <span class="hljs-comment"># Use WebHdfs/HttpFs as the communication mechanism.</span>
-      <span class="hljs-comment"># Domain should be the NameNode or HttpFs host.</span>
-      <span class="hljs-comment"># Default port is 14000 for HttpFs.</span>
-      <span class="hljs-comment">## webhdfs_url=http://localhost:50070/webhdfs/v1</span>
-      <span class="hljs-attr">webhdfs_url</span>=http://<span class="hljs-number">10.10</span>.<span class="hljs-number">27.70</span>:<span class="hljs-number">50070</span>/webhdfs/v1  
-      <span class="hljs-comment"># Whether Hue should list this HDFS cluster. For historical reason there is no way to disable HDFS.</span>
-      <span class="hljs-attr">is_enabled</span>=<span class="hljs-literal">true</span></code></pre></div>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[hadoop]</span><br><br>  <span class="hljs-comment"># Configuration for HDFS NameNode</span><br>  <span class="hljs-comment"># ------------------------------------------------------------------------</span><br>  <span class="hljs-section">[[hdfs_clusters]]</span><br>    <span class="hljs-comment"># HA support by using HttpFs</span><br><br>    <span class="hljs-section">[[[default]]]</span><br>      <span class="hljs-comment"># Enter the filesystem uri</span><br>      <span class="hljs-attr">fs_defaultfs</span>=hdfs://<span class="hljs-number">10.10</span>.<span class="hljs-number">27.70</span>:<span class="hljs-number">9000</span><br><br>      <span class="hljs-comment"># NameNode logical name.</span><br>      <span class="hljs-comment">## logical_name=</span><br><br>      <span class="hljs-comment"># Use WebHdfs/HttpFs as the communication mechanism.</span><br>      <span class="hljs-comment"># Domain should be the NameNode or HttpFs host.</span><br>      <span class="hljs-comment"># Default port is 14000 for HttpFs.</span><br>      <span class="hljs-comment">## webhdfs_url=http://localhost:50070/webhdfs/v1</span><br>      <span class="hljs-attr">webhdfs_url</span>=http://<span class="hljs-number">10.10</span>.<span class="hljs-number">27.70</span>:<span class="hljs-number">50070</span>/webhdfs/v1  <br>      <span class="hljs-comment"># Whether Hue should list this HDFS cluster. For historical reason there is no way to disable HDFS.</span><br>      <span class="hljs-attr">is_enabled</span>=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
 
 
 <h2 id="HUE-集成yarn"><a href="#HUE-集成yarn" class="headerlink" title="HUE 集成yarn"></a>HUE 集成yarn</h2><p><strong>1.修改hue的配置文件( pseudo-distributed.ini)</strong></p>
-<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-21-17-05-41.png" srcset="/img/loading.gif" class="">
+<img src="/2021/06/18/ubuntu%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85hue/2021-06-21-17-05-41.png" srcset="/img/loading.gif" lazyload class="">
 
 <p><strong>2.开启yarn日志聚合服务</strong></p>
 <p>修改 hadoop的配置文件(yarn-site.xml)</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 是否启用日志聚集功能。--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- 设置日志保留时间，单位是秒 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>106800<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-</code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 是否启用日志聚集功能。--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 设置日志保留时间，单位是秒 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>106800<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
 <p><strong>3.重启yarn,hue</strong></p>
 <p>重启hadoop集群</p>
-<div class="hljs"><pre><code class="hljs vim"><span class="hljs-keyword">stop</span>-<span class="hljs-keyword">all</span>-<span class="hljs-keyword">sh</span>
-start-<span class="hljs-keyword">all</span>.<span class="hljs-keyword">sh</span></code></pre></div>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">stop</span>-<span class="hljs-keyword">all</span>-<span class="hljs-keyword">sh</span><br>start-<span class="hljs-keyword">all</span>.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
 
 <p>重启hue</p>
-<div class="hljs"><pre><code class="hljs awk">su hue
-cd <span class="hljs-regexp">/opt/</span>hue-release-<span class="hljs-number">4.10</span>.<span class="hljs-number">0</span><span class="hljs-regexp">/opt/</span>hue-
-build<span class="hljs-regexp">/env/</span>bin/supervisor</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">su hue<br><span class="hljs-built_in">cd</span> /opt/hue-release-4.10.0/opt/hue-<br>build/env/bin/supervisor<br></code></pre></td></tr></table></figure>
 
 <h2 id="HUE集成Hbase"><a href="#HUE集成Hbase" class="headerlink" title="HUE集成Hbase"></a>HUE集成Hbase</h2><p>Hbase配置文件-hbase-site.xml</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hbase.thrift.support.proxyuser<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
- 
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hbase.regionserver.thrift.http<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hbase.thrift.support.proxyuser<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br> <br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hbase.regionserver.thrift.http<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>core-site.xml添加</p>
-<div class="hljs"><pre><code class="hljs xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hadoop.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hadoop.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-</code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs xml"><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hue.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hadoop.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.hadoop.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">sudo</span> vi pseudo-distributed.ini</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vi pseudo-distributed.ini<br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-section">[hbase]</span>
-<span class="hljs-attr">hbase_conf_dir</span>=&#123;&#123;HBASE_CONF_DIR&#125;&#125;
-<span class="hljs-attr">thrift_transport</span>=buffered</code></pre></div>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[hbase]</span><br><span class="hljs-attr">hbase_conf_dir</span>=&#123;&#123;HBASE_CONF_DIR&#125;&#125;<br><span class="hljs-attr">thrift_transport</span>=buffered<br></code></pre></td></tr></table></figure>
 
 
-<div class="hljs"><pre><code class="hljs vim">hbase-daemon.<span class="hljs-keyword">sh</span> <span class="hljs-keyword">stop</span> thrift
-hbase-daemon.<span class="hljs-keyword">sh</span> start thrift</code></pre></div>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">hbase-daemon<span class="hljs-selector-class">.sh</span> <span class="hljs-selector-tag">stop</span> thrift<br>hbase-daemon<span class="hljs-selector-class">.sh</span> start thrift<br></code></pre></td></tr></table></figure>
 
 <h2 id="HUE集成hive"><a href="#HUE集成hive" class="headerlink" title="HUE集成hive"></a>HUE集成hive</h2><p><strong>1.  配置Hive</strong></p>
-<p>Hive数据存储在HDFS上，默认路径是【/user/hive/warehouse】（或者是在hive-site.xml中配置的hive.metastore.warehouse.dir），要确保这个路径存在，并且你创建数据表的用户对这个路径具有写权限。</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-     <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.server2.thrift.port<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>10000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-     <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.server2.thrift.bind.host<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>yjt<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.metastore.uris<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>thrift://yjt:9083<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.server2.long.polling.timeout<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>5000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></code></pre></div>
+<p>Hive数据存储在HDFS上，默认路径是【&#x2F;user&#x2F;hive&#x2F;warehouse】（或者是在hive-site.xml中配置的hive.metastore.warehouse.dir），要确保这个路径存在，并且你创建数据表的用户对这个路径具有写权限。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.server2.thrift.port<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>10000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.server2.thrift.bind.host<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>yjt<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.metastore.uris<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>thrift://yjt:9083<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hive.server2.long.polling.timeout<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>5000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
 <p><strong>2.  配置Hue</strong></p>
-<p>修改【HUE_HOME/desktop/conf】目录下的 <code>pseudo-distributed.ini</code> 关于beeswax的配置来集成Hive，这些配置位于[beeswax]</p>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-comment"># Host where HiveServer2 is running.</span>
-<span class="hljs-comment"># If Kerberos security is enabled, use fully-qualified domain name (FQDN).</span>
-<span class="hljs-attr">hive_server_host</span>=zk.had01
-
-<span class="hljs-comment"># Port where HiveServer2 Thrift server runs on.</span>
-<span class="hljs-attr">hive_server_port</span>=<span class="hljs-number">10000</span>
-
-<span class="hljs-comment"># Hive configuration directory, where hive-site.xml is located</span>
-<span class="hljs-attr">hive_conf_dir</span>=/opt/hive/conf</code></pre></div>
+<p>修改【HUE_HOME&#x2F;desktop&#x2F;conf】目录下的 <code>pseudo-distributed.ini</code> 关于beeswax的配置来集成Hive，这些配置位于[beeswax]</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># Host where HiveServer2 is running.</span><br><span class="hljs-comment"># If Kerberos security is enabled, use fully-qualified domain name (FQDN).</span><br><span class="hljs-attr">hive_server_host</span>=zk.had01<br><br><span class="hljs-comment"># Port where HiveServer2 Thrift server runs on.</span><br><span class="hljs-attr">hive_server_port</span>=<span class="hljs-number">10000</span><br><br><span class="hljs-comment"># Hive configuration directory, where hive-site.xml is located</span><br><span class="hljs-attr">hive_conf_dir</span>=/opt/hive/conf<br></code></pre></td></tr></table></figure>
 
 <p><strong>3. 验证</strong></p>
 <p><strong>3.1 准备测试数据</strong></p>
 <p><strong>3.2 启动hive</strong></p>
 <p>需要同时启动hive的metastore和hiveserve2。</p>
 <p>在zk.had01(10.10.27.70)的节点上 </p>
-<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-string">/opt/apache-hive-2.3.9/bin</span>
-<span class="hljs-string">./hive</span> <span class="hljs-params">--service</span> hiveserver2 <span class="hljs-params">--hiveconf</span> hive.server2.thrift.port 10000 &amp;
-<span class="hljs-string">./hive</span> <span class="hljs-params">--service</span> hiveserver2 &amp;</code></pre></div>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">/opt/apache-hive-2.3.9/bin</span><br><span class="hljs-string">./hive</span> <span class="hljs-params">--service</span> hiveserver2 <span class="hljs-params">--hiveconf</span> hive.server2.thrift.port 10000 &amp;<br><span class="hljs-string">./hive</span> <span class="hljs-params">--service</span> hiveserver2 &amp;<br></code></pre></td></tr></table></figure>
 
 <p><font color='red'>matestore服务是Hive连接Mysql的metastore数据库用的。</font><br><font color='red'>hiveserver2服务是通过JDBC访问Hive用的，默认端口是：10000。</font></p>
 <p>启动hiveWebInterface，通过网页访问hive</p>
-<div class="hljs"><pre><code class="hljs jboss-cli"><span class="hljs-string">./hive</span> <span class="hljs-params">--service</span> hwi &amp;</code></pre></div>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">./hive</span> <span class="hljs-params">--service</span> hwi &amp;<br></code></pre></td></tr></table></figure>
 
 <p><strong>3.3 导入数据</strong></p>
-<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/opt/</span>apache-hive-<span class="hljs-number">2.3</span>.<span class="hljs-number">9</span>/bin
-hive</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">/opt/apache-hive-2.3.9/bin<br>hive<br></code></pre></td></tr></table></figure>
 
 <p>创建数据库</p>
-<div class="hljs"><pre><code class="hljs node-repl"><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">create database my_test;</span>
-<span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">use my_test;</span></code></pre></div>
+<figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs node-repl"><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">create database my_test;</span><br><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">use my_test;</span><br></code></pre></td></tr></table></figure>
 
 <p>创建数据表</p>
-<div class="hljs"><pre><code class="hljs pgsql">&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> department(<span class="hljs-type">name</span> string, count <span class="hljs-type">int</span>)  <span class="hljs-keyword">row</span> <span class="hljs-keyword">format</span> delimited fields terminated <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;\t&#x27;</span>;</code></pre></div>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">&gt; <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> department(<span class="hljs-type">name</span> string, count <span class="hljs-type">int</span>)  <span class="hljs-keyword">row</span> <span class="hljs-keyword">format</span> delimited fields terminated <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;\t&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
 <p><font color='red'>这里的 terminated by ‘\t’ 是与创建表时所声明的字段分隔符一致的。</font></p>
 <p>导入数据</p>
-<div class="hljs"><pre><code class="hljs pgsql">&gt; <span class="hljs-keyword">load</span> data <span class="hljs-keyword">local</span> inpath <span class="hljs-string">&#x27;/usr/local/cdh-5.2.0/hive-0.13.1/department.txt&#x27;</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">table</span> department;</code></pre></div>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">&gt; <span class="hljs-keyword">load</span> data <span class="hljs-keyword">local</span> inpath <span class="hljs-string">&#x27;/usr/local/cdh-5.2.0/hive-0.13.1/department.txt&#x27;</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">table</span> department;<br></code></pre></td></tr></table></figure>
 
 <p>查询</p>
-<div class="hljs"><pre><code class="hljs node-repl"><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">select * <span class="hljs-keyword">from</span> department;</span></code></pre></div>
+<figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs node-repl"><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">select * <span class="hljs-keyword">from</span> department;</span><br></code></pre></td></tr></table></figure>
 
 
 <h2 id="issues"><a href="#issues" class="headerlink" title="issues"></a>issues</h2><p><code>Hue _mysql.c:44:10: fatal error: my_config.h: No such file or directory</code></p>
-<div class="hljs"><pre><code class="hljs livecodeserver">I could <span class="hljs-keyword">not</span> find <span class="hljs-keyword">any</span> package <span class="hljs-keyword">for</span> CentOS <span class="hljs-number">8</span> <span class="hljs-keyword">with</span> that <span class="hljs-built_in">file</span>. However, I found <span class="hljs-keyword">the</span> source <span class="hljs-built_in">file</span> <span class="hljs-keyword">for</span> <span class="hljs-number">8.0</span><span class="hljs-number">.11</span> <span class="hljs-keyword">on</span> <span class="hljs-title">MySQL</span>’<span class="hljs-title">s</span> <span class="hljs-title">official</span> <span class="hljs-title">site</span>.
- 
-<span class="hljs-keyword">https</span>://dev.mysql.com/doc/dev/mysql-server/<span class="hljs-number">8.0</span><span class="hljs-number">.11</span>/my__config_8h_source.html
- 
-I created <span class="hljs-keyword">a</span> my_config.h <span class="hljs-built_in">file</span> under /usr/<span class="hljs-built_in">include</span> <span class="hljs-keyword">and</span> copy <span class="hljs-keyword">the</span> content <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> source <span class="hljs-built_in">file</span> <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">file</span> I just created. I was able <span class="hljs-built_in">to</span> install MySQL-python module afterward.</code></pre></div>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">I could <span class="hljs-keyword">not</span> find <span class="hljs-keyword">any</span> package <span class="hljs-keyword">for</span> CentOS <span class="hljs-number">8</span> <span class="hljs-keyword">with</span> that <span class="hljs-built_in">file</span>. However, I found <span class="hljs-keyword">the</span> source <span class="hljs-built_in">file</span> <span class="hljs-keyword">for</span> <span class="hljs-number">8.0</span><span class="hljs-number">.11</span> <span class="hljs-keyword">on</span> <span class="hljs-title">MySQL</span>’<span class="hljs-title">s</span> <span class="hljs-title">official</span> <span class="hljs-title">site</span>.<br> <br><span class="hljs-keyword">https</span>://dev.mysql.com/doc/dev/mysql-server/<span class="hljs-number">8.0</span><span class="hljs-number">.11</span>/my__config_8h_source.html<br> <br>I created <span class="hljs-keyword">a</span> my_config.h <span class="hljs-built_in">file</span> under /usr/<span class="hljs-built_in">include</span> <span class="hljs-keyword">and</span> copy <span class="hljs-keyword">the</span> content <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> source <span class="hljs-built_in">file</span> <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">file</span> I just created. I was able <span class="hljs-built_in">to</span> install MySQL-python module afterward.<br></code></pre></td></tr></table></figure>
 
 <p><code>hue使用hbase报错User: root is not allowed to impersonate admin</code></p>
 <p>hadoop 的 core-site.xml</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.xxx.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-     <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.xxx.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-</code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.xxx.hosts<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.proxyuser.xxx.groups<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
 <p>User: root is not allowed to impersonate admin</p>
 <p>User:后面是什么xxx就是什么</p>
-<div class="hljs"><pre><code class="hljs awk">sudo thrift --gen py <span class="hljs-regexp">/opt/</span>hbase-<span class="hljs-number">1.7</span>.<span class="hljs-number">0</span><span class="hljs-regexp">/src/m</span>ain<span class="hljs-regexp">/resources/</span>org<span class="hljs-regexp">/apache/</span>hadoop<span class="hljs-regexp">/hbase/</span>thrift2/hbase.thrift</code></pre></div>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo thrift --gen py <span class="hljs-regexp">/opt/</span>hbase-<span class="hljs-number">1.7</span>.<span class="hljs-number">0</span><span class="hljs-regexp">/src/m</span>ain<span class="hljs-regexp">/resources/</span>org<span class="hljs-regexp">/apache/</span>hadoop<span class="hljs-regexp">/hbase/</span>thrift2/hbase.thrift<br></code></pre></td></tr></table></figure>
 
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://gethue.com/how-to-build-hue-on-ubuntu-14-04-trusty/">How to build Hue on Ubuntu</a></li>
 </ul>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%BF%90%E7%BB%B4/" class="print-no-link">#运维</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ubuntu源码编译安装hue</div>
+      <div>http://dantefung.github.io/2021/06/18/ubuntu源码编译安装hue/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>DANTE FUNG</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>June 18, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
               
               
-                <div class="post-prevnext row">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/23/ubuntu%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4jdk/">
+                      <a href="/2021/06/23/ubuntu%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4jdk/" title="ubuntu修改默认jdk">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">ubuntu修改默认jdk</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/18/Docker%E5%AE%89%E8%A3%85HUE/">
+                      <a href="/2021/06/18/Docker%E5%AE%89%E8%A3%85HUE/" title="Docker安装HUE">
                         <span class="hidden-mobile">Docker安装HUE</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -610,73 +543,74 @@ I created <span class="hljs-keyword">a</span> my_config.h <span class="hljs-buil
             </div>
 
             
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    function loadGitalk() {
-      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
-      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: '4c62e572f688c01a7c7e',
-          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
-          repo: 'blog-comment',
-          owner: 'dantefung',
-          admin: ["dantefung"],
-          id: md5(location.pathname),
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-      });
-    }
-    waitElementVisible('gitalk-container', loadGitalk);
-  </script>
-
-
-              </article>
-            
           </article>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -684,194 +618,185 @@ I created <span class="hljs-keyword">a</span> my_config.h <span class="hljs-buil
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  
+    
 
-  
+    
+  </main>
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-    
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
   
-    <script  src="/js/lazyload.js" ></script>
   
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
       }
     });
-  </script>
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "ubuntu源码编译安装hue&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
     };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    anchors.add(res.join(", "))
-  </script>
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>

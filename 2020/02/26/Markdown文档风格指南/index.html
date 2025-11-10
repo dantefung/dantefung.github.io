@@ -1,65 +1,105 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-Hans" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/icon.jpeg">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpeg">
+  <link rel="icon" href="/img/icon.jpeg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="DANTE FUNG">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="1.标题  1.1层级标题分为四级。  一级标题：文章的标题 二级标题：文章主要部分的大标题 三级标题：二级标题下面一级的小标题 四级标题：三级标题下面某一方面的小标题  下面是示例。 12345678# 一级标题## 二级标题### 三级标题#### 四级标题  1.2原则（1）一级标题下，不能直接出现三级标题。 示例：下面的文章结构，缺少二级标题。 1234# 一级标题### 三级标题  （">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown文档风格指南">
+<meta property="og:url" content="http://dantefung.github.io/2020/02/26/Markdown%E6%96%87%E6%A1%A3%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="DANTE FUNGの像初雪一样洒落">
+<meta property="og:description" content="1.标题  1.1层级标题分为四级。  一级标题：文章的标题 二级标题：文章主要部分的大标题 三级标题：二级标题下面一级的小标题 四级标题：三级标题下面某一方面的小标题  下面是示例。 12345678# 一级标题## 二级标题### 三级标题#### 四级标题  1.2原则（1）一级标题下，不能直接出现三级标题。 示例：下面的文章结构，缺少二级标题。 1234# 一级标题### 三级标题  （">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-02-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-24T06:18:58.844Z">
+<meta property="article:author" content="DANTE FUNG">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
   <title>Markdown文档风格指南 - DANTE FUNGの像初雪一样洒落</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dantefung.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.1"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>DANTE FUNGの像初雪一样洒落</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -76,9 +116,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                <span>Startseite</span>
               </a>
             </li>
           
@@ -88,9 +128,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                <span>Archiv</span>
               </a>
             </li>
           
@@ -100,9 +140,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                <span>Kategorien</span>
               </a>
             </li>
           
@@ -112,9 +152,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                <span>Schlagwörter</span>
               </a>
             </li>
           
@@ -124,47 +164,26 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/musics/">
-                <i class="iconfont icon-category-fill"></i>
-                music
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                <span>Über</span>
               </a>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -172,506 +191,415 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/bg_night.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-02-26 00:00" pubdate>
-      February 26, 2020 am
-    </time>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg_night.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Markdown文档风格指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-02-26 00:00" pubdate>
+          February 26, 2020 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 minuten
+        
+      </span>
+    
+
+    
+    
   </div>
 
 
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      3.9k 字
-    </span>
-  
+        
+      </div>
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      42
-       分钟
-    </span>
-  
-
-  
-  
+    </div>
+  </div>
 </div>
 
-            
-          </div>
+</div>
 
-          
-        </div>
-      </div>
-    </div>
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">Markdown文档风格指南</h1>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Markdown文档风格指南</h1>
             
-            <div class="markdown-body" id="post-body">
-              <p><a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/26/mRSVTMtjgHL6DXW.jpg"></a></p>
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/26/mRSVTMtjgHL6DXW.jpg"></a></p>
 <p>1.标题</p>
 <hr>
 <h3 id="1-1层级"><a href="#1-1层级" class="headerlink" title="1.1层级"></a>1.1层级</h3><p>标题分为四级。</p>
 <ul>
-<li>  一级标题：文章的标题</li>
-<li>  二级标题：文章主要部分的大标题</li>
-<li>  三级标题：二级标题下面一级的小标题</li>
-<li>  四级标题：三级标题下面某一方面的小标题</li>
+<li>一级标题：文章的标题</li>
+<li>二级标题：文章主要部分的大标题</li>
+<li>三级标题：二级标题下面一级的小标题</li>
+<li>四级标题：三级标题下面某一方面的小标题</li>
 </ul>
 <p>下面是示例。</p>
-<div class="hljs"><pre><code class="hljs clean"># 一级标题
-
-## 二级标题
-
-### 三级标题
-
-#### 四级标题
-</code></pre></div>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs clean"># 一级标题<br><br>## 二级标题<br><br>### 三级标题<br><br>#### 四级标题<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="1-2原则"><a href="#1-2原则" class="headerlink" title="1.2原则"></a>1.2原则</h3><p>（1）一级标题下，不能直接出现三级标题。</p>
 <p>示例：下面的文章结构，缺少二级标题。</p>
-<div class="hljs"><pre><code class="hljs clean"># 一级标题
-
-### 三级标题
-</code></pre></div>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs clean"># 一级标题<br><br>### 三级标题<br><br></code></pre></td></tr></table></figure>
 
 <p>（2）标题要避免孤立编号（即同级标题只有一个）。</p>
 <p>示例：下面的文章结构，<code>二级标题 A</code>只包含一个三级标题，完全可以省略<code>三级标题 A</code>。</p>
-<div class="hljs"><pre><code class="hljs clean">## 二级标题 A
-
-### 三级标题 A
-
-## 二级标题 B
-</code></pre></div>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clean">## 二级标题 A<br><br>### 三级标题 A<br><br>## 二级标题 B<br><br></code></pre></td></tr></table></figure>
 
 <p>（3）下级标题不重复上一级标题的名字。</p>
 <p>示例：下面的文章结构，二级标题与下属的三级标题同名，建议避免。</p>
-<div class="hljs"><pre><code class="hljs clean">## 概述
-
-### 概述
-</code></pre></div>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs clean">## 概述<br><br>### 概述<br><br></code></pre></td></tr></table></figure>
 
 <p>（4）谨慎使用四级标题，尽量避免出现，保持层级的简单，防止出现过于复杂的章节。</p>
 <p>如果三级标题下有并列性的内容，建议只使用项目列表（Item list）。</p>
 <p>示例：下面的结构二要好于结构一。后者适用的场景，主要是较长篇幅的内容。</p>
-<div class="hljs"><pre><code class="hljs clean">结构一
-
-### 三级标题
-
-#### 四级标题 A
-
-#### 四级标题 B
-
-#### 四级标题 C
-
-结构二
-
-### 三级标题
-
-**（<span class="hljs-number">1</span>）A**
-
-**（<span class="hljs-number">2</span>）B**
-
-**（<span class="hljs-number">3</span>）C**
-</code></pre></div>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs clean">结构一<br><br>### 三级标题<br><br>#### 四级标题 A<br><br>#### 四级标题 B<br><br>#### 四级标题 C<br><br>结构二<br><br>### 三级标题<br><br>**（<span class="hljs-number">1</span>）A**<br><br>**（<span class="hljs-number">2</span>）B**<br><br>**（<span class="hljs-number">3</span>）C**<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="2-文本"><a href="#2-文本" class="headerlink" title="2.文本"></a>2.文本</h2><h3 id="2-1字间距"><a href="#2-1字间距" class="headerlink" title="2.1字间距"></a>2.1字间距</h3><p>全角中文字符与半角英文字符之间，应有一个半角空格。</p>
-<div class="hljs"><pre><code class="hljs">错误：本文介绍如何快速启动Windows系统。
-
-正确：本文介绍如何快速启动 Windows 系统。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：本文介绍如何快速启动Windows系统。<br><br>正确：本文介绍如何快速启动 Windows 系统。<br><br></code></pre></td></tr></table></figure>
 
 <p>全角中文字符与半角阿拉伯数字之间，有没有半角空格都可，但必须保证风格统一，不能两种风格混杂。</p>
-<div class="hljs"><pre><code class="hljs tap">正确：2011年5月15日，我订购了5台笔记本电脑与10台平板电脑。
-
-正确：2011 年<span class="hljs-number"> 5 </span>月<span class="hljs-number"> 15 </span>日，我订购了<span class="hljs-number"> 5 </span>台笔记本电脑与<span class="hljs-number"> 10 </span>台平板电脑。
-</code></pre></div>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">正确：2011年5月15日，我订购了5台笔记本电脑与10台平板电脑。<br><br>正确：2011 年<span class="hljs-number"> 5 </span>月<span class="hljs-number"> 15 </span>日，我订购了<span class="hljs-number"> 5 </span>台笔记本电脑与<span class="hljs-number"> 10 </span>台平板电脑。<br><br></code></pre></td></tr></table></figure>
 
 <p>半角的百分号，视同阿拉伯数字。</p>
 <p>英文单位若不翻译，单位前的阿拉伯数字与单位间不留空格。</p>
-<div class="hljs"><pre><code class="hljs tap">错误：一部容量为<span class="hljs-number"> 16 </span>GB 的智能手机
-
-正确：一部容量为 16GB 的智能手机
-</code></pre></div>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">错误：一部容量为<span class="hljs-number"> 16 </span>GB 的智能手机<br><br>正确：一部容量为 16GB 的智能手机<br><br></code></pre></td></tr></table></figure>
 
 <p>半角英文字符和半角阿拉伯数字，与全角标点符号之间不留空格。</p>
-<div class="hljs"><pre><code class="hljs">错误：他的电脑是 MacBook Air 。
-
-正确：他的电脑是 MacBook Air。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：他的电脑是 MacBook Air 。<br><br>正确：他的电脑是 MacBook Air。<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="2-2-句子"><a href="#2-2-句子" class="headerlink" title="2.2 句子"></a>2.2 句子</h3><ul>
-<li>  避免使用长句。句子内部不使用逗号时，总长度不应该超过 40 个字；使用逗号时，总长度不应该超过 100 字或者正文的 3 行。</li>
-<li>  尽量使用简单句和并列句，避免使用复合句。</li>
+<li>避免使用长句。句子内部不使用逗号时，总长度不应该超过 40 个字；使用逗号时，总长度不应该超过 100 字或者正文的 3 行。</li>
+<li>尽量使用简单句和并列句，避免使用复合句。</li>
 </ul>
 <h3 id="2-3写作风格"><a href="#2-3写作风格" class="headerlink" title="2.3写作风格"></a>2.3写作风格</h3><p>1、尽量不使用被动语态，改为使用主动语态。</p>
-<div class="hljs"><pre><code class="hljs">错误：假如此软件尚未被安装，
-
-正确：假如尚未安装这个软件，
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：假如此软件尚未被安装，<br><br>正确：假如尚未安装这个软件，<br><br></code></pre></td></tr></table></figure>
 
 <p>2、不使用非正式的语言风格。</p>
-<div class="hljs"><pre><code class="hljs">错误：Lady Gaga 的演唱会真是酷毙了，从没看过这么给力的表演！！！
-
-正确：无法参加本次活动，我深感遗憾。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：Lady Gaga 的演唱会真是酷毙了，从没看过这么给力的表演！！！<br><br>正确：无法参加本次活动，我深感遗憾。<br><br></code></pre></td></tr></table></figure>
 
 <p>3、不使用冷僻、生造或者文言文的词语，而要使用现代汉语的常用表达方式。</p>
-<div class="hljs"><pre><code class="hljs">错误：这是唯二的快速启动的方法。
-
-正确：这是仅有的两种快速启动的方法。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：这是唯二的快速启动的方法。<br><br>正确：这是仅有的两种快速启动的方法。<br><br></code></pre></td></tr></table></figure>
 
 <p>4、用对”的”、”地”、”得”。</p>
-<div class="hljs"><pre><code class="hljs">她露出了开心的笑容。
-（形容词＋的＋名词）
-
-她开心地笑了。
-（副词＋地＋动词）
-
-她笑得很开心。
-（动词＋得＋副词）
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs">她露出了开心的笑容。<br>（形容词＋的＋名词）<br><br>她开心地笑了。<br>（副词＋地＋动词）<br><br>她笑得很开心。<br>（动词＋得＋副词）<br><br></code></pre></td></tr></table></figure>
 
 <p>5、使用代词时（比如”其”、”该”、”此”、”这”等词），必须明确指代的内容，保证只有一个含义。</p>
-<div class="hljs"><pre><code class="hljs">错误：从管理系统可以监视中继系统和受其直接控制的分配系统。
-
-正确：从管理系统可以监视两个系统：中继系统和受中继系统直接控制的分配系统。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：从管理系统可以监视中继系统和受其直接控制的分配系统。<br><br>正确：从管理系统可以监视两个系统：中继系统和受中继系统直接控制的分配系统。<br><br></code></pre></td></tr></table></figure>
 
 <p>6、名词前不要使用过多的形容词。</p>
-<div class="hljs"><pre><code class="hljs">错误：此设备的使用必须在接受过本公司举办的正式的设备培训的技师的指导下进行。
-
-正确：此设备必须在技师的指导下使用，且指导技师必须接受过由本公司举办的正式设备培训。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：此设备的使用必须在接受过本公司举办的正式的设备培训的技师的指导下进行。<br><br>正确：此设备必须在技师的指导下使用，且指导技师必须接受过由本公司举办的正式设备培训。<br><br></code></pre></td></tr></table></figure>
 
 <p>7、不包含任何标点符号的单个句子，或者以逗号分隔的句子构件，长度尽量保持在 20 个字以内；20～29 个字的句子，可以接受；30～39 个字的句子，语义必须明确，才能接受；多于 40 个字的句子，在任何情况下都不能接受。</p>
-<div class="hljs"><pre><code class="hljs">错误：本产品适用于从由一台服务器进行动作控制的单一节点结构到由多台服务器进行动作控制的并行处理程序结构等多种体系结构。
-
-正确：本产品适用于多种体系结构。无论是由一台服务器（单一节点结构），还是由多台服务器（并行处理结构）进行动作控制，均可以使用本产品。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：本产品适用于从由一台服务器进行动作控制的单一节点结构到由多台服务器进行动作控制的并行处理程序结构等多种体系结构。<br><br>正确：本产品适用于多种体系结构。无论是由一台服务器（单一节点结构），还是由多台服务器（并行处理结构）进行动作控制，均可以使用本产品。<br><br></code></pre></td></tr></table></figure>
 
 <p>8、同样一个意思，尽量使用肯定句表达，不使用否定句表达。</p>
-<div class="hljs"><pre><code class="hljs">错误：请确认没有接通装置的电源。
-
-正确：请确认装置的电源已关闭。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：请确认没有接通装置的电源。<br><br>正确：请确认装置的电源已关闭。<br><br></code></pre></td></tr></table></figure>
 
 <p>9、避免使用双重否定句。</p>
-<div class="hljs"><pre><code class="hljs">错误：没有删除权限的用户，不能删除此文件。
-
-正确：用户必须拥有删除权限，才能删除此文件。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：没有删除权限的用户，不能删除此文件。<br><br>正确：用户必须拥有删除权限，才能删除此文件。<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="2-4英文处理"><a href="#2-4英文处理" class="headerlink" title="2.4英文处理"></a>2.4英文处理</h3><p>英文原文如果使用了复数形式，翻译成中文时，应该将其还原为单数形式。</p>
-<div class="hljs"><pre><code class="hljs lasso">英文：⋯information stored <span class="hljs-keyword">in</span> random access memory (RAMs)⋯
-
-中文：<span class="hljs-params">...</span><span class="hljs-params">...</span>存储在随机存取存储器（RAM）里的信息<span class="hljs-params">...</span><span class="hljs-params">...</span>
-</code></pre></div>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lasso">英文：⋯information stored <span class="hljs-keyword">in</span> random access memory (RAMs)⋯<br><br>中文：<span class="hljs-params">...</span><span class="hljs-params">...</span>存储在随机存取存储器（RAM）里的信息<span class="hljs-params">...</span><span class="hljs-params">...</span><br><br></code></pre></td></tr></table></figure>
 
 <p>外文缩写可以使用半角圆点(<code>.</code>)表示缩写。</p>
-<div class="hljs"><pre><code class="hljs erlang">U.S.A.
-Apple, Inc.
-</code></pre></div>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs erlang">U.S.A.<br>Apple, Inc.<br><br></code></pre></td></tr></table></figure>
 
 <p>表示中文时，英文省略号（<code>⋯</code>）应改为中文省略号（<code>......</code>）。</p>
-<div class="hljs"><pre><code class="hljs vim">英文：<span class="hljs-number">5</span> minutes <span class="hljs-keyword">later</span>⋯
-
-中文：<span class="hljs-number">5</span> 分钟过去了⋯⋯
-</code></pre></div>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim">英文：<span class="hljs-number">5</span> minutes <span class="hljs-keyword">later</span>⋯<br><br>中文：<span class="hljs-number">5</span> 分钟过去了⋯⋯<br><br></code></pre></td></tr></table></figure>
 
 <p>英文书名或电影名改用中文表达时，双引号应改为书名号。</p>
-<div class="hljs"><pre><code class="hljs stata">英文：<span class="hljs-keyword">He</span> published <span class="hljs-keyword">an</span> article entitled <span class="hljs-string">&quot;The Future of the Aviation&quot;</span>.
-
-中文：他发表了一篇名为《航空业的未来》的文章。
-</code></pre></div>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata">英文：<span class="hljs-keyword">He</span> published <span class="hljs-keyword">an</span> article entitled <span class="hljs-string">&quot;The Future of the Aviation&quot;</span>.<br><br>中文：他发表了一篇名为《航空业的未来》的文章。<br><br></code></pre></td></tr></table></figure>
 
 <p>第一次出现英文词汇时，在括号中给出中文标注。此后再次出现时，直接使用英文缩写即可。</p>
-<div class="hljs"><pre><code class="hljs 1c">IOC（International Olympic Committee，国际奥林匹克委员会）。这样定义后，便可以直接使用<span class="hljs-string">&quot;IOC&quot;</span>了。
-</code></pre></div>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 1c">IOC（International Olympic Committee，国际奥林匹克委员会）。这样定义后，便可以直接使用<span class="hljs-string">&quot;IOC&quot;</span>了。<br><br></code></pre></td></tr></table></figure>
 
 <p>专有名词中每个词第一个字母均应大写，非专有名词则不需要大写。</p>
-<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">&quot;American Association of Physicists in Medicine&quot;</span>（美国医学物理学家协会）是专有名词，需要大写。
-
-<span class="hljs-string">&quot;online transaction processing&quot;</span>（在线事务处理）不是专有名词，不应大写。
-</code></pre></div>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;American Association of Physicists in Medicine&quot;</span>（美国医学物理学家协会）是专有名词，需要大写。<br><br><span class="hljs-string">&quot;online transaction processing&quot;</span>（在线事务处理）不是专有名词，不应大写。<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="3-段落"><a href="#3-段落" class="headerlink" title="3.段落"></a>3.段落</h2><h3 id="3-1原则"><a href="#3-1原则" class="headerlink" title="3.1原则"></a>3.1原则</h3><ul>
-<li>  一个段落只能有一个主题，或一个中心句子。</li>
-<li>  段落的中心句子放在段首，对全段内容进行概述。后面陈述的句子为核心句服务。</li>
-<li>  一个段落的长度不能超过七行，最佳段落长度小于等于四行。</li>
-<li>  段落的句子语气要使用陈述和肯定语气，避免使用感叹语气。</li>
-<li>  段落之间使用一个空行隔开。</li>
-<li>  段落开头不要留出空白字符。</li>
+<li>一个段落只能有一个主题，或一个中心句子。</li>
+<li>段落的中心句子放在段首，对全段内容进行概述。后面陈述的句子为核心句服务。</li>
+<li>一个段落的长度不能超过七行，最佳段落长度小于等于四行。</li>
+<li>段落的句子语气要使用陈述和肯定语气，避免使用感叹语气。</li>
+<li>段落之间使用一个空行隔开。</li>
+<li>段落开头不要留出空白字符。</li>
 </ul>
 <h3 id="3-2引用"><a href="#3-2引用" class="headerlink" title="3.2引用"></a>3.2引用</h3><p>引用第三方内容时，应注明出处。</p>
-<div class="hljs"><pre><code class="hljs vhdl">One man<span class="hljs-symbol">&#x27;s</span> <span class="hljs-keyword">constant</span> <span class="hljs-keyword">is</span> another man<span class="hljs-symbol">&#x27;s</span> <span class="hljs-keyword">variable</span>. <span class="hljs-comment">--- Alan Perlis</span>
-</code></pre></div>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">One man<span class="hljs-symbol">&#x27;s</span> <span class="hljs-keyword">constant</span> <span class="hljs-keyword">is</span> another man<span class="hljs-symbol">&#x27;s</span> <span class="hljs-keyword">variable</span>. <span class="hljs-comment">--- Alan Perlis</span><br><br></code></pre></td></tr></table></figure>
 
 <p>如果是全篇转载，请在全文开头显著位置注明作者和出处，并链接至原文。</p>
-<div class="hljs"><pre><code class="hljs">本文转载自 WikiQuote
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">本文转载自 WikiQuote<br><br></code></pre></td></tr></table></figure>
 
 <p>使用外部图片时，必须在图片下方或文末标明来源。</p>
-<div class="hljs"><pre><code class="hljs">本文部分图片来自 Wikipedia
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">本文部分图片来自 Wikipedia<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="4-数值"><a href="#4-数值" class="headerlink" title="4.数值"></a>4.数值</h2><h3 id="4-1半角数字"><a href="#4-1半角数字" class="headerlink" title="4.1半角数字"></a>4.1半角数字</h3><p>数字一律使用半角形式，不得使用全角形式。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-string">错误：</span> <span class="hljs-string">这件商品的价格是１０００元。</span>
-
-<span class="hljs-string">正确：</span> <span class="hljs-string">这件商品的价格是</span> <span class="hljs-number">1000</span> <span class="hljs-string">元。</span>
-</code></pre></div>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">错误：</span> <span class="hljs-string">这件商品的价格是１０００元。</span><br><br><span class="hljs-string">正确：</span> <span class="hljs-string">这件商品的价格是</span> <span class="hljs-number">1000</span> <span class="hljs-string">元。</span><br><br></code></pre></td></tr></table></figure>
 
 <h3 id="4-2千分号"><a href="#4-2千分号" class="headerlink" title="4.2千分号"></a>4.2千分号</h3><p>数值为千位以上，应添加千分号（半角逗号）。</p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">XXX</span> 公司的实收资本为 RMB1,<span class="hljs-number">258</span>,<span class="hljs-number">000</span>。
-</code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">XXX</span> 公司的实收资本为 RMB1,<span class="hljs-number">258</span>,<span class="hljs-number">000</span>。<br><br></code></pre></td></tr></table></figure>
 
 <p>对于 4 ～ 6 位的数值，千分号是选用的，比如<code>1000</code>和<code>1,000</code>都可以接受。对于7位及以上的数值，千分号是必须的。</p>
 <p>多位小数要从小数点后从左向右添加千分号，比如<code>4.234,345</code>。</p>
 <h3 id="4-3货币"><a href="#4-3货币" class="headerlink" title="4.3货币"></a>4.3货币</h3><p>货币应为阿拉伯数字，并在数字前写出货币符号，或在数字后写出货币中文名称。</p>
-<div class="hljs"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-keyword">$1</span>,000</span>
-<span class="hljs-number">1</span>,<span class="hljs-number">000</span> 美元
-</code></pre></div>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-keyword">$1</span>,000</span><br><span class="hljs-number">1</span>,<span class="hljs-number">000</span> 美元<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="4-4数值范围"><a href="#4-4数值范围" class="headerlink" title="4.4数值范围"></a>4.4数值范围</h3><p>表示数值范围时，用<code>～</code>连接。参见《标点符号》一节的”连接号”部分。</p>
 <p>带有单位或百分号时，两个数字都要加上单位或百分号，不能只加后面一个。</p>
-<div class="hljs"><pre><code class="hljs gcode">错误：<span class="hljs-number">132</span>～<span class="hljs-number">234</span>kg
-正确：<span class="hljs-number">132</span>kg～<span class="hljs-number">234</span>kg
-
-错误：<span class="hljs-number">67</span>～<span class="hljs-number">89</span><span class="hljs-meta">%</span>
-正确：<span class="hljs-number">67</span><span class="hljs-meta">%</span>～<span class="hljs-number">89</span><span class="hljs-meta">%</span>
-</code></pre></div>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">错误：<span class="hljs-number">132</span>～<span class="hljs-number">234</span>kg<br>正确：<span class="hljs-number">132</span>kg～<span class="hljs-number">234</span>kg<br><br>错误：<span class="hljs-number">67</span>～<span class="hljs-number">89</span><span class="hljs-comment">%</span><br>正确：<span class="hljs-number">67</span><span class="hljs-comment">%～89%</span><br><br></code></pre></td></tr></table></figure>
 
 <h3 id="4-5变化程度的表示法"><a href="#4-5变化程度的表示法" class="headerlink" title="4.5变化程度的表示法"></a>4.5变化程度的表示法</h3><p>数字的增加要使用”增加了”、”增加到”。”了”表示增量，”到”表示定量。</p>
-<div class="hljs"><pre><code class="hljs">增加到过去的两倍
-（过去为一，现在为二）
-
-增加了两倍
-（过去为一，现在为三）
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs">增加到过去的两倍<br>（过去为一，现在为二）<br><br>增加了两倍<br>（过去为一，现在为三）<br><br></code></pre></td></tr></table></figure>
 
 <p>数字的减少要使用”降低了”、”降低到”。”了”表示增量，”到”表示定量。</p>
-<div class="hljs"><pre><code class="hljs">降低到百分之八十
-（定额是一百，现在是八十）
-
-降低了百分之八十
-（原来是一百，现在是二十）
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs">降低到百分之八十<br>（定额是一百，现在是八十）<br><br>降低了百分之八十<br>（原来是一百，现在是二十）<br><br></code></pre></td></tr></table></figure>
 
 <p>不能用”降低N倍”或”减少N倍”的表示法，要用”降低百分之几”或”减少百分之几”。因为减少（或降低）一倍表示数值原来为一百，现在等于零。</p>
 <h2 id="5-标点符号"><a href="#5-标点符号" class="headerlink" title="5.标点符号"></a>5.标点符号</h2><h3 id="5-1原则"><a href="#5-1原则" class="headerlink" title="5.1原则"></a>5.1原则</h3><ul>
-<li>  中文语句的标点符号，均应该采取全角符号，这样可以保证视觉的一致。</li>
-<li>  如果整句为英文，则该句使用英文/半角标点。</li>
-<li>  句号、问号、叹号、逗号、顿号、分号和冒号不得出现在一行之首。</li>
+<li>中文语句的标点符号，均应该采取全角符号，这样可以保证视觉的一致。</li>
+<li>如果整句为英文，则该句使用英文&#x2F;半角标点。</li>
+<li>句号、问号、叹号、逗号、顿号、分号和冒号不得出现在一行之首。</li>
 </ul>
 <h3 id="5-2句号"><a href="#5-2句号" class="headerlink" title="5.2句号"></a>5.2句号</h3><p>中文语句中的结尾处应该用全角句号（<code>。</code>）。</p>
 <p>句子末尾用括号加注时，句号应在括号之外。</p>
-<div class="hljs"><pre><code class="hljs tap">错误：关于文件的输出，请参照第 1.3 节（见第<span class="hljs-number"> 26 </span>页。）
-
-正确：关于文件的输出，请参照第 1.3 节（见第<span class="hljs-number"> 26 </span>页）。
-</code></pre></div>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">错误：关于文件的输出，请参照第 1.3 节（见第<span class="hljs-number"> 26 </span>页。）<br><br>正确：关于文件的输出，请参照第 1.3 节（见第<span class="hljs-number"> 26 </span>页）。<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-3逗号"><a href="#5-3逗号" class="headerlink" title="5.3逗号"></a>5.3逗号</h3><p>逗号<code>，</code>表示句子内部的一般性停顿。</p>
 <p>注意避免”一逗到底”，即整个段落除了结尾，全部停顿都使用逗号。</p>
 <h3 id="5-4顿号"><a href="#5-4顿号" class="headerlink" title="5.4顿号"></a>5.4顿号</h3><p>句子内部的并列词，应该用全角顿号(<code>、</code>) 分隔，而不用逗号，即使并列词是英语也是如此。</p>
-<div class="hljs"><pre><code class="hljs">错误：我最欣赏的科技公司有 Google, Facebook, 腾讯, 阿里和百度等。
-
-正确：我最欣赏的科技公司有 Google、Facebook、腾讯、阿里和百度等。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">错误：我最欣赏的科技公司有 Google, Facebook, 腾讯, 阿里和百度等。<br><br>正确：我最欣赏的科技公司有 Google、Facebook、腾讯、阿里和百度等。<br><br></code></pre></td></tr></table></figure>
 
 <p>英文句子中，并列词语之间使用半角逗号（<code>,</code>）分隔。</p>
-<div class="hljs"><pre><code class="hljs arcade">例句：Microsoft Office <span class="hljs-built_in">includes</span> Word, Excel, PowerPoint, Outlook and other components.
-</code></pre></div>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade">例句：Microsoft Office <span class="hljs-built_in">includes</span> Word, Excel, PowerPoint, Outlook and other components.<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-5分号"><a href="#5-5分号" class="headerlink" title="5.5分号"></a>5.5分号</h3><p>分号<code>；</code>表示复句内部并列分句之间的停顿。</p>
 <h3 id="5-6引号"><a href="#5-6引号" class="headerlink" title="5.6引号"></a>5.6引号</h3><p>引用时，应该使用全角双引号（<code>&quot; &quot;</code>），注意前后双引号不同。</p>
-<div class="hljs"><pre><code class="hljs 1c">例句：许多人都认为客户服务的核心是<span class="hljs-string">&quot;友好&quot;</span>和<span class="hljs-string">&quot;专业&quot;</span>。
-</code></pre></div>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 1c">例句：许多人都认为客户服务的核心是<span class="hljs-string">&quot;友好&quot;</span>和<span class="hljs-string">&quot;专业&quot;</span>。<br><br></code></pre></td></tr></table></figure>
 
 <p>引号里面还要用引号时，外面一层用双引号，里面一层用单引号（<code>&#39; &#39;</code>），注意前后单引号不同。</p>
-<div class="hljs"><pre><code class="hljs scilab">例句：鲍勃解释道：<span class="hljs-string">&quot;我要放音乐，可萨利说，&#x27;</span>不行！<span class="hljs-string">&#x27;。&quot;</span>
-</code></pre></div>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scilab">例句：鲍勃解释道：<span class="hljs-string">&quot;我要放音乐，可萨利说，&#x27;</span>不行！<span class="hljs-string">&#x27;。&quot;</span><br><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-7圆括号"><a href="#5-7圆括号" class="headerlink" title="5.7圆括号"></a>5.7圆括号</h3><p>补充说明时，使用全角圆括号<code>（）</code>，括号前后不加空格。</p>
-<div class="hljs"><pre><code class="hljs">例句：请确认所有的连接（电缆和接插件）均安装牢固。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">例句：请确认所有的连接（电缆和接插件）均安装牢固。<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-8冒号"><a href="#5-8冒号" class="headerlink" title="5.8冒号"></a>5.8冒号</h3><p>全角冒号（<code>：</code>）常用在需要解释的词语后边，引出解释和说明。</p>
-<div class="hljs"><pre><code class="hljs">例句：请确认以下几项内容：时间、地点、活动名称，以及来宾数量。
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">例句：请确认以下几项内容：时间、地点、活动名称，以及来宾数量。<br><br></code></pre></td></tr></table></figure>
 
 <p>表示时间时，应使用半角冒号（<code>:</code>）。</p>
-<div class="hljs"><pre><code class="hljs">例句：早上 8:00
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">例句：早上 8:00<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-9省略号"><a href="#5-9省略号" class="headerlink" title="5.9省略号"></a>5.9省略号</h3><p>省略号<code>......</code>表示语句未完、或者语气的不连续。它占两个汉字空间、包含六个省略点，不要使用<code>。。。</code>或<code>...</code>等非标准形式。</p>
 <p>省略号不应与”等”这个词一起使用。</p>
-<div class="hljs"><pre><code class="hljs lasso">错误：我们为会餐准备了香蕉、苹果、梨<span class="hljs-params">...</span>等各色水果。
-
-正确：我们为会餐准备了各色水果，有香蕉、苹果、梨<span class="hljs-params">...</span><span class="hljs-params">...</span>
-
-正确：我们为会餐准备了香蕉、苹果、梨等各色水果。
-</code></pre></div>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lasso">错误：我们为会餐准备了香蕉、苹果、梨<span class="hljs-params">...</span>等各色水果。<br><br>正确：我们为会餐准备了各色水果，有香蕉、苹果、梨<span class="hljs-params">...</span><span class="hljs-params">...</span><br><br>正确：我们为会餐准备了香蕉、苹果、梨等各色水果。<br><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-10感叹号"><a href="#5-10感叹号" class="headerlink" title="5.10感叹号"></a>5.10感叹号</h3><p>应该使用平静的语气叙述，尽量避免使用感叹号<code>！</code>。</p>
 <p>不得多个感叹号连用，比如<code>！！</code>和<code>!!!</code>。</p>
 <h3 id="5-11破折号"><a href="#5-11破折号" class="headerlink" title="5.11破折号"></a>5.11破折号</h3><p>破折号<code>------------</code>一般用于进一步解释。</p>
 <p>破折号应占两个汉字的位置。如果破折号本身只占一个汉字的位置，那么前后应该留出一个半角空格。</p>
-<div class="hljs"><pre><code class="hljs brainfuck"><span class="hljs-comment">例句：直觉</span><span class="hljs-literal">------------</span><span class="hljs-comment">尽管它并不总是可靠的</span><span class="hljs-literal">------------</span><span class="hljs-comment">告诉我，这事可能出了些问题。</span>
-
-<span class="hljs-comment">例句：直觉</span> <span class="hljs-literal">------</span> <span class="hljs-comment">尽管它并不总是可靠的</span> <span class="hljs-literal">------</span> <span class="hljs-comment">告诉我，这事可能出了些问题。</span>
-</code></pre></div>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">例句：直觉</span><span class="hljs-literal">------------</span><span class="hljs-comment">尽管它并不总是可靠的</span><span class="hljs-literal">------------</span><span class="hljs-comment">告诉我，这事可能出了些问题。</span><br><br><span class="hljs-comment">例句：直觉</span> <span class="hljs-literal">------</span> <span class="hljs-comment">尽管它并不总是可靠的</span> <span class="hljs-literal">------</span> <span class="hljs-comment">告诉我，这事可能出了些问题。</span><br><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-12连接号"><a href="#5-12连接号" class="headerlink" title="5.12连接号"></a>5.12连接号</h3><p>连接号用于连接两个类似的词。</p>
 <p>以下场合应该使用直线连接号（<code>-</code>），占一个半角字符的位置。</p>
 <ul>
-<li>  两个名词的复合</li>
-<li>  图表编号</li>
+<li>两个名词的复合</li>
+<li>图表编号</li>
 </ul>
-<div class="hljs"><pre><code class="hljs subunit">例句：氧化-还原反应
-
-例句：图 1<span class="hljs-string">-1</span>
-</code></pre></div>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs subunit">例句：氧化-还原反应<br><br>例句：图 1<span class="hljs-string">-1</span><br><br></code></pre></td></tr></table></figure>
 
 <p>以下场合应该使用波浪连接号（<code>～</code>），占一个全角字符的位置。</p>
 <ul>
-<li>  数值范围（例如日期、时间或数字）</li>
+<li>数值范围（例如日期、时间或数字）</li>
 </ul>
-<div class="hljs"><pre><code class="hljs">例句：2009 年～2011 年
-</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">例句：2009 年～2011 年<br><br></code></pre></td></tr></table></figure>
 
 <p>注意，波浪连接号前后两个值都应该加上单位。</p>
 <p>波浪连接号也可以用汉字”至”代替。</p>
-<div class="hljs"><pre><code class="hljs mathematica">例句：周围温度：<span class="hljs-operator">-</span><span class="hljs-number">20</span>°<span class="hljs-built_in">C</span> 至 <span class="hljs-operator">-</span><span class="hljs-number">10</span>°<span class="hljs-built_in">C</span>
-</code></pre></div>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mathematica">例句：周围温度：<span class="hljs-operator">-</span><span class="hljs-number">20</span>°<span class="hljs-built_in">C</span> 至 <span class="hljs-operator">-</span><span class="hljs-number">10</span>°<span class="hljs-built_in">C</span><br><br></code></pre></td></tr></table></figure>
 
 <h2 id="6-文档体系"><a href="#6-文档体系" class="headerlink" title="6.文档体系"></a>6.文档体系</h2><h3 id="6-1结构"><a href="#6-1结构" class="headerlink" title="6.1结构"></a>6.1结构</h3><p>软件手册是一部完整的书，建议采用下面的结构。</p>
 <ul>
-<li>  <strong>简介</strong>（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明</li>
-<li>  <strong>快速上手</strong>（Getting Started）：[可选] [文件] 如何最快速地使用产品</li>
+<li><strong>简介</strong>（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明</li>
+<li><strong>快速上手</strong>（Getting Started）：[可选] [文件] 如何最快速地使用产品</li>
 <li><strong>入门篇</strong>（Basics）： [必备] [目录] 又称”使用篇”，提供初级的使用教程<ul>
-<li>  <strong>环境准备</strong>（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件</li>
-<li>  <strong>安装</strong>（Installation）：[可选] [文件] 软件的安装方法</li>
-<li>  <strong>设置</strong>（Configuration）：[必备] [文件] 软件的设置</li>
+<li><strong>环境准备</strong>（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件</li>
+<li><strong>安装</strong>（Installation）：[可选] [文件] 软件的安装方法</li>
+<li><strong>设置</strong>（Configuration）：[必备] [文件] 软件的设置</li>
 </ul>
 </li>
-<li>  <strong>进阶篇</strong>（Advanced)：[可选] [目录] 又称”开发篇”，提供中高级的开发教程</li>
-<li>  <strong>API</strong>（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍</li>
-<li>  <strong>FAQ</strong>：[可选] [文件] 常见问题解答</li>
+<li><strong>进阶篇</strong>（Advanced)：[可选] [目录] 又称”开发篇”，提供中高级的开发教程</li>
+<li><strong>API</strong>（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍</li>
+<li><strong>FAQ</strong>：[可选] [文件] 常见问题解答</li>
 <li><strong>附录</strong>（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容<ul>
-<li>  <strong>Glossary</strong>：[可选] [文件] 名词解释</li>
-<li>  <strong>Recipes</strong>：[可选] [文件] 最佳实践</li>
-<li>  <strong>Troubleshooting</strong>：[可选] [文件] 故障处理</li>
-<li>  <strong>ChangeLog</strong>：[可选] [文件] 版本说明</li>
-<li>  <strong>Feedback</strong>：[可选] [文件] 反馈方式</li>
+<li><strong>Glossary</strong>：[可选] [文件] 名词解释</li>
+<li><strong>Recipes</strong>：[可选] [文件] 最佳实践</li>
+<li><strong>Troubleshooting</strong>：[可选] [文件] 故障处理</li>
+<li><strong>ChangeLog</strong>：[可选] [文件] 版本说明</li>
+<li><strong>Feedback</strong>：[可选] [文件] 反馈方式</li>
 </ul>
 </li>
 </ul>
 <p>下面是两个真实范例，可参考。</p>
 <ul>
-<li>  <a target="_blank" rel="noopener" href="http://redux.js.org/index.html">Redux 手册</a></li>
-<li>  <a target="_blank" rel="noopener" href="http://flight-manual.atom.io/">Atom 手册</a></li>
+<li><a target="_blank" rel="noopener" href="http://redux.js.org/index.html">Redux 手册</a></li>
+<li><a target="_blank" rel="noopener" href="http://flight-manual.atom.io/">Atom 手册</a></li>
 </ul>
 <h3 id="6-2文件名"><a href="#6-2文件名" class="headerlink" title="6.2文件名"></a>6.2文件名</h3><p>文档的文件名不得含有空格。</p>
 <p>文件名必须使用半角字符，不得使用全角字符。这也意味着，中文不能用于文件名。</p>
-<div class="hljs"><pre><code class="hljs dos">错误： 名词解释.<span class="hljs-built_in">md</span>
-
-正确： glossary.<span class="hljs-built_in">md</span>
-</code></pre></div>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dos">错误： 名词解释.<span class="hljs-built_in">md</span><br><br>正确： glossary.<span class="hljs-built_in">md</span><br><br></code></pre></td></tr></table></figure>
 
 <p>文件名建议只使用小写字母，不使用大写字母。</p>
-<div class="hljs"><pre><code class="hljs dos">错误：TroubleShooting.<span class="hljs-built_in">md</span>
-
-正确：troubleshooting.<span class="hljs-built_in">md</span>
-</code></pre></div>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dos">错误：TroubleShooting.<span class="hljs-built_in">md</span><br><br>正确：troubleshooting.<span class="hljs-built_in">md</span><br><br></code></pre></td></tr></table></figure>
 
 <p>为了醒目，某些说明文件的文件名，可以使用大写字母，比如<code>README</code>、<code>LICENSE</code>。</p>
 <p>文件名包含多个单词时，单词之间建议使用半角的连词线（<code>-</code>）分隔。</p>
-<div class="hljs"><pre><code class="hljs dos">不佳：advanced_usage.<span class="hljs-built_in">md</span>
-
-正确：advanced-usage.<span class="hljs-built_in">md</span>
-</code></pre></div>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dos">不佳：advanced_usage.<span class="hljs-built_in">md</span><br><br>正确：advanced-usage.<span class="hljs-built_in">md</span><br><br></code></pre></td></tr></table></figure>
 
 <h2 id="7-参考链接"><a href="#7-参考链接" class="headerlink" title="7.参考链接"></a>7.参考链接</h2><ul>
-<li>  <a target="_blank" rel="noopener" href="http://wenku.baidu.com/view/23cc1a6527d3240c8447efbf.html">产品手册中文写作规范</a>, by 华为</li>
-<li>  <a target="_blank" rel="noopener" href="http://docs.daocloud.io/write-docs/format">写作规范和格式规范</a>, by DaoCloud</li>
-<li>  <a target="_blank" rel="noopener" href="http://www.hitachi-tc.co.jp/company/thesis/thesis.pdf">技术写作技巧在日汉翻译中的应用</a>, by 刘方</li>
-<li>  <a target="_blank" rel="noopener" href="https://www.lengoo.de/documents/styleguides/lengoo_styleguide_ZH.pdf">简体中文规范指南</a>, by lengoo</li>
-<li>  <a target="_blank" rel="noopener" href="https://open.leancloud.cn/copywriting-style-guide.html">文档风格指南</a>, by LeanCloud</li>
-<li>  <a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1R8lMCPf6zCD5KEA8ekZ5knK77iw9J-vJ6vEopPemqZM/edit">豌豆荚文案风格指南</a>, by 豌豆荚</li>
-<li>  <a target="_blank" rel="noopener" href="https://github.com/sparanoid/chinese-copywriting-guidelines">中文文案排版指北</a>, by sparanoid</li>
-<li>  <a target="_blank" rel="noopener" href="http://w3c.github.io/clreq/">中文排版需求</a>, by W3C</li>
-<li>  <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html">为什么文件名要小写？</a>, by 阮一峰</li>
-<li>  <a target="_blank" rel="noopener" href="https://developers.google.com/style/">Google Developer Documentation Style Guide</a>, by Google</li>
+<li><a target="_blank" rel="noopener" href="http://wenku.baidu.com/view/23cc1a6527d3240c8447efbf.html">产品手册中文写作规范</a>, by 华为</li>
+<li><a target="_blank" rel="noopener" href="http://docs.daocloud.io/write-docs/format">写作规范和格式规范</a>, by DaoCloud</li>
+<li><a target="_blank" rel="noopener" href="http://www.hitachi-tc.co.jp/company/thesis/thesis.pdf">技术写作技巧在日汉翻译中的应用</a>, by 刘方</li>
+<li><a target="_blank" rel="noopener" href="https://www.lengoo.de/documents/styleguides/lengoo_styleguide_ZH.pdf">简体中文规范指南</a>, by lengoo</li>
+<li><a target="_blank" rel="noopener" href="https://open.leancloud.cn/copywriting-style-guide.html">文档风格指南</a>, by LeanCloud</li>
+<li><a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1R8lMCPf6zCD5KEA8ekZ5knK77iw9J-vJ6vEopPemqZM/edit">豌豆荚文案风格指南</a>, by 豌豆荚</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sparanoid/chinese-copywriting-guidelines">中文文案排版指北</a>, by sparanoid</li>
+<li><a target="_blank" rel="noopener" href="http://w3c.github.io/clreq/">中文排版需求</a>, by W3C</li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html">为什么文件名要小写？</a>, by 阮一峰</li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/style/">Google Developer Documentation Style Guide</a>, by Google</li>
 </ul>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/markdown/">markdown</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/markdown/" class="print-no-link">#markdown</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Markdown文档风格指南</div>
+      <div>http://dantefung.github.io/2020/02/26/Markdown文档风格指南/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>DANTE FUNG</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>February 26, 2020</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
               
               
-                <div class="post-prevnext row">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/02/29/Karabiner-Elements/">
+                      <a href="/2020/02/29/Karabiner-Elements/" title="Karabiner-Elements">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Karabiner-Elements</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/02/25/Travis%20CI%20%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">
+                      <a href="/2020/02/25/Travis%20CI%20%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" title="Travis CI 持续集成">
                         <span class="hidden-mobile">Travis CI 持续集成</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -681,73 +609,74 @@ Apple, Inc.
             </div>
 
             
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    function loadGitalk() {
-      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
-      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: '4c62e572f688c01a7c7e',
-          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
-          repo: 'blog-comment',
-          owner: 'dantefung',
-          admin: ["dantefung"],
-          id: md5(location.pathname),
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-      });
-    }
-    waitElementVisible('gitalk-container', loadGitalk);
-  </script>
-
-
-              </article>
-            
           </article>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -755,194 +684,185 @@ Apple, Inc.
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  
+    
 
-  
+    
+  </main>
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-    
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
   
-    <script  src="/js/lazyload.js" ></script>
   
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
       }
     });
-  </script>
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Markdown文档风格指南&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
     };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    anchors.add(res.join(", "))
-  </script>
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>

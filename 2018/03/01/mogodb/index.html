@@ -1,65 +1,106 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-Hans" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/icon.jpeg">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpeg">
+  <link rel="icon" href="/img/icon.jpeg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
-  <meta name="author" content="DANTE FUNG">
+  <meta name="author" content="dantefung">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="1. mongoDB1.1. 简介1.1.1. 作用用来管理数据的软件可自动对数据有组织的存放提供相应的增删查改接口方便对数据进行操作支持众多语言进行连接操作提供一系列措施提高数据处理的性能 1.1.1.1. 特点增删查改不支持sql语句没有表结构使用简单方便性能优越 1.1.1.2. 官网与资源MongoDB官网菜鸟中文文档 1.2. 安装windows 用户1.2.1. 注意事项安装路径不要出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoDB">
+<meta property="og:url" content="http://dantefung.github.io/2018/03/01/mogodb/index.html">
+<meta property="og:site_name" content="DANTE FUNGの像初雪一样洒落">
+<meta property="og:description" content="1. mongoDB1.1. 简介1.1.1. 作用用来管理数据的软件可自动对数据有组织的存放提供相应的增删查改接口方便对数据进行操作支持众多语言进行连接操作提供一系列措施提高数据处理的性能 1.1.1.1. 特点增删查改不支持sql语句没有表结构使用简单方便性能优越 1.1.1.2. 官网与资源MongoDB官网菜鸟中文文档 1.2. 安装windows 用户1.2.1. 注意事项安装路径不要出">
+<meta property="og:locale">
+<meta property="og:image" content="http://dantefung.github.io/img/image-201803252036227.png">
+<meta property="article:published_time" content="2018-03-01T08:02:53.000Z">
+<meta property="article:modified_time" content="2022-03-24T06:18:59.038Z">
+<meta property="article:author" content="DANTE FUNG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://dantefung.github.io/img/image-201803252036227.png">
+  
+  
+  
   <title>mongoDB - DANTE FUNGの像初雪一样洒落</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dantefung.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.1"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>DANTE FUNGの像初雪一样洒落</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -76,9 +117,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                <span>Startseite</span>
               </a>
             </li>
           
@@ -88,9 +129,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                <span>Archiv</span>
               </a>
             </li>
           
@@ -100,9 +141,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                <span>Kategorien</span>
               </a>
             </li>
           
@@ -112,9 +153,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                <span>Schlagwörter</span>
               </a>
             </li>
           
@@ -124,47 +165,26 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/musics/">
-                <i class="iconfont icon-category-fill"></i>
-                music
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                <span>Über</span>
               </a>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -172,75 +192,92 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/bg_night.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2018-03-01 16:02" pubdate>
-      March 1, 2018 pm
-    </time>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg_night.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="mongoDB"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-03-01 16:02" pubdate>
+          March 1, 2018 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 minuten
+        
+      </span>
+    
+
+    
+    
   </div>
 
 
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      3.1k 字
-    </span>
-  
+        
+      </div>
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      42
-       分钟
-    </span>
-  
-
-  
-  
+    </div>
+  </div>
 </div>
 
-            
-          </div>
+</div>
 
-          
-        </div>
-      </div>
-    </div>
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">mongoDB</h1>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">mongoDB</h1>
             
-            <div class="markdown-body" id="post-body">
-              <h1 id="1-mongoDB"><a href="#1-mongoDB" class="headerlink" title="1. mongoDB"></a>1. mongoDB</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1. 简介"></a>1.1. 简介</h2><h3 id="1-1-1-作用"><a href="#1-1-1-作用" class="headerlink" title="1.1.1. 作用"></a>1.1.1. 作用</h3><p>用来管理数据的软件<br>可自动对数据有组织的存放<br>提供相应的增删查改接口方便对数据进行操作<br>支持众多语言进行连接操作<br>提供一系列措施提高数据处理的性能</p>
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-mongoDB"><a href="#1-mongoDB" class="headerlink" title="1. mongoDB"></a>1. mongoDB</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1. 简介"></a>1.1. 简介</h2><h3 id="1-1-1-作用"><a href="#1-1-1-作用" class="headerlink" title="1.1.1. 作用"></a>1.1.1. 作用</h3><p>用来管理数据的软件<br>可自动对数据有组织的存放<br>提供相应的增删查改接口方便对数据进行操作<br>支持众多语言进行连接操作<br>提供一系列措施提高数据处理的性能</p>
 <h4 id="1-1-1-1-特点"><a href="#1-1-1-1-特点" class="headerlink" title="1.1.1.1. 特点"></a>1.1.1.1. 特点</h4><p>增删查改不支持sql语句<br>没有表结构<br>使用简单方便性能优越</p>
 <h4 id="1-1-1-2-官网与资源"><a href="#1-1-1-2-官网与资源" class="headerlink" title="1.1.1.2. 官网与资源"></a>1.1.1.2. 官网与资源</h4><p>MongoDB官网<br>菜鸟中文文档</p>
 <h2 id="1-2-安装"><a href="#1-2-安装" class="headerlink" title="1.2. 安装"></a>1.2. 安装</h2><h3 id="windows-用户"><a href="#windows-用户" class="headerlink" title="windows 用户"></a>windows 用户</h3><h3 id="1-2-1-注意事项"><a href="#1-2-1-注意事项" class="headerlink" title="1.2.1. 注意事项"></a>1.2.1. 注意事项</h3><p>安装路径不要出现中文<br>mongoDB最新版已不再支持32位windows操作系统<br>这里有以前的32位安装包，但是官方已经不提供下载链接了<br>mongoDB在低版本win7和win8存在不兼容问题可能存在各种问题<br>要么升级win7安装所有的更新<br>要么更换为win10</p>
@@ -255,194 +292,251 @@
 </blockquote>
 <h3 id="Install-MongoDB-Community-Edition-Manually"><a href="#Install-MongoDB-Community-Edition-Manually" class="headerlink" title="Install MongoDB Community Edition Manually"></a>Install MongoDB Community Edition Manually</h3><h4 id="Download-the-binary-files-for-the-desired-release-of-MongoDB"><a href="#Download-the-binary-files-for-the-desired-release-of-MongoDB" class="headerlink" title="Download the binary files for the desired release of MongoDB."></a>Download the binary files for the desired release of MongoDB.</h4><p>Download the binaries from the <a target="_blank" rel="noopener" href="https://www.mongodb.com/download-center#production">MongoDB Download Center</a>.</p>
 <h4 id="Extract-the-files-from-the-downloaded-archive"><a href="#Extract-the-files-from-the-downloaded-archive" class="headerlink" title="Extract the files from the downloaded archive."></a>Extract the files from the downloaded archive.</h4><p>For example, from a system shell, you can extract through the <code>tar</code> command:</p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -zxvf mongodb-osx-ssl-x86_64-<span class="hljs-number">3</span>.<span class="hljs-number">6</span>.<span class="hljs-number">3</span>.tgz</code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -zxvf mongodb-osx-ssl-x86_64-<span class="hljs-number">3</span>.<span class="hljs-number">6</span>.<span class="hljs-number">3</span>.tgz<br></code></pre></td></tr></table></figure>
 
 
 
 <h4 id="Copy-the-extracted-archive-to-the-target-directory"><a href="#Copy-the-extracted-archive-to-the-target-directory" class="headerlink" title="Copy the extracted archive to the target directory."></a>Copy the extracted archive to the target directory.</h4><p>Copy the extracted folder to the location from which MongoDB will run.</p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">mkdir</span> -p mongodb
-<span class="hljs-attribute">cp</span> -R -n mongodb-osx-ssl-x86_64-<span class="hljs-number">3</span>.<span class="hljs-number">6</span>.<span class="hljs-number">3</span>/ mongodb</code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mkdir</span> -p mongodb<br><span class="hljs-attribute">cp</span> -R -n mongodb-osx-ssl-x86_64-<span class="hljs-number">3</span>.<span class="hljs-number">6</span>.<span class="hljs-number">3</span>/ mongodb<br></code></pre></td></tr></table></figure>
 
 <h4 id="Ensure-the-location-of-the-binaries-is-in-the-PATH-variable"><a href="#Ensure-the-location-of-the-binaries-is-in-the-PATH-variable" class="headerlink" title="Ensure the location of the binaries is in the PATH variable."></a>Ensure the location of the binaries is in the <code>PATH</code> variable.</h4><p>The MongoDB binaries are in the <code>bin/</code> directory of the archive. To ensure that the binaries are in your <code>PATH</code>, you can modify your <code>PATH</code>.</p>
 <p>For example, you can add the following line to your shell’s <code>rc</code> file (e.g. <code>~/.bashrc</code>):</p>
-<div class="hljs"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=&lt;mongodb-install-directory&gt;/bin:$PATH</code></pre></div>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=&lt;mongodb-install-directory&gt;/bin:$PATH<br></code></pre></td></tr></table></figure>
 
 <p>Replace <code>&lt;mongodb-install-directory&gt;</code> with the path to the extracted MongoDB archive.</p>
 <p><code>注:</code></p>
-<p>Mac下面的环境变量设置和Linux差不多，一般为这几个文件（左边的先加载）：<br>/etc/profile </p>
-<p>/etc/paths</p>
-<p>~/.bash_profile </p>
-<p>~/.bash_login </p>
-<p>~/.profile </p>
-<p>~/.bashrc</p>
+<p>Mac下面的环境变量设置和Linux差不多，一般为这几个文件（左边的先加载）：<br>&#x2F;etc&#x2F;profile </p>
+<p>&#x2F;etc&#x2F;paths</p>
+<p>~&#x2F;.bash_profile </p>
+<p>~&#x2F;.bash_login </p>
+<p>~&#x2F;.profile </p>
+<p>~&#x2F;.bashrc</p>
 <ul>
-<li>etc目录下面的是系统级的配置;</li>
-</ul>
-<ul>
-<li>~目录下的是用户配置，用户配置文件只会加载一个（.bashrc除外），不存在的可以自己新建；</li>
+<li><p>etc目录下面的是系统级的配置;</p>
+</li>
+<li><p>~目录下的是用户配置，用户配置文件只会加载一个（.bashrc除外），不存在的可以自己新建；</p>
+</li>
 </ul>
 <h2 id="1-3-基本概念"><a href="#1-3-基本概念" class="headerlink" title="1.3. 基本概念"></a>1.3. 基本概念</h2><h3 id="1-3-1-数据库"><a href="#1-3-1-数据库" class="headerlink" title="1.3.1. 数据库"></a>1.3.1. 数据库</h3><p>MongoDB可以创建多个数据库<br>一般每个数据库对应一个项目<br>也就说一个MongoDB可以同时为多个项目提供服务<br>运行show dbs命令可以查看所有的数据库列表</p>
 <h4 id="1-3-1-1-集合"><a href="#1-3-1-1-集合" class="headerlink" title="1.3.1.1. 集合"></a>1.3.1.1. 集合</h4><p>每个数据库中会有很多文件，每个文件称作集合或表（collection或table）<br>MongoDB是以JSON格式存储数据的，也就是说每个文件中存储的是多条JSON数据<br>这些数据都是特殊编码的二进制数据存储，我们无法直接打开文件查看内容</p>
 <h4 id="1-3-1-2-文档"><a href="#1-3-1-2-文档" class="headerlink" title="1.3.1.2. 文档"></a>1.3.1.2. 文档</h4><p>一个文件中，存储的每一条JSON数据，称为文档（document）<br>注意：不要把文档认为是一个文件，它代表的仅仅是集合中的一条数据</p>
 <h4 id="1-3-1-3-字段"><a href="#1-3-1-3-字段" class="headerlink" title="1.3.1.3. 字段"></a>1.3.1.3. 字段</h4><p>JSON数据中的每个属性，称为字段（field）</p>
-<h2 id="1-4-使用"><a href="#1-4-使用" class="headerlink" title="1.4. 使用"></a>1.4. 使用</h2><h3 id="1-4-1-启动服务"><a href="#1-4-1-启动服务" class="headerlink" title="1.4.1. 启动服务"></a>1.4.1. 启动服务</h3><h3 id="windows用户"><a href="#windows用户" class="headerlink" title="windows用户"></a>windows用户</h3><p>创建数据目录<br>MongoDB会将数据存储在db目录中，但是这个目录需要我们手动创建<br>在c盘根目录下创建一个data目录，再在data中创建db目录<br>db目录也可以创建在其他位置，但是c:\data\db是mogoDB操作的默认路径所以我们这里这样配置<br>启动服务<br>安装的bin目录下有个mongod.exeCLI应用程序，执行它即可启动服务<br>在命令行输入mongod –dbpath c:\data\db回车即可启动服务<br>因为c:\data\db是默认路径，所以这里不加–dbpath参数也可以<br>服务启动后与我们启动node_http服务一样，命令行工具会停在那里留个光标闪动<br>使用Ctrl + C即可停止服务<br>如果32位有异常，添加–journal –storageEngine=mmapv1<br>mongod –dbpath=”路径” –journal –storageEngine=mmapv1</p>
+<h2 id="1-4-使用"><a href="#1-4-使用" class="headerlink" title="1.4. 使用"></a>1.4. 使用</h2><h3 id="1-4-1-启动服务"><a href="#1-4-1-启动服务" class="headerlink" title="1.4.1. 启动服务"></a>1.4.1. 启动服务</h3><h3 id="windows用户"><a href="#windows用户" class="headerlink" title="windows用户"></a>windows用户</h3><p>创建数据目录<br>MongoDB会将数据存储在db目录中，但是这个目录需要我们手动创建<br>在c盘根目录下创建一个data目录，再在data中创建db目录<br>db目录也可以创建在其他位置，但是c:\data\db是mogoDB操作的默认路径所以我们这里这样配置<br>启动服务<br>安装的bin目录下有个mongod.exeCLI应用程序，执行它即可启动服务<br>在命令行输入mongod –dbpath c:\data\db回车即可启动服务<br>因为c:\data\db是默认路径，所以这里不加–dbpath参数也可以<br>服务启动后与我们启动node_http服务一样，命令行工具会停在那里留个光标闪动<br>使用Ctrl + C即可停止服务<br>如果32位有异常，添加–journal –storageEngine&#x3D;mmapv1<br>mongod –dbpath&#x3D;”路径” –journal –storageEngine&#x3D;mmapv1</p>
 <h4 id="Mac-OS-x-用户-1"><a href="#Mac-OS-x-用户-1" class="headerlink" title="Mac OS x 用户"></a>Mac OS x 用户</h4><p><code>注:以下说明摘录自官网，强烈建议大家学好英文，阅读英文原文，如果实在不行就用google网页翻译看也行，以下为保证原汁原味不做翻译。</code></p>
 <h3 id="Run-MongoDB"><a href="#Run-MongoDB" class="headerlink" title="Run MongoDB."></a>Run MongoDB.</h3><p>To run MongoDB, run the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a> process at the system prompt. If necessary, specify the path of the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a> or the data directory. See the following examples.</p>
 <h4 id="Run-without-specifying-paths"><a href="#Run-without-specifying-paths" class="headerlink" title="Run without specifying paths"></a>Run without specifying paths</h4><p>If your system <code>PATH</code> variable includes the location of the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a> binary and if you use the default data directory (i.e., <code>/data/db</code>), simply enter <code>mongod</code> at the system prompt:</p>
 <blockquote>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">mongod</span></code></pre></div>
-</blockquote>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">mongod</span><br></code></pre></td></tr></table></figure></blockquote>
 <h4 id="Specify-the-path-of-the-mongod¶"><a href="#Specify-the-path-of-the-mongod¶" class="headerlink" title="Specify the path of the mongod¶"></a>Specify the path of the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#specify-the-path-of-the-mongod">¶</a></h4><p>If your <code>PATH</code> does not include the location of the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a> binary, enter the full path to the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a> binary at the system prompt:</p>
-<div class="hljs"><pre><code class="hljs autoit">&lt;path <span class="hljs-keyword">to</span> <span class="hljs-built_in">binary</span>&gt;/mongod</code></pre></div>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit">&lt;path <span class="hljs-keyword">to</span> <span class="hljs-built_in">binary</span>&gt;/mongod<br></code></pre></td></tr></table></figure>
 
 <h4 id="Specify-the-path-of-the-data-directory"><a href="#Specify-the-path-of-the-data-directory" class="headerlink" title="Specify the path of the data directory"></a>Specify the path of the data directory</h4><p>If you do not use the default data directory (i.e., <code>/data/db</code>), specify the path to the data directory using the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-dbpath"><code>--dbpath</code></a> option:</p>
-<div class="hljs"><pre><code class="hljs css">mongod <span class="hljs-attr">--dbpath</span> &lt;path <span class="hljs-selector-tag">to</span> data directory&gt;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">mongod <span class="hljs-attr">--dbpath</span> &lt;<span class="hljs-selector-tag">path</span> <span class="hljs-selector-tag">to</span> data directory&gt;<br></code></pre></td></tr></table></figure>
 
 <h3 id="Verify-that-MongoDB-has-started-successfully"><a href="#Verify-that-MongoDB-has-started-successfully" class="headerlink" title="Verify that MongoDB has started successfully"></a>Verify that MongoDB has started successfully</h3><p>Verify that MongoDB has started successfully by checking the process output for the following line:</p>
-<div class="hljs"><pre><code class="hljs csharp">[<span class="hljs-meta">initandlisten</span>] waiting <span class="hljs-keyword">for</span> connections <span class="hljs-keyword">on</span> port <span class="hljs-number">27017</span></code></pre></div>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">[<span class="hljs-meta">initandlisten</span>] waiting <span class="hljs-keyword">for</span> connections <span class="hljs-keyword">on</span> port <span class="hljs-number">27017</span><br></code></pre></td></tr></table></figure>
 
 <p>The output should be visible in the terminal or shell window.</p>
 <p>You may see non-critical warnings in the process output. As long as you see the log line shown above, you can safely ignore these warnings during your initial evaluation of MongoDB.</p>
-<p><img src="../img/image-201803252036227.png" srcset="/img/loading.gif" alt="mage-20180325203622"></p>
-<h4 id="1-4-1-1-命令行连接（使用MongoDB客户端连接）"><a href="#1-4-1-1-命令行连接（使用MongoDB客户端连接）" class="headerlink" title="1.4.1.1. 命令行连接（使用MongoDB客户端连接）"></a>1.4.1.1. 命令行连接（使用MongoDB客户端连接）</h4><h5 id="1-4-1-1-1-说明"><a href="#1-4-1-1-1-说明" class="headerlink" title="1.4.1.1.1. 说明"></a>1.4.1.1.1. 说明</h5><p>安装的bin目录下有个mongo.exeCLI应用程序，执行它即可连接服务<br>基本语法mongo mongodb://ip:prot/database<br>语法中后面的都是可选项，如果不输默认为mongodb://127.0.0.1:27017/test<br>使用Ctrl + C，或者执行exit命令可中断连接</p>
+<p><img src="/../img/image-201803252036227.png" srcset="/img/loading.gif" lazyload alt="mage-20180325203622"></p>
+<h4 id="1-4-1-1-命令行连接（使用MongoDB客户端连接）"><a href="#1-4-1-1-命令行连接（使用MongoDB客户端连接）" class="headerlink" title="1.4.1.1. 命令行连接（使用MongoDB客户端连接）"></a>1.4.1.1. 命令行连接（使用MongoDB客户端连接）</h4><h5 id="1-4-1-1-1-说明"><a href="#1-4-1-1-1-说明" class="headerlink" title="1.4.1.1.1. 说明"></a>1.4.1.1.1. 说明</h5><p>安装的bin目录下有个mongo.exeCLI应用程序，执行它即可连接服务<br>基本语法mongo mongodb:&#x2F;&#x2F;ip:prot&#x2F;database<br>语法中后面的都是可选项，如果不输默认为mongodb:&#x2F;&#x2F;127.0.0.1:27017&#x2F;test<br>使用Ctrl + C，或者执行exit命令可中断连接</p>
 <p><code>注：出自官方说明:</code></p>
 <blockquote>
 <p>Begin using MongoDB.</p>
 </blockquote>
 <blockquote>
 <p>Start a <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo"><code>mongo</code></a> shell on the same host machine as the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a>. Use the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongo/#cmdoption-mongo-host"><code>--host</code></a> command line option to specify the localhost address and port that the <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod"><code>mongod</code></a> listens on:</p>
-<div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">mongo</span> --host <span class="hljs-number">127.0.0.1:27017</span></code></pre></div>
-</blockquote>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">mongo</span> --host <span class="hljs-number">127.0.0.1:27017</span><br></code></pre></td></tr></table></figure></blockquote>
 <h6 id="1-4-1-1-1-1-连接"><a href="#1-4-1-1-1-1-连接" class="headerlink" title="1.4.1.1.1.1. 连接"></a>1.4.1.1.1.1. 连接</h6><p>命令行工具中执行mongo连接默认数据库<br>使用show dbs命令查看所有数据库<br>使用use store命令切换到store数据库<br>如果当前没有这个数据库会自动创建后再切换<br>使用db命令可以查看当前所处数据库的名称<br>使用show collections命令可以查看当前数据库中的所有集合</p>
 <h6 id="1-4-1-1-1-2-增"><a href="#1-4-1-1-1-2-增" class="headerlink" title="1.4.1.1.1.2. 增"></a>1.4.1.1.1.2. 增</h6><p>基本语法：数据库.集合.insert(JSON)<br>注意：这里插入的数据不用严格遵守JSON格式也可以<br>使用db.goods.insertOne({name: ‘豪车’, time: 2015})命令给goods集合文件插入一条数据<br>如果当前没有这个集合文件会自动创建后再插入<br>使用db.goods.insertMany([{name: ‘垃圾’, time: 2015}, {name: ‘奔驰’, time: 2012}, {name: ‘宝马’, time: 2012}])命令给goods集合文件插入多条数据<br>如果当前没有这个集合文件会自动创建后再插入<br>使用show collections命令查看集合变化</p>
-<h6 id="1-4-1-1-1-3-查"><a href="#1-4-1-1-1-3-查" class="headerlink" title="1.4.1.1.1.3. 查"></a>1.4.1.1.1.3. 查</h6><p>基本语法：数据库.集合.find(条件)<br>注意：这里输入的键值必须使用引号包起来，否则查不到数据<br>补充：如果是查找多条数据，可以db.goods.find().pretty()格式化输出<br>使用db.goods.find()命令列出goods集合中的所有数据<br>使用db.goods.find({“time”: “2012”})命令找出time为2012的所有数据<br>使用db.goods.findOne({“time”: “2012”})命令找出time为2012的第一条数据<br>使用db.goods.find({“name”: /豪/})命令列出goods集合中name字段含有’豪’的数据<br>1.4.1.1.1.4. 删</p>
+<h6 id="1-4-1-1-1-3-查"><a href="#1-4-1-1-1-3-查" class="headerlink" title="1.4.1.1.1.3. 查"></a>1.4.1.1.1.3. 查</h6><p>基本语法：数据库.集合.find(条件)<br>注意：这里输入的键值必须使用引号包起来，否则查不到数据<br>补充：如果是查找多条数据，可以db.goods.find().pretty()格式化输出<br>使用db.goods.find()命令列出goods集合中的所有数据<br>使用db.goods.find({“time”: “2012”})命令找出time为2012的所有数据<br>使用db.goods.findOne({“time”: “2012”})命令找出time为2012的第一条数据<br>使用db.goods.find({“name”: &#x2F;豪&#x2F;})命令列出goods集合中name字段含有’豪’的数据<br>1.4.1.1.1.4. 删</p>
 <p>基本语法：数据库.集合.remove(条件, 是否只删除一条)<br>使用db.goods.remove({‘time’: ‘2015’})命令删除goods集合中time为2015的所有数据<br>使用db.goods.remove({‘time’: ‘2012’}, true)命令删除goods集合中time为2012的第一条数据<br>使用db.goods.remove()命令删除全部数据</p>
 <h6 id="1-4-1-1-1-5-改"><a href="#1-4-1-1-1-5-改" class="headerlink" title="1.4.1.1.1.5. 改"></a>1.4.1.1.1.5. 改</h6><p>基本语法：数据库.集合.update(条件, 新值, 没有匹配是否新增, 是否更新多条数据)<br>使用db.goods.update({‘time’: ‘2015’}, {‘name’: ‘玛莎拉’, ‘time’: ‘2017’})命令替换goods集合中time为2015的第一条数据<br>使用db.goods.update({‘time’: ‘2015’}, {$set: {‘time’: ‘2017’})命令替换goods集合中time为2015的第一条数据的time字段<br>1.4.1.1.1.6. save</p>
 <p>基本语法：数据库.集合.save(JSON)<br>如果数据中含有_id字段，那么update这个_id的数据<br>如果没有_id字段，那么insert该数据</p>
 <h4 id="1-4-1-2-node程序连接MongoDB"><a href="#1-4-1-2-node程序连接MongoDB" class="headerlink" title="1.4.1.2. node程序连接MongoDB"></a>1.4.1.2. node程序连接MongoDB</h4><h5 id="1-4-1-2-1-安装驱动包"><a href="#1-4-1-2-1-安装驱动包" class="headerlink" title="1.4.1.2.1. 安装驱动包"></a>1.4.1.2.1. 安装驱动包</h5><p>mongoDB支持众多编程语言来操作<br>每种编程语言官方都提供了相应的驱动包<br>在node.js中操作mongo需要安装mongodb这个包<br>使用cnpm install mongodb -S进行安装</p>
-<h6 id="1-4-1-2-1-1-连接"><a href="#1-4-1-2-1-1-连接" class="headerlink" title="1.4.1.2.1.1. 连接"></a>1.4.1.2.1.1. 连接</h6><div class="hljs"><pre><code>&#39;use strict&#39;;
+<h6 id="1-4-1-2-1-1-连接"><a href="#1-4-1-2-1-1-连接" class="headerlink" title="1.4.1.2.1.1. 连接"></a>1.4.1.2.1.1. 连接</h6><pre><code class="hljs">&#39;use strict&#39;;
 const mongodb = require(&#39;mongodb&#39;);
 const MongoClient = mongodb.MongoClient;    
 
 // 连接itcast数据库
 let dbUrl = &#39;mongodb://localhost:27017/store&#39;;
-MongoClient.connect(dbUrl, (err, db) =&gt; &#123;
-    if(!err) &#123;
+MongoClient.connect(dbUrl, (err, db) =&gt; {
+    if(!err) {
         console.log(&#39;在这里进行数据的增删查改&#39;);
-    &#125;else &#123;
+    }else {
         console.log(&#39;数据库连接失败&#39;);
-    &#125;
-&#125;);
-</code></pre></div>
-<h6 id="1-4-1-2-1-2-增"><a href="#1-4-1-2-1-2-增" class="headerlink" title="1.4.1.2.1.2. 增"></a>1.4.1.2.1.2. 增</h6><div class="hljs"><pre><code>MongoClient.connect(dbUrl, (err, db) =&gt; &#123;
-    if(!err) &#123;
-        db.collection(&#39;goods&#39;).insertOne(&#123;
+    }
+});
+</code></pre>
+<h6 id="1-4-1-2-1-2-增"><a href="#1-4-1-2-1-2-增" class="headerlink" title="1.4.1.2.1.2. 增"></a>1.4.1.2.1.2. 增</h6><pre><code class="hljs">MongoClient.connect(dbUrl, (err, db) =&gt; {
+    if(!err) {
+        db.collection(&#39;goods&#39;).insertOne({
             name: &#39;奖品&#39;, time: &#39;2015&#39;
-        &#125;, (err, result) =&gt; &#123;
-            if(!err) &#123;
+        }, (err, result) =&gt; {
+            if(!err) {
                 console.log(result);
-            &#125;else &#123;
+            }else {
                 console.log(&#39;插入失败&#39;);
-            &#125;
+            }
             // 操作完毕后调用close方法结束数据库连接以释放内存资源
             db.close();
-        &#125;);
-    &#125;
-&#125;
-</code></pre></div>
-<h6 id="1-4-1-2-1-3-删"><a href="#1-4-1-2-1-3-删" class="headerlink" title="1.4.1.2.1.3. 删"></a>1.4.1.2.1.3. 删</h6><div class="hljs"><pre><code>MongoClient.connect(dbUrl, (err, db) =&gt; &#123;
-    if(!err) &#123;
-        db.collection(&#39;goods&#39;).remove(&#123;
+        });
+    }
+}
+</code></pre>
+<h6 id="1-4-1-2-1-3-删"><a href="#1-4-1-2-1-3-删" class="headerlink" title="1.4.1.2.1.3. 删"></a>1.4.1.2.1.3. 删</h6><pre><code class="hljs">MongoClient.connect(dbUrl, (err, db) =&gt; {
+    if(!err) {
+        db.collection(&#39;goods&#39;).remove({
             &#39;time&#39;: &#39;2015&#39;
-        &#125;, (err, result) =&gt; &#123;
-            if(!err) &#123;
+        }, (err, result) =&gt; {
+            if(!err) {
                 console.log(result);
-            &#125;else &#123;
+            }else {
                 console.log(&#39;删除失败&#39;);
-            &#125;
+            }
             // 操作完毕后调用close方法结束数据库连接以释放内存资源
             db.close();
-        &#125;);
-    &#125;
-&#125;;
-</code></pre></div>
-<h6 id="1-4-1-2-1-4-查"><a href="#1-4-1-2-1-4-查" class="headerlink" title="1.4.1.2.1.4. 查"></a>1.4.1.2.1.4. 查</h6><div class="hljs"><pre><code>MongoClient.connect(dbUrl, (err, db) =&gt; &#123;
-    if(!err) &#123;
+        });
+    }
+};
+</code></pre>
+<h6 id="1-4-1-2-1-4-查"><a href="#1-4-1-2-1-4-查" class="headerlink" title="1.4.1.2.1.4. 查"></a>1.4.1.2.1.4. 查</h6><pre><code class="hljs">MongoClient.connect(dbUrl, (err, db) =&gt; {
+    if(!err) {
         db.collection(&#39;goods&#39;).find()
-        .toArray(function(err, result) &#123;
-            if(!err) &#123;
+        .toArray(function(err, result) {
+            if(!err) {
                 console.log(result);
-            &#125;else &#123;
+            }else {
                 console.log(&#39;搜索失败&#39;);
                 console.log(result);
-            &#125;
+            }
             // 操作完毕后最好调用close方法结束数据库连接以释放内存资源
             db.close();
-        &#125;);
-    &#125;
-&#125;;
-</code></pre></div>
-<h6 id="1-4-1-2-1-5-改"><a href="#1-4-1-2-1-5-改" class="headerlink" title="1.4.1.2.1.5. 改"></a>1.4.1.2.1.5. 改</h6><div class="hljs"><pre><code>MongoClient.connect(dbUrl, (err, db) =&gt; &#123;
-    if(!err) &#123;
-        db.collection(&#39;students&#39;).update(&#123;
+        });
+    }
+};
+</code></pre>
+<h6 id="1-4-1-2-1-5-改"><a href="#1-4-1-2-1-5-改" class="headerlink" title="1.4.1.2.1.5. 改"></a>1.4.1.2.1.5. 改</h6><pre><code class="hljs">MongoClient.connect(dbUrl, (err, db) =&gt; {
+    if(!err) {
+        db.collection(&#39;students&#39;).update({
             gender: &#39;女&#39;
-        &#125;,&#123;
-            $set: &#123; age: 18 &#125;
-        &#125;, (err, result) =&gt; &#123;
-            if(err) &#123;
+        },{
+            $set: { age: 18 }
+        }, (err, result) =&gt; {
+            if(err) {
                 console.log(&#39;修改失败&#39;);
-            &#125;else &#123;
+            }else {
                 console.log(&#39;修改成功&#39;);
-            &#125;
+            }
             // 操作完毕后最好调用close方法结束数据库连接以释放内存资源
             db.close();
-        &#125;);
-    &#125;
-&#125;;
-</code></pre></div>
+        });
+    }
+};
+</code></pre>
 <h2 id="1-5-常用方法"><a href="#1-5-常用方法" class="headerlink" title="1.5. 常用方法"></a>1.5. 常用方法</h2><h3 id="1-5-1-数据库实例"><a href="#1-5-1-数据库实例" class="headerlink" title="1.5.1. 数据库实例"></a>1.5.1. 数据库实例</h3><p>删除数据库自己<br>db.dropDatabase()<br>获取指定集合实例<br>db.collection(集合名称)</p>
 <h4 id="1-5-1-1-集合实例"><a href="#1-5-1-1-集合实例" class="headerlink" title="1.5.1.1. 集合实例"></a>1.5.1.1. 集合实例</h4><p>删除集合自己<br>collection.drop()<br>插入数据<br>collection.insert(内容)<br>collection.insertOne(一条内容)<br>collection.insertMany(多条内容)<br>删除数据<br>collection.remove(条件, 是否只删除一条)<br>查找数据<br>collection.find(条件, isOne)<br>修改数据<br>collection.update(条件, 新值, 没有匹配是否新增, 是否更新多条数据)</p>
-<h2 id="1-6-条件查询"><a href="#1-6-条件查询" class="headerlink" title="1.6. 条件查询"></a>1.6. 条件查询</h2><h3 id="1-6-1-含义"><a href="#1-6-1-含义" class="headerlink" title="1.6.1. 含义"></a>1.6.1. 含义</h3><p>(&gt;) 大于 - $gt (greater then)<br>(&lt;) 小于 - $lt (less then)<br>(&gt;=) 大于等于 - $gte (greater then or equal)<br>(&lt;= ) 小于等于 - $lte (less then or equal)<br>(!=) 不等于 - $ne (not equal)</p>
+<h2 id="1-6-条件查询"><a href="#1-6-条件查询" class="headerlink" title="1.6. 条件查询"></a>1.6. 条件查询</h2><h3 id="1-6-1-含义"><a href="#1-6-1-含义" class="headerlink" title="1.6.1. 含义"></a>1.6.1. 含义</h3><p>(&gt;) 大于 - $gt (greater then)<br>(&lt;) 小于 - $lt (less then)<br>(&gt;&#x3D;) 大于等于 - $gte (greater then or equal)<br>(&lt;&#x3D; ) 小于等于 - $lte (less then or equal)<br>(!&#x3D;) 不等于 - $ne (not equal)</p>
 <h4 id="1-6-1-1-范例"><a href="#1-6-1-1-范例" class="headerlink" title="1.6.1.1. 范例"></a>1.6.1.1. 范例</h4><p>查询价格大于100的商品<br>db.store.find({price: {$gt: 100}})<br>查询价格小于100的商品<br>db.store.find({price: {$lt: 100}})<br>查询价格大于等于100的商品<br>db.store.find({price: {$gte: 100}})<br>查询价格小于等于100的商品<br>db.store.find({price: {$lte: 100}})<br>查询价格等于100的商品<br>db.store.find({price: 100})<br>查询价格不等于100的商品<br>db.store.find({price: {$ne: 100}})</p>
 <h2 id="1-7-查询结果处理"><a href="#1-7-查询结果处理" class="headerlink" title="1.7. 查询结果处理"></a>1.7. 查询结果处理</h2><h3 id="1-7-1-指定起始位置与数量"><a href="#1-7-1-指定起始位置与数量" class="headerlink" title="1.7.1. 指定起始位置与数量"></a>1.7.1. 指定起始位置与数量</h3><p>获取下标2之后的数据<br>db.store.find().skip(2)<br>获取前2条数据<br>db.store.find().limit(2)<br>获取下标2之后的2条数据<br>db.store.find().skip(2).limit(2)</p>
 <h4 id="1-7-1-1-排序"><a href="#1-7-1-1-排序" class="headerlink" title="1.7.1.1. 排序"></a>1.7.1.1. 排序</h4><p>以price字段做升序排序<br>db.store.find().sort({price: 1})<br>以price字段做降序排序<br>db.store.find().sort({price: -1})<br>注：这里必须是正1与负1</p>
 <h4 id="1-7-1-2-结果数量"><a href="#1-7-1-2-结果数量" class="headerlink" title="1.7.1.2. 结果数量"></a>1.7.1.2. 结果数量</h4><p>获取价格大于100的商品数量<br>db.store.find({price: { $gt: 100 }}).count()</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-                    
-                  </div>
-                
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>mongoDB</div>
+      <div>http://dantefung.github.io/2018/03/01/mogodb/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>dantefung</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>March 1, 2018</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
               
               
-                <div class="post-prevnext row">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2018/05/27/%E6%B7%B1%E5%85%A5%E6%82%A8%E7%9A%84%E9%AA%A8%E5%A4%B4/">
+                      <a href="/2018/05/27/%E6%B7%B1%E5%85%A5%E6%82%A8%E7%9A%84%E9%AA%A8%E5%A4%B4/" title="深入您的骨髓">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">深入您的骨髓</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2018/03/01/npm/">
+                      <a href="/2018/03/01/npm/" title="npm笔记">
                         <span class="hidden-mobile">npm笔记</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -452,73 +546,74 @@ MongoClient.connect(dbUrl, (err, db) =&gt; &#123;
             </div>
 
             
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    function loadGitalk() {
-      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
-      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: '4c62e572f688c01a7c7e',
-          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
-          repo: 'blog-comment',
-          owner: 'dantefung',
-          admin: ["dantefung"],
-          id: md5(location.pathname),
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-      });
-    }
-    waitElementVisible('gitalk-container', loadGitalk);
-  </script>
-
-
-              </article>
-            
           </article>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -526,194 +621,185 @@ MongoClient.connect(dbUrl, (err, db) =&gt; &#123;
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  
+    
 
-  
+    
+  </main>
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-    
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
   
-    <script  src="/js/lazyload.js" ></script>
   
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
       }
     });
-  </script>
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "mongoDB&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
     };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    anchors.add(res.join(", "))
-  </script>
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>

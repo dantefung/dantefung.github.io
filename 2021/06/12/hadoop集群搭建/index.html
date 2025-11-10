@@ -1,65 +1,105 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-Hans" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/icon.jpeg">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpeg">
+  <link rel="icon" href="/img/icon.jpeg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="DANTE FUNG">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="hadoop集群搭建服务器规划   IP 域名 系统版本号    10.10.x.70 zk.had01 Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu SMP Fri Mar 19 13:29:52 UTC 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hadoop集群搭建">
+<meta property="og:url" content="http://dantefung.github.io/2021/06/12/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="DANTE FUNGの像初雪一样洒落">
+<meta property="og:description" content="hadoop集群搭建服务器规划   IP 域名 系统版本号    10.10.x.70 zk.had01 Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu SMP Fri Mar 19 13:29:52 UTC 2">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-06-12T11:29:07.000Z">
+<meta property="article:modified_time" content="2022-03-24T06:18:59.001Z">
+<meta property="article:author" content="DANTE FUNG">
+<meta property="article:tag" content="运维">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
   <title>hadoop集群搭建 - DANTE FUNGの像初雪一样洒落</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dantefung.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.1"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>DANTE FUNGの像初雪一样洒落</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -76,9 +116,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                <span>Startseite</span>
               </a>
             </li>
           
@@ -88,9 +128,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                <span>Archiv</span>
               </a>
             </li>
           
@@ -100,9 +140,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                <span>Kategorien</span>
               </a>
             </li>
           
@@ -112,9 +152,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                <span>Schlagwörter</span>
               </a>
             </li>
           
@@ -124,47 +164,26 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/musics/">
-                <i class="iconfont icon-category-fill"></i>
-                music
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                <span>Über</span>
               </a>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -172,75 +191,92 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/bg_night.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-06-12 19:29" pubdate>
-      June 12, 2021 pm
-    </time>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg_night.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="hadoop集群搭建"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-12 19:29" pubdate>
+          June 12, 2021 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 minuten
+        
+      </span>
+    
+
+    
+    
   </div>
 
 
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      2k 字
-    </span>
-  
+        
+      </div>
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      35
-       分钟
-    </span>
-  
-
-  
-  
+    </div>
+  </div>
 </div>
 
-            
-          </div>
+</div>
 
-          
-        </div>
-      </div>
-    </div>
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">hadoop集群搭建</h1>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">hadoop集群搭建</h1>
             
-            <div class="markdown-body" id="post-body">
-              <h2 id="hadoop集群搭建"><a href="#hadoop集群搭建" class="headerlink" title="hadoop集群搭建"></a>hadoop集群搭建</h2><h3 id="服务器规划"><a href="#服务器规划" class="headerlink" title="服务器规划"></a>服务器规划</h3><table>
+            
+              <div class="markdown-body">
+                
+                <h2 id="hadoop集群搭建"><a href="#hadoop集群搭建" class="headerlink" title="hadoop集群搭建"></a>hadoop集群搭建</h2><h3 id="服务器规划"><a href="#服务器规划" class="headerlink" title="服务器规划"></a>服务器规划</h3><table>
 <thead>
 <tr>
 <th>IP</th>
@@ -261,7 +297,7 @@
 <tr>
 <td>10.187.x.120</td>
 <td>zk.had03</td>
-<td>Linux version 3.10.0-957.el7.x86_64 (<a href="mailto:&#109;&#111;&#99;&#107;&#98;&#x75;&#x69;&#108;&#100;&#64;&#x6b;&#98;&#x75;&#x69;&#108;&#x64;&#101;&#x72;&#x2e;&#x62;&#x73;&#x79;&#x73;&#46;&#99;&#x65;&#x6e;&#116;&#111;&#115;&#x2e;&#x6f;&#114;&#x67;">&#109;&#111;&#99;&#107;&#98;&#x75;&#x69;&#108;&#100;&#64;&#x6b;&#98;&#x75;&#x69;&#108;&#x64;&#101;&#x72;&#x2e;&#x62;&#x73;&#x79;&#x73;&#46;&#99;&#x65;&#x6e;&#116;&#111;&#115;&#x2e;&#x6f;&#114;&#x67;</a>) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Thu Nov 8 23:39:32 UTC 2018</td>
+<td>Linux version 3.10.0-957.el7.x86_64 (<a href="mailto:&#x6d;&#x6f;&#99;&#107;&#98;&#117;&#105;&#x6c;&#x64;&#64;&#x6b;&#98;&#x75;&#105;&#108;&#100;&#x65;&#x72;&#x2e;&#x62;&#x73;&#x79;&#x73;&#x2e;&#99;&#101;&#110;&#116;&#111;&#115;&#x2e;&#x6f;&#x72;&#x67;">mockbuild@kbuilder.bsys.centos.org</a>) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Thu Nov 8 23:39:32 UTC 2018</td>
 </tr>
 </tbody></table>
 <h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
@@ -269,50 +305,17 @@
 </ul>
 <h3 id="下载软件并安装"><a href="#下载软件并安装" class="headerlink" title="下载软件并安装"></a>下载软件并安装</h3><p><a target="_blank" rel="noopener" href="https://hadoop.apache.org/releases.html">官网下载地址</a></p>
 <blockquote>
-<p>Note:<br>本文使用的版本号为hadoop-2.10.1.tar.gz<br>存放地址为/opt</p>
+<p>Note:<br>本文使用的版本号为hadoop-2.10.1.tar.gz<br>存放地址为&#x2F;opt</p>
 </blockquote>
 <h3 id="host文件"><a href="#host文件" class="headerlink" title="host文件"></a>host文件</h3><p>将本地回环地址改成内网地址(hbase需要), 将规划的域名zk.had01, zk.had02, zk.had03的配置如下:</p>
 <p>10.10.27.70机器的host配置:</p>
-<div class="hljs"><pre><code class="hljs accesslog">root@GT70:~# cat /etc/hosts
-#<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>      localhost
-<span class="hljs-number">10.10.27.70</span>     GT70
-<span class="hljs-number">127.0.0.1</span>      localhost
-# The following lines are desirable for IPv6 capable hosts
-::<span class="hljs-number">1</span>     ip6-localhost ip6-loopback
-fe00::<span class="hljs-number">0</span> ip6-localnet
-ff00::<span class="hljs-number">0</span> ip6-mcastprefix
-ff02::<span class="hljs-number">1</span> ip6-allnodes
-ff02::<span class="hljs-number">2</span> ip6-allrouters
-<span class="hljs-number">10.10.27.70</span> zk.had01
-<span class="hljs-number">10.10.27.8</span> zk.had02
-<span class="hljs-number">10.187.100.120</span> zk.had03</code></pre></div>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">root@GT70:~# cat /etc/hosts<br>#<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>      localhost<br><span class="hljs-number">10.10.27.70</span>     GT70<br><span class="hljs-number">127.0.0.1</span>      localhost<br># The following lines are desirable for IPv6 capable hosts<br>::<span class="hljs-number">1</span>     ip6-localhost ip6-loopback<br>fe00::<span class="hljs-number">0</span> ip6-localnet<br>ff00::<span class="hljs-number">0</span> ip6-mcastprefix<br>ff02::<span class="hljs-number">1</span> ip6-allnodes<br>ff02::<span class="hljs-number">2</span> ip6-allrouters<br><span class="hljs-number">10.10.27.70</span> zk.had01<br><span class="hljs-number">10.10.27.8</span> zk.had02<br><span class="hljs-number">10.187.100.120</span> zk.had03<br></code></pre></td></tr></table></figure>
 
 <p>10.10.27.8机器的host配置:</p>
-<div class="hljs"><pre><code class="hljs accesslog">hadoop@root-RiskCtrl:/opt/hbase234/logs$ cat /etc/hosts
-<span class="hljs-number">10.10.27.8</span>      root-RiskCtrl
-<span class="hljs-number">127.0.0.1</span>       localhost
-
-# The following lines are desirable for IPv6 capable hosts
-::<span class="hljs-number">1</span>     ip6-localhost ip6-loopback
-fe00::<span class="hljs-number">0</span> ip6-localnet
-ff00::<span class="hljs-number">0</span> ip6-mcastprefix
-ff02::<span class="hljs-number">1</span> ip6-allnodes
-ff02::<span class="hljs-number">2</span> ip6-allrouters
-<span class="hljs-number">10.10.27.70</span> zk.had01 GT70 master
-<span class="hljs-number">10.10.27.8</span> zk.had02 root-RiskCtrl
-<span class="hljs-number">10.187.100.120</span> zk.had03 selenium-test</code></pre></div>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">hadoop@root-RiskCtrl:/opt/hbase234/logs$ cat /etc/hosts<br><span class="hljs-number">10.10.27.8</span>      root-RiskCtrl<br><span class="hljs-number">127.0.0.1</span>       localhost<br><br># The following lines are desirable for IPv6 capable hosts<br>::<span class="hljs-number">1</span>     ip6-localhost ip6-loopback<br>fe00::<span class="hljs-number">0</span> ip6-localnet<br>ff00::<span class="hljs-number">0</span> ip6-mcastprefix<br>ff02::<span class="hljs-number">1</span> ip6-allnodes<br>ff02::<span class="hljs-number">2</span> ip6-allrouters<br><span class="hljs-number">10.10.27.70</span> zk.had01 GT70 master<br><span class="hljs-number">10.10.27.8</span> zk.had02 root-RiskCtrl<br><span class="hljs-number">10.187.100.120</span> zk.had03 selenium-test<br></code></pre></td></tr></table></figure>
 
 <p>10.187.100.120机器的host配置:</p>
-<div class="hljs"><pre><code class="hljs accesslog"><span class="hljs-string">[hadoop@selenium-test hadoop]</span>$ cat /etc/hosts
-<span class="hljs-number">10.187.100.120</span> selenium-test
-<span class="hljs-number">127.0.0.1</span>   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::<span class="hljs-number">1</span>         localhost localhost.localdomain localhost6 localhost6.localdomain6
-<span class="hljs-number">10.5.28.240</span>    riskmg-dev.gtland.cn
-<span class="hljs-number">10.5.28.240</span>    authcctr-dev.gtland.cn
-<span class="hljs-number">10.10.27.70</span>    zk.had01
-<span class="hljs-number">10.10.27.8</span>     zk.had02   root-RiskCtrl
-<span class="hljs-number">10.187.100.120</span> zk.had03
-<span class="hljs-number">10.10.27.70</span>    GT70 master</code></pre></div>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-string">[hadoop@selenium-test hadoop]</span>$ cat /etc/hosts<br><span class="hljs-number">10.187.100.120</span> selenium-test<br><span class="hljs-number">127.0.0.1</span>   localhost localhost.localdomain localhost4 localhost4.localdomain4<br>::<span class="hljs-number">1</span>         localhost localhost.localdomain localhost6 localhost6.localdomain6<br><span class="hljs-number">10.5.28.240</span>    riskmg-dev.gtland.cn<br><span class="hljs-number">10.5.28.240</span>    authcctr-dev.gtland.cn<br><span class="hljs-number">10.10.27.70</span>    zk.had01<br><span class="hljs-number">10.10.27.8</span>     zk.had02   root-RiskCtrl<br><span class="hljs-number">10.187.100.120</span> zk.had03<br><span class="hljs-number">10.10.27.70</span>    GT70 master<br></code></pre></td></tr></table></figure>
 
 <h3 id="用户及用户组"><a href="#用户及用户组" class="headerlink" title="用户及用户组"></a>用户及用户组</h3><p><strong>用户组、用户、权限规划</strong></p>
 <table>
@@ -326,20 +329,19 @@ ff02::<span class="hljs-number">2</span> ip6-allrouters
 <tbody><tr>
 <td>hadoop</td>
 <td>hadoop</td>
-<td>/opt/hadoop-2.10-1<br />/opt/hbase234</td>
+<td>&#x2F;opt&#x2F;hadoop-2.10-1<br />&#x2F;opt&#x2F;hbase234</td>
 </tr>
 </tbody></table>
 <p>新建用户组hadoop</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">groupadd hadoop</span></code></pre></div>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">groupadd hadoop</span><br></code></pre></td></tr></table></figure>
 <p>新建hadoop用户</p>
-<div class="hljs"><pre><code class="hljs awk">useradd hadoop -g hadoop -m -s <span class="hljs-regexp">/bin/</span>bash</code></pre></div>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">useradd hadoop -g hadoop -m -s <span class="hljs-regexp">/bin/</span>bash <br></code></pre></td></tr></table></figure>
 <p> 给已创建的用户hadoop设置密码为hadoop</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">passwd hadoop</span></code></pre></div>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">passwd hadoop</span><br></code></pre></td></tr></table></figure>
 <p>修改目录所属用户</p>
-<div class="hljs"><pre><code class="hljs awk">chown -R hadoop.hadoop <span class="hljs-regexp">/opt/</span>hadoop-<span class="hljs-number">2.10</span>.<span class="hljs-number">1</span>
-chown -R hadoop.hadoop <span class="hljs-regexp">/opt/</span>hbase234</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chown</span> -R hadoop.hadoop /opt/hadoop-2.10.1<br><span class="hljs-built_in">chown</span> -R hadoop.hadoop /opt/hbase234<br></code></pre></td></tr></table></figure>
 <p>切换用户hadoop</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">su - hadoop</span></code></pre></div>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">su - hadoop</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Note:<br>zk.had01, zk.had02, zk.had03 三台机上面都要创建.并切换成hadoop用户.</p>
@@ -347,36 +349,20 @@ chown -R hadoop.hadoop <span class="hljs-regexp">/opt/</span>hbase234</code></pr
 <h3 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h3>
 
 <p><strong>方式一:</strong></p>
-<div class="hljs"><pre><code class="hljs applescript">ssh-keygen
-ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -p <span class="hljs-number">22612</span> hadoop@zk.had01
-ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -p <span class="hljs-number">22612</span> hadoop@zk.had02
-ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -p <span class="hljs-number">22612</span> hadoop@zk.had03</code></pre></div>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs applescript">ssh-keygen<br>ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -p <span class="hljs-number">22612</span> hadoop@zk.had01<br>ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -p <span class="hljs-number">22612</span> hadoop@zk.had02<br>ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> -p <span class="hljs-number">22612</span> hadoop@zk.had03<br></code></pre></td></tr></table></figure>
 
 <p><strong>方式二:</strong></p>
-<p>将本机的公钥文件上传到目标服务器上，然后在服务器需要免密登录的用户家目录下查看是否有 ~/.ssh/authorized_keys这个文件，<br>如果没有手动创建一个:</p>
-<div class="hljs"><pre><code class="hljs arcade">touch ~<span class="hljs-regexp">/.ssh/</span>authorized_keys</code></pre></div>
+<p>将本机的公钥文件上传到目标服务器上，然后在服务器需要免密登录的用户家目录下查看是否有 ~&#x2F;.ssh&#x2F;authorized_keys这个文件，<br>如果没有手动创建一个:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> ~/.ssh/authorized_keys<br></code></pre></td></tr></table></figure>
 
 <p>然后我们将公钥内容写入到authorized_keys文件中，因为这个文件可能已经有内容了，所以你可以使用如下方式</p>
-<div class="hljs"><pre><code class="hljs arcade">cat -n ~<span class="hljs-regexp">/.ssh/</span>rsa.pub ~<span class="hljs-regexp">/.ssh/</span>authorized_keys</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> -n ~/.ssh/rsa.pub ~/.ssh/authorized_keys<br></code></pre></td></tr></table></figure>
 <p>这样就将公钥内容追加到authorized_keys中了，然后需要注意配置权限了，否则SSH不会工作的.</p>
 <p>将.ssh目录的权限为700<br>将authorized_keys目录的权限为600</p>
 <p><strong>设置别名:</strong></p>
-<div class="hljs"><pre><code class="hljs arcade">vi ~<span class="hljs-regexp">/.ssh/</span>config</code></pre></div>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">vi ~<span class="hljs-regexp">/.ssh/</span>config<br></code></pre></td></tr></table></figure>
 <p>内容如下:</p>
-<div class="hljs"><pre><code class="hljs crmsh">host hadoop1
-     <span class="hljs-keyword">user</span> <span class="hljs-title">hadoop</span>
-     hostname <span class="hljs-number">10.10</span>.<span class="hljs-number">27.70</span>
-     port <span class="hljs-number">22612</span>
-
-host hadoop2
-     <span class="hljs-keyword">user</span> <span class="hljs-title">hadoop</span>
-     hostname <span class="hljs-number">10.10</span>.<span class="hljs-number">27.8</span>
-     port <span class="hljs-number">22612</span>
-
-host hadoop3
-     <span class="hljs-keyword">user</span> <span class="hljs-title">hadoop</span>
-     hostname <span class="hljs-number">10.187</span>.<span class="hljs-number">100.120</span>
-     port <span class="hljs-number">22612</span></code></pre></div>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">host hadoop1<br>     <span class="hljs-keyword">user</span> <span class="hljs-title">hadoop</span><br>     hostname <span class="hljs-number">10.10</span>.<span class="hljs-number">27.70</span><br>     port <span class="hljs-number">22612</span><br><br>host hadoop2<br>     <span class="hljs-keyword">user</span> <span class="hljs-title">hadoop</span><br>     hostname <span class="hljs-number">10.10</span>.<span class="hljs-number">27.8</span><br>     port <span class="hljs-number">22612</span><br><br>host hadoop3<br>     <span class="hljs-keyword">user</span> <span class="hljs-title">hadoop</span><br>     hostname <span class="hljs-number">10.187</span>.<span class="hljs-number">100.120</span><br>     port <span class="hljs-number">22612</span><br></code></pre></td></tr></table></figure>
 
 
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><ul>
@@ -388,181 +374,43 @@ host hadoop3
 <li>slaves</li>
 </ul>
 <p><strong>修改hadoop-env.sh</strong><br>改其中的JAVA_HOME为我们安装jdk的路径</p>
-<div class="hljs"><pre><code class="hljs arcade">JAVA_HOME=<span class="hljs-regexp">/usr/</span>local/jdk</code></pre></div>
-<p><strong>修改core-site.xml文件</strong><br>/opt/hadoop-2.10.1/etc/hadoop/core-site.xml</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span>
-<span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/xsl&quot;</span> href=<span class="hljs-string">&quot;configuration.xsl&quot;</span>?&gt;</span>
-<span class="hljs-comment">&lt;!--</span>
-<span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<span class="hljs-comment">  you may not use this file except in compliance with the License.</span>
-<span class="hljs-comment">  You may obtain a copy of the License at</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span>
-<span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="hljs-comment">  See the License for the specific language governing permissions and</span>
-<span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span>
-<span class="hljs-comment">--&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>fs.defaultFS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hdfs://zk.had01:9000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
- <span class="hljs-comment">&lt;!-- 指定hadoop临时目录 --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.tmp.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/opt/hadoop-2.10.1/tmp<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
- <span class="hljs-comment">&lt;!-- 指定zookeeper地址 --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>ha.zookeeper.quorum<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>zk.had01:2181,zk.had02:2181,zk.had03:2181<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>ha.zookeeper.session-timeout.ms<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>3000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></code></pre></div>
-<p><strong>修改hdfs-site.xml</strong><br>/opt/hadoop-2.10.1/etc/hadoop/hdfs-site.xml</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span>
-<span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/xsl&quot;</span> href=<span class="hljs-string">&quot;configuration.xsl&quot;</span>?&gt;</span>
-<span class="hljs-comment">&lt;!--</span>
-<span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<span class="hljs-comment">  you may not use this file except in compliance with the License.</span>
-<span class="hljs-comment">  You may obtain a copy of the License at</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span>
-<span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="hljs-comment">  See the License for the specific language governing permissions and</span>
-<span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span>
-<span class="hljs-comment">--&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
- <span class="hljs-comment">&lt;!-- configuration for NameNode:--&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.name.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/opt/hadoop-2.10.1/name<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-        <span class="hljs-comment">&lt;!-- 块大小 --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.blocksize<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>268435456<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.handler.count<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>100<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-comment">&lt;!-- configuration for DateNode:--&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.datanode.data.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/opt/hadoop-2.10.1/data<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.replication<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></code></pre></div>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">JAVA_HOME</span>=/usr/local/jdk<br></code></pre></td></tr></table></figure>
+<p><strong>修改core-site.xml文件</strong><br>&#x2F;opt&#x2F;hadoop-2.10.1&#x2F;etc&#x2F;hadoop&#x2F;core-site.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/xsl&quot;</span> href=<span class="hljs-string">&quot;configuration.xsl&quot;</span>?&gt;</span><br><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="hljs-comment">  you may not use this file except in compliance with the License.</span><br><span class="hljs-comment">  You may obtain a copy of the License at</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span><br><span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="hljs-comment">  See the License for the specific language governing permissions and</span><br><span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span><br><span class="hljs-comment">--&gt;</span><br><br><span class="hljs-comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>fs.defaultFS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hdfs://zk.had01:9000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br> <span class="hljs-comment">&lt;!-- 指定hadoop临时目录 --&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.tmp.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/opt/hadoop-2.10.1/tmp<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br> <span class="hljs-comment">&lt;!-- 指定zookeeper地址 --&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>ha.zookeeper.quorum<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>zk.had01:2181,zk.had02:2181,zk.had03:2181<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>ha.zookeeper.session-timeout.ms<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>3000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><strong>修改hdfs-site.xml</strong><br>&#x2F;opt&#x2F;hadoop-2.10.1&#x2F;etc&#x2F;hadoop&#x2F;hdfs-site.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/xsl&quot;</span> href=<span class="hljs-string">&quot;configuration.xsl&quot;</span>?&gt;</span><br><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="hljs-comment">  you may not use this file except in compliance with the License.</span><br><span class="hljs-comment">  You may obtain a copy of the License at</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span><br><span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="hljs-comment">  See the License for the specific language governing permissions and</span><br><span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span><br><span class="hljs-comment">--&gt;</span><br><br><span class="hljs-comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br> <span class="hljs-comment">&lt;!-- configuration for NameNode:--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.name.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/opt/hadoop-2.10.1/name<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 块大小 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.blocksize<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>268435456<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.handler.count<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>100<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-comment">&lt;!-- configuration for DateNode:--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.datanode.data.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/opt/hadoop-2.10.1/data<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.replication<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p><strong>修改mapred-site.xml</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span>?&gt;</span>
-<span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/xsl&quot;</span> href=<span class="hljs-string">&quot;configuration.xsl&quot;</span>?&gt;</span>
-<span class="hljs-comment">&lt;!--</span>
-<span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<span class="hljs-comment">  you may not use this file except in compliance with the License.</span>
-<span class="hljs-comment">  You may obtain a copy of the License at</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span>
-<span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="hljs-comment">  See the License for the specific language governing permissions and</span>
-<span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span>
-<span class="hljs-comment">--&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>mapreduce.framework.name<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>yarn<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span>?&gt;</span><br><span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/xsl&quot;</span> href=<span class="hljs-string">&quot;configuration.xsl&quot;</span>?&gt;</span><br><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="hljs-comment">  you may not use this file except in compliance with the License.</span><br><span class="hljs-comment">  You may obtain a copy of the License at</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span><br><span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="hljs-comment">  See the License for the specific language governing permissions and</span><br><span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span><br><span class="hljs-comment">--&gt;</span><br><br><span class="hljs-comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>mapreduce.framework.name<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>yarn<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>修改yarn-site.xml</strong></p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span>?&gt;</span>
-<span class="hljs-comment">&lt;!--</span>
-<span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<span class="hljs-comment">  you may not use this file except in compliance with the License.</span>
-<span class="hljs-comment">  You may obtain a copy of the License at</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="hljs-comment"></span>
-<span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span>
-<span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="hljs-comment">  See the License for the specific language governing permissions and</span>
-<span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span>
-<span class="hljs-comment">--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Site specific YARN configuration properties --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>zk.had01<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>mapreduce_shuffle<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>                                                        
-        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></code></pre></div>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span>?&gt;</span><br><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="hljs-comment">  you may not use this file except in compliance with the License.</span><br><span class="hljs-comment">  You may obtain a copy of the License at</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  Unless required by applicable law or agreed to in writing, software</span><br><span class="hljs-comment">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="hljs-comment">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="hljs-comment">  See the License for the specific language governing permissions and</span><br><span class="hljs-comment">  limitations under the License. See accompanying LICENSE file.</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- Site specific YARN configuration properties --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>zk.had01<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>mapreduce_shuffle<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>                                                        <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p><strong>修改slaves文件:</strong><br>这里配置的是ssh的别名</p>
-<div class="hljs"><pre><code class="hljs smali">hadoop2
-hadoop3</code></pre></div>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs smali">hadoop2<br>hadoop3<br></code></pre></td></tr></table></figure>
 
 <h3 id="配置hadoop环境变量"><a href="#配置hadoop环境变量" class="headerlink" title="配置hadoop环境变量"></a>配置hadoop环境变量</h3><p>方便执行hadoop相关的命令.</p>
-<div class="hljs"><pre><code class="hljs awk">vi <span class="hljs-regexp">/etc/</span>profile</code></pre></div>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">vi</span> /etc/<span class="hljs-keyword">profile</span><br></code></pre></td></tr></table></figure>
 
 <p>内容如下:</p>
-<div class="hljs"><pre><code class="hljs routeros"><span class="hljs-attribute">JAVA_HOME</span>=/usr/lib/jvm/java-8-openjdk-amd64
-<span class="hljs-attribute">HADOOP_HOME</span>=/opt/hadoop-2.10.1
-<span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$JAVA_HOME</span>/bin:$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
-
-<span class="hljs-built_in">export</span> JAVA_HOME
-<span class="hljs-built_in">export</span> HADOOP_HOME
-<span class="hljs-built_in">export</span> PATH</code></pre></div>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-attribute">JAVA_HOME</span>=/usr/lib/jvm/java-8-openjdk-amd64<br><span class="hljs-attribute">HADOOP_HOME</span>=/opt/hadoop-2.10.1<br><span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$JAVA_HOME</span>/bin:$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin<br><br><span class="hljs-built_in">export</span> JAVA_HOME<br><span class="hljs-built_in">export</span> HADOOP_HOME<br><span class="hljs-built_in">export</span> PATH<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>Note:<br>zk.had01, zk.had02, zk.had03 也要配置.</p>
 </blockquote>
-<h3 id="分发"><a href="#分发" class="headerlink" title="分发"></a>分发</h3><p>将zk.had01的/opt/hadoop-2.10.1分发到zk.had02, zk.had03.</p>
-<div class="hljs"><pre><code class="hljs apache">
-<span class="hljs-attribute">scp</span> -r /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span> hadoop@zk.had02:/tmp
-<span class="hljs-attribute">scp</span> -r /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span> hadoop@zk.had03:/tmp</code></pre></div>
+<h3 id="分发"><a href="#分发" class="headerlink" title="分发"></a>分发</h3><p>将zk.had01的&#x2F;opt&#x2F;hadoop-2.10.1分发到zk.had02, zk.had03.</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><br><span class="hljs-attribute">scp</span> -r /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span> hadoop@zk.had02:/tmp<br><span class="hljs-attribute">scp</span> -r /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span> hadoop@zk.had03:/tmp<br></code></pre></td></tr></table></figure>
 
-<p>分别登陆zk.had02, zk.had03，移动hadoop-2.10.1至/opt下</p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">mv</span> /tmp/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span> /opt</code></pre></div>
+<p>分别登陆zk.had02, zk.had03，移动hadoop-2.10.1至&#x2F;opt下</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mv</span> /tmp/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span> /opt<br></code></pre></td></tr></table></figure>
 
 
 
 <h3 id="启动hadoop集群"><a href="#启动hadoop集群" class="headerlink" title="启动hadoop集群"></a>启动hadoop集群</h3><p><strong>格式化一个新的分布式文件系统：</strong></p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span>/bin
-<span class="hljs-attribute">hadoop</span> namenode -format</code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /opt/hadoop-<span class="hljs-number">2</span>.<span class="hljs-number">10</span>.<span class="hljs-number">1</span>/bin<br><span class="hljs-attribute">hadoop</span> namenode -format<br></code></pre></td></tr></table></figure>
 
 
 
 <p><strong>启动：</strong></p>
 <p>在zk.had01上启动:</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /opt/hadoop-2.10.1/sbin
-./start-all.sh</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /opt/hadoop-2.10.1/sbin<br>./start-all.sh<br></code></pre></td></tr></table></figure>
 
 <h2 id="巨人的肩膀"><a href="#巨人的肩膀" class="headerlink" title="巨人的肩膀"></a>巨人的肩膀</h2><ul>
 <li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ysocean/p/6959776.html">Hadoop中ssh+IP、ssh+别名免秘钥登录配置</a></p>
@@ -571,48 +419,108 @@ hadoop3</code></pre></div>
 </li>
 </ul>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%BF%90%E7%BB%B4/" class="print-no-link">#运维</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>hadoop集群搭建</div>
+      <div>http://dantefung.github.io/2021/06/12/hadoop集群搭建/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>DANTE FUNG</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>June 12, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
               
               
-                <div class="post-prevnext row">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/14/hbase%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/">
+                      <a href="/2021/06/14/hbase%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/" title="hbase集群安装">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">hbase集群安装</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/12/Proxifier%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%BF%80%E6%B4%BB/">
+                      <a href="/2021/06/12/Proxifier%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%BF%80%E6%B4%BB/" title="Proxifier的安装与激活">
                         <span class="hidden-mobile">Proxifier的安装与激活</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -622,73 +530,74 @@ hadoop3</code></pre></div>
             </div>
 
             
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    function loadGitalk() {
-      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
-      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: '4c62e572f688c01a7c7e',
-          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
-          repo: 'blog-comment',
-          owner: 'dantefung',
-          admin: ["dantefung"],
-          id: md5(location.pathname),
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-      });
-    }
-    waitElementVisible('gitalk-container', loadGitalk);
-  </script>
-
-
-              </article>
-            
           </article>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -696,194 +605,185 @@ hadoop3</code></pre></div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  
+    
 
-  
+    
+  </main>
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-    
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
   
-    <script  src="/js/lazyload.js" ></script>
   
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
       }
     });
-  </script>
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "hadoop集群搭建&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
     };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    anchors.add(res.join(", "))
-  </script>
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>

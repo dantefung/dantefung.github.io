@@ -1,65 +1,109 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-Hans" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-Hans" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/icon.jpeg">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpeg">
+  <link rel="icon" href="/img/icon.jpeg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="DANTE FUNG">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="从vim迁移到neovim 本文由 简悦 SimpRead 转码， 原文地址 www.jianshu.com   为什么我从 vim 迁移到了 neovim 1 vim 打开大文件时的速度实在太慢, 经常容易卡顿. 毕竟一款上世纪的编辑器了, 速度有些慢是可以理解的, 但是我不能接受. hhhhhh. 而 nvim 打开大文件的速…  为什么我从 vim 迁移到了 neovim 1 vim 打开大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从vim迁移到neovim">
+<meta property="og:url" content="http://dantefung.github.io/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/index.html">
+<meta property="og:site_name" content="DANTE FUNGの像初雪一样洒落">
+<meta property="og:description" content="从vim迁移到neovim 本文由 简悦 SimpRead 转码， 原文地址 www.jianshu.com   为什么我从 vim 迁移到了 neovim 1 vim 打开大文件时的速度实在太慢, 经常容易卡顿. 毕竟一款上世纪的编辑器了, 速度有些慢是可以理解的, 但是我不能接受. hhhhhh. 而 nvim 打开大文件的速…  为什么我从 vim 迁移到了 neovim 1 vim 打开大">
+<meta property="og:locale">
+<meta property="og:image" content="http://dantefung.github.io/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-42-55.png">
+<meta property="og:image" content="http://dantefung.github.io/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-53-47.png">
+<meta property="og:image" content="http://dantefung.github.io/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-41-21.png">
+<meta property="article:published_time" content="2022-08-20T16:03:45.000Z">
+<meta property="article:modified_time" content="2025-04-07T06:04:07.190Z">
+<meta property="article:author" content="DANTE FUNG">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://dantefung.github.io/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-42-55.png">
+  
+  
+  
   <title>从vim迁移到neovim - DANTE FUNGの像初雪一样洒落</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/monokai-sublime.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dantefung.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.1"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>DANTE FUNGの像初雪一样洒落</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>DANTE FUNGの像初雪一样洒落</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -76,9 +120,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                <span>Startseite</span>
               </a>
             </li>
           
@@ -88,9 +132,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                <span>Archiv</span>
               </a>
             </li>
           
@@ -100,9 +144,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                <span>Kategorien</span>
               </a>
             </li>
           
@@ -112,9 +156,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                <span>Schlagwörter</span>
               </a>
             </li>
           
@@ -124,47 +168,26 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/musics/">
-                <i class="iconfont icon-category-fill"></i>
-                music
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                <span>Über</span>
               </a>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -172,98 +195,113 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/bg_night.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2022-08-21 00:03" pubdate>
-      August 21, 2022 am
-    </time>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg_night.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="从vim迁移到neovim"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-21 00:03" pubdate>
+          August 21, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          806 wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 minuten
+        
+      </span>
+    
+
+    
+    
   </div>
 
 
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      926 字
-    </span>
-  
+        
+      </div>
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      13
-       分钟
-    </span>
-  
-
-  
-  
+    </div>
+  </div>
 </div>
 
-            
-          </div>
+</div>
 
-          
-        </div>
-      </div>
-    </div>
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">从vim迁移到neovim</h1>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">从vim迁移到neovim</h1>
             
-            <div class="markdown-body" id="post-body">
-              <h1 id="从vim迁移到neovim"><a href="#从vim迁移到neovim" class="headerlink" title="从vim迁移到neovim"></a>从vim迁移到neovim</h1><blockquote>
+            
+              <div class="markdown-body">
+                
+                <h1 id="从vim迁移到neovim"><a href="#从vim迁移到neovim" class="headerlink" title="从vim迁移到neovim"></a>从vim迁移到neovim</h1><blockquote>
 <p>本文由 <a target="_blank" rel="noopener" href="http://ksria.com/simpread/">简悦 SimpRead</a> 转码， 原文地址 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/72bcd9fc868e/">www.jianshu.com</a></p>
 </blockquote>
 <blockquote>
 <p>为什么我从 vim 迁移到了 neovim 1 vim 打开大文件时的速度实在太慢, 经常容易卡顿. 毕竟一款上世纪的编辑器了, 速度有些慢是可以理解的, 但是我不能接受. hhhhhh. 而 nvim 打开大文件的速…</p>
 </blockquote>
 <h3 id="为什么我从-vim-迁移到了-neovim"><a href="#为什么我从-vim-迁移到了-neovim" class="headerlink" title="为什么我从 vim 迁移到了 neovim"></a>为什么我从 vim 迁移到了 neovim</h3><ul>
-<li>1 vim 打开大文件时的速度实在太慢, 经常容易卡顿. 毕竟一款上世纪的编辑器了, 速度有些慢是可以理解的, 但是我不能接受. hhhhhh.<br>  而 nvim 打开大文件的速度就快多了, 这是导致迁移的一大原因, 还有就是有些插件 neovim 独占, 实在眼馋.</li>
-<li>  2 异步 API, 内嵌完整 terminal</li>
-<li>  3 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=neovim.io">neovim 传送门</a></li>
+<li>1 vim 打开大文件时的速度实在太慢, 经常容易卡顿. 毕竟一款上世纪的编辑器了, 速度有些慢是可以理解的, 但是我不能接受. hhhhhh.<br>而 nvim 打开大文件的速度就快多了, 这是导致迁移的一大原因, 还有就是有些插件 neovim 独占, 实在眼馋.</li>
+<li>2 异步 API, 内嵌完整 terminal</li>
+<li>3 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=neovim.io">neovim 传送门</a></li>
 </ul>
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><h4 id="mac-安装-neovim"><a href="#mac-安装-neovim" class="headerlink" title="mac 安装 neovim"></a>mac 安装 neovim</h4><div class="hljs"><pre><code class="hljs mipsasm"><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>neovim</code></pre></div>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><h4 id="mac-安装-neovim"><a href="#mac-安装-neovim" class="headerlink" title="mac 安装 neovim"></a>mac 安装 neovim</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>neovim<br></code></pre></td></tr></table></figure>
 
 <h4 id="ubuntu-安装-neovim"><a href="#ubuntu-安装-neovim" class="headerlink" title="ubuntu 安装 neovim"></a>ubuntu 安装 neovim</h4><ul>
-<li>  首先安装 ppa</li>
+<li>首先安装 ppa</li>
 </ul>
-<div class="hljs"><pre><code class="hljs armasm"><span class="hljs-symbol">sudo</span> apt-<span class="hljs-meta">get</span> install software-properties-<span class="hljs-meta">common</span></code></pre></div>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">sudo</span> apt-<span class="hljs-meta">get</span> install software-properties-<span class="hljs-meta">common</span><br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  安装 neovim</li>
+<li>安装 neovim</li>
 </ul>
-<div class="hljs"><pre><code class="hljs vim">sudo apt-<span class="hljs-built_in">add</span>-repository <span class="hljs-keyword">pp</span><span class="hljs-variable">a:neovim</span>-ppa/unstable
-sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span>
-sudo apt-<span class="hljs-built_in">get</span> install neovim</code></pre></div>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo apt-<span class="hljs-built_in">add</span>-repository <span class="hljs-keyword">pp</span><span class="hljs-variable">a:neovim</span>-ppa/unstable<br>sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span><br>sudo apt-<span class="hljs-built_in">get</span> install neovim<br></code></pre></td></tr></table></figure>
 
 <h4 id="windows-安装-neovim"><a href="#windows-安装-neovim" class="headerlink" title="windows 安装 neovim"></a>windows 安装 neovim</h4><p><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/blob/master/INSTALL.md">https://github.com/neovim/neovim/blob/master/INSTALL.md</a></p>
 <hr>
@@ -286,33 +324,42 @@ sudo apt-<span class="hljs-built_in">get</span> install neovim</code></pre></div
 <p><em>MSI</em><br>Download nvim-win64.msi<br>Run the MSI<br>Run nvim.exe on your CLI of choice<br>Note: On Windows “Server” you may need to install vcruntime140.dll.</p>
 </blockquote>
 <p>安装 <code>nvim-win64.msi</code>, 然后一直下一步即可. </p>
-<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-42-55.png" srcset="/img/loading.gif" class="">
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-42-55.png" srcset="/img/loading.gif" lazyload class="">
 
 <p>等会按 <code>q</code></p>
-<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-53-47.png" srcset="/img/loading.gif" class="">
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-53-47.png" srcset="/img/loading.gif" lazyload class="">
 
 <ol>
 <li>打开git-bash</li>
-<li>新增别名<div class="hljs"><pre><code class="hljs bash">vi ~/.bashrc</code></pre></div>
-写入:<div class="hljs"><pre><code class="hljs abnf">alias vim<span class="hljs-operator">=</span><span class="hljs-string">&quot;D:/software/develop/nvim-win64/nvim-win64/bin/nvim.exe&quot;</span></code></pre></div>
-重新载入.bashrc<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.bashrc</code></pre></div></li>
+<li>新增别名</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vi ~/.bashrc<br></code></pre></td></tr></table></figure>
+<p>写入:</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">alias vim<span class="hljs-operator">=</span><span class="hljs-string">&quot;D:/software/develop/nvim-win64/nvim-win64/bin/nvim.exe&quot;</span><br></code></pre></td></tr></table></figure>
+<p>重新载入.bashrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure>
+<ol start="3">
 <li>命令行键入 <code>vim</code>, 即可开始简单愉快使用neovim了.</li>
 </ol>
-<h2 id="windows迁移配置"><a href="#windows迁移配置" class="headerlink" title="windows迁移配置"></a>windows迁移配置</h2><div class="hljs"><pre><code class="hljs awk">curl -fLo ~<span class="hljs-regexp">/AppData/</span>Local<span class="hljs-regexp">/nvim/</span>autoload<span class="hljs-regexp">/plug.vim  --create-dirs https:/</span><span class="hljs-regexp">/raw.githubusercontent.com/</span>junegunn<span class="hljs-regexp">/vim-plug/m</span>aster/plug.vim</code></pre></div>
+<h2 id="windows迁移配置"><a href="#windows迁移配置" class="headerlink" title="windows迁移配置"></a>windows迁移配置</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -fLo ~<span class="hljs-regexp">/AppData/</span>Local<span class="hljs-regexp">/nvim/</span>autoload<span class="hljs-regexp">/plug.vim  --create-dirs https:/</span><span class="hljs-regexp">/raw.githubusercontent.com/</span>junegunn<span class="hljs-regexp">/vim-plug/m</span>aster/plug.vim<br></code></pre></td></tr></table></figure>
 
-<h2 id="windows结合lazyVim"><a href="#windows结合lazyVim" class="headerlink" title="windows结合lazyVim"></a>windows结合lazyVim</h2><p><em>第一步</em>:</p>
-<div class="hljs"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/LazyVim/</span>starter.git</code></pre></div>
+<h2 id="windows结合lazyVim"><a href="#windows结合lazyVim" class="headerlink" title="windows结合lazyVim"></a>windows结合lazyVim</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/">LazyVim for Ambitious Developers</a></li>
+<li><a target="_blank" rel="noopener" href="https://nvchad.com/">https://nvchad.com/</a></li>
+</ul>
+<p><em>第一步</em>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/LazyVim/starter.git<br></code></pre></td></tr></table></figure>
 
 <p><em>第二步</em>:</p>
 <p>这个仓库中最重要的就是 <code>lua 文件夹</code>和 <code>init.lua</code>(这个就是初始化文件) 将其他文件删除</p>
 <p>将这两个文件移动到 <code>~/AppData/Local/nvim/</code> 目录下</p>
 <p><em>第三步</em>:</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">vim</span></code></pre></div>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">vim</span><br></code></pre></td></tr></table></figure>
 
-<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-41-21.png" srcset="/img/loading.gif" class="">
+<img src="/2022/08/21/%E4%BB%8Evim%E8%BF%81%E7%A7%BB%E5%88%B0neovim/2025-04-03-17-41-21.png" srcset="/img/loading.gif" lazyload class="">
 
 <blockquote>
-<p>注意:  这里的vim命令是 <code>nvim</code>, 因为用户的配置文件里边改了别名: alias vim=/{你的安装路径}/nvim</p>
+<p>注意:  这里的vim命令是 <code>nvim</code>, 因为用户的配置文件里边改了别名: alias vim&#x3D;&#x2F;{你的安装路径}&#x2F;nvim</p>
 <p>Neovim 从 <code>0.5</code> 版本开始，已经内置了 <strong>LuaJIT</strong>（高性能 Lua 解释器），可以直接执行 Lua 脚本。这意味着：</p>
 <ul>
 <li><strong>无需单独安装 Lua</strong>：Neovim 的安装包已经包含完整的 Lua 环境。</li>
@@ -320,100 +367,130 @@ sudo apt-<span class="hljs-built_in">get</span> install neovim</code></pre></div
 </ul>
 </blockquote>
 <h2 id="linux或MacOS迁移配置"><a href="#linux或MacOS迁移配置" class="headerlink" title="linux或MacOS迁移配置"></a>linux或MacOS迁移配置</h2><ul>
-<li>  vim 迁移到 neovim</li>
+<li>vim 迁移到 neovim</li>
 </ul>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.config/nvim/
-<span class="hljs-built_in">cd</span> ~/.config/nvim
-<span class="hljs-built_in">cp</span> ~/.vimrc ./init.vim
-<span class="hljs-built_in">alias</span> vim=nvim</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.config/nvim/<br><span class="hljs-built_in">cd</span> ~/.config/nvim<br><span class="hljs-built_in">cp</span> ~/.vimrc ./init.vim<br><span class="hljs-built_in">alias</span> vim=nvim<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  更新 vim 插件</li>
+<li>更新 vim 插件</li>
 </ul>
-<div class="hljs"><pre><code class="hljs csharp">nvim <span class="hljs-keyword">init</span>.vim
-
-:PlugInstall 等待插件更新完毕</code></pre></div>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp">nvim <span class="hljs-keyword">init</span>.vim<br><br>:PlugInstall 等待插件更新完毕<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  插件管理，推荐使用 plugvim 替换原来的 vundle. 采用并行方式, 插件安装速度加快</li>
+<li>插件管理，推荐使用 plugvim 替换原来的 vundle. 采用并行方式, 插件安装速度加快</li>
 </ul>
-<div class="hljs"><pre><code class="hljs awk">mkdir -p ~<span class="hljs-regexp">/.config/</span>nvim<span class="hljs-regexp">/autoload/</span>
-curl -fLo ~<span class="hljs-regexp">/.config/</span>nvim<span class="hljs-regexp">/autoload/</span>plug.vim --create-dirs https:<span class="hljs-regexp">//</span>raw.githubusercontent.com<span class="hljs-regexp">/junegunn/</span>vim-plug<span class="hljs-regexp">/master/</span>plug.vim</code></pre></div>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkdir -p ~<span class="hljs-regexp">/.config/</span>nvim<span class="hljs-regexp">/autoload/</span><br>curl -fLo ~<span class="hljs-regexp">/.config/</span>nvim<span class="hljs-regexp">/autoload/</span>plug.vim --create-dirs https:<span class="hljs-regexp">//</span>raw.githubusercontent.com<span class="hljs-regexp">/junegunn/</span>vim-plug<span class="hljs-regexp">/master/</span>plug.vim<br></code></pre></td></tr></table></figure>
 
 <h4 id="推荐几个实用插件"><a href="#推荐几个实用插件" class="headerlink" title="推荐几个实用插件"></a>推荐几个实用插件</h4><ul>
-<li>  1 ncm2 自动补全插件</li>
+<li>1 ncm2 自动补全插件</li>
 </ul>
-<div class="hljs"><pre><code class="hljs sml"><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2&#x27;
-<span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-path&#x27;
-<span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-bufword&#x27;
-<span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-jedi&#x27;
-<span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-vim&#x27;</code></pre></div>
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sml"><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-path&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-bufword&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-jedi&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ncm2</span>/ncm2-vim&#x27;<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  2 有道翻译插件</li>
+<li>2 有道翻译插件</li>
 </ul>
-<div class="hljs"><pre><code class="hljs vim">Plug <span class="hljs-string">&#x27;ianva/vim-youdao-translater&#x27;</span>
-<span class="hljs-comment">&quot;youdao translater</span>
-<span class="hljs-keyword">vnoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-T&gt;</span> :<span class="hljs-symbol">&lt;C-u&gt;</span>Ydv<span class="hljs-symbol">&lt;CR&gt;</span>
-<span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-T&gt;</span> :<span class="hljs-symbol">&lt;C-u&gt;</span>Ydc<span class="hljs-symbol">&lt;CR&gt;</span>
-<span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;leader&gt;</span>yd :<span class="hljs-symbol">&lt;C-u&gt;</span>Yde<span class="hljs-symbol">&lt;CR&gt;</span>  ,leader键加yd可以快速调出翻译</code></pre></div>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vim">Plug <span class="hljs-string">&#x27;ianva/vim-youdao-translater&#x27;</span><br><span class="hljs-comment">&quot;youdao translater</span><br><span class="hljs-keyword">vnoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-T&gt;</span> :<span class="hljs-symbol">&lt;C-u&gt;</span>Ydv<span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-symbol">&lt;C-T&gt;</span> :<span class="hljs-symbol">&lt;C-u&gt;</span>Ydc<span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;leader&gt;</span>yd :<span class="hljs-symbol">&lt;C-u&gt;</span>Yde<span class="hljs-symbol">&lt;CR&gt;</span>  ,leader键加yd可以快速调出翻译<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  3 fzf 模糊搜索神器</li>
+<li>3 fzf 模糊搜索神器</li>
 </ul>
-<div class="hljs"><pre><code class="hljs 1c">Plug &#x27;junegunn/fzf&#x27;, &#123; &#x27;dir&#x27;: &#x27;~/.fzf&#x27;, &#x27;do&#x27;: &#x27;./install --all&#x27;  &#125;
-Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs rust">Plug <span class="hljs-symbol">&#x27;junegunn</span>/fzf<span class="hljs-string">&#x27;, &#123; &#x27;</span>dir<span class="hljs-string">&#x27;: &#x27;</span>~/.fzf<span class="hljs-string">&#x27;, &#x27;</span><span class="hljs-keyword">do</span><span class="hljs-string">&#x27;: &#x27;</span>./install --all<span class="hljs-string">&#x27;  &#125;</span><br><span class="hljs-string">Plug &#x27;</span>junegunn/fzf.vim<span class="hljs-string">&#x27;</span><br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  4 startify, 在启动 vim 的时候可以显示最近打开的文件</li>
+<li>4 startify, 在启动 vim 的时候可以显示最近打开的文件</li>
 </ul>
-<div class="hljs"><pre><code class="hljs nginx"><span class="hljs-attribute">Plug</span> <span class="hljs-string">&#x27;mhinz/vim-startify&#x27;</span></code></pre></div>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Plug</span> <span class="hljs-string">&#x27;mhinz/vim-startify&#x27;</span><br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  5 auto-pairs 补全括号</li>
+<li>5 auto-pairs 补全括号</li>
 </ul>
-<div class="hljs"><pre><code class="hljs 1c">Plug &#x27;jiangmiao/auto-pairs&#x27; <span class="hljs-string">&quot;auto-pairs</span></code></pre></div>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">Plug &#x27;jiangmiao/auto-pairs&#x27; <span class="hljs-string">&quot;auto-pairs</span><br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>  6 tabular 对齐插件, 可以快速对齐 “=” 号等</li>
+<li>6 tabular 对齐插件, 可以快速对齐 “&#x3D;” 号等</li>
 </ul>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-title class_">Plug</span> <span class="hljs-string">&#x27;godlygeek/tabular&#x27;</span>
-<span class="hljs-symbol">:Tab/</span>=</code></pre></div>
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/vim/">vim</a>
-                    
-                  </div>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-title class_">Plug</span> <span class="hljs-string">&#x27;godlygeek/tabular&#x27;</span><br><span class="hljs-symbol">:Tab/</span>=<br></code></pre></td></tr></table></figure>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/vim/" class="print-no-link">#vim</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>从vim迁移到neovim</div>
+      <div>http://dantefung.github.io/2022/08/21/从vim迁移到neovim/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>DANTE FUNG</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>August 21, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
               
               
-                <div class="post-prevnext row">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/21/Mac%E4%BD%BF%E7%94%A8Privoxy%E8%BD%AC%E5%8F%91Socks5%E4%BB%A3%E7%90%86/">
+                      <a href="/2022/08/21/Mac%E4%BD%BF%E7%94%A8Privoxy%E8%BD%AC%E5%8F%91Socks5%E4%BB%A3%E7%90%86/" title="Mac使用Privoxy转发Socks5代理">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Mac使用Privoxy转发Socks5代理</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/17/Docker%E5%AE%89%E8%A3%85Nginx/">
+                      <a href="/2022/07/17/Docker%E5%AE%89%E8%A3%85Nginx/" title="Docker安装Nginx">
                         <span class="hidden-mobile">Docker安装Nginx</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -423,73 +500,74 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
             </div>
 
             
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    function loadGitalk() {
-      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
-      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: '4c62e572f688c01a7c7e',
-          clientSecret: '023d071d48c9dc284714aa89d6a4b9c79a7702b9',
-          repo: 'blog-comment',
-          owner: 'dantefung',
-          admin: ["dantefung"],
-          id: md5(location.pathname),
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-      });
-    }
-    waitElementVisible('gitalk-container', loadGitalk);
-  </script>
-
-
-              </article>
-            
           </article>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -497,194 +575,185 @@ Plug &#x27;junegunn/fzf.vim&#x27;</code></pre></div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  
+    
 
-  
+    
+  </main>
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-    
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
   
-    <script  src="/js/lazyload.js" ></script>
   
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
       }
     });
-  </script>
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "从vim迁移到neovim&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
     };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    anchors.add(res.join(", "))
-  </script>
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>
