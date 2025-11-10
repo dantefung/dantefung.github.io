@@ -50,6 +50,8 @@ tags:
 - [Just Vim It](https://vim.nauxscript.com/index.html)
 - [full-keyboard](https://github.com/dantefung/full-keyboard)
 - [《明无梦的 Vim 使用记录》](https://www.mwum.com/books/)
+- [Fisa vim config](https://github.com/fisadev/fisa-vim-config)
+- [LazyVim for Ambitious Developers](https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/)
 
 我看过的一些视频:
 

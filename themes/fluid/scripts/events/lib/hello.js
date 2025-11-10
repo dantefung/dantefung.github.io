@@ -1,7 +1,12 @@
 'use strict';
 
 module.exports = (hexo) => {
-  hexo.log.info(`
+  if (hexo.theme.has_hello) {
+    return;
+  }
+
+  if (hexo.theme.i18n.languages[0].search(/zh-CN/i) !== -1) {
+    hexo.log.info(`
 ------------------------------------------------
 |                                              |
 |     ________  __            _        __      |
@@ -11,9 +16,28 @@ module.exports = (hexo) => {
 |     _| |_     | | | \\_/ |, | || \\__/  |      |
 |    |_____|   [___]'.__.'_/[___]'.__.;__]     |
 |                                              |
-|       Thank you for using Fluid theme !      |
-|    Docs: https://hexo.fluid-dev.com/docs/    |
+|             感谢使用 Fluid 主题              |
+|    文档: https://hexo.fluid-dev.com/docs/    |
 |                                              |
 ------------------------------------------------
 `);
+  } else {
+    hexo.log.info(`
+------------------------------------------------
+|                                              |
+|     ________  __            _        __      |
+|    |_   __  |[  |          (_)      |  ]     |
+|      | |_ \\_| | | __   _   __   .--.| |      |
+|      |  _|    | |[  | | | [  |/ /'\`\\' |      |
+|     _| |_     | | | \\_/ |, | || \\__/  |      |
+|    |_____|   [___]'.__.'_/[___]'.__.;__]     |
+|                                              |
+|       Thank you for using Fluid theme        |
+|   Docs: https://hexo.fluid-dev.com/docs/en/  |
+|                                              |
+------------------------------------------------
+`);
+  }
+
+  hexo.theme.has_hello = true;
 };
