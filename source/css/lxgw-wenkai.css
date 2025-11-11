@@ -1,0 +1,6 @@
+/* Load LXGW WenKai webfont via jsDelivr */
+@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1/style.css");
+
+/* No explicit overrides needed: Fluid reads font_family from theme config. */
+/* This file exists to pull the font files and can host optional tweaks. */
+
