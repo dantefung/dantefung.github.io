@@ -1,0 +1,57 @@
+name: Build and Deploy Hexo to master
+
+on:
+  push:
+    # 仅当源码分支 blog-src 推送时触发
+    branches:
+      - blog-src
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hexo-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install dependencies (pnpm)
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: Generate static files
+        run: |
+          pnpm exec hexo clean
+          pnpm exec hexo generate
+
+      - name: Deploy to master
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: master
+          publish_dir: ./public
+          # 使用触发的提交 SHA 作为信息，且避免再次触发工作流
+          commit_message: "chore(deploy): ${{ github.sha }} [skip ci]"
+          user_name: ${{ github.actor }}
+          user_email: ${{ github.actor }}@users.noreply.github.com
