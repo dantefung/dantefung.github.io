@@ -19,13 +19,15 @@
   <meta name="author" content="DANTE FUNG">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="lsof命令lsof 这个名字的由来非常直接，它是下面这句话的缩写：  List Open Files  也就是： 1lsof &#x3D; list + open + files   🧠 它的含义是什么？在类 Unix 系统（如 Linux、BSD、macOS）中：  “一切皆文件”（Everything is a file）   套接字是文件 管道是文件 设备是文件 普通文件、目录当然也是文件  所以">
+<meta property="og:type" content="article">
 <meta property="og:title" content="命令行考古">
 <meta property="og:url" content="http://dantefung.github.io/2025/08/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%80%83%E5%8F%A4/index.html">
 <meta property="og:site_name" content="DANTE FUNGの像初雪一样洒落">
+<meta property="og:description" content="lsof命令lsof 这个名字的由来非常直接，它是下面这句话的缩写：  List Open Files  也就是： 1lsof &#x3D; list + open + files   🧠 它的含义是什么？在类 Unix 系统（如 Linux、BSD、macOS）中：  “一切皆文件”（Everything is a file）   套接字是文件 管道是文件 设备是文件 普通文件、目录当然也是文件  所以">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-08-07T01:55:11.000Z">
-<meta property="article:modified_time" content="2025-08-07T01:55:11.432Z">
+<meta property="article:published_time" content="2025-08-07T09:55:11.000Z">
+<meta property="article:modified_time" content="2025-11-11T07:20:36.184Z">
 <meta property="article:author" content="DANTE FUNG">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -220,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 wörter
+          1.2k wörter
         
       </span>
     
@@ -231,7 +233,7 @@
         
         
         
-          1 minuten
+          10 minuten
         
       </span>
     
@@ -273,7 +275,167 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="lsof命令"><a href="#lsof命令" class="headerlink" title="lsof命令"></a>lsof命令</h2><p><code>lsof</code> 这个名字的由来非常直接，它是下面这句话的缩写：</p>
+<blockquote>
+<p><strong>List Open Files</strong></p>
+</blockquote>
+<p>也就是：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">lsof</span> = list + open + files<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧠-它的含义是什么？"><a href="#🧠-它的含义是什么？" class="headerlink" title="🧠 它的含义是什么？"></a>🧠 它的含义是什么？</h2><p>在类 Unix 系统（如 Linux、BSD、macOS）中：</p>
+<blockquote>
+<p><strong>“一切皆文件”</strong>（Everything is a file）</p>
+</blockquote>
+<ul>
+<li>套接字是文件</li>
+<li>管道是文件</li>
+<li>设备是文件</li>
+<li>普通文件、目录当然也是文件</li>
+</ul>
+<p>所以 <code>lsof</code> 就是一个 <strong>列出“当前系统中被打开的所有文件”的工具</strong>，本质上也包括：</p>
+<ul>
+<li>哪些进程打开了哪些文件</li>
+<li>哪些端口被哪些进程占用（比如 <code>lsof -i :80</code>）</li>
+<li>哪些文件描述符没释放</li>
+<li>哪些删除了的文件还在被某进程占用</li>
+</ul>
+<hr>
+<h2 id="📜-历史背景"><a href="#📜-历史背景" class="headerlink" title="📜 历史背景"></a>📜 历史背景</h2><ul>
+<li><code>lsof</code> 最早由 <strong>Victor A. Abell</strong> 开发，用于 Unix 系统的进程文件查看。</li>
+<li>是调试 Linux 下“谁占用了某个资源”问题的重要工具，长期被系统管理员、开发者广泛使用。</li>
+<li>大多数现代 Unix 系统都默认预装了它，或者可以通过包管理器安装。</li>
+</ul>
+<hr>
+<h2 id="🔍-示例用法"><a href="#🔍-示例用法" class="headerlink" title="🔍 示例用法"></a>🔍 示例用法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">lsof -i :8080    <span class="hljs-comment"># 查看 8080 端口被谁占用</span><br>lsof /var/log/syslog    <span class="hljs-comment"># 谁打开了某个文件</span><br>lsof +D /usr/lib        <span class="hljs-comment"># 某目录下所有打开的文件</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-总结"><a href="#✅-总结" class="headerlink" title="✅ 总结"></a>✅ 总结</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>lsof</code></td>
+<td><strong>List Open Files</strong></td>
+</tr>
+<tr>
+<td>作者</td>
+<td>Victor A. Abell</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>查看哪些文件&#x2F;端口被哪些进程打开</td>
+</tr>
+<tr>
+<td>适用系统</td>
+<td>Linux、macOS、BSD 等类 Unix 系统</td>
+</tr>
+</tbody></table>
+<h2 id="tee命令"><a href="#tee命令" class="headerlink" title="tee命令"></a>tee命令</h2><p><code>tee</code> 这个名字其实是来自 <strong>水管系统的三通接头（T 形接头）</strong>，你可以想象下面这个图示：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs 1c">          <span class="hljs-string">|</span><br>    input <span class="hljs-string">|</span><br>          v<br>        tee<br>       /   \<br>      /     \<br>output1   output2<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🧠-名字的来源解释："><a href="#🧠-名字的来源解释：" class="headerlink" title="🧠 名字的来源解释："></a>🧠 名字的来源解释：</h3><ul>
+<li>英文中的三通接头叫 <strong>T-junction</strong>，形状就像字母 “T”；</li>
+<li><code>tee</code> 命令在功能上就像一个“T型三通”：它<strong>接收一份输入</strong>，然后<strong>复制成两个输出</strong>，一个送到终端（标准输出），另一个写入文件。</li>
+</ul>
+<hr>
+<h3 id="📌-举个类比"><a href="#📌-举个类比" class="headerlink" title="📌 举个类比"></a>📌 举个类比</h3><ul>
+<li><code>cat &gt; file.txt</code>：水管的水直接进一个桶（只写入文件）</li>
+<li><code>tee file.txt</code>：水管接了一个 T 字头，一路进桶，一路还继续流出来（写入文件 + 显示）</li>
+</ul>
+<hr>
+<p>所以叫 <code>tee</code>，是因为它就像 Unix 的管道中插了一个 T 字分流接头。这是经典 Unix 命令命名中非常形象、工程味十足的一个例子。</p>
+<hr>
+<h2 id="uv词缀"><a href="#uv词缀" class="headerlink" title="uv词缀"></a>uv词缀</h2><p>“<strong>uv</strong>” 是来自于 <strong>libuv</strong> —— 一个用 C 编写的跨平台异步 I&#x2F;O 库。它是 Node.js 的底层 I&#x2F;O 引擎，同时也被 Python 的 <code>uvloop</code> 所使用。</p>
+<hr>
+<h3 id="那-libuv-中的-“uv”-是什么意思？"><a href="#那-libuv-中的-“uv”-是什么意思？" class="headerlink" title="那 libuv 中的 “uv” 是什么意思？"></a>那 libuv 中的 “uv” 是什么意思？</h3><p><strong>“uv” 并不是一个缩写，而是源自最初的项目名称——</strong></p>
+<blockquote>
+<p><strong>“Unix Virtual”</strong> 或者更宽泛的 <strong>“Universal”</strong></p>
+</blockquote>
+<p>不过官方并没有明确给出一个官方缩写含义，很多人将它理解为：</p>
+<ul>
+<li><strong>Unix Virtual</strong>：因为它最初是为在 Unix 系统上构建异步 I&#x2F;O 抽象层；</li>
+<li><strong>Universal</strong>：因为它后来支持了 Windows、macOS、Linux 等多平台，成为跨平台的通用异步库。</li>
+</ul>
+<hr>
+<h3 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>来源&#x2F;含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>libuv</strong></td>
+<td>一个跨平台的异步 I&#x2F;O C 库</td>
+</tr>
+<tr>
+<td><strong>uvloop</strong></td>
+<td>基于 libuv 的 Python 异步事件循环</td>
+</tr>
+<tr>
+<td><strong>uvicorn</strong></td>
+<td>使用 uvloop 的 ASGI 服务器，“icorn” 灵感来自 unicorn（独角兽）</td>
+</tr>
+</tbody></table>
+<p>也就是说，<strong>“uv” 是一条技术传承线索</strong>：libuv → uvloop → uvicorn。每一层都在把底层的高性能异步 I&#x2F;O 能力抽象成更易用的上层接口。</p>
+<hr>
+<h2 id="Uvicorn命令"><a href="#Uvicorn命令" class="headerlink" title="Uvicorn命令"></a>Uvicorn命令</h2><p>“Uvicorn” 这个名字其实是由两部分组成的：</p>
+<ul>
+<li><strong>“UV”</strong>：来源于 <code>uvloop</code>，这是 Uvicorn 底层依赖的高性能事件循环库。<code>uvloop</code> 是基于 C 语言的 libuv 实现的，能极大提升 Python 异步程序的性能。</li>
+<li><strong>“icorn”</strong>：这个部分是一个带有 “独角兽”（unicorn）含义的词根，象征着“独特”、“强大”、“快速”和“现代”。</li>
+</ul>
+<p>合起来，“Uvicorn” 就体现了它基于 <code>uvloop</code> 技术，致力于打造一个快速、现代且高性能的 ASGI 服务器。名字既有技术内涵，也带点创意和活力感。</p>
+<p>简单说，就是“基于 UVLoop 的独角兽服务器”，寓意性能出众且具有创新性的异步服务器。</p>
+<hr>
+<p>这两个都是在操作系统或编程语言里常见的术语，含义非常接近：</p>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>全称</th>
+<th>含义</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>pwd</strong></td>
+<td><strong>print working directory</strong></td>
+<td>打印当前工作目录</td>
+<td>Linux &#x2F; Unix shell 命令（如 <code>pwd</code>）</td>
+</tr>
+<tr>
+<td><strong>cwd</strong></td>
+<td><strong>current working directory</strong></td>
+<td>当前工作目录</td>
+<td>各种编程语言 API（如 Python 的 <code>os.getcwd()</code>、Node.js 的 <code>process.cwd()</code>）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="🔍-区别总结"><a href="#🔍-区别总结" class="headerlink" title="🔍 区别总结"></a>🔍 区别总结</h3><ul>
+<li><p><strong>pwd</strong> 是一个命令（动词性质） → 打印当前路径。<br>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">pwd</span><br>/home/user/projects<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>cwd</strong> 是一个概念或属性名（名词性质） → 表示“当前工作目录”的值。<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-built_in">print</span>(os.getcwd())  <span class="hljs-comment"># 输出 /home/user/projects</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<p>🧠 小记：</p>
+<ul>
+<li><p>“working directory” &#x3D; 当前执行命令或运行程序时所处的文件系统路径。</p>
+</li>
+<li><p>在英文中：</p>
+<ul>
+<li><strong>pwd</strong> &#x3D; “print working directory”（告诉我在哪）</li>
+<li><strong>cwd</strong> &#x3D; “current working directory”（我当前在哪）</li>
+</ul>
+</li>
+</ul>
+
                 
               </div>
             
@@ -335,9 +497,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%80%83%E5%8F%A4-1/" title="命令行考古">
+                      <a href="/2025/11/11/vue/" title="">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">命令行考古</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
